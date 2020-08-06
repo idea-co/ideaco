@@ -16,8 +16,11 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('nickname')->nullable();
+            $table->string('position')->nullable();
+            $table->string('photo_url')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable(); //instead of 'active', we will use this to determine if the user has activated their account
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
