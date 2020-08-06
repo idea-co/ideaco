@@ -55,8 +55,6 @@ class CreateTeamsTable extends Migration
                 ->onDelete('cascade');
 
             $table->primary(['team_id', 'organization_id']);
-
-            $table->primary(['team_id', 'organization_id']);
         });
     }
 
