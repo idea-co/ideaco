@@ -57,7 +57,7 @@ class CreateTeamsTable extends Migration
             $table->primary(['team_id', 'organization_id']);
 
             $table->primary(['team_id', 'organization_id']);
-        })
+        });
     }
 
     /**
