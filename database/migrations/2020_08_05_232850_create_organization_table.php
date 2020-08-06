@@ -37,6 +37,24 @@ class CreateOrganizationTable extends Migration
             $table->timestamp('trial_ends_at')->nullable();
             $table->timestamps();
         });
+
+        Schema::create('organization_idea', function (Blueprint $table) {
+            $table->string('organization_id');
+            $table->string('idea_id');
+            $table->string('status'); //in progress, implemented, etc
+
+            $table->foreign('organization_id')
+                ->references('id')
+                ->on('organization')
+                ->onDelete('cascade');
+                
+            $table->foreign('idea_id')
+                ->references('id')
+                ->on('ideas')
+                ->onDelete('cascade');
+
+            $table->primary(['idea_id', 'organization_id'])
+        });
     }
 
     /**
@@ -46,6 +64,7 @@ class CreateOrganizationTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('organization_idea');
         Schema::dropIfExists('organization');
     }
 }
