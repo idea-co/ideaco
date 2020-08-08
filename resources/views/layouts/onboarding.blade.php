@@ -10,7 +10,8 @@
     @yield('content')
 
     @stack('js')
-
+    
+    <!-- Javascript specific for onboarding -->
     <script src="{{ assets('js/onboarding.js') }}"></script>
 </body>
 </html>

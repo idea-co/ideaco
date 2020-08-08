@@ -11,5 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix
+    .js('resources/js/onboarding/app.js', 'public/js/onboarding')
+    .js('resources/js/dashboard/app.js', 'public/js/dashboard')
     .sass('resources/sass/app.scss', 'public/css');
