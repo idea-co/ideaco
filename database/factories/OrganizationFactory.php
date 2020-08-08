@@ -15,9 +15,7 @@ $factory->define(
         return [
             'name' => $faker->company,
             'shortname' => strtolower($faker->company),
-            'owner_id' => function () {
-                return factory(App\User::class, 1)->make();
-            },
+            'owner_id' => '1',
         ];
     }
 );
