@@ -18,6 +18,11 @@ class Organization extends Model
      */
     public function members()
     {
-        return $this->hasMany(User::class, 'organization_id', 'id');
+        return $this->belongsToMany(User::class)->withPivot(
+            [
+                'displayName', 'email', 'password', 'phone', 
+                'twitter', 'status', 'position', 'remember_token'
+            ]
+        );
     }
 }

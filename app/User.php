@@ -48,6 +48,11 @@ class User extends Authenticatable
      */
     public function organizations()
     {
-        return $this->belongsToMany(Organization::class);
+        return $this->belongsToMany(Organization::class)->withPivot(
+            [
+                'displayName', 'email', 'password', 'phone', 
+                'twitter', 'status', 'position', 'remember_token'
+            ]
+        );
     }
 }
