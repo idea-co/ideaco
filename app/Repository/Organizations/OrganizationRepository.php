@@ -49,7 +49,7 @@ class OrganizationRepository implements OrganizationRepositoryInterface
      */
     public function find($shortname)
     {
-        $org = Organization::where('shortname', $shortname);
+        $org = $this->organization::where('shortname', $shortname);
         return $org;
     }
 
