@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repository\Organizations\OrganizationRepository;
+use App\Repository\Organizations\OrganizationRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            OrganizationRepositoryInterface::class, 
+            OrganizationRepository::class
+        );
     }
 
     /**

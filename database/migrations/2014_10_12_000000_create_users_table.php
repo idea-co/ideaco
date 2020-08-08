@@ -13,18 +13,25 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('nickname')->nullable();
-            $table->string('position')->nullable();
-            $table->string('photo_url')->nullable();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable(); //instead of 'active', we will use this to determine if the user has activated their account
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        /**
+         * All users will be attached to an organization
+         * so we will not use this table, and insteadc
+         * create an {organization_users} table where
+         * users will be stored alongisde the org they belong
+         * -------------------------------------------------
+         * Alternatively we add a org_id in this table and 
+         * connect the dots
+         */
+        Schema::create(
+            'users', function (Blueprint $table) {
+                $table->id();
+                $table->string('photo_url')->nullable();
+                $table->string('email')->unique();
+                //if the user has activated their account
+                $table->timestamp('email_verified_at')->nullable(); 
+                $table->timestamps();
+            }
+        );
     }
 
     /**
