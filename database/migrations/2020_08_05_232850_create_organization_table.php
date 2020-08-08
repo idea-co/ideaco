@@ -18,6 +18,7 @@ class CreateOrganizationTable extends Migration
                 $table->id();
                 $table->string('name');
                 $table->string('shortname');
+                $table->integer('owner_id');
                 $table->string('active')->nullable();
                 $table->text('photo_url')->nullable();
                 $table->string('stripe_id')->nullable();
@@ -52,7 +53,8 @@ class CreateOrganizationTable extends Migration
                 $table->string('phone')->nullable();
                 $table->string('status')->nullable();
                 $table->string('twitter')->nullable();
-                $table->string('position')->nullable();
+                //position held in the company
+                $table->string('position')->nullable(); 
                 $table->timestamps();
 
                 $table->foreign('user_id')
