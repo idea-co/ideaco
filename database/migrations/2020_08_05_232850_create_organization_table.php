@@ -18,8 +18,7 @@ class CreateOrganizationTable extends Migration
             $table->string('name');
             $table->string('shortname');
             $table->string('email');
-            $table->string('owner_id');
-            $table->string('active');
+            $table->string('active')->nullable();
             $table->text('photo_url')->nullable();
             $table->string('stripe_id')->nullable();
             $table->string('current_billing_plan')->nullable();
