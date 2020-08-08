@@ -14,7 +14,7 @@ class Organization extends Model
      * Relationship to find the members
      * of an organzation
      * 
-     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     * @return Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function members()
     {

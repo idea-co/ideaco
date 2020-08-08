@@ -17,7 +17,8 @@ class CreateOrganizationTable extends Migration
             'organization', function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
-                $table->string('shortname');
+                //this will determine the ideaspace URL
+                $table->string('shortname')->unique();
                 $table->integer('owner_id');
                 $table->string('active')->nullable();
                 $table->text('photo_url')->nullable();
