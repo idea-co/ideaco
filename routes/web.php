@@ -23,4 +23,3 @@ Route::get('/', 'LandingController@home')->name('home');
 Route::get('/about', 'LandingController@about')->name('about');
 Route::get('/contact', 'LandingController@contact')->name('contact');
 Route::get('/faq', 'LandingController@faq')->name('faq');
-Route::get('/login', 'LandingController@home')->name('login');

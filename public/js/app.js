@@ -1923,6 +1923,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "join",
   data: function data() {
@@ -20382,35 +20396,70 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Join an idea workspace")]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "ul",
-        _vm._l(_vm.users, function(user) {
-          return _c("li", { key: user.id }, [
-            _vm._v("\n            " + _vm._s(user.email) + "\n        ")
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/new" } }, [_vm._v("Create one here")])
-    ],
-    1
-  )
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("p", [_vm._v("Idea Space is Awesome")])
+    return _c("section", { staticClass: "main-section" }, [
+      _c("div", { staticClass: "row justify-content-center main" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          },
+          [
+            _c("div", { staticClass: "minibox color-black" }, [
+              _c("h4", { staticClass: "title font-weight-bold" }, [
+                _vm._v("Join Your Ideaspace and Share Those Awesome Ideas")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+                _vm._v("Enter your ideaspaces’s URL")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: {
+                        id: "signup-form",
+                        name: "signup-form",
+                        action: "join-email.html"
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "mb-0 mt-2" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "name",
+                            name: "name",
+                            autocomplete: "off",
+                            placeholder: "Your Ideaspace URL"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mb-0 mt-3" }, [
+                        _c("a", { attrs: { href: "join-email.html" } }, [
+                          _c("button", { staticClass: "sign-up-continue" }, [
+                            _vm._v("Join")
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
     ])
   }
 ]

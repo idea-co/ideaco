@@ -13,7 +13,7 @@
         <a href="{{ route('contact') }}">Contact Us</a>
     </div>
     <div class="ideaco_header__navbar2">
-        <a href="{{ route('login') }}" class="login">Log In</a>
+        <a href="{{ url('/start/#/join') }}" class="login">Log In</a>
         <button onclick="window.location.href='/start'">Get Started</button>
     </div>
 </header>
