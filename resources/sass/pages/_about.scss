@@ -1,0 +1,152 @@
+#about{
+
+    /* GENERAL STYLING */
+    html {
+      font-family: Barlow;
+    }
+    /* SCROLL BAR */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .color-white {
+        color: #fff;
+    }
+    .color-black {
+        color: #000;
+    }
+    .color-purple {
+        color: #6626EE;
+    }
+    .color-grey {
+        color: #515151;
+    }
+    .bg-white {
+        background-color: #fff;
+    }
+    .bg-black {
+        background-color: #000;
+    }
+    .bg-purple {
+        background-color: #6626EE;
+    }
+    .bg-grey {
+        background-color: #9A9696;
+    }
+    .bg-light-grey {
+        background-color: #FAFAFA   ;
+    }
+
+    /* OUR MISSION */
+    .our-mission-section {
+        padding-bottom: 5rem;
+        padding-top: 5rem;
+        .title{
+            font-size: 40px;
+        }
+    }
+    .our-mission-section .title-description {
+        font-size: 22px;
+    }
+
+
+    /* OUR VISSION */
+    .our-vision-section {
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+        .title{
+            font-size: 30px;
+        }
+        .title-description{
+            font-size: 22px;
+        }
+    }
+    .get-started {
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        width: 321px;
+        height: 45px;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
+        box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
+    }
+    .get-started:hover {
+        color: #bfbfbf;
+        background: #6626EE;
+        /* border: none; */
+    }
+
+    /* TEAM SECTION */
+    .team-section {
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+        .title{
+            font-size: 40px;
+            font-weight: bold;
+        }
+    }
+    .team-section .profile{
+        padding-bottom: 2rem;
+    }
+    .team-section .profile .name{
+        text-transform: uppercase;
+        padding-top: 1rem;
+        padding-bottom: 0rem;
+        font-size: 20px;
+    }
+    .team-section .profile .job-title{
+        font-size: 15px;
+    }
+    @media (max-width: 550px) {
+        .our-mission-section{
+            .title{
+                font-size: 30px;
+            }
+            .title-description {
+                font-size: 20px;
+            }
+        }
+        .our-vision-section{
+            .title-description {
+                font-size: 20px;
+            }
+            .title{
+                font-size: 27px;
+            }
+        }
+        .team-section {
+            .title{
+                font-size: 30px;
+            }
+        }
+
+        .ideaco_footer {
+            padding: 30px 30px 25px 30px;
+        }
+        .get-started {
+            width: 250px;
+        }
+    }
+    .text-space {
+        letter-spacing: .3px;
+    }
+}

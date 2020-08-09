@@ -1,0 +1,205 @@
+#contact{
+    .block{
+        height: auto;
+        margin: 70px auto;
+        &__section1{
+            width: 500px;
+            margin: auto;
+            text-align: center;
+            h2{
+                font-weight: bold;
+                margin-bottom: 20px;
+                font-size: 40px;
+            }
+            p{
+                font-size: 22px;
+            }
+        }
+        &__section2{
+            background-image: url('../../img/shade.png');
+            background-repeat: no-repeat;
+            width: 1200px;
+            margin: 20px auto;
+            padding-top: 60px;
+            &__cont{
+                padding: 50px 80px 80px 80px;
+                width: 1000px;
+                margin: auto;
+                background: #FAFAFA;
+                box-shadow: 0px 10px 30px rgba(25, 1, 77, 0.2);
+                border-radius: 10px;
+                .email_cont{
+                    margin-bottom: 50px;
+                    input{
+                        display: block;
+                        width: 500px;
+                        height: 70px;
+                        padding-left: 10px;
+                        background: $bg-color;
+                        border: 1px solid #ACB5BD;
+                        border-radius: 10px;
+                        font-size: 21px;
+                        outline: none;
+                        font-family: Roboto;
+                        &::placeholder{
+                            font-size: 21px;
+                        }
+                        &:focus{
+                            border: 1px solid $secondary-color;
+                        }
+                    }
+                    label{
+                        font-family: Roboto;
+                        font-size: 21px;
+                    }
+                }
+                .textfield_cont{
+                    margin-bottom: 50px;
+                    label{
+                        font-family: Roboto;
+                        font-size: 21px;
+                    }
+                    textarea{
+                        width: 100%;
+                        height: 310px;
+                        background: $bg-color;
+                        border: 1px solid #ACB5BD;
+                        border-radius: 10px;
+                        font-size: 21px;
+                        padding: 10px;
+                        outline: none;
+                        font-family: Roboto;
+                        &::placeholder{
+                            font-size: 21px;
+                        }
+                        &:focus{
+                            border: 1px solid $secondary-color;
+                        }
+                    }
+                }
+                button{
+                    width: 500px;
+                    height: 69px;
+                    color: $bg-color;
+                    background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
+                    border-radius: 10px;
+                    border: none;
+                    outline: none;
+                    font-size: 22px;
+                    &:hover{
+                        background: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:1250px){
+    #contact{
+        .block{
+            &__section2{
+                width: 900px;
+                &__cont{
+                    padding: 20px 60px 60px 60px;
+                    width: 800px;
+                }
+            }
+        }
+    }
+}
+@media (max-width:950px){
+    #contact{
+        .block{
+            margin: 70px 0px;
+            &__section2{
+                width: 90%;
+                &__cont{
+                    padding: 20px 40px 40px 40px;
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+@media (max-width:750px){
+    #contact{
+        .block{
+            &__section1{
+                width: 95%;
+            }
+            &__section2{
+                width: 95%;
+                &__cont{
+                    padding: 20px 30px 30px 30px;
+                    width: 95%;
+                    text-align: center;
+                    .email_cont{
+                        text-align: left;
+                        input{
+                            width: 100%;
+                        }
+                    }
+                    .textfield_cont{
+                       text-align: left;
+                    }
+                    button{
+                        width: 300px;
+                        margin: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width:550px){
+    #contact{
+        .block{
+            margin: 40px 0px;
+            &__section1{
+                h2{
+                    font-size: 30px;
+                }
+                p{
+                    font-size: 20px;
+                }
+            }
+            &__section2{
+                padding-top: 10px;
+                &__cont{
+                    padding: 20px 10px;
+                    .email_cont{
+                        margin-bottom: 20px;
+                        label{
+                            font-size: 18px;
+                        }
+                        input{
+                            height: 50px;
+                            font-size: 18px;
+                            &::placeholder{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .textfield_cont{
+                        margin-bottom: 20px;
+                        label{
+                            font-size: 18px;
+                        }
+                        textarea{
+                            height: 200px;
+                            font-size: 18px;
+                            &::placeholder{
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    button{
+                        width: 200px;
+                        height: 50px;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}

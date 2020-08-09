@@ -1915,8 +1915,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "join"
+  name: "join",
+  data: function data() {
+    return {
+      users: []
+    };
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios.get('/api/users').then(function (response) {
+        _this.users = response;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -20365,12 +20387,33 @@ var render = function() {
     [
       _c("h2", [_vm._v("Join an idea workspace")]),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "ul",
+        _vm._l(_vm.users, function(user) {
+          return _c("li", { key: user.id }, [
+            _vm._v("\n            " + _vm._s(user.email) + "\n        ")
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
       _c("router-link", { attrs: { to: "/new" } }, [_vm._v("Create one here")])
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("p", [_vm._v("Idea Space is Awesome")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -36924,7 +36967,7 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
 /* harmony import */ var _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/layouts/Onboarding */ "./resources/js/pages/layouts/Onboarding.vue");
-/* harmony import */ var _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/layouts/Dashboard */ "./resources/js/pages/layouts/Dashboard.vue");
+/* harmony import */ var _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/layouts/Dashboard */ "./resources/js/pages/layouts/Dashboard.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -36935,7 +36978,7 @@ var app = new Vue({
   router: _routes__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
     Onboarding: _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Dashboard: _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Dashboard: _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
