@@ -36,4 +36,14 @@ class LandingController extends Controller
     {
         return view('pages.landing.faq');
     }
+
+    /**
+     * Handle for the contact page
+     * 
+     * @return View
+    */
+    public function contact()
+    {
+        return view('pages.landing.contact');
+    }
 }

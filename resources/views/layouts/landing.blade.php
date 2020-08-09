@@ -11,8 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         @yield('title')
     </head>
-<body id="home">
-
+<body>
     <!--header section-->
     @include('partials.landing.header')
     
