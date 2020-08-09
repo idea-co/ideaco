@@ -17,4 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * The routes that manage creating an ideaspace
+ * or joining one.
+ */
+Route::get('/start', 'GetStartedController@start');
 Route::get('/org/{id}', 'OrganizationController@show');
