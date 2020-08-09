@@ -17,9 +17,7 @@
     @include('partials.landing.header')
     
     <!-- main section -->
-    <div class="block">
-        @yield('content')
-    </div>
+    @yield('content')
 
   	<!--footer section-->
   	<footer class="ideaco_footer">

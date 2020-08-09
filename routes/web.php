@@ -18,10 +18,9 @@ use Illuminate\Support\Facades\Route;
  * or joining one.
  */
 Route::get('/start', 'GetStartedController@start');
-Route::get('/org/{id}', 'OrganizationController@show');
 
 Route::get('/', 'LandingController@home')->name('home');
-Route::get('/about', 'LandingController@home')->name('about');
+Route::get('/about', 'LandingController@about')->name('about');
 Route::get('/contact', 'LandingController@home')->name('contact');
 Route::get('/faq', 'LandingController@home')->name('faq');
 Route::get('/login', 'LandingController@home')->name('login');
