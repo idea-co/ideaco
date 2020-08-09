@@ -1,13 +1,11 @@
 require('./bootstrap');
 
 import router from './routes';
-import store from './store/index';
-import App from './views/layouts/App';
-import Auth from './views/layouts/Auth';
+import Onboarding from './pages/layouts/Onboarding';
+import Dashboard from './pages/layouts/Dashboard';
 
 const app = new Vue({
     el: '#app',
     router,
-    store,
-    components: { App, Auth }
+    components: { Onboarding, Dashboard }
 });

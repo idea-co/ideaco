@@ -17,17 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/org/{id}', 'OrganizationController@show');
-
 /**
  * The routes that manage creating an ideaspace
  * or joining one.
  */
-Route::group(
-    ['prefix' => 'start'], function () {
-        Route::get('/new', 'GetStartedController@start');
-        Route::get('/join', 'GetStartedController@start');
-    }
-);
-
+Route::get('/start', 'GetStartedController@start');
 Route::get('/org/{id}', 'OrganizationController@show');

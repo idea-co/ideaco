@@ -7,11 +7,11 @@
     @yield('title')
 </head>
 <body>
-    @yield('content')
+    <div id="app">
+        @yield('content')
+    </div>
 
     @stack('js')
-    
-    <!-- Javascript specific for onboarding -->
-    <script src="{{ assets('js/onboarding.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -14,6 +14,6 @@ class GetStartedController extends Controller
      */
     public function start()
     {
-        return view('pages.get-started.start');
+        return view('pages.onboarding.get-started');
     }
 }
