@@ -8,6 +8,7 @@
 </head>
 <body>
     <div id="app">
+        <h2>Using the onboarding layout</h2>
         @yield('content')
     </div>
 

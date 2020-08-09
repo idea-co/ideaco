@@ -1,0 +1,126 @@
+#get-started{
+
+    /* GENERAL STYLING */
+    html {
+      font-family: Barlow;
+    }
+    /* SCROLL BAR */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    .color-white {
+        color: #fff;
+    }
+    .color-black {
+        color: #000;
+    }
+    .color-purple {
+        color: #6626EE;
+    }
+    .color-grey {
+        color: #515151;
+    }
+    .color-light-grey {
+        color: #FAFAFA;
+    }
+    .bg-white {
+        background-color: #fff;
+    }
+    .bg-black {
+        background-color: #000;
+    }
+    .bg-purple {
+        background-color: #6626EE;
+    }
+    .bg-grey {
+        background-color: #9A9696;
+    }
+    .bg-light-grey {
+        background-color: #FAFAFA   ;
+    }
+
+    /* GET STARTED SECTION */
+    .header-section .hero-bg {    
+        background-image: url('../../img/shade.png');
+        background-repeat: no-repeat;
+        padding-top: 15%;
+        // opacity: 0.5;
+    }
+    .header-section .shade {    
+    }
+    .get-started-section .getstartedbox{
+        margin: auto;
+        background: #FAFAFA;
+    }
+    // .get-started-section .create{
+    // }
+    // .get-started-section .join{
+    // }
+    .get-started-section .minibox{
+        padding: 2rem 1rem;
+    }
+    .get-started {
+        color: #fff;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        width: 180px;
+        height: 45px;
+        border-radius: 10px;
+        background: -webkit-gradient(linear, left top, left bottom, from(#6626EE), to(#4106BD));
+        background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
+        -webkit-box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
+        box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
+    }
+    .get-started:hover {
+        color: #bfbfbf;
+        background: #6626EE;
+        /* border: none; */
+    }
+    .get-started-section .create .get-started {
+        color: #6626EE;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        letter-spacing: 0.03em;
+        width: 180px;
+        height: 45px;
+        border-radius: 10px;
+        background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#DDDDDD));
+        background: linear-gradient(180deg, #FFFFFF 0%, #DDDDDD 100%);
+        -webkit-box-shadow: 0px 5px 15px 3px rgba(218, 201, 255, 0.2);
+        box-shadow: 0px 5px 15px 3px rgba(221, 210, 246, 0.2);
+    }
+    .get-started-section .create .get-started:hover {
+        color: #6626EE;
+        background: #DDDDDD;
+        /* border: none; */
+    } 
+    @media (max-width: 1000px) {
+        .get-started-section .create .get-started, .get-started {
+            width: 150px;
+        }
+    }
+    /* On screens that are 415px wide or less*/
+    @media screen and (max-width: 415px) {
+    }
+}

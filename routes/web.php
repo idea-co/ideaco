@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 /**
  * The routes that manage creating an ideaspace
  * or joining one.
  */
 Route::get('/start', 'GetStartedController@start');
-Route::get('/org/{id}', 'OrganizationController@show');
+
+Route::get('/', 'LandingController@home')->name('home');
+Route::get('/about', 'LandingController@about')->name('about');
+Route::get('/contact', 'LandingController@contact')->name('contact');
+Route::get('/faq', 'LandingController@faq')->name('faq');
+Route::get('/login', 'LandingController@home')->name('login');
