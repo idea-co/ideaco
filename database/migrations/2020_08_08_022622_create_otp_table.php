@@ -15,8 +15,8 @@ class CreateOtpTable extends Migration
     {
         Schema::create('otp', function (Blueprint $table) {
             $table->id();
-            $table->string('action'); //[create_ideaspace, reset_password, etc]
-            $table->string('token');
+            $table->string('purpose'); //[create_ideaspace, reset_password, etc]
+            $table->string('otp');
             $table->string('email');
             $table->timestamps();
         });
