@@ -1973,6 +1973,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new"
 });
@@ -20484,17 +20504,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Create an idea workspace")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/join" } }, [_vm._v("Join one here")])
-    ],
-    1
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "main-section" }, [
+      _c("div", { staticClass: "row justify-content-center main" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          },
+          [
+            _c("div", { staticClass: "minibox color-black" }, [
+              _c("h4", { staticClass: "title font-weight-bold" }, [
+                _vm._v("Great! let's set up your Ideaspace")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+                _vm._v("Enter your company email")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "content_section" }, [
+                    _c("form", [
+                      _c("div", { staticClass: "email_cont" }, [
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            placeholder: "Enter Your Company Email Address"
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mb-0 mt-3" }, [
+                        _c("button", { staticClass: "sign-up-continue" }, [
+                          _vm._v("Join")
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

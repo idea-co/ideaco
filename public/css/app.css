@@ -42,6 +42,13 @@ body {
   display: grid;
 }
 
+.form-control {
+  border-radius: 10px;
+  width: 100%;
+  height: 45px;
+  font-size: small;
+}
+
 .ideaco_header {
   background: #ffffff;
   width: 100%;
