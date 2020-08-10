@@ -1,4 +1,4 @@
-#get-started{
+#join{
 
     /* GENERAL STYLING */
     html {
@@ -59,7 +59,6 @@
     .header-section .hero-bg {    
         background-image: url('../../img/shade.png');
         background-repeat: no-repeat;
-        padding-top: 15%;
         // opacity: 0.5;
     }
     .header-section .shade {    
@@ -67,6 +66,10 @@
     .get-started-section .getstartedbox{
         margin: auto;
         background: #FAFAFA;
+    }
+
+    .getstartedbox .col-sm-6 {
+        padding: 30px 40px 30px;
     }
     // .get-started-section .create{
     // }

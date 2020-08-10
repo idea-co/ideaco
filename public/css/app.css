@@ -42,6 +42,13 @@ body {
   display: grid;
 }
 
+.form-control {
+  border-radius: 10px;
+  width: 100%;
+  height: 45px;
+  font-size: small;
+}
+
 .ideaco_header {
   background: #ffffff;
   width: 100%;
@@ -1528,7 +1535,7 @@ body {
   }
 }
 
-#get-started {
+#join {
   /* GENERAL STYLING */
   /* SCROLL BAR */
   /* width */
@@ -1539,82 +1546,85 @@ body {
   /* On screens that are 415px wide or less*/
 }
 
-#get-started html {
+#join html {
   font-family: Barlow;
 }
 
-#get-started ::-webkit-scrollbar {
+#join ::-webkit-scrollbar {
   width: 10px;
 }
 
-#get-started ::-webkit-scrollbar-track {
+#join ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-#get-started ::-webkit-scrollbar-thumb {
+#join ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-#get-started ::-webkit-scrollbar-thumb:hover {
+#join ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-#get-started .color-white {
+#join .color-white {
   color: #fff;
 }
 
-#get-started .color-black {
+#join .color-black {
   color: #000;
 }
 
-#get-started .color-purple {
+#join .color-purple {
   color: #6626EE;
 }
 
-#get-started .color-grey {
+#join .color-grey {
   color: #515151;
 }
 
-#get-started .color-light-grey {
+#join .color-light-grey {
   color: #FAFAFA;
 }
 
-#get-started .bg-white {
+#join .bg-white {
   background-color: #fff;
 }
 
-#get-started .bg-black {
+#join .bg-black {
   background-color: #000;
 }
 
-#get-started .bg-purple {
+#join .bg-purple {
   background-color: #6626EE;
 }
 
-#get-started .bg-grey {
+#join .bg-grey {
   background-color: #9A9696;
 }
 
-#get-started .bg-light-grey {
+#join .bg-light-grey {
   background-color: #FAFAFA;
 }
 
-#get-started .header-section .hero-bg {
+#join .header-section .hero-bg {
   background-image: url(/images/shade.png?c766604706af89c08be46808d2a924fc);
   background-repeat: no-repeat;
-  padding-top: 15%;
 }
 
-#get-started .get-started-section .getstartedbox {
+#join .get-started-section .getstartedbox {
   margin: auto;
   background: #FAFAFA;
 }
 
-#get-started .get-started-section .minibox {
+#join .getstartedbox .col-sm-6 {
+  padding: 30px 40px 30px;
+}
+
+#join .get-started-section .minibox {
   padding: 2rem 1rem;
 }
 
-#get-started .get-started {
+#join .get-started {
   color: #fff;
   cursor: pointer;
   outline: none;
@@ -1628,13 +1638,13 @@ body {
   box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
 }
 
-#get-started .get-started:hover {
+#join .get-started:hover {
   color: #bfbfbf;
   background: #6626EE;
   /* border: none; */
 }
 
-#get-started .get-started-section .create .get-started {
+#join .get-started-section .create .get-started {
   color: #6626EE;
   cursor: pointer;
   outline: none;
@@ -1648,15 +1658,15 @@ body {
   box-shadow: 0px 5px 15px 3px rgba(221, 210, 246, 0.2);
 }
 
-#get-started .get-started-section .create .get-started:hover {
+#join .get-started-section .create .get-started:hover {
   color: #6626EE;
   background: #DDDDDD;
   /* border: none; */
 }
 
 @media (max-width: 1000px) {
-  #get-started .get-started-section .create .get-started,
-  #get-started .get-started {
+  #join .get-started-section .create .get-started,
+  #join .get-started {
     width: 150px;
   }
 }

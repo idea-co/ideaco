@@ -35,7 +35,12 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //store or create a new user
+        $user = User::firstOrNew([
+            'email' => $request->email
+        ]);
+
+        $user->organizations()->create(['name' => 'Sammy 2 organization', 'shortname' => 'samuel'.$user2->id], ['displayName'=> 'Sam Do It 2', 'email' => $user2->email, 'password' => Hash::make('123456')])
     }
 
     /**
