@@ -25,5 +25,6 @@ class UserController extends Controller
         $user = $model->create($request);
 
         return new UserResource($user);
+        // return response()->json($user);
     }
 }

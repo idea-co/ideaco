@@ -37,6 +37,11 @@ class AppServiceProvider extends ServiceProvider
             SecurityRepositoryInterface::class, 
             SecurityRepository::class
         );
+
+        if ($this->app->isLocal()) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**

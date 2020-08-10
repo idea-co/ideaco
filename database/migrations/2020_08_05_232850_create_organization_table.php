@@ -52,7 +52,7 @@ class CreateOrganizationTable extends Migration
                 $table->string('password');
                 $table->rememberToken();
                 $table->string('phone')->nullable();
-                $table->string('status')->nullable();
+                $table->string('status')->nullable(); //deactivated/deleted
                 $table->string('twitter')->nullable();
                 //position held in the company
                 $table->string('position')->nullable(); 

@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Auth\MustVerifyEmail as AuthMustVerifyEmail;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tests\Unit\OrganizationTest;
 
-class User extends Authenticatable implements AuthMustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable;
 

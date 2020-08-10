@@ -2,7 +2,7 @@
 
 namespace App\Repository\Users;
 
-use App\Events\UserRegistered;
+use App\Events\Users\UserRegistered;
 use App\User;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace App\Events\Users;
 
 use App\User;
 use Illuminate\Broadcasting\Channel;
@@ -15,7 +15,7 @@ class UserRegistered
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    private $_user;
+    public $user;
 
     /**
      * Create a new event instance.
@@ -24,7 +24,7 @@ class UserRegistered
      */
     public function __construct(User $user)
     {
-        $this->_user = $user;
+        $this->user = $user;
     }
 
     /**
