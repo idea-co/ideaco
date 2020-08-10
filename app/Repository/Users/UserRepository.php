@@ -2,6 +2,7 @@
 
 namespace App\Repository\Users;
 
+use App\Events\Users\UserRegistered;
 use App\User;
 
 /**
@@ -37,7 +38,11 @@ class UserRepository implements UserRepositoryInterface
      */
     public function create($data)
     {
-        return $this->user::firstOrCreate(['email' => $data['email']]);
+        $user = $this->user::firstOrCreate(['email' => $data['email']]);
+
+        event(new UserRegistered($user));
+
+        return $user;
     }
 
     /**

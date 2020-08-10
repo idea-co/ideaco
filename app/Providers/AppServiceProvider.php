@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repository\Organizations\OrganizationRepository;
 use App\Repository\Organizations\OrganizationRepositoryInterface;
+use App\Repository\Security\SecurityRepository;
+use App\Repository\Security\SecurityRepositoryInterface;
 use App\Repository\Users\UserRepositoryInterface;
 use App\Repository\Users\UserRepository;
 use Illuminate\Support\Facades\Schema;
@@ -29,6 +31,17 @@ class AppServiceProvider extends ServiceProvider
             UserRepositoryInterface::class, 
             UserRepository::class
         );
+
+        //Bind the user interface
+        $this->app->bind(
+            SecurityRepositoryInterface::class, 
+            SecurityRepository::class
+        );
+
+        if ($this->app->isLocal()) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 
     /**

@@ -18,8 +18,6 @@ class CreateTeamsTable extends Migration
             $table->string('name');
             $table->string('shortname');
             $table->string('photo_url');
-            $table->string('organization_id');
-            $table->string('user_id');
             $table->timestamps();
         });
 
