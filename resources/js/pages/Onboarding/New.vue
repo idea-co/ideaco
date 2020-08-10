@@ -4,16 +4,21 @@
             <div class="col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in">
                 <div class="minibox color-black">
                     <h4 class="title font-weight-bold">Great! let's set up your Ideaspace</h4>
-                    <p class="mb-0 mt-5 title-description">Enter your company email</p>
-                    <div class="row">
+                    <p class="mb-0 mt-5 title-description">
+                        So we can send you a confirmation message and your company Ideaspace URL
+                    </p>
+                    <div class="row mt-5">
                         <div class="col-12">
                             <div class="content_section">
-                                <form>
+                                <form method="POST" @submit.prevent="init">
                                     <div class="email_cont">
-                                        <input type="email" placeholder="Enter Your Company Email Address" class="form-control">
+                                        <label for="company_email">
+                                            Enter your company email
+                                        </label>
+                                        <input type="email" v-model="form.email" id="company_email" placeholder="Enter Your Company Email Address" class="form-control">
                                     </div>
                                     <div class="mb-0 mt-3">
-                                        <button class="sign-up-continue">Join</button>
+                                        <button class="sign-up-continue" type="submit">Continue</button>
                                     </div>
                                 </form>
                             </div>
@@ -26,7 +31,32 @@
 </template>
 
 <script>
+import Form from '../../helpers/Form';
+
 export default {
     name: "new",
+    data() {
+        return {
+            form: new Form({
+                email: ''
+            }),
+        }
+    },
+
+    methods: {
+        init(){
+            //send a request to the API
+            this.form.post('/api/user', this.form)
+                    .then(response => {
+                        console.log(response);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+
+            //change route to
+            this.$router.push('/confirm-email'); 
+        }
+    },
 }
 </script>
