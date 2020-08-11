@@ -31,10 +31,12 @@ class UserController extends Controller
     /**
      * Verify a user email address by comparing OTP
      * 
-     * @return bool
+     * @return Array
      */
     public function verify(Request $request, SecurityRepositoryInterface $security)
     {
-        $security->verify($request->email, $request->otp);
+        $response = $security->verify($request->email, $request->otp);
+
+        return response()->json($response);
     }
 }

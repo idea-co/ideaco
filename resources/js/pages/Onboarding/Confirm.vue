@@ -29,16 +29,17 @@ export default {
         return {
             form: new Form({
                 otp: '',
-                email: this.$state.getters.email
+                email: 'olaegbesamuel@gmail.com'
             }),
-        },
-
+        }
     },
 
     methods: {
         confirm(){
             this.form.post('/api/user/verify')
-
+                .then(res => {
+                    console.log(res);
+                })
         }
     },  
 }

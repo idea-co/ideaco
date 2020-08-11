@@ -1904,9 +1904,52 @@ module.exports = {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\pages\\Onboarding\\Confirm.vue: Unexpected token (36:4)\n\n\u001b[0m \u001b[90m 34 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 35 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 37 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 38 | \u001b[39m    methods\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 39 | \u001b[39m        confirm(){\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8913:16)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10250:20)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9504:36)\n    at Parser.parseReturnStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11651:28)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11332:21)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)\n    at Parser.parseBlock (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11834:10)\n    at Parser.parseFunctionBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10832:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10815:10)\n    at Parser.parseMethod (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10777:10)\n    at Parser.parseObjectMethod (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10693:19)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10735:23)\n    at Parser.parseObjectMember (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10659:10)\n    at Parser.parseObj (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10568:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10164:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExportDefaultExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12491:24)\n    at Parser.parseExport (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12393:31)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11388:27)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
+        otp: '',
+        email: 'olaegbesamuel@gmail.com'
+      })
+    };
+  },
+  methods: {
+    confirm: function confirm() {
+      this.form.post('/api/user/verify').then(function (res) {
+        console.log(res);
+      });
+    }
+  }
+});
 
 /***/ }),
 
