@@ -12,17 +12,19 @@ class UserController extends Controller
     /**
      * Create a new user or return the user instance
      * if the user already exists
-     * 
-     * @param $model $request
+     *
+     * @param UserRepositoryInterface $model $request
+     * @param Request $request
+     * @return UserResource
      */
     public function store(UserRepositoryInterface $model, Request $request)
-    {   
+    {
         $request = $request->validate(
             [
                 'email' => 'required'
             ]
         );
-        
+
         $user = $model->create($request);
 
         return new UserResource($user);
@@ -30,7 +32,7 @@ class UserController extends Controller
 
     /**
      * Verify a user email address by comparing OTP
-     * 
+     *
      * @return Array
      */
     public function verify(Request $request, SecurityRepositoryInterface $security)
