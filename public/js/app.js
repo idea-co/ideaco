@@ -1932,6 +1932,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -20541,63 +20549,79 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h2", [_vm._v("Confirm your email")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row mt-5" }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "content_section" }, [
-          _c(
-            "form",
-            {
-              attrs: { method: "POST" },
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.confirm($event)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "email_cont" }, [
-                _c("label", { attrs: { for: "otp" } }, [
-                  _vm._v(
-                    "\n                            Enter the OTP received by mail\n                        "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
+  return _c("section", { staticClass: "main-section" }, [
+    _c("div", { staticClass: "row justify-content-center main" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+        },
+        [
+          _c("div", { staticClass: "minibox color-black" }, [
+            _c("h4", { staticClass: "title font-weight-bold" }, [
+              _vm._v(
+                "\n                    Confirm your email\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-5" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "content_section" }, [
+                  _c(
+                    "form",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.otp,
-                      expression: "form.otp"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "otp",
-                    placeholder: "Enter 4 digit pin"
-                  },
-                  domProps: { value: _vm.form.otp },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      attrs: { method: "POST" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.confirm($event)
+                        }
                       }
-                      _vm.$set(_vm.form, "otp", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          )
-        ])
-      ])
+                    },
+                    [
+                      _c("div", { staticClass: "email_cont" }, [
+                        _c("label", { attrs: { for: "otp" } }, [
+                          _vm._v(
+                            "\n                                        Enter the OTP received by mail\n                                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.otp,
+                              expression: "form.otp"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "otp",
+                            placeholder: "Enter 4 digit pin"
+                          },
+                          domProps: { value: _vm.form.otp },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "otp", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0)
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
     ])
   ])
 }
