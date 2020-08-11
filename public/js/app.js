@@ -1964,7 +1964,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.busy = true; //make the request
 
-      this.form.post('/api/user/verify').then(function (res) {
+      this.$store.dispatch('verifyUser', this.form).then(function (res) {
+        console.log(res);
+
         if (res.verified === false) {
           _this.error = res.reason;
           return false;
@@ -1988,6 +1990,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20764,9 +20771,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content_section" }, [
+      _c("h2", [
+        _vm._v("You're bring collaborated inovation to your workforce")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Let's name your ideaspace the is how everyone would see it")
+      ]),
+      _vm._v(" "),
+      _c("form", [
+        _c("div", { staticClass: "email_cont" }, [
+          _c("label", { attrs: { for: "name" } }, [
+            _vm._v("Enter your ideaspace name")
+          ]),
+          _c("input", {
+            attrs: { type: "name", placeholder: "Ideaspace Name" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("button", [_vm._v("Continue")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38626,7 +38661,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
     onboarding: {
-      creatorEmail: null
+      creatorEmail: null,
+      verified: false
     },
     user: {
       token: null,
@@ -38649,8 +38685,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
      * @param {The user creating the organization} creator 
      */
     setCreatorEmail: function setCreatorEmail(state, creator) {
-      console.log(creator.data.email);
       state.onboarding.creatorEmail = creator.data.email;
+    },
+    setVerifiedStatus: function setVerifiedStatus(state, response) {
+      state.onboarding.verified = response.verified;
     },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
@@ -38661,14 +38699,22 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     init: function init(_ref, form) {
       var commit = _ref.commit;
       return form.post('/api/user').then(function (response) {
-        console.log(response);
         commit('setCreatorEmail', response);
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    logout: function logout(_ref2) {
+    verifyUser: function verifyUser(_ref2, form) {
       var commit = _ref2.commit;
+      return form.post('/api/user/verify').then(function (response) {
+        commit('setVerifiedStatus', response);
+        return response;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    logout: function logout(_ref3) {
+      var commit = _ref3.commit;
       commit('clearUserData');
     }
   },

@@ -56,8 +56,9 @@ export default {
             this.busy = true;
 
             //make the request
-            this.form.post('/api/user/verify')
+            this.$store.dispatch('verifyUser', this.form)
                 .then(res => {
+                    console.log(res);
                     if(res.verified === false){
                         this.error = res.reason;
                         return false;

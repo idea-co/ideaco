@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         onboarding:{
-            creatorEmail: null
+            creatorEmail: null,
+            verified: false,
         },
         user: {
             token: null,
@@ -31,8 +32,12 @@ export default new Vuex.Store({
          * @param {The user creating the organization} creator 
          */
         setCreatorEmail(state, creator){
-            console.log(creator.data.email);
             state.onboarding.creatorEmail = creator.data.email;
+        },
+
+
+        setVerifiedStatus(state, response){
+            state.onboarding.verified = response.verified;
         },
 
         clearUserData () {
@@ -45,12 +50,22 @@ export default new Vuex.Store({
         init ({ commit }, form) {
           return form.post('/api/user')
             .then(response => {
-                console.log(response);
                 commit('setCreatorEmail', response);
             })
             .catch(err => {
                 console.log(err);
             });
+        },
+
+        verifyUser({commit}, form) {
+            return form.post('/api/user/verify')
+            .then(response => {
+                commit('setVerifiedStatus', response)
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
         },
         
         logout ({ commit }) {
