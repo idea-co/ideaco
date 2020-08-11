@@ -2289,19 +2289,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Onboarding/Team.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Team"
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\pages\\Onboarding\\Team.vue: Unexpected token, expected \",\" (45:4)\n\n\u001b[0m \u001b[90m 43 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 44 | \u001b[39m    name\u001b[33m:\u001b[39m \u001b[32m\"Team\"\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 | \u001b[39m    data() {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 46 | \u001b[39m        \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 47 | \u001b[39m            \u001b[0m\n\u001b[0m \u001b[90m 48 | \u001b[39m        }\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8913:16)\n    at Parser.expect (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8899:28)\n    at Parser.parseObj (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10559:14)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10164:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExportDefaultExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12491:24)\n    at Parser.parseExport (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12393:31)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11388:27)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)\n    at Parser.parseTopLevel (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11215:10)\n    at Parser.parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12922:10)\n    at parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12975:38)\n    at parser (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\parser\\index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:254:32)\n    at C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:266:13\n    at async.call.result.err.err (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:216:11)");
 
 /***/ }),
 
@@ -21336,7 +21326,139 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("section", { staticClass: "main-section" }, [
+    _c("div", { staticClass: "row justify-content-center main" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+        },
+        [
+          _c("div", { staticClass: "minibox color-black" }, [
+            _c("h4", { staticClass: "title font-weight-bold" }, [
+              _vm._v(
+                "\n                    Let's keep your diverse workspace orderly\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+              _vm._v(
+                "\n                    What teams / departments would you like to add?\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-5" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "content_section" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: { method: "POST" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.createOrg($event)
+                        },
+                        keydown: function($event) {
+                          return _vm.form.errors.clear()
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "email_cont" }, [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Enter your ideaspace name")
+                        ]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm.form.errors.any()
+                          ? _c(
+                              "div",
+                              { staticClass: "alert alert-danger mt-2" },
+                              _vm._l(_vm.form.errors.all(), function(
+                                error,
+                                index
+                              ) {
+                                return _c(
+                                  "p",
+                                  { key: index, staticClass: "mb-0" },
+                                  [
+                                    _vm._v(
+                                      "\n                                             " +
+                                        _vm._s(error[0]) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.name,
+                              expression: "form.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "name",
+                            placeholder: "Enter teams / departments"
+                          },
+                          domProps: { value: _vm.form.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "name", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "text-muted text-center" }, [
+                          _vm._v("You can add more anytime")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "sign-up-continue",
+                          attrs: { disabled: _vm.busy, type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Continue\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(
+                          _vm.form.name.length > 0
+                            ? "Your ideaspace url: " + _vm.ideaspaceURl
+                            : "Your url will appear here"
+                        ) +
+                        "\n                            "
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
