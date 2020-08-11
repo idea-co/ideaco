@@ -12,9 +12,14 @@
                     <div class="row mt-5">
                         <div class="col-12">
                             <div class="content_section">
-                                <form method="POST" @submit.prevent="createOrg">
+                                <form method="POST" @submit.prevent="createOrg" @keydown="form.errors.clear()">
                                     <div class="email_cont">
-                                        <label for="name">Enter your ideaspace name</label>
+                                        <label for="name">Enter your ideaspace name</label><br>
+                                        <div class="alert alert-danger mt-2" v-if="form.errors.any()">
+                                            <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
+                                                 {{ error[0] }}
+                                            </p>
+                                        </div>
                                         <input type="name" v-model="form.name" placeholder="Ideaspace Name" class="form-control">
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
@@ -43,15 +48,24 @@ export default {
             busy: false,
             form: new Form({
                 name: '',
-            })
+                shortname: '',
+                owner: this.$store.getters.creator,
+            }),
+            error: '',
         }
     },
 
     methods: {
         createOrg(){
+            //set shortname value
             this.$store.dispatch('createOrg', this.form)
                 .then(res => {
-                    console.log(res);
+                    if(res.data.errors){
+                        this.error = res.errors.data;
+                        this.form.errors.record(res.errors.data);
+                    }else{
+                        this.$router.push('/team')
+                    }
                 })
                 .catch(err => {
                     console.log(err);

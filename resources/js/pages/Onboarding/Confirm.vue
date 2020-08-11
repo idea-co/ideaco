@@ -14,9 +14,11 @@
                                         <label for="otp">
                                             Enter the OTP received by mail
                                         </label>
+                                        <br>
                                         <div class="alert alert-danger" v-if="error">
                                             {{ error }}
                                         </div>
+                                        <br>
                                         <input type="text" v-model="form.otp" required id="otp" placeholder="Enter 4 digit pin" class="form-control">
                                     </div>
                                     <div class="mb-0 mt-3">
@@ -58,10 +60,9 @@ export default {
             //make the request
             this.$store.dispatch('verifyUser', this.form)
                 .then(res => {
-                    console.log(res);
                     if(res.verified === false){
                         this.error = res.reason;
-                        return false;
+                        return;
                     }
 
                     this.$router.push('/ideaspace')

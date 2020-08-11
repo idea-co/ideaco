@@ -8,7 +8,7 @@ class Organization extends Model
 {
     protected $table = 'organization';
 
-    protected $fillable = ['name', 'email', 'shortname', 'owner_id'];
+    protected $fillable = ['name', 'shortname', 'owner_id'];
 
     /**
      * Relationship to find the members

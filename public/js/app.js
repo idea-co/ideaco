@@ -1943,6 +1943,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1965,11 +1967,9 @@ __webpack_require__.r(__webpack_exports__);
       this.busy = true; //make the request
 
       this.$store.dispatch('verifyUser', this.form).then(function (res) {
-        console.log(res);
-
         if (res.verified === false) {
           _this.error = res.reason;
-          return false;
+          return;
         }
 
         _this.$router.push('/ideaspace');
@@ -2026,6 +2026,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Ideaspace",
@@ -2033,14 +2038,26 @@ __webpack_require__.r(__webpack_exports__);
     return {
       busy: false,
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        name: ''
-      })
+        name: '',
+        shortname: '',
+        owner: this.$store.getters.creator
+      }),
+      error: ''
     };
   },
   methods: {
     createOrg: function createOrg() {
+      var _this = this;
+
+      //set shortname value
       this.$store.dispatch('createOrg', this.form).then(function (res) {
-        console.log(res);
+        if (res.data.errors) {
+          _this.error = res.errors.data;
+
+          _this.form.errors.record(res.errors.data);
+        } else {
+          _this.$router.push('/team');
+        }
       })["catch"](function (err) {
         console.log(err);
       });
@@ -20737,6 +20754,8 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
                         _vm.error
                           ? _c("div", { staticClass: "alert alert-danger" }, [
                               _vm._v(
@@ -20746,6 +20765,8 @@ var render = function() {
                               )
                             ])
                           : _vm._e(),
+                        _vm._v(" "),
+                        _c("br"),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -20850,6 +20871,9 @@ var render = function() {
                         submit: function($event) {
                           $event.preventDefault()
                           return _vm.createOrg($event)
+                        },
+                        keydown: function($event) {
+                          return _vm.form.errors.clear()
                         }
                       }
                     },
@@ -20858,6 +20882,31 @@ var render = function() {
                         _c("label", { attrs: { for: "name" } }, [
                           _vm._v("Enter your ideaspace name")
                         ]),
+                        _c("br"),
+                        _vm._v(" "),
+                        _vm.form.errors.any()
+                          ? _c(
+                              "div",
+                              { staticClass: "alert alert-danger mt-2" },
+                              _vm._l(_vm.form.errors.all(), function(
+                                error,
+                                index
+                              ) {
+                                return _c(
+                                  "p",
+                                  { key: index, staticClass: "mb-0" },
+                                  [
+                                    _vm._v(
+                                      "\n                                             " +
+                                        _vm._s(error[0]) +
+                                        "\n                                        "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          : _vm._e(),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -38780,7 +38829,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
     onboarding: {
-      creatorEmail: null,
+      creator: null,
       verified: false
     },
     user: {
@@ -38803,8 +38852,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
      * @param {Vue store} state 
      * @param {The user creating the organization} creator 
      */
-    setCreatorEmail: function setCreatorEmail(state, creator) {
-      state.onboarding.creatorEmail = creator.data.email;
+    setCreator: function setCreator(state, creator) {
+      state.onboarding.creator = creator.data;
     },
     setVerifiedStatus: function setVerifiedStatus(state, response) {
       state.onboarding.verified = response.verified;
@@ -38817,15 +38866,15 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
   actions: {
     init: function init(_ref, form) {
       var commit = _ref.commit;
-      return form.post('/api/user').then(function (response) {
-        commit('setCreatorEmail', response);
+      return form.post('/api/users').then(function (response) {
+        commit('setCreator', response);
       })["catch"](function (err) {
         console.log(err);
       });
     },
     verifyUser: function verifyUser(_ref2, form) {
       var commit = _ref2.commit;
-      return form.post('/api/user/verify').then(function (response) {
+      return form.put('/api/users/verify').then(function (response) {
         commit('setVerifiedStatus', response);
         return response;
       })["catch"](function (err) {
@@ -38834,7 +38883,11 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     createOrg: function createOrg(_ref3, form) {
       var commit = _ref3.commit;
-      return form.post('/api/organization').then(function (response) {// commit('')
+      return form.post('/api/organizations').then(function (response) {
+        // commit('')
+        return response;
+      })["catch"](function (err) {
+        console.log(err);
       });
     },
     logout: function logout(_ref4) {
@@ -38847,7 +38900,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
       return state.user.role;
     },
     creatorEmail: function creatorEmail(state) {
-      return state.onboarding.creatorEmail;
+      return state.onboarding.creator.email;
+    },
+    creator: function creator(state) {
+      return state.onboarding.creator;
     },
     token: function token(state) {
       return state.user.token;

@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         onboarding:{
-            creatorEmail: null,
+            creator: null,
             verified: false,
         },
         user: {
@@ -31,8 +31,8 @@ export default new Vuex.Store({
          * @param {Vue store} state 
          * @param {The user creating the organization} creator 
          */
-        setCreatorEmail(state, creator){
-            state.onboarding.creatorEmail = creator.data.email;
+        setCreator(state, creator){
+            state.onboarding.creator = creator.data;
         },
 
 
@@ -48,9 +48,9 @@ export default new Vuex.Store({
 
     actions: {
         init ({ commit }, form) {
-          return form.post('/api/user')
+          return form.post('/api/users')
             .then(response => {
-                commit('setCreatorEmail', response);
+                commit('setCreator', response);
             })
             .catch(err => {
                 console.log(err);
@@ -58,7 +58,7 @@ export default new Vuex.Store({
         },
 
         verifyUser({commit}, form) {
-            return form.post('/api/user/verify')
+            return form.put('/api/users/verify')
             .then(response => {
                 commit('setVerifiedStatus', response)
                 return response;
@@ -69,10 +69,14 @@ export default new Vuex.Store({
         },
 
         createOrg({commit}, form){
-            return form.post('/api/organization')
-                .then(response => {
-                    // commit('')
-                })
+            return form.post('/api/organizations')
+            .then(response => {
+                // commit('')
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
         },
         
         logout ({ commit }) {
@@ -86,7 +90,11 @@ export default new Vuex.Store({
         },
 
         creatorEmail: state => {
-            return state.onboarding.creatorEmail;
+            return state.onboarding.creator.email;
+        },
+
+        creator: state => {
+            return state.onboarding.creator;
         },
 
         token: state => {

@@ -3,7 +3,9 @@
 namespace App\Repository\Organizations;
 
 use App\Organization;
-
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
+use Illuminate\Support\Str;
 /**
  * This class implements the OrganizationRepositoryInterface
  * to manage all actions meant for interacting with the 
@@ -37,7 +39,24 @@ class OrganizationRepository implements OrganizationRepositoryInterface
      */
     public function create($data)
     {
-        //logic for creating a new org
+        $shortname = Str::slug($data['name']);
+
+        if ($this->organization::where('shortname', $shortname)->count() > 0) {
+            return [
+                'errors' => [ "shortname" => "The shortname has been taken" ]
+            ];
+        } else {
+            //create the organization
+            $org = $this->organization::create(
+                [
+                    'name' => $data['name'],
+                    'shortname' => $shortname,
+                    'owner_id' => $data['owner']['id']
+                ]
+            );
+    
+            return $org;
+        }
     }
 
     /**
@@ -53,4 +72,5 @@ class OrganizationRepository implements OrganizationRepositoryInterface
         dd($org);
     }
 
+    
 }
