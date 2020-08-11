@@ -1990,6 +1990,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
 //
 //
 //
@@ -2001,10 +2002,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Ideaspace",
   data: function data() {
-    return {};
+    return {
+      busy: false,
+      form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
+        name: ''
+      })
+    };
+  },
+  methods: {
+    createOrg: function createOrg() {
+      this.$store.dispatch('createOrg', this.form).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  computed: {
+    ideaspaceURl: function ideaspaceURl() {
+      return this.form.name + ".ideacoapp.com";
+    }
   }
 });
 
@@ -2102,6 +2147,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+//
+//
 //
 //
 //
@@ -20771,37 +20818,109 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content_section" }, [
-      _c("h2", [
-        _vm._v("You're bring collaborated inovation to your workforce")
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Let's name your ideaspace the is how everyone would see it")
-      ]),
-      _vm._v(" "),
-      _c("form", [
-        _c("div", { staticClass: "email_cont" }, [
-          _c("label", { attrs: { for: "name" } }, [
-            _vm._v("Enter your ideaspace name")
-          ]),
-          _c("input", {
-            attrs: { type: "name", placeholder: "Ideaspace Name" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("button", [_vm._v("Continue")])
-      ])
+  return _c("section", { staticClass: "main-section" }, [
+    _c("div", { staticClass: "row justify-content-center main" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+        },
+        [
+          _c("div", { staticClass: "minibox color-black" }, [
+            _c("h4", { staticClass: "title font-weight-bold" }, [
+              _vm._v(
+                "\n                    You're bringing collaborated innovation to your workforce\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+              _vm._v(
+                "\n                    Let's name your ideaspace, this is how everyone would see it\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-5" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("div", { staticClass: "content_section" }, [
+                  _c(
+                    "form",
+                    {
+                      attrs: { method: "POST" },
+                      on: {
+                        submit: function($event) {
+                          $event.preventDefault()
+                          return _vm.createOrg($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("div", { staticClass: "email_cont" }, [
+                        _c("label", { attrs: { for: "name" } }, [
+                          _vm._v("Enter your ideaspace name")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.name,
+                              expression: "form.name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "name",
+                            placeholder: "Ideaspace Name"
+                          },
+                          domProps: { value: _vm.form.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "sign-up-continue",
+                          attrs: { disabled: _vm.busy, type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Continue\n                                "
+                          )
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-muted" }, [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(
+                          _vm.form.name.length > 0
+                            ? "Your ideaspace url: " + _vm.ideaspaceURl
+                            : "Your url will appear here"
+                        ) +
+                        "\n                            "
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -20935,112 +21054,114 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "main-section" }, [
-    _c("div", { staticClass: "row justify-content-center main" }, [
-      _c(
-        "div",
-        {
-          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
-        },
-        [
-          _c("div", { staticClass: "minibox color-black" }, [
-            _c("h4", { staticClass: "title font-weight-bold" }, [
-              _vm._v("Great! let's set up your Ideaspace")
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
-              _vm._v(
-                "\n                    So we can send you a confirmation message and your company Ideaspace URL\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mt-5" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("div", { staticClass: "content_section" }, [
-                  _c(
-                    "form",
-                    {
-                      attrs: { method: "POST" },
-                      on: {
-                        submit: function($event) {
-                          $event.preventDefault()
-                          return _vm.init($event)
+  return _c("div", [
+    _c("section", { staticClass: "main-section" }, [
+      _c("div", { staticClass: "row justify-content-center main" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          },
+          [
+            _c("div", { staticClass: "minibox color-black" }, [
+              _c("h4", { staticClass: "title font-weight-bold" }, [
+                _vm._v("Great! let's set up your Ideaspace")
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+                _vm._v(
+                  "\n                        So we can send you a confirmation message and your company Ideaspace URL\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row mt-5" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "content_section" }, [
+                    _c(
+                      "form",
+                      {
+                        attrs: { method: "POST" },
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.init($event)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _c("div", { staticClass: "email_cont" }, [
-                        _c("label", { attrs: { for: "company_email" } }, [
-                          _vm._v(
-                            "\n                                        Enter your company email\n                                    "
-                          )
+                      },
+                      [
+                        _c("div", { staticClass: "email_cont" }, [
+                          _c("label", { attrs: { for: "company_email" } }, [
+                            _vm._v(
+                              "\n                                            Enter your company email\n                                        "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.email,
+                                expression: "form.email"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "email",
+                              required: "",
+                              id: "company_email",
+                              placeholder: "Enter Your Company Email Address"
+                            },
+                            domProps: { value: _vm.form.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "email", $event.target.value)
+                              }
+                            }
+                          })
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
+                        _c("div", { staticClass: "mb-0 mt-3" }, [
+                          _c(
+                            "button",
                             {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.email,
-                              expression: "form.email"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "email",
-                            required: "",
-                            id: "company_email",
-                            placeholder: "Enter Your Company Email Address"
-                          },
-                          domProps: { value: _vm.form.email },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.form, "email", $event.target.value)
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "mb-0 mt-3" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "sign-up-continue",
-                            attrs: { disabled: _vm.busy, type: "submit" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                        Continue \n                                        "
-                            ),
-                            _vm.busy
-                              ? _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "spinner-border spinner-border-sm text-white-50",
-                                    attrs: { role: "status" }
-                                  },
-                                  [
-                                    _c("span", { staticClass: "sr-only" }, [
-                                      _vm._v("Loading...")
-                                    ])
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      ])
-                    ]
-                  )
+                              staticClass: "sign-up-continue",
+                              attrs: { disabled: _vm.busy, type: "submit" }
+                            },
+                            [
+                              _vm._v(
+                                "\n                                            Continue \n                                            "
+                              ),
+                              _vm.busy
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "spinner-border spinner-border-sm text-white-50",
+                                      attrs: { role: "status" }
+                                    },
+                                    [
+                                      _c("span", { staticClass: "sr-only" }, [
+                                        _vm._v("Loading...")
+                                      ])
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  ])
                 ])
               ])
             ])
-          ])
-        ]
-      )
+          ]
+        )
+      ])
     ])
   ])
 }
@@ -38593,27 +38714,25 @@ var routes = [{
   name: 'Create a new Idea Space',
   components: {
     onboarding: __webpack_require__(/*! ./pages/Onboarding/New */ "./resources/js/pages/Onboarding/New.vue")["default"]
-  },
-  children: [{
-    path: '/ideaspace',
-    name: 'Tell us the name of your ideaspace',
-    components: {
-      onboarding: __webpack_require__(/*! ./pages/Onboarding/Ideaspace */ "./resources/js/pages/Onboarding/Ideaspace.vue")["default"]
-    },
-    children: [{
-      path: '/team',
-      name: 'Tell us the name of your teams',
-      components: {
-        onboarding: __webpack_require__(/*! ./pages/Onboarding/Team */ "./resources/js/pages/Onboarding/Team.vue")["default"]
-      }
-    }, {
-      path: '/login',
-      name: 'Create a user name and password',
-      components: {
-        onboarding: __webpack_require__(/*! ./pages/Onboarding/Login */ "./resources/js/pages/Onboarding/Login.vue")["default"]
-      }
-    }]
-  }]
+  }
+}, {
+  path: '/ideaspace',
+  name: 'Tell us the name of your ideaspace',
+  components: {
+    onboarding: __webpack_require__(/*! ./pages/Onboarding/Ideaspace */ "./resources/js/pages/Onboarding/Ideaspace.vue")["default"]
+  }
+}, {
+  path: '/team',
+  name: 'Tell us the name of your teams',
+  components: {
+    onboarding: __webpack_require__(/*! ./pages/Onboarding/Team */ "./resources/js/pages/Onboarding/Team.vue")["default"]
+  }
+}, {
+  path: '/login',
+  name: 'Create a user name and password',
+  components: {
+    onboarding: __webpack_require__(/*! ./pages/Onboarding/Login */ "./resources/js/pages/Onboarding/Login.vue")["default"]
+  }
 }, {
   path: '/confirm-email',
   name: 'Confirm your email address to continue',
@@ -38713,8 +38832,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
         console.log(err);
       });
     },
-    logout: function logout(_ref3) {
+    createOrg: function createOrg(_ref3, form) {
       var commit = _ref3.commit;
+      return form.post('/api/organization').then(function (response) {// commit('')
+      });
+    },
+    logout: function logout(_ref4) {
+      var commit = _ref4.commit;
       commit('clearUserData');
     }
   },

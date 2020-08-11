@@ -67,6 +67,13 @@ export default new Vuex.Store({
                 console.log(err);
             })
         },
+
+        createOrg({commit}, form){
+            return form.post('/api/organization')
+                .then(response => {
+                    // commit('')
+                })
+        },
         
         logout ({ commit }) {
             commit('clearUserData')
