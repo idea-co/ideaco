@@ -30,6 +30,7 @@ class SendUserVerification extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.user-otp');
+        return $this->view('mail.user-otp')
+            ->subject("Ideaco: Account confirmation code " . $this->otp->otp);
     }
 }
