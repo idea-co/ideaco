@@ -37,7 +37,7 @@ export default {
         return {
             form: new Form({
                 otp: '',
-                email: 'olaegbesamuel@gmail.com'
+                email: this.$store.getters.creatorEmail,
             }),
         }
     },

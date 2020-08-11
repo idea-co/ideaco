@@ -1946,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         otp: '',
-        email: 'olaegbesamuel@gmail.com'
+        email: this.$store.getters.creatorEmail
       })
     };
   },
@@ -2073,14 +2073,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     init: function init() {
-      //send a request to the API
-      this.form.post('/api/user').then(function (response) {
-        console.log(response);
-      })["catch"](function (err) {
-        console.log(err);
-      }); //change route to
+      var _this = this;
 
-      this.$router.push('/confirm-email');
+      //send a request to the API
+      this.$store.dispatch('init', this.form).then(function () {
+        //change route to
+        _this.$router.push('/confirm-email');
+      });
     }
   }
 });
@@ -37438,19 +37437,22 @@ module.exports = g;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/layouts/Onboarding */ "./resources/js/pages/layouts/Onboarding.vue");
-/* harmony import */ var _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/layouts/Dashboard */ "./resources/js/pages/layouts/Dashboard.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/layouts/Onboarding */ "./resources/js/pages/layouts/Onboarding.vue");
+/* harmony import */ var _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/layouts/Dashboard */ "./resources/js/pages/layouts/Dashboard.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
 
 var app = new Vue({
   el: '#app',
+  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"],
   router: _routes__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
-    Onboarding: _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Dashboard: _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Onboarding: _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Dashboard: _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 });
 
@@ -38172,6 +38174,85 @@ var routes = [{
 }];
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes
+}));
+
+/***/ }),
+
+/***/ "./resources/js/store.js":
+/*!*******************************!*\
+  !*** ./resources/js/store.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
+  state: {
+    onboarding: {
+      creatorEmail: null
+    },
+    user: {
+      token: null,
+      role: null
+    },
+    isLoggedIn: false
+  },
+  mutations: {
+    setUserProperties: function setUserProperties(state, user) {
+      state.isLoggedIn = true;
+      state.user = user; // let token = "Bearer " + user.token;
+      //save user data to localStorage
+
+      localStorage.setItem('user', JSON.stringify(user)); // axios.defaults.headers.common['Authorization'] = token;
+    },
+
+    /**
+     * 
+     * @param {Vue store} state 
+     * @param {The user creating the organization} creator 
+     */
+    setCreatorEmail: function setCreatorEmail(state, creator) {
+      console.log(creator.data.email);
+      state.onboarding.creatorEmail = creator.data.email;
+    },
+    clearUserData: function clearUserData() {
+      localStorage.removeItem('user');
+      location.href = "/login"; //redirect to login
+    }
+  },
+  actions: {
+    init: function init(_ref, form) {
+      var commit = _ref.commit;
+      return form.post('/api/user').then(function (response) {
+        console.log(response);
+        commit('setCreatorEmail', response);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    logout: function logout(_ref2) {
+      var commit = _ref2.commit;
+      commit('clearUserData');
+    }
+  },
+  getters: {
+    role: function role(state) {
+      return state.user.role;
+    },
+    creatorEmail: function creatorEmail(state) {
+      return state.onboarding.creatorEmail;
+    },
+    token: function token(state) {
+      return state.user.token;
+    }
+  }
 }));
 
 /***/ }),

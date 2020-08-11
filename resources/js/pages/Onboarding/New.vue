@@ -46,16 +46,12 @@ export default {
     methods: {
         init(){
             //send a request to the API
-            this.form.post('/api/user')
-                    .then(response => {
-                        console.log(response);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
+            this.$store.dispatch('init', this.form)
+                .then( () => {
+                    //change route to
+                    this.$router.push('/confirm-email'); 
+                })
 
-            //change route to
-            this.$router.push('/confirm-email'); 
         }
     },
 }
