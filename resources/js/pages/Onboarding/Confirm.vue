@@ -14,10 +14,13 @@
                                         <label for="otp">
                                             Enter the OTP received by mail
                                         </label>
-                                        <input type="text" v-model="form.otp" id="otp" placeholder="Enter 4 digit pin" class="form-control">
+                                        <div class="alert alert-danger" v-if="error">
+                                            {{ error }}
+                                        </div>
+                                        <input type="text" v-model="form.otp" required id="otp" placeholder="Enter 4 digit pin" class="form-control">
                                     </div>
                                     <div class="mb-0 mt-3">
-                                        <button class="sign-up-continue" type="submit">Confirm email</button>
+                                        <button class="sign-up-continue" :disabled="busy" type="submit">Confirm email</button>
                                     </div>
                                 </form>
                             </div>
@@ -39,16 +42,34 @@ export default {
                 otp: '',
                 email: this.$store.getters.creatorEmail,
             }),
+            busy: false,
+            error: '',
         }
     },
 
     methods: {
         confirm(){
+            // validate
+            if(!this.form.otp) return false;
+
+            //busy state
+            this.busy = true;
+
+            //make the request
             this.form.post('/api/user/verify')
                 .then(res => {
-                    console.log(res);
+                    if(res.verified === false){
+                        this.error = res.reason;
+                        return false;
+                    }
+
+                    this.$router.push('/ideaspace')
                 })
         }
     },  
+
+    mounted() {
+
+    },
 }
 </script>

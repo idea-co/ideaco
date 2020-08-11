@@ -15,10 +15,15 @@
                                         <label for="company_email">
                                             Enter your company email
                                         </label>
-                                        <input type="email" v-model="form.email" id="company_email" placeholder="Enter Your Company Email Address" class="form-control">
+                                        <input type="email" v-model="form.email" required id="company_email" placeholder="Enter Your Company Email Address" class="form-control">
                                     </div>
                                     <div class="mb-0 mt-3">
-                                        <button class="sign-up-continue" type="submit">Continue</button>
+                                        <button class="sign-up-continue" :disabled="busy" type="submit">
+                                            Continue 
+                                            <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -40,11 +45,18 @@ export default {
             form: new Form({
                 email: ''
             }),
+            busy: false,
         }
     },
 
     methods: {
         init(){
+            //validate
+            if(!this.form.email) return false;
+
+            //loading...
+            this.busy = true;
+
             //send a request to the API
             this.$store.dispatch('init', this.form)
                 .then( () => {
@@ -53,6 +65,10 @@ export default {
                 })
 
         }
+    },
+
+    mounted() {
+
     },
 }
 </script>

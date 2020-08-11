@@ -79,7 +79,7 @@ class SecurityRepository implements SecurityRepositoryInterface
             } else {
                 //otp has successfully been verified
                 $this->deactivate($otp[0]);
-                
+
                 return [
                     'verified' => true,
                 ];
@@ -87,7 +87,7 @@ class SecurityRepository implements SecurityRepositoryInterface
         } else {
             return [
                 'verified' => false,
-                'reason' => 'OTP value is incorrect' . $token,
+                'reason' => 'OTP value is incorrect',
             ];
         }
     }
