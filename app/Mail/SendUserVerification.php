@@ -11,14 +11,16 @@ class SendUserVerification extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $otp;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($otp)
     {
-        //
+        $this->otp = $otp;
     }
 
     /**
@@ -28,6 +30,7 @@ class SendUserVerification extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.user-otp');
+        return $this->view('mail.user-otp')
+            ->subject("Ideaco: Account confirmation code " . $this->otp->otp);
     }
 }

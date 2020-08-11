@@ -48,6 +48,10 @@ body{
   font-size: small;
 }
 
+form label{
+  float:left;
+}
+
 //theme colors
 $primary-color: #000000;
 $theme-color: #464646;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrganizationResource;
 use App\Repository\Organizations\OrganizationRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -33,14 +34,19 @@ class OrganizationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, OrganizationRepositoryInterface $model)
     {
-        //store or create a new user
-        $user = User::firstOrNew([
-            'email' => $request->email
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|max:100',
+                'shortname' => 'unique:organization,shortname',
+                'owner' => 'required'
+            ]
+        );
 
-        $user->organizations()->create(['name' => 'Sammy 2 organization', 'shortname' => 'samuel'.$user2->id], ['displayName'=> 'Sam Do It 2', 'email' => $user2->email, 'password' => Hash::make('123456')])
+        $organization = $model->create($request);
+
+        return (new OrganizationResource($organization));
     }
 
     /**

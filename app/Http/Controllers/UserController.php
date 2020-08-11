@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repository\Users\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Resources\UserResource;
+use App\Repository\Security\SecurityRepositoryInterface;
 
 class UserController extends Controller
 {
@@ -25,6 +26,17 @@ class UserController extends Controller
         $user = $model->create($request);
 
         return new UserResource($user);
-        // return response()->json($user);
+    }
+
+    /**
+     * Verify a user email address by comparing OTP
+     * 
+     * @return Array
+     */
+    public function verify(Request $request, SecurityRepositoryInterface $security)
+    {
+        $response = $security->verify($request->email, $request->otp);
+
+        return response()->json($response);
     }
 }

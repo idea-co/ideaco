@@ -18,4 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/user', 'UserController@store');
+Route::post('/users', 'UserController@store');
+Route::put('/users/verify', 'UserController@verify');
+Route::post('/organizations', 'OrganizationController@store');

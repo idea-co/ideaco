@@ -49,6 +49,10 @@ body {
   font-size: small;
 }
 
+form label {
+  float: left;
+}
+
 .ideaco_header {
   background: #ffffff;
   width: 100%;

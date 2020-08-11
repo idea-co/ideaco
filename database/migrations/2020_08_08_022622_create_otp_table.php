@@ -18,6 +18,8 @@ class CreateOtpTable extends Migration
             $table->string('purpose'); //[create_ideaspace, reset_password, etc]
             $table->string('otp');
             $table->string('email');
+            //set to inactive after it has been used.
+            $table->tinyInteger('active')->default(1); 
             $table->timestamps();
         });
     }
