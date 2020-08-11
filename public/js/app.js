@@ -1945,6 +1945,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -20803,7 +20808,26 @@ var render = function() {
                             staticClass: "sign-up-continue",
                             attrs: { disabled: _vm.busy, type: "submit" }
                           },
-                          [_vm._v("Confirm email")]
+                          [
+                            _vm._v(
+                              "\n                                        Confirm email\n                                        "
+                            ),
+                            _vm.busy
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "spinner-border spinner-border-sm text-white-50",
+                                    attrs: { role: "status" }
+                                  },
+                                  [
+                                    _c("span", { staticClass: "sr-only" }, [
+                                      _vm._v("Loading...")
+                                    ])
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
                         )
                       ])
                     ]
