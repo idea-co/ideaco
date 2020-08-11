@@ -46,7 +46,7 @@ export default {
     methods: {
         init(){
             //send a request to the API
-            this.form.post('/api/user', this.form)
+            this.form.post('/api/user')
                     .then(response => {
                         console.log(response);
                     })

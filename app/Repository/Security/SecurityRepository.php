@@ -3,6 +3,7 @@
 namespace App\Repository\Security;
 
 use App\OTP;
+use Carbon\Carbon;
 
 /**
  * This class implements the UserRepositoryInterface
@@ -54,11 +55,35 @@ class SecurityRepository implements SecurityRepositoryInterface
      * @param String $email the email address of the user
      * @param String $otp the token received from the user
      * 
-     * @return Illuminate\Http\Response
+     * @return Array
      */
     public function verify($email, $otp)
     {
-        $org = $this->user::where('email', $email)->get();
+        $otp = $this->otp::where('email', $email)->get();
+
+        if ($otp[0]->otp === $otp) {
+            //OTP is correct, check for validity
+            $sent_at = Carbon::parse($otp[0]->created_at);
+            $now = Carbon::now();
+
+            $timePassed = $now->diffInDays($sent_at);
+
+            if ($timePassed > 0) {
+                return [
+                    'verified' => false,
+                    'reason' => 'Code has expired. OTP is only valid for one day'
+                ];
+            } else {
+                return [
+                    'verified' => true,
+                ]
+            }
+        } else {
+            return [
+                'verified' => false,
+                'reason' => 'OTP value is incorrect',
+            ];
+        }
     }
 
 }

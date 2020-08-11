@@ -1899,6 +1899,17 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\pages\\Onboarding\\Confirm.vue: Unexpected token (36:4)\n\n\u001b[0m \u001b[90m 34 | \u001b[39m        }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 35 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 36 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 37 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 38 | \u001b[39m    methods\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 39 | \u001b[39m        confirm(){\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8913:16)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10250:20)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9504:36)\n    at Parser.parseReturnStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11651:28)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11332:21)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)\n    at Parser.parseBlock (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11834:10)\n    at Parser.parseFunctionBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10832:24)\n    at Parser.parseFunctionBodyAndFinish (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10815:10)\n    at Parser.parseMethod (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10777:10)\n    at Parser.parseObjectMethod (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10693:19)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10735:23)\n    at Parser.parseObjectMember (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10659:10)\n    at Parser.parseObj (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10568:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10164:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExportDefaultExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12491:24)\n    at Parser.parseExport (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12393:31)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11388:27)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)");
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Onboarding/Join.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Onboarding/Join.vue?vue&type=script&lang=js& ***!
@@ -2012,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     init: function init() {
       //send a request to the API
-      this.form.post('/api/user', this.form).then(function (response) {
+      this.form.post('/api/user').then(function (response) {
         console.log(response);
       })["catch"](function (err) {
         console.log(err);
@@ -20487,14 +20498,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", [_vm._v("Confirm your email")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row mt-5" }, [
+      _c("div", { staticClass: "col-12" }, [
+        _c("div", { staticClass: "content_section" }, [
+          _c(
+            "form",
+            {
+              attrs: { method: "POST" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.confirm($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "email_cont" }, [
+                _c("label", { attrs: { for: "otp" } }, [
+                  _vm._v(
+                    "\n                            Enter the OTP received by mail\n                        "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.otp,
+                      expression: "form.otp"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "otp",
+                    placeholder: "Enter 4 digit pin"
+                  },
+                  domProps: { value: _vm.form.otp },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "otp", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ]
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h2", [_vm._v("Confirm your email")])])
+    return _c("div", { staticClass: "mb-0 mt-3" }, [
+      _c(
+        "button",
+        { staticClass: "sign-up-continue", attrs: { type: "submit" } },
+        [_vm._v("Confirm email")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -37620,15 +37695,17 @@ var Form = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Confirm_vue_vue_type_template_id_30e101f5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Confirm.vue?vue&type=template&id=30e101f5& */ "./resources/js/pages/Onboarding/Confirm.vue?vue&type=template&id=30e101f5&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Confirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Confirm.vue?vue&type=script&lang=js& */ "./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Confirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Confirm_vue_vue_type_template_id_30e101f5___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Confirm_vue_vue_type_template_id_30e101f5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -37642,6 +37719,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/Onboarding/Confirm.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Confirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Confirm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Onboarding/Confirm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Confirm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

@@ -11,14 +11,16 @@ class SendUserVerification extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $otp;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($otp)
     {
-        //
+        $this->otp = $otp;
     }
 
     /**
