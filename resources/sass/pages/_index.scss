@@ -1,4 +1,5 @@
 #home {  
+    display: grid;
     .block{
         display: grid;
         &__section1{
@@ -118,7 +119,7 @@
         }
         &__section4{
             background-color: $content-color;
-            padding: 70px 10px;
+            padding: 70px 0px;
             text-align: center;
             h2{
                 font-weight: bold;
@@ -127,19 +128,28 @@
             }
             &__cont{
                 width: 1050px;
+                height:550px;
                 margin: auto;
-                padding: 50px 50px;
-                background-color: $bg-color;
+                padding: 50px 0px;
+                background-color: #E8E3F3;
                 border-radius: 10px;
                 &__slider{
-                    display: flex;
+                    height: 342px;
+                    width: 950px;
+                    position: relative;
+                    margin: auto;
+                    overflow: hidden;
                     .left_arrow,.right_arrow{
-                        width: 10%;
                         background-image: url('../../img/Rectangle62.png');
                         background-size: cover;
                         background-repeat: no-repeat;
-                        align-items: center;
+                        position: absolute;
+                        left: 0px;
+                        height: 100%;
+                        width: 10%;
                         display: flex;
+                        align-items: center;
+                        z-index: 5;
                         i{
                             margin: auto;
                             font-size: 20px;
@@ -152,29 +162,70 @@
                     }
                     .right_arrow{
                         background-image: url('../../img/Rectangle65.png');
+                        left: auto;
+                        right: 0px;
                     }
-                    .img_cont{
+                    .slider_cont{
                         width: 80%;
-                        display: flex;
-                        &__image{
-                            width: 45%;
-                            img{
-                                width: 100%;
-                                height: 100%;
+                        height: 100%;
+                        position: absolute;
+                        margin: auto;
+                        left: 0;
+                        right: 0;
+                        overflow: hidden;
+                        .img_cont{
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            display: flex;
+                            right: -100%;
+                            transition: 1s ease;
+                            &__image{
+                                width: 45%;
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                            &__content{
+                                width: 55%;
+                                text-align: left;
+                                padding: 30px 30px;
+                                background: $bg-color;
+                                p{
+                                    font-size: 20px;
+                                }
+                                .testimony{
+                                    margin: 20px 0px;
+                                }
                             }
                         }
-                        &__content{
-                            width: 55%;
-                            text-align: left;
-                            padding: 30px 30px;
-                            p{
-                                font-size: 20px;
-                            }
-                            .testimony{
-                                margin: 20px 0px;
-                            }
+                        .slider1{
+                            right: 0%;
                         }
                     }
+                }
+            }
+            ul{
+                list-style: none;
+                margin: 20px auto 0px auto;
+                text-align: left;
+                width: 108px;
+                padding: 0px;
+                li{
+                    width: 10px;
+                    height: 10px;
+                    background: $bg-color;
+                    border-radius: 10px;
+                    margin: 0px 4px;
+                    display: inline-block;
+                    cursor: pointer;
+                }
+                .slide_icon0{
+                    display: none;
+                }
+                .slide_icon1{
+                    background: #6626EE;
                 }
             }
         }
@@ -235,7 +286,7 @@
                 }
             }
             &__section4{
-                padding: 70px 10px;
+                padding: 70px 0px;
                 text-align: center;
                 h2{
                     margin-bottom: 40px;
@@ -243,20 +294,16 @@
                 &__cont{
                     padding: 50px 20px;
                     width: 850px;
+                    height:500px;
                     &__slider{
                         display: flex;
-                        .left_arrow, .right_arrow{
-                            width: 7%;
-                        }
-                        .img_cont{
-                            width: 86%;
-                            display: flex;
-                            &__image{
-                                width: 45%;
-                            }
-                            &__content{
-                                width: 55%;
-                                padding: 30px 30px;
+                        width: 790px;
+                        height: 290px;
+                        .slider_cont{
+                            .img_cont{
+                                &__content{
+                                    padding: 10px 30px;
+                                }
                             }
                         }
                     }
@@ -309,6 +356,45 @@
                     }
                 }
             }
+            &__section4{
+                &__cont{
+                    padding: 30px;
+                    width: 500px;
+                    height: 700px;
+                    &__slider{
+                        height: 500px;
+                        width: auto;
+                        .left_arrow, .right_arrow{
+                            width: 0%;
+                            display: none;
+                        }
+                        .slider_cont{
+                            .img_cont{
+                                display: grid;
+                                &__image{
+                                    height: 100%;
+                                    width: 100%;
+                                    img{
+                                        width: 150px;
+                                        height: 150px;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        left: 0;
+                                        right: 0;
+                                        margin: auto;
+                                    }
+                                }
+                                &__content{
+                                    width: 100%;
+                                    padding: 30px 10px;
+                                    padding: 100px 10px;
+                                    margin-top: 75px;           
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -323,28 +409,6 @@
                 }
                 &__cont2{
                     display: none;
-                }
-            }
-            &__section4{
-                &__cont{
-                    padding: 30px;
-                    width: 500px;
-                    &__slider{
-                        display: flex;
-                        .left_arrow, .right_arrow{
-                            width: 10%;
-                        }
-                        .img_cont{
-                            width: 80%;
-                            display: grid;
-                            &__image{
-                                width: 100%;
-                            }
-                            &__content{
-                                width: 100%;
-                            }
-                        }
-                    }
                 }
             }
             &__section5{
@@ -404,7 +468,7 @@
                     &__box{
                         width: 100%;
                         height: auto;
-                        margin: 10px auto;
+                        margin: 20px auto;
                         padding: 20px 10px;
                         img{
                             margin: auto;
@@ -424,21 +488,23 @@
                     padding: 10px 5px;
                     width: 95%;
                     margin: auto;
+                    height: 600px;
                     h2{
                         margin-bottom: 20px;
                     }
                     &__slider{
-                        display: flex;
-                        .left_arrow, .right_arrow{
-                            width: 10%;
-                            i{
-                                color: $bg-color;
-                                background: transparent;
-                            }
-                        }
-                        .img_cont{
-                            &__content{
-                                padding: 15px;
+                        height: 450px;
+                        .slider_cont{
+                            width: 90%;
+                            .img_cont{
+                                &__image img{
+                                    width: 100px;
+                                    height: 100px;
+                                }
+                                &__content{
+                                    margin-top: 50px;
+                                    padding: 60px 10px;
+                                }
                             }
                         }
                     }

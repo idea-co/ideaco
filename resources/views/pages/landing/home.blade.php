@@ -39,21 +39,21 @@
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="/img/rectangle1.png"/>
+                    <img src="{{asset('/img/rectangle1.png')}}"/>
                     <div>
                         <h2>Crowd supported system</h2>
                         <p>Shared idea can be voted on by anyone in the workspace, as well as leaving a comment on the original idea.</p>
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="/img/rectangle2.png"/>
+                    <img src="{{ asset('/img/rectangle2.png') }}"/>
                     <div>
                         <h2>Challeges needing ideas</h2>
                         <p>Company challenges can be shared to workspace to allow for injection of new ideas.</p>
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="/img/rectangle3.png"/>
+                    <img src="{{ asset('/img/rectangle3.png') }}"/>
                     <div>
                         <h2>Oversee your contribution</h2>
                         <p>See what you have contributed to your workspace and the ideas that have been implemented.</p>
@@ -66,18 +66,68 @@
                 <h2>Client Testimonials</h2>
                 <div class="block__section4__cont__slider">
                     <div class="left_arrow"><i class="fas fa-arrow-left"></i></div>
-                    <div class="img_cont">
-                        <div class="img_cont__image"><img src="/img/rectangle63.png"/></div>
-                        <div class="img_cont__content">
-                            <img src="/img/Group1.png"/>
-                            <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <h4>Julia Gabby</h4>
-                            <p>Ux Architect</p>
+                    <div class="slider_cont">
+                        <div class="img_cont slider1">
+                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__content">
+                                <img src="{{ asset ('/img/Group1.png') }}"/>
+                                <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4>Jude </h4>
+                                <p>Backend developer</p>
+                            </div>
+                        </div>
+                        <div class="img_cont slider2">
+                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__content">
+                                <img src="{{ asset ('/img/Group1.png') }}"/>
+                                <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4>Abdulazeez</h4>
+                                <p>Frontend developer</p>
+                            </div>
+                        </div>
+                        <div class="img_cont slider3">
+                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__content">
+                                <img src="{{ asset ('/img/Group1.png') }}"/>
+                                <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4>Lejourn </h4>
+                                <p>UI/UX designer</p>
+                            </div>
+                        </div>
+                        <div class="img_cont slider4">
+                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__content">
+                                <img src="{{ asset ('/img/Group1.png') }}"/>
+                                <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4>Atinu </h4>
+                                <p>Backend developer</p>
+                            </div>
+                        </div>
+                        <div class="img_cont slider5">
+                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__content">
+                                <img src="{{ asset ('/img/Group1.png') }}"/>
+                                <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <h4>Samuel </h4>
+                                <p>Backend developer</p>
+                            </div>
                         </div>
                     </div>
                     <div class="right_arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
+                <ul>
+                    <li class="slide_icon0"></li>
+                    <li class="slide_icon1"></li>
+                    <li class="slide_icon2"></li>
+                    <li class="slide_icon3"></li>
+                    <li class="slide_icon4"></li>
+                    <li class="slide_icon5"></li>
+                </ul>
             </div>
         </div>
         <div class="block__section5">
