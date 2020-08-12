@@ -2904,6 +2904,12 @@ form label {
 .dashboard .sidebar__section {
   margin: 0px 0px 0px 5px;
   padding: 75px 0px 10px 0px;
+  /*when you hover on sidebar links*/
+  /*when sidebar link is active */
+}
+
+.dashboard .sidebar__section a:hover {
+  text-decoration: none;
 }
 
 .dashboard .sidebar__section .explore:hover img {
@@ -2922,6 +2928,42 @@ form label {
   content: url("/img/Group17.png");
 }
 
+.dashboard .sidebar__section .active-link .explore {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard .sidebar__section .active-link .explore img {
+  content: url("/img/Group9.png");
+}
+
+.dashboard .sidebar__section .active-link .challenge {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard .sidebar__section .active-link .challenge img {
+  content: url("/img/Group15.png");
+}
+
+.dashboard .sidebar__section .active-link .overview {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard .sidebar__section .active-link .overview img {
+  content: url("/img/Group16.png");
+}
+
+.dashboard .sidebar__section .active-link .history {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard .sidebar__section .active-link .history img {
+  content: url("/img/Group17.png");
+}
+
 .dashboard .sidebar__section__link,
 .dashboard .sidebar__section__logout {
   height: 60px;
@@ -2936,12 +2978,6 @@ form label {
   cursor: pointer;
   color: #ffffff;
   font-size: 22px;
-}
-
-.dashboard .sidebar__section__link--active,
-.dashboard .sidebar__section__logout--active {
-  background: #ffffff;
-  color: #6626EE;
 }
 
 .dashboard .sidebar__section__link:hover,
@@ -3223,6 +3259,20 @@ form label {
 
   .dashboard .content__header__section2 .filter span {
     display: none;
+  }
+
+  .shareicon_mobile {
+    bottom: 60px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .shareicon_mobile img {
+    width: 90%;
+  }
+
+  .dashboard_footer {
+    height: 40px;
   }
 }
 

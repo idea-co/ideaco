@@ -1,6 +1,5 @@
 <template>
     <div class="sidebar">
-        <a class="close_menu" @click="toggle_sidebar()"><i class="fas fa-arrow-left"></i></a>
         <div class="sidebar__logo">
             <a href="/">
                 <img :src="secondaryLogo" alt="">
@@ -8,22 +7,33 @@
         </div>
 
         <div class="sidebar__section">
-            <div class="sidebar__section__link sidebar__section__link--active explore">
-                <router-link to="/" class="active-link">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group9.png"/></div>Explore
-                </router-link>
-            </div>
-
-            <router-link :to="{ name: 'Challenge' }">
-                <div class="sidebar__section__link challenge">
-                    <div class="sidebar__section__link__icon">
-                        <img src="../../img/Group10.png"/>
-                    </div>
+            <router-link to="/" class="links active-link">
+                <div class="sidebar__section__link explore">
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group9.png"/></div>
+                    <div>Explore</div>
                 </div>
-                Challenges
             </router-link>
-            <div class="sidebar__section__link overview"><div class="sidebar__section__link__icon"><img src="../../img/Group11.png"/></div><div>Overview</div></div>
-            <div class="sidebar__section__link history"><div class="sidebar__section__link__icon"><img src="../../img/Group12.png"/></div><div>History</div></div>
+
+            <router-link to="/challenge" class="links">
+                <div class="sidebar__section__link challenge">
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group10.png"/></div>
+                    <div>Challenges</div>
+                </div>
+            </router-link>
+            
+            <router-link to="/overview" class="links">
+                <div class="sidebar__section__link overview">
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group11.png"/></div>
+                    <div>Overview</div>
+                </div>
+            </router-link>
+
+            <router-link to="/history" class="links">
+                <div class="sidebar__section__link history">
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group12.png"/></div>
+                    <div>History</div>
+                </div>
+            </router-link>
         </div>
 
         <button>Share</button>

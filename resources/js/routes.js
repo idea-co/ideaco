@@ -66,6 +66,20 @@ const DashboardRoutes = [
         components: {
             dashboard: require('./pages/Dashboard/Challenge').default
         }
+    },
+    {
+        path: '/overview',
+        name: 'Overview',
+        components: {
+            dashboard: require('./pages/Dashboard/Overview').default
+        }
+    },
+    {
+        path: '/history',
+        name: 'History',
+        components: {
+            dashboard: require('./pages/Dashboard/History').default
+        }
     }
 ]
 

@@ -34,7 +34,7 @@
                     <a class="content__header__section2__link">Highest Voted</a>
                     <a class="content__header__section2__link">Most Recent</a>
                     <a class="content__header__section2__link filter"><i class="fas fa-filter"></i><span> Filter </span><i class="fas fa-caret-down"></i></a>
-                    <a class="menu_icon" onclick="toggle_sidebar()"><i class="fas fa-bars"></i></a>
+                    <!--<a class="menu_icon" onclick="toggle_sidebar()"><i class="fas fa-bars"></i></a>-->
                 </div>
             </header>
             @yield('content')

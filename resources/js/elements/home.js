@@ -1,7 +1,10 @@
 current_slide = 1 //initial slide position
+
+//listen to click events on slide arrow and trigger the next slide
 $(document).on("click", ".block__section4__cont__slider .left_arrow .fa-arrow-left", function(){
 	minusSlides();
 });
+//listen to click events on slide arrow and trigger the next slide
 $(document).on("click", ".block__section4__cont__slider .right_arrow .fa-arrow-right", function(){
 	plusSlides();
 })

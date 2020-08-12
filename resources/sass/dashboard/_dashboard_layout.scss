@@ -21,6 +21,10 @@
         &__section{
             margin: 0px 0px 0px 5px;
             padding: 75px 0px 10px 0px;
+            a:hover{
+                text-decoration: none;
+            }
+            /*when you hover on sidebar links*/
             .explore:hover{
                 img{
                     content:url("/img/Group9.png");
@@ -41,6 +45,37 @@
                     content:url("/img/Group17.png");
                 }
             }
+            /*when sidebar link is active */
+            .active-link{
+                .explore{
+                    background: $bg-color;
+                    color: $secondary-color;
+                    img{
+                        content:url("/img/Group9.png");
+                    }
+                }
+                .challenge{
+                    background: $bg-color;
+                    color: $secondary-color;
+                    img{
+                        content:url("/img/Group15.png");
+                    }
+                }
+                .overview{
+                    background: $bg-color;
+                    color: $secondary-color;
+                    img{
+                        content:url("/img/Group16.png");
+                    }
+                }
+                .history{
+                    background: $bg-color;
+                    color: $secondary-color;
+                    img{
+                        content:url("/img/Group17.png");
+                    }
+                }
+            }
             &__link,&__logout{
                 height: 60px;
                 display: flex;
@@ -54,10 +89,6 @@
                 cursor: pointer;
                 color: $bg-color;
                 font-size: 22px;
-                &--active{
-                    background: $bg-color;
-                    color: $secondary-color;
-                }
                 &:hover{
                     background: $bg-color;
                     color: $secondary-color;
@@ -329,5 +360,16 @@
                 }
             }
         }
+    }
+    .shareicon_mobile{
+       bottom:60px;
+       width: 40px;
+       height: 40px;
+       img{
+           width: 90%;
+       }
+    }
+    .dashboard_footer{
+       height: 40px;
     }
 }
