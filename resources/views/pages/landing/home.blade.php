@@ -65,7 +65,7 @@
             <div class="block__section4__cont">
                 <h2>Client Testimonials</h2>
                 <div class="block__section4__cont__slider">
-                    <div class="left_arrow"><i class="fas fa-arrow-left" onclick="minusSlides()"></i></div>
+                    <div class="left_arrow"><i class="fas fa-arrow-left"></i></div>
                     <div class="slider_cont">
                         <div class="img_cont slider1">
                             <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right_arrow"><i class="fas fa-arrow-right"  onclick="plusSlides()"></i></div>
+                    <div class="right_arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
                 <ul>
                     <li class="slide_icon0"></li>

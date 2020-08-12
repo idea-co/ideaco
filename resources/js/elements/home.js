@@ -1,11 +1,16 @@
 current_slide = 1 //initial slide position
-
+$(document).on("click", ".block__section4__cont__slider .left_arrow .fa-arrow-left", function(){
+	minusSlides();
+});
+$(document).on("click", ".block__section4__cont__slider .right_arrow .fa-arrow-right", function(){
+	plusSlides();
+})
 //calls the next slide 
 const plusSlides = () =>{
 	if (current_slide < 5 && current_slide > 0){
 		document.querySelector(`.slider${current_slide}`).style.right = "100%";
 		document.querySelector(`.slider${current_slide+1}`).style.right = "0%";
-
+        
 		let present_slide = document.querySelector(`.slide_icon${current_slide}`)
 		let prev_slide = document.querySelector(`.slide_icon${current_slide-1}`);
 		let next_slide = document.querySelector(`.slide_icon${current_slide+1}`);

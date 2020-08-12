@@ -118,7 +118,13 @@ $(document).ready(function () {
 /***/ (function(module, exports) {
 
 current_slide = 1; //initial slide position
-//calls the next slide 
+
+$(document).on("click", ".block__section4__cont__slider .left_arrow .fa-arrow-left", function () {
+  minusSlides();
+});
+$(document).on("click", ".block__section4__cont__slider .right_arrow .fa-arrow-right", function () {
+  plusSlides();
+}); //calls the next slide 
 
 var plusSlides = function plusSlides() {
   if (current_slide < 5 && current_slide > 0) {
@@ -243,9 +249,9 @@ swipedetect(el, function (swipedir) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var toggle_menu = function toggle_menu() {
+$(document).on("click", ".ideaco_header__menu", function () {
   $('.ideaco_header').toggleClass('ideaco_header--mobile--active');
-};
+});
 
 /***/ }),
 
