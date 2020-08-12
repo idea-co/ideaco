@@ -18,6 +18,14 @@
         @yield('content')
     </div>
 
+    <div class="shareicon_mobile"><img src="{{ asset('/img/plus.png') }}"/></div>
+    <footer class="dashboard_footer">
+        <div class="explore active"><img src="{{ asset('/img/Group9.png') }}"/></div>
+        <div class="challenge"><img src="{{ asset('/img/Group10.png') }}"/></div>
+        <div class="overview"><img src="{{ asset('/img/Group11.png') }}"/></div>
+        <div class="history"><img src="{{ asset('/img/Group12.png') }}"/></div>
+    <footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
