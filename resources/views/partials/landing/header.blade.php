@@ -2,7 +2,7 @@
     <a href="{{ route('home') }}">
         <img src="{{ asset('/img/primary_logo.png') }}"/>
     </a>
-    <a class="ideaco_header__menu" onclick="toggle_menu()">
+    <a class="ideaco_header__menu">
         <i class="fas fa-bars"></i>
         <i class="fas fa-times"></i>
     </a>

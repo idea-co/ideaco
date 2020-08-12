@@ -4,3 +4,4 @@
 require('./elements/nav')
 require('./elements/faq')
 require('./elements/sidebar')
+require('./elements/home')
