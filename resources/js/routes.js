@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 
-const routes = [
+const onBoardingRoutes = [
     {
         path: '/', 
         name: 'Choose a path to get started',
@@ -51,6 +51,19 @@ const routes = [
         }
     },
 ];
+
+const DashboardRoutes = [
+    {
+        path: '/',
+        name: 'Dashboard',
+        components: {
+            dashboard: require('./pages/Dashboard/Home').default
+        }
+    }
+]
+
+//check our navbar and load the appropriate routes
+const routes = window.location.href.indexOf("app") > -1 ? DashboardRoutes : onBoardingRoutes;
 
 export default new VueRouter({
     routes,

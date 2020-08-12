@@ -255,19 +255,6 @@ $(document).on("click", ".ideaco_header__menu", function () {
 
 /***/ }),
 
-/***/ "./resources/js/elements/sidebar.js":
-/*!******************************************!*\
-  !*** ./resources/js/elements/sidebar.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var toggle_sidebar = function toggle_sidebar() {
-  $('.dashboard .sidebar').toggleClass('sidebar--mobile');
-};
-
-/***/ }),
-
 /***/ "./resources/js/landing.js":
 /*!*********************************!*\
   !*** ./resources/js/landing.js ***!
@@ -281,8 +268,6 @@ var toggle_sidebar = function toggle_sidebar() {
 __webpack_require__(/*! ./elements/nav */ "./resources/js/elements/nav.js");
 
 __webpack_require__(/*! ./elements/faq */ "./resources/js/elements/faq.js");
-
-__webpack_require__(/*! ./elements/sidebar */ "./resources/js/elements/sidebar.js");
 
 __webpack_require__(/*! ./elements/home */ "./resources/js/elements/home.js");
 
