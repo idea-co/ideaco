@@ -18,7 +18,7 @@
             </div>
         </header>
         <div class="main_section"> 
-            <!--code goes here -->
+            <dashboard></dashboard>
         </div>
     </div>
 @endsection

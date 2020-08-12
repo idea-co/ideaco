@@ -12,5 +12,3 @@ const app = new Vue({
     router,
     components: { Onboarding, Dashboard }
 });
-
-console.log(router);
