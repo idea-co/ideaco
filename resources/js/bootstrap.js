@@ -17,3 +17,6 @@ window.axios.defaults.withCredentials = true;
 
 window.Errors = require('./helpers/Errors');
 window.Form = require('./helpers/Form');
+
+/** Dashboard sidebar */
+require('./elements/sidebar')

@@ -12,7 +12,7 @@
                     <div class="row mt-5">
                         <div class="col-12">
                             <div class="content_section">
-                                <form method="POST" @submit.prevent="createOrg" @keydown="form.errors.clear()">
+                                <form method="POST" @submit.prevent="createTeam" @keydown="form.errors.clear()">
                                     <div class="email_cont">
                                         <label for="name">Enter your ideaspace name</label><br>
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
@@ -20,16 +20,14 @@
                                                  {{ error[0] }}
                                             </p>
                                         </div>
-                                        <input type="name" v-model="form.name" placeholder="Enter teams / departments" class="form-control">
+
+                                        <input type="name" v-model="form.team_name" placeholder="Enter teams / departments" class="form-control">
                                         <span class="text-muted text-center">You can add more anytime</span>
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
                                         Continue
                                     </button>
                                 </form>
-                                <span class="text-muted">
-                                    {{ form.name.length > 0 ? "Your ideaspace url: " + ideaspaceURl : "Your url will appear here"}}
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -40,11 +38,22 @@
 </template>
 
 <script>
+import Form from '../../helpers/Form';
+
 export default {
-    name: "Team"
+    name: "Team",
     data() {
         return {
-            
+            form: new Form({
+                team: ''
+            }),
+            busy: false,
+        }
+    },
+
+    methods: {
+        createTeam(){
+            this.$store.dispatch('')
         }
     },
 }

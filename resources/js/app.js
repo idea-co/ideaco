@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./components');
 
 import router from './routes';
 import store from './store';
@@ -11,3 +12,5 @@ const app = new Vue({
     router,
     components: { Onboarding, Dashboard }
 });
+
+console.log(router);

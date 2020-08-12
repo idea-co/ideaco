@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
  * or joining one.
  */
 Route::get('/start', 'GetStartedController@start');
+Route::get('/app', 'DashboardController@app');
 
 Route::get('/', 'LandingController@home')->name('home');
 Route::get('/about', 'LandingController@about')->name('about');
