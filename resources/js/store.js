@@ -93,6 +93,16 @@ export default new Vuex.Store({
             })
         },
 
+        adminLogin({commit}, form){
+            return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login')
+            .then(response => {
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+
         logout ({ commit }) {
             commit('clearUserData')
         }

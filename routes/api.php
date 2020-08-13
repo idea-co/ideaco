@@ -26,4 +26,6 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::post('/', 'OrganizationController@store');
     // create team: {organizationId: organization's id}
     Route::post('/{organizationId}/teams', 'TeamController@store');
+    // log in the admin (creator) to complete the onboarding process
+    Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
 });

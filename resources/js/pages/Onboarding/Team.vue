@@ -55,6 +55,7 @@ export default {
             this.$store.dispatch('createTeam', this.form)
             .then(response => {
                 console.log(response);
+                this.$router.push('/login')
             }).catch(error => {
                 console.log(error);
             })

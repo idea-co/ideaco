@@ -2258,16 +2258,69 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
   data: function data() {
-    return {};
+    return {
+      form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
+        name: '',
+        email: this.$store.getters.creatorEmail,
+        password: ''
+      }),
+      busy: false
+    };
+  },
+  methods: {
+    login: function login() {
+      this.$store.dispatch('adminLogin', this.form).then(function (response) {
+        console.log(response);
+        /**
+         * In future we want to redirect to a
+         * sub-domain created for that Ideaspace
+         * something like {shortname.ideaco.com}
+         */
+        //redirect to dashboard
+
+        window.location.href = "/app";
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
   }
 });
 
@@ -2459,8 +2512,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     createTeam: function createTeam() {
+      var _this = this;
+
       this.$store.dispatch('createTeam', this.form).then(function (response) {
         console.log(response);
+
+        _this.$router.push('/login');
       })["catch"](function (error) {
         console.log(error);
       });
@@ -21538,9 +21595,146 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("section", { staticClass: "main-section" }, [
+    _c("div", { staticClass: "row justify-content-center main" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+        },
+        [
+          _c("div", { staticClass: "minibox color-black" }, [
+            _c("h4", { staticClass: "title font-weight-bold" }, [
+              _vm._v(
+                "\n                    Your Ideaspace has been set up \n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "mb-0 mt-5 title-description" }, [
+              _vm._v("Now let's sign you in as the admin")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.login($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "mb-0 mt-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "mb-0 mt-1 text-left",
+                          attrs: { for: "name" }
+                        },
+                        [_vm._v("Your name")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.name,
+                            expression: "form.name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "name",
+                          autocomplete: "off",
+                          placeholder: "Enter your display name"
+                        },
+                        domProps: { value: _vm.form.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "name", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-muted" }, [
+                        _vm._v(
+                          "This will be shown to everyone on the workspace"
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-0 mt-2" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "mb-0 mt-1 text-left",
+                          attrs: { for: "password" }
+                        },
+                        [_vm._v("Create a password")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.password,
+                            expression: "form.password"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "password",
+                          autocomplete: "off",
+                          placeholder:
+                            "Enter a password longer than 8 characters"
+                        },
+                        domProps: { value: _vm.form.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "password", $event.target.value)
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mb-0 mt-3" }, [
+      _c(
+        "button",
+        { staticClass: "sign-up-continue", attrs: { type: "submit" } },
+        [_vm._v("Join")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -39777,8 +39971,16 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
         console.log(err);
       });
     },
-    logout: function logout(_ref5) {
+    adminLogin: function adminLogin(_ref5, form) {
       var commit = _ref5.commit;
+      return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    logout: function logout(_ref6) {
+      var commit = _ref6.commit;
       commit('clearUserData');
     }
   },
