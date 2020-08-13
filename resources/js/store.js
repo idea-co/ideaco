@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         onboarding:{
             creator: null,
+            organizationId: null,
             verified: false,
         },
         user: {
@@ -35,6 +36,9 @@ export default new Vuex.Store({
             state.onboarding.creator = creator.data;
         },
 
+        setOrganizationId(state, response){
+            state.onboarding.organizationId = response.data.id;
+        },
 
         setVerifiedStatus(state, response){
             state.onboarding.verified = response.verified;
@@ -71,7 +75,7 @@ export default new Vuex.Store({
         createOrg({commit}, form){
             return form.post('/api/organizations')
             .then(response => {
-                // commit('')
+                commit('setOrganizationId', response);
                 return response;
             })
             .catch(err => {
@@ -79,6 +83,26 @@ export default new Vuex.Store({
             })
         },
         
+        createTeam({commit}, form){
+            return form.post('/api/organizations/'+ this.getters.organizationId+'/teams')
+            .then(response => {
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+
+        adminLogin({commit}, form){
+            return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login')
+            .then(response => {
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+
         logout ({ commit }) {
             commit('clearUserData')
         }
@@ -95,6 +119,10 @@ export default new Vuex.Store({
 
         creator: state => {
             return state.onboarding.creator;
+        },
+
+        organizationId: state => {
+            return state.onboarding.organizationId;
         },
 
         token: state => {

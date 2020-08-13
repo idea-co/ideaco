@@ -8,5 +8,5 @@ interface TeamRepositoryInterface {
      * 
      * @param Array $data team information 
      */
-    public function create($data);
+    public function create($data, $organization);
 }

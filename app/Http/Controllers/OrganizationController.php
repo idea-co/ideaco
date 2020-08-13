@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
+    protected $model;
+
+    public function __construct(OrganizationRepositoryInterface $model)
+    {
+        $this->model = $model;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,13 +25,16 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Log in the admin of the organization
+     * for the first time
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function firstLogin(Request $request, $organizationId)
     {
-        //
+        $isLoggedIn = $this->model->firstLogin($request, $organizationId);
+
+        return $isLoggedIn;
     }
 
     /**
