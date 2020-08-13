@@ -5,9 +5,19 @@ namespace App\Repository\OrganizationUsers;
 
 use App\OrganizationUser as OrganizationUserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class OrganizationUserRepository implements \OrganizationUserInterface
+class OrganizationUserRepository implements OrganizationUserInterface
 {
+    /**
+     * @var int|string|null
+     */
+    private $id;
+
+    public function __construct()
+    {
+        $this->id = Auth::id();
+    }
 
     /**
      * @inheritDoc
@@ -28,23 +38,20 @@ class OrganizationUserRepository implements \OrganizationUserInterface
     /**
      * @inheritDoc
      */
-    public function changeDisplayName(string $displayName, $id)
+    public function changeDisplayName(string $displayName)
     {
-        $change = OrganizationUserModel::whereId($id)->update(['displayName'=>$displayName]);
+        $organization_User = OrganizationUserModel::whereId($this->id)->update(['displayName'=>$displayName]);
+        return $organization_User ? true : false;
     }
 
 
     /**
      * @inheritDoc
      */
-    public function resetUserPassword($id, $oldPassword, $newPassword)
+    public function resetUserPassword($newPassword)
     {
-        $organization_User = OrganizationUserModel::whereId($id)
-            ->wherePassword($oldPassword)->updaate(['password'=> $newPassword]);
-        if ($organization_User) {
-            return $organization_User;
-        } else {
-            return null;
-        }
+        $organization_User = OrganizationUserModel::whereId($this->id)
+            ->update(['password' => bcrypt(trim($newPassword))]);
+        return $organization_User ? true : false;
     }
 }

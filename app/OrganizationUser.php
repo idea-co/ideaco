@@ -13,7 +13,6 @@ class OrganizationUser extends Authenticatable
     use HasApiTokens, Notifiable;
     //
     protected $guarded = ['id'];
-
     protected $table = 'organization_user';
     /**
      * @return BelongsTo

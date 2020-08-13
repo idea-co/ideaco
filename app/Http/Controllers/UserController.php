@@ -49,17 +49,5 @@ class UserController extends Controller
         return response()->json($response);
     }
 
-    /**
-     * @param Request $request
-     * @param SecurityRepositoryInterface $security
-     */
-    public function passwordReset(Request $request, SecurityRepositoryInterface $security)
-    {
-        $id = Auth::id();
-        $response = $security->resetUserPassword(
-            $id,
-            $request->newPassword,
-            $request->oldPassword
-        );
-    }
+
 }

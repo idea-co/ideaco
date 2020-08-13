@@ -1,4 +1,6 @@
 <?php
+namespace App\Repository\OrganizationUsers;
+
 use \Illuminate\Http\Request;
 interface OrganizationUserInterface
 {
@@ -16,16 +18,13 @@ interface OrganizationUserInterface
 
     /**
      * @param string $displayName
-     * @param $id
      * @return mixed
      */
-    public function changeDisplayName(string $displayName, $id);
+    public function changeDisplayName(string $displayName);
 
     /**
-     * @param $id
-     * @param $oldPassword
      * @param $newPassword
      * @return mixed
      */
-    public function resetUserPassword($id, $oldPassword, $newPassword);
+    public function resetUserPassword( $newPassword);
 }
