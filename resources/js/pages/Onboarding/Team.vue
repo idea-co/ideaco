@@ -14,7 +14,6 @@
                             <div class="content_section">
                                 <form method="POST" @submit.prevent="createTeam" @keydown="form.errors.clear()">
                                     <div class="email_cont">
-                                        <label for="name">Enter your ideaspace name</label><br>
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
                                                  {{ error[0] }}

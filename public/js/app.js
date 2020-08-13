@@ -2446,7 +2446,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Team",
@@ -21808,11 +21807,6 @@ var render = function() {
                     },
                     [
                       _c("div", { staticClass: "email_cont" }, [
-                        _c("label", { attrs: { for: "name" } }, [
-                          _vm._v("Enter your ideaspace name")
-                        ]),
-                        _c("br"),
-                        _vm._v(" "),
                         _vm.form.errors.any()
                           ? _c(
                               "div",
