@@ -17,7 +17,8 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('shortname');
-            $table->string('photo_url');
+            $table->string('organization_id');
+            $table->string('photo_url')->nullable();
             $table->timestamps();
         });
 
@@ -38,22 +39,6 @@ class CreateTeamsTable extends Migration
             $table->primary(['team_id', 'user_id']);
         });
 
-        Schema::create('team_organization', function(Blueprint $table) {
-            $table->unsignedBigInteger('team_id');
-            $table->unsignedBigInteger('organization_id');
-
-            $table->foreign('team_id')
-                ->references('id')
-                ->on('teams')
-                ->onDelete('cascade');
-
-            $table->foreign('organization_id')
-                ->references('id')
-                ->on('organization')
-                ->onDelete('cascade');
-
-            $table->primary(['team_id', 'organization_id']);
-        });
     }
 
     /**
@@ -63,7 +48,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_organization');
         Schema::dropIfExists('team_user');
         Schema::dropIfExists('teams');
     }

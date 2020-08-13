@@ -20,7 +20,7 @@
                                             </p>
                                         </div>
 
-                                        <input type="name" v-model="form.team_name" placeholder="Enter teams / departments" class="form-control">
+                                        <input type="name" v-model="form.name" placeholder="Enter teams / departments" class="form-control">
                                         <span class="text-muted text-center">You can add more anytime</span>
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             form: new Form({
-                team: ''
+                name: ''
             }),
             busy: false,
         }
@@ -52,7 +52,12 @@ export default {
 
     methods: {
         createTeam(){
-            this.$store.dispatch('')
+            this.$store.dispatch('createTeam', this.form)
+            .then(response => {
+                console.log(response);
+            }).catch(error => {
+                console.log(error);
+            })
         }
     },
 }

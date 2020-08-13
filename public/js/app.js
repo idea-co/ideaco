@@ -2452,14 +2452,18 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        team: ''
+        name: ''
       }),
       busy: false
     };
   },
   methods: {
     createTeam: function createTeam() {
-      this.$store.dispatch('');
+      this.$store.dispatch('createTeam', this.form).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -21836,8 +21840,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.team_name,
-                              expression: "form.team_name"
+                              value: _vm.form.name,
+                              expression: "form.name"
                             }
                           ],
                           staticClass: "form-control",
@@ -21845,17 +21849,13 @@ var render = function() {
                             type: "name",
                             placeholder: "Enter teams / departments"
                           },
-                          domProps: { value: _vm.form.team_name },
+                          domProps: { value: _vm.form.name },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.$set(
-                                _vm.form,
-                                "team_name",
-                                $event.target.value
-                              )
+                              _vm.$set(_vm.form, "name", $event.target.value)
                             }
                           }
                         }),
@@ -39705,6 +39705,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
   state: {
     onboarding: {
       creator: null,
+      organizationId: null,
       verified: false
     },
     user: {
@@ -39729,6 +39730,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
      */
     setCreator: function setCreator(state, creator) {
       state.onboarding.creator = creator.data;
+    },
+    setOrganizationId: function setOrganizationId(state, response) {
+      state.onboarding.organizationId = response.data.id;
     },
     setVerifiedStatus: function setVerifiedStatus(state, response) {
       state.onboarding.verified = response.verified;
@@ -39759,14 +39763,22 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     createOrg: function createOrg(_ref3, form) {
       var commit = _ref3.commit;
       return form.post('/api/organizations').then(function (response) {
-        // commit('')
+        commit('setOrganizationId', response);
         return response;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    logout: function logout(_ref4) {
+    createTeam: function createTeam(_ref4, form) {
       var commit = _ref4.commit;
+      return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    logout: function logout(_ref5) {
+      var commit = _ref5.commit;
       commit('clearUserData');
     }
   },
@@ -39779,6 +39791,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     creator: function creator(state) {
       return state.onboarding.creator;
+    },
+    organizationId: function organizationId(state) {
+      return state.onboarding.organizationId;
     },
     token: function token(state) {
       return state.user.token;
