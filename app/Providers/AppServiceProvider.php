@@ -20,21 +20,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //Bind the Organziation interface
+        //Bind the Organization interface
         $this->app->bind(
-            OrganizationRepositoryInterface::class, 
+            OrganizationRepositoryInterface::class,
             OrganizationRepository::class
         );
 
         //Bind the user interface
         $this->app->bind(
-            UserRepositoryInterface::class, 
+            UserRepositoryInterface::class,
             UserRepository::class
         );
 
         //Bind the user interface
         $this->app->bind(
-            SecurityRepositoryInterface::class, 
+            SecurityRepositoryInterface::class,
             SecurityRepository::class
         );
 

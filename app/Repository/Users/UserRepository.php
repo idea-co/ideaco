@@ -57,4 +57,11 @@ class UserRepository implements UserRepositoryInterface
         dd($org);
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function resetUserPassword($id, $oldPassword, $newPassword)
+    {
+        $user = User::whereId($id)->wherePassword->update(['password' => $newPassword]);
+    }
 }
