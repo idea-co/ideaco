@@ -24,4 +24,13 @@ interface OrganizationRepositoryInterface
      * @return Illuminate\Http\Response
      */
     public function create($data);
+
+    /**
+     * Log in the admin for the first time
+     *
+     * @param Array $data values from the form
+     * @param Int $organizationId ord id
+     * @return Response
+     */
+    public function firstLogin($data, $organizationId);
 }

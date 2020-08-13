@@ -6,6 +6,8 @@ use App\Repository\Organizations\OrganizationRepository;
 use App\Repository\Organizations\OrganizationRepositoryInterface;
 use App\Repository\Security\SecurityRepository;
 use App\Repository\Security\SecurityRepositoryInterface;
+use App\Repository\Team\TeamRepositoryInterface;
+use App\Repository\Team\TeamRepository;
 use App\Repository\Users\UserRepositoryInterface;
 use App\Repository\Users\UserRepository;
 use Illuminate\Support\Facades\Schema;
@@ -38,6 +40,12 @@ class AppServiceProvider extends ServiceProvider
             SecurityRepository::class
         );
 
+        //Bind the team interface
+        $this->app->bind(
+            TeamRepositoryInterface::class, 
+            TeamRepository::class
+        );
+
         if ($this->app->isLocal()) {
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
@@ -52,5 +60,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        
+        if(config('app.env') === 'production') {
+            \URL::forceScheme('https');
+        }
     }
 }

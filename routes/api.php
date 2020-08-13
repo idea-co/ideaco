@@ -20,4 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/users', 'UserController@store');
 Route::put('/users/verify', 'UserController@verify');
-Route::post('/organizations', 'OrganizationController@store');
+
+Route::group(['prefix' => 'organizations'], function () {
+    //post request call to /organizations
+    Route::post('/', 'OrganizationController@store');
+    // create team: {organizationId: organization's id}
+    Route::post('/{organizationId}/teams', 'TeamController@store');
+    // log in the admin (creator) to complete the onboarding process
+    Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
+});

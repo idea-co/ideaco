@@ -1,0 +1,1 @@
+Vue.component('sidebar', require('./components/Sidebar').default)

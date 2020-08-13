@@ -3,8 +3,8 @@
 namespace App\Repository\Organizations;
 
 use App\Organization;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\ViewErrorBag;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 use Illuminate\Support\Str;
 /**
  * This class implements the OrganizationRepositoryInterface
@@ -57,6 +57,29 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     
             return $org;
         }
+    }
+
+    /**
+     * Do same as the interface
+     */
+    public function firstLogin($data, $organizationId)
+    {
+        $organization = $this->organization::find($organizationId);
+        $user = User::where('email', $data['email'])->get();
+
+        $loggedIn = $organization->members()->attach(
+            $user[0], 
+            [
+                'displayName' => $data['name'],
+                'password' => Hash::make($data['password']),
+                'email' => $data['email'],
+            ]
+        );
+
+        if($loggedIn){
+            return true;
+        }
+
     }
 
     /**

@@ -26,4 +26,15 @@ class Organization extends Model
             ]
         );
     }
+
+    /**
+     * Relationship to connect a team 
+     * with an organization
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function teams()
+    {
+        return $this->hasMany(Team::class, 'organization_id', 'id');
+    }
 }

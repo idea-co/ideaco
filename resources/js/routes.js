@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 
-const routes = [
+const onBoardingRoutes = [
     {
         path: '/', 
         name: 'Choose a path to get started',
@@ -51,6 +51,46 @@ const routes = [
         }
     },
 ];
+
+const DashboardRoutes = [
+    {
+        path: '/',
+        name: 'Dashboard',
+        components: {
+            dashboard: require('./pages/Dashboard/Home').default
+        }
+    },
+    {
+        path: '/challenges',
+        name: 'Challenge',
+        components: {
+            dashboard: require('./pages/Dashboard/Challenge').default
+        }
+    },
+    {
+        path: '/overview',
+        name: 'Overview',
+        components: {
+            dashboard: require('./pages/Dashboard/Overview').default
+        }
+    },
+    {
+        path: '/history',
+        name: 'History',
+        components: {
+            dashboard: require('./pages/Dashboard/History').default
+        }
+    }
+]
+
+var routes;
+
+//check our browser url and load the appropriate routes
+if(window.location.href.indexOf("start") > -1){
+    routes = onBoardingRoutes;
+}else{
+    routes = DashboardRoutes;
+}
 
 export default new VueRouter({
     routes,
