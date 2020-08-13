@@ -83,8 +83,14 @@ const DashboardRoutes = [
     }
 ]
 
-//check our navbar and load the appropriate routes
-const routes = window.location.href.indexOf("app#") > -1 ? DashboardRoutes : onBoardingRoutes;
+const routes;
+
+//check our browser url and load the appropriate routes
+if(window.location.href.indexOf("start") > -1){
+    routes = onBoardingRoutes;
+}else{
+    routes = DashboardRoutes;
+}
 
 export default new VueRouter({
     routes,
