@@ -83,7 +83,7 @@ const DashboardRoutes = [
     }
 ]
 
-const routes;
+var routes;
 
 //check our browser url and load the appropriate routes
 if(window.location.href.indexOf("start") > -1){

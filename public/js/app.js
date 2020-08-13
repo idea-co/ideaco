@@ -39842,9 +39842,15 @@ var DashboardRoutes = [{
   components: {
     dashboard: __webpack_require__(/*! ./pages/Dashboard/History */ "./resources/js/pages/Dashboard/History.vue")["default"]
   }
-}]; //check our navbar and load the appropriate routes
+}];
+var routes; //check our browser url and load the appropriate routes
 
-var routes = window.location.href.indexOf("app") > -1 ? DashboardRoutes : onBoardingRoutes;
+if (window.location.href.indexOf("start") > -1) {
+  routes = onBoardingRoutes;
+} else {
+  routes = DashboardRoutes;
+}
+
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
