@@ -14,7 +14,8 @@ class CreateOrganizationTable extends Migration
     public function up()
     {
         Schema::create(
-            'organization', function (Blueprint $table) {
+            'organization',
+            function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
                 //this will determine the ideaspace URL
@@ -38,13 +39,12 @@ class CreateOrganizationTable extends Migration
                 $table->timestamp('trial_ends_at')->nullable();
                 $table->timestamps();
             }
-        );        
+        );
 
         /**
          * Pivot table to connect a user with an organization
          */
-        Schema::create(
-            'organization_user', function (Blueprint $table) {
+        Schema::create('organization_user', function (Blueprint $table) {
                 $table->unsignedBigInteger('user_id');
                 $table->unsignedBigInteger('organization_id');
                 $table->string('displayName');
@@ -55,7 +55,7 @@ class CreateOrganizationTable extends Migration
                 $table->string('status')->nullable(); //deactivated/deleted
                 $table->string('twitter')->nullable();
                 //position held in the company
-                $table->string('position')->nullable(); 
+                $table->string('position')->nullable();
                 $table->timestamps();
 
                 $table->foreign('user_id')
@@ -68,9 +68,8 @@ class CreateOrganizationTable extends Migration
                     ->on('organization')
                     ->onDelete('cascade');
 
-                $table->primary(['user_id', 'organization_id']);
-            }
-        );
+//                $table->primary(['user_id', 'organization_id']);
+        });
     }
 
     /**

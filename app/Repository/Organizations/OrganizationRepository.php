@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Support\Str;
 /**
  * This class implements the OrganizationRepositoryInterface
- * to manage all actions meant for interacting with the 
+ * to manage all actions meant for interacting with the
  * organization model
  */
 class OrganizationRepository implements OrganizationRepositoryInterface
@@ -19,9 +19,9 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     /**
      * Type hint the App\Organization class
      * to the repository
-     * 
+     *
      * @param App\Organization $organization the organization model
-     * 
+     *
      * @return void
      */
     public function __construct(Organization $organization)
@@ -30,11 +30,11 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     }
 
     /**
-     * Create a new organization and return 
+     * Create a new organization and return
      * the data
-     * 
+     *
      * @param $data Array of organization data
-     * 
+     *
      * @return Illuminate\Support\Collection;
      */
     public function create($data)
@@ -54,7 +54,7 @@ class OrganizationRepository implements OrganizationRepositoryInterface
                     'owner_id' => $data['owner']['id']
                 ]
             );
-    
+
             return $org;
         }
     }
@@ -68,7 +68,7 @@ class OrganizationRepository implements OrganizationRepositoryInterface
         $user = User::where('email', $data['email'])->get();
 
         $loggedIn = $organization->members()->attach(
-            $user[0], 
+            $user[0],
             [
                 'displayName' => $data['name'],
                 'password' => Hash::make($data['password']),
@@ -84,9 +84,9 @@ class OrganizationRepository implements OrganizationRepositoryInterface
 
     /**
      * Retrieve a single organization
-     * 
+     *
      * @param String $shortname the unique name of the org
-     * 
+     *
      * @return Illuminate\Http\Response
      */
     public function find($shortname)
@@ -95,5 +95,5 @@ class OrganizationRepository implements OrganizationRepositoryInterface
         dd($org);
     }
 
-    
+
 }

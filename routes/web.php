@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 /**
- * The routes that manage creating an ideaspace
+ * The routes that manage creating an idea space
  * or joining one.
  */
 Route::get('/start', 'GetStartedController@start');
