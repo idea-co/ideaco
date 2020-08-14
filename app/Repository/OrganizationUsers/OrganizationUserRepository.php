@@ -61,4 +61,16 @@ class OrganizationUserRepository implements OrganizationUserInterface
         $organization_User = OrganizationUserModel::whereId($this->id)->first();
         return $organization_User ? $organization_User : false;
     }
+
+    public function login(Request $request)
+    {
+        if(Auth::attempt(['organization_id'=>$request->orgId,'user_id'=> $request->userId,'password'=>$request->password])) {
+            $OrganizationUser = OrganizationUserModel::whereId(Auth::id())->first();
+            $token = $OrganizationUser->createToken('my-app-token')->plainTextToken;
+            Auth::login($OrganizationUser);
+            return [$OrganizationUser, $token];
+        }else{
+            return false;
+        }
+    }
 }

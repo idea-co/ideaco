@@ -66,17 +66,18 @@ class OrganizationUserController extends Controller
 
     /**
      * @param Request $request
+     * @param OrganizationUserInterface $model
      * @return JsonResponse
      */
-    public function login(Request $request){
-        if(Auth::attempt(['organization_id'=>$request->orgId,'user_id'=> $request->userId,'password'=>$request->password])){
-            $OrganizationUser = OrganizationUser::whereId(Auth::id())->first();
-            $token = $OrganizationUser->createToken('my-app-token')->plainTextToken;
-            Auth::login($OrganizationUser);
-            return response()->json(['OrganizationUser' => new OrganizationUserResource($OrganizationUser),
-                'token' => $token]);
+    public function login(Request $request, OrganizationUserInterface $model){
+        $details = $model->login($request);
+        if(false === $details){
+             return response()->json(['error'=> 'unable to login'],403);
         }else{
-            return response()->json(['error'=> 'unable to login'],403);
+            $OrganizationUser = $details[0];
+            $token = $details[1];
+            return response()->json(['OrganizationUser' => new OrganizationUserResource($OrganizationUser),
+            'token' => $token]);
         }
     }
 

@@ -32,4 +32,10 @@ interface OrganizationUserInterface
      * @return mixed
      */
     public function resetUserPassword( $newPassword);
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function login(Request $request);
 }
