@@ -2,14 +2,14 @@
     <div>
         <section class="main-section">
             <div class="row justify-content-center main">
-                <div class="col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in">
+                <div class="col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in">
                     <div class="minibox color-black">
                         <h4 class="title font-weight-bold">Great! let's set up your Ideaspace</h4>
-                        <p class="mb-0 mt-5 title-description">
+                        <p class="mb-0 mt-5 title-description font-weight-bold">
                             So we can send you a confirmation message and your company Ideaspace URL
                         </p>
-                        <div class="row mt-5">
-                            <div class="col-12">
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-10">
                                 <div class="content_section">
                                     <form method="POST" @submit.prevent="init">
                                         <div class="email_cont">

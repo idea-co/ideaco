@@ -45,24 +45,24 @@ const onBoardingRoutes = [
     },
     {
         path: '/sign-in', 
-        name: 'Login to your Idea Space',
         components:{
-            onboarding: require('./pages/Onboarding/Login/Login').default
+            onboarding: require('./pages/Onboarding/Login/LoginLayout').default
         },
         children: [
             {
-                path: '/email', 
-                name: 'Enter your email to continue',
-                components:{
-                    onboarding: require('./pages/Onboarding/Login/Email').default
-                },
+                path: '', 
+                name: 'Login to your Idea Space',
+                component: require('./pages/Onboarding/Login/Index').default
             },
             {
-                path: '/password', 
+                path: 'email', 
+                name: 'Enter your email to continue',
+                component: require('./pages/Onboarding/Login/Email').default
+            },
+            {
+                path: 'password', 
                 name: 'Enter your password to continue',
-                components:{
-                    onboarding: require('./pages/Onboarding/Login/Password').default
-                },
+                component: require('./pages/Onboarding/Login/Password').default,
             }
         ]
     },

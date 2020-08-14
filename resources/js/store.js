@@ -104,11 +104,12 @@ export default new Vuex.Store({
         },
 
         findOrganization({commit}, form){
-            return form.get('/api/organizations/' + form.shortname)
+            return form.get('/api/organizations/' + form.shortname + '/find')
                 .then(response => {
                     return response;
                 })
                 .catch(err => {
+                    console.log(form.shortname);
                     console.log(err);
                 })
         },

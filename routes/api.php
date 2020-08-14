@@ -23,10 +23,10 @@ Route::put('/users/verify', 'UserController@verify');
 Route::group(['prefix' => 'organizations'], function () {
     //post request call to /organizations
     Route::post('/', 'OrganizationController@store');
+    // find an organization by shortname
+    Route::get('/{shortname}/find', 'OrganizationController@show');
     // create team: {organizationId: organization's id}
     Route::post('/{organizationId}/teams', 'TeamController@store');
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
-    // find an organization by shortname
-    Route::get('/organizations/{shortname}', 'OrganizationController@show');
 });
