@@ -157,6 +157,24 @@
         height: 45px;
         font-size: small;
     }
+
+    .main-section .input-group input.form-control{
+        border-radius: 10px;
+        height: 45px;
+        width: unset;
+        font-size: small;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+    } 
+
+    .input-group-text{
+        background: white;
+        border-left: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
     .form-control:focus {
         color: #495057;
         background-color: #fff;

@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +27,6 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::post('/{organizationId}/teams', 'TeamController@store');
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
+    // find an organization by shortname
+    Route::get('/organizations/{shortname}', 'OrganizationController@show');
 });

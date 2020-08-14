@@ -103,6 +103,16 @@ export default new Vuex.Store({
             })
         },
 
+        findOrganization({commit}, form){
+            return form.get('/api/organizations/' + form.shortname)
+                .then(response => {
+                    return response;
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        },
+
         logout ({ commit }) {
             commit('clearUserData')
         }
