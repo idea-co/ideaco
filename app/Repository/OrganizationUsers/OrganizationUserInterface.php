@@ -4,6 +4,11 @@ namespace App\Repository\OrganizationUsers;
 use \Illuminate\Http\Request;
 interface OrganizationUserInterface
 {
+
+    /**
+     * @return mixed
+     */
+    public function index();
     /**
      * @param Request $request
      * @return mixed

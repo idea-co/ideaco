@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Auth;
 class OrganizationUserController extends Controller
 {
     /**
+     * @param OrganizationUserInterface $model
+     * @return mixed
+     */
+    public function index(OrganizationUserInterface $model)
+    {
+        return new OrganizationUserResource($model->index());
+    }
+    /**
      * @param Request $request
      * @param OrganizationUserInterface $model
      * @return Application|ResponseFactory|JsonResponse|Response
@@ -61,7 +69,7 @@ class OrganizationUserController extends Controller
      * @return JsonResponse
      */
     public function login(Request $request){
-        if(Auth::attempt(['organization_id'=>$request->id,'user_id'=> $request->userId,'password'=>$request->password])){
+        if(Auth::attempt(['organization_id'=>$request->orgId,'user_id'=> $request->userId,'password'=>$request->password])){
             $OrganizationUser = OrganizationUser::whereId(Auth::id())->first();
             $token = $OrganizationUser->createToken('my-app-token')->plainTextToken;
             Auth::login($OrganizationUser);
@@ -80,8 +88,7 @@ class OrganizationUserController extends Controller
             $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
             return response()->json('logged out', 204);
         } catch (\Exception $e) {
-
-            return response()->json('error_logout', 500);
+            return response()->json('error logging out', 500);
         }
     }
 }

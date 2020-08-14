@@ -6,6 +6,7 @@ namespace App\Repository\OrganizationUsers;
 use App\OrganizationUser as OrganizationUserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class OrganizationUserRepository implements OrganizationUserInterface
 {
@@ -51,7 +52,13 @@ class OrganizationUserRepository implements OrganizationUserInterface
     public function resetUserPassword($newPassword)
     {
         $organization_User = OrganizationUserModel::whereId($this->id)
-            ->update(['password' => bcrypt(trim($newPassword))]);
+            ->update(['password' => Hash::make(trim($newPassword))]);
         return $organization_User ? true : false;
+    }
+
+    public function index()
+    {
+        $organization_User = OrganizationUserModel::whereId($this->id)->first();
+        return $organization_User ? $organization_User : false;
     }
 }
