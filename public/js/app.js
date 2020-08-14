@@ -2249,6 +2249,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Email",
@@ -21643,7 +21644,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("button", { staticClass: "google_button mb-2" }, [
         _c("img", { attrs: { src: __webpack_require__(/*! ../../../../img/Google.svg */ "./resources/img/Google.svg") } }),
-        _vm._v("Continue with Google\n    ")
+        _vm._v("\n        Continue with Google\n    ")
       ]),
       _vm._v(" "),
       _c("p", [_vm._v("OR")]),

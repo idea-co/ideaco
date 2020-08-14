@@ -6,9 +6,9 @@ use App\Events\Users\UserRegistered;
 use App\User;
 
 /**
- * This class implements the UserRepositoryInterface
- * to manage all actions meant for interacting with the 
- * user model
+* This class implements the UserRepositoryInterface
+* to manage all actions meant for interacting with the
+*user model
  */
 class UserRepository implements UserRepositoryInterface
 {
@@ -18,10 +18,9 @@ class UserRepository implements UserRepositoryInterface
     /**
      * Type hint the App\user class
      * to the repository
-     * 
-     * @param App\User $user the user model
-     * 
-     * @return void
+     *
+     * @param User $user the user model
+     *
      */
     public function __construct(User $user)
     {
@@ -29,11 +28,11 @@ class UserRepository implements UserRepositoryInterface
     }
 
     /**
-     * Create a new user and return 
+     * Create a new user and return
      * the data
-     * 
+     *
      * @param $data Request body
-     * 
+     *
      * @return Illuminate\Support\Collection;
      */
     public function create($data)
@@ -47,10 +46,10 @@ class UserRepository implements UserRepositoryInterface
 
     /**
      * Retrieve a single user
-     * 
+     *
      * @param String $email the email address of the user
-     * 
-     * @return Illuminate\Http\Response
+     *
+     * @return void
      */
     public function find($email)
     {
@@ -58,4 +57,11 @@ class UserRepository implements UserRepositoryInterface
         dd($org);
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function resetUserPassword($id, $oldPassword, $newPassword)
+    {
+        $user = User::whereId($id)->wherePassword->update(['password' => $newPassword]);
+    }
 }

@@ -4,7 +4,8 @@
         <p class="mb-5 mt-2 title-description font-weight-bold">Found your Ideaspace, just checking to see that you're in</p>
 
         <button class="google_button mb-2">
-            <img src="../../../../img/Google.svg"/>Continue with Google
+            <img src="../../../../img/Google.svg"/>
+            Continue with Google
         </button>
         <p>OR</p>
         <div class="row justify-content-center">
