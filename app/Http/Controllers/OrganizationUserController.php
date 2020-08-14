@@ -54,7 +54,7 @@ class OrganizationUserController extends Controller
             $response = $model->changeDisplayName(
                 $request->displayName
             );
-            if($response == false){
+            if($response === false){
                 return response()->json(['error'=> 'display name not changed' ],403);
             }else{
                 return response()->json(['message'=>'name changed  successfully']);
