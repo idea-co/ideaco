@@ -72,5 +72,4 @@ class UserTest extends TestCase
         //logout
         $response2 = $this->json('post','/api/OrganizationUser/logout',[],['Authorization' => 'Bearer ' . $token]); //not working on unit test but works in postMan
     }
-
 }
