@@ -22,7 +22,7 @@ export default new Vuex.Store({
     },
 
     mutations:{
-        setUserProperties(state, user){
+        setLoggedInUser(state, user){
             state.isLoggedIn = true;
             state.user = user;
             // let token = "Bearer " + user.token;
@@ -121,6 +121,16 @@ export default new Vuex.Store({
                 console.log(err);
             })
         },
+
+        loginToWorkspace({commit}, form){
+            return form.post('/api/organizations/')
+            .then(response => {
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
 
         findOrganization({commit}, form){
             return form.get('/api/organizations/' + form.shortname + '/find')

@@ -28,7 +28,9 @@ export default {
     data() {
         return {
             form: new Form({
-                password: ''
+                password: '',
+                email: '',
+                orgId: '',
             }),
         }
     },

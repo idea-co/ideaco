@@ -35,10 +35,10 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::get('/{organizationId}/members', 'OrganizationUserController@show');
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
+    //log in a user to a workspace
+    Route::post('/{organizationId}/login', 'OrganizationUserController@login');
+
 });
-
-
-Route::post('OrganizationUser/login', 'OrganizationUserController@login');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/OrganizationUser/changePassword', 'OrganizationUserController@passwordReset');

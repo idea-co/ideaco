@@ -74,7 +74,11 @@ class OrganizationUserController extends Controller
      * @return JsonResponse
      */
     public function login(Request $request){
-        if(Auth::attempt(['organization_id'=>$request->orgId,'user_id'=> $request->userId,'password'=>$request->password])){
+        if (Auth::attempt([
+                'organization_id' => $request->orgId,
+                'user_id' => $request->userId,
+                'password'=>$request->password
+            ])){
             
             $OrganizationUser = OrganizationUser::whereId(Auth::id())->first();
             

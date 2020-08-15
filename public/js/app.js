@@ -2389,7 +2389,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
-        password: ''
+        password: '',
+        email: '',
+        orgId: ''
       })
     };
   },
@@ -40497,152 +40499,9 @@ if (window.location.href.indexOf("start") > -1) {
   !*** ./resources/js/store.js ***!
   \*******************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-
-
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
-  state: {
-    onboarding: {
-      creator: null,
-      organizationId: null,
-      verified: false
-    },
-    login: {
-      organization: null,
-      email: null
-    },
-    user: {
-      token: null,
-      role: null
-    },
-    isLoggedIn: false
-  },
-  mutations: {
-    setUserProperties: function setUserProperties(state, user) {
-      state.isLoggedIn = true;
-      state.user = user; // let token = "Bearer " + user.token;
-      //save user data to localStorage
-
-      localStorage.setItem('user', JSON.stringify(user)); // axios.defaults.headers.common['Authorization'] = token;
-    },
-
-    /**
-     * 
-     * @param {Vue store} state 
-     * @param {The user creating the organization} creator 
-     */
-    setCreator: function setCreator(state, creator) {
-      state.onboarding.creator = creator.data;
-    },
-    setOrganizationId: function setOrganizationId(state, response) {
-      state.onboarding.organizationId = response.data.id;
-    },
-    setLoginOrganization: function setLoginOrganization(state, response) {
-      state.login.organization = response['data'];
-    },
-    setLoginUserEmail: function setLoginUserEmail(state, response) {
-      state.login.email = response['data']['email'];
-    },
-    setVerifiedStatus: function setVerifiedStatus(state, response) {
-      state.onboarding.verified = response.verified;
-    },
-    clearUserData: function clearUserData() {
-      localStorage.removeItem('user');
-      location.href = "/login"; //redirect to login
-    }
-  },
-  actions: {
-    init: function init(_ref, form) {
-      var commit = _ref.commit;
-      return form.post('/api/users').then(function (response) {
-        commit('setCreator', response);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    verifyUser: function verifyUser(_ref2, form) {
-      var commit = _ref2.commit;
-      return form.put('/api/users/verify').then(function (response) {
-        commit('setVerifiedStatus', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    createOrg: function createOrg(_ref3, form) {
-      var commit = _ref3.commit;
-      return form.post('/api/organizations').then(function (response) {
-        commit('setOrganizationId', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    findMemberByEmail: function findMemberByEmail(_ref4, form) {
-      var commit = _ref4.commit;
-      return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/members/search').then(function (response) {
-        return response;
-      });
-    },
-    createTeam: function createTeam(_ref5, form) {
-      var commit = _ref5.commit;
-      return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    adminLogin: function adminLogin(_ref6, form) {
-      var commit = _ref6.commit;
-      return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    findOrganization: function findOrganization(_ref7, form) {
-      var commit = _ref7.commit;
-      return form.get('/api/organizations/' + form.shortname + '/find').then(function (response) {
-        commit('setLoginOrganization', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(form.shortname);
-        console.log(err);
-      });
-    },
-    logout: function logout(_ref8) {
-      var commit = _ref8.commit;
-      commit('clearUserData');
-    }
-  },
-  getters: {
-    role: function role(state) {
-      return state.user.role;
-    },
-    creatorEmail: function creatorEmail(state) {
-      return state.onboarding.creator.email;
-    },
-    creator: function creator(state) {
-      return state.onboarding.creator;
-    },
-    loginOrganization: function loginOrganization(state) {
-      return state.login.organization;
-    },
-    organizationId: function organizationId(state) {
-      return state.onboarding.organizationId;
-    },
-    token: function token(state) {
-      return state.user.token;
-    }
-  }
-}));
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\store.js: Unexpected token, expected \",\" (135:8)\n\n\u001b[0m \u001b[90m 133 | \u001b[39m        }\u001b[0m\n\u001b[0m \u001b[90m 134 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 135 | \u001b[39m        findOrganization({commit}\u001b[33m,\u001b[39m form){\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 136 | \u001b[39m            \u001b[36mreturn\u001b[39m form\u001b[33m.\u001b[39mget(\u001b[32m'/api/organizations/'\u001b[39m \u001b[33m+\u001b[39m form\u001b[33m.\u001b[39mshortname \u001b[33m+\u001b[39m \u001b[32m'/find'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 137 | \u001b[39m                \u001b[33m.\u001b[39mthen(response \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 138 | \u001b[39m                    commit(\u001b[32m'setLoginOrganization'\u001b[39m\u001b[33m,\u001b[39m response)\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.unexpected (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8913:16)\n    at Parser.expect (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:8899:28)\n    at Parser.parseObj (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10559:14)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10164:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseObjectProperty (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10710:101)\n    at Parser.parseObjPropValue (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10735:101)\n    at Parser.parseObjectMember (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10659:10)\n    at Parser.parseObj (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10568:25)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10164:28)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExprListItem (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10920:18)\n    at Parser.parseExprList (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10890:22)\n    at Parser.parseNewArguments (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10504:25)\n    at Parser.parseNew (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10498:10)\n    at Parser.parseExprAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10181:21)\n    at Parser.parseExprSubscripts (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9759:23)\n    at Parser.parseMaybeUnary (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9739:21)\n    at Parser.parseExprOps (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9609:23)\n    at Parser.parseMaybeConditional (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9582:23)\n    at Parser.parseMaybeAssign (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9545:21)\n    at Parser.parseExportDefaultExpression (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12491:24)\n    at Parser.parseExport (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12393:31)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11388:27)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)");
 
 /***/ }),
 
