@@ -35,7 +35,16 @@ interface OrganizationUserInterface
 
     /**
      * @param Request $request
+     * @param $organizationId
      * @return mixed
      */
-    public function login(Request $request);
+    public function login(Request $request, $organizationId);
+
+    /**
+     * Find the member of an organization
+     *
+     * @param Request $request
+     * @param $organizationId
+     */
+    public function find(Request $request, $organizationId);
 }

@@ -14,10 +14,15 @@ class OrganizationUserRepository implements OrganizationUserInterface
      * @var int|string|null
      */
     private $id;
+    protected $model;
 
-    public function __construct()
+    public function __construct(OrganizationUserModel $model)
     {
-        $this->id = Auth::id();
+        if(Auth::check()){
+            $this->id = Auth::id();
+        }
+
+        $this->model = $model;
     }
 
     /**
@@ -62,9 +67,24 @@ class OrganizationUserRepository implements OrganizationUserInterface
         return $organization_User ? $organization_User : false;
     }
 
-    public function login(Request $request)
+    /**
+     * @inheritDoc
+     */
+    public function find(Request $request, $organizationId)
     {
-        if(Auth::attempt(['organization_id'=>$request->orgId,'user_id'=> $request->userId,'password'=>$request->password])) {
+        //using first() so that this does not return a collection
+        //which cannot be used with OrganizationUserResource
+        //collections should only be used when we are fetching more
+        //than one row
+        return $this->model->where('email', $request->email)
+            ->where('organization_id', $organizationId)
+            ->first();
+    }
+
+
+    public function login(Request $request, $organizationId)
+    {
+        if(Auth::attempt(['organization_id'=>$organizationId,'email'=> $request->email,'password'=>$request->password])) {
             $OrganizationUser = OrganizationUserModel::whereId(Auth::id())->first();
             $token = $OrganizationUser->createToken('my-app-token')->plainTextToken;
             Auth::login($OrganizationUser);

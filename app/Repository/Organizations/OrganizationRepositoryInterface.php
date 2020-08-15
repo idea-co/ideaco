@@ -8,8 +8,8 @@ namespace App\Repository\Organizations;
 interface OrganizationRepositoryInterface
 {
     /**
-     * List all organizations
-     *
+     * Find an organization by it's unique ame
+     * 
      * @param String $shortname unique name used to create a url for the workspace
      *
      * @return Illuminate\Http\Response

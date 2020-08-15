@@ -13,6 +13,7 @@ class OrganizationUser extends Authenticatable
     use HasApiTokens, Notifiable;
     //
     protected $guarded = ['id'];
+
     protected $table = 'organization_user';
     /**
      * @return BelongsTo
@@ -21,6 +22,7 @@ class OrganizationUser extends Authenticatable
     {
         return $this->belongsTo(Organization::class);
     }
+    
     public function user()
     {
         return$this->belongsTo(User::class);

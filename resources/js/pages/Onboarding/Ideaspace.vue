@@ -6,11 +6,11 @@
                     <h4 class="title font-weight-bold">
                         You're bringing collaborated innovation to your workforce
                     </h4>
-                    <p class="mb-0 mt-5 title-description">
+                    <p class="mb-0 mt-5 title-description font-weight-bold">
                         Let's name your ideaspace, this is how everyone would see it
                     </p>
-                    <div class="row mt-5">
-                        <div class="col-12">
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-10">
                             <div class="content_section">
                                 <form method="POST" @submit.prevent="createOrg" @keydown="form.errors.clear()">
                                     <div class="email_cont">

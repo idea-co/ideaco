@@ -14,26 +14,34 @@ use Illuminate\Support\Facades\Auth;
 
 class OrganizationUserController extends Controller
 {
+    protected $model;
+
+    public function __construct(OrganizationUserInterface $model)
+    {
+        $this->model = $model;
+    }
     /**
      * @param OrganizationUserInterface $model
      * @return mixed
      */
-    public function index(OrganizationUserInterface $model)
+    public function index()
     {
-        return new OrganizationUserResource($model->index());
+        return new OrganizationUserResource($this->model->index());
     }
     /**
      * @param Request $request
-     * @param OrganizationUserInterface $model
      * @return Application|ResponseFactory|JsonResponse|Response
      */
-    public function passwordReset(Request $request, OrganizationUserInterface $model)
+    public function passwordReset(Request $request)
     {
+        $request->validate(
+            ['newPassword'=> 'required']
+        );
         try{
-            $response = $model->resetUserPassword(
+            $response = $this->model->resetUserPassword(
                 $request->newPassword
             );
-            if($response == false){
+            if($response === false){
                 return response(['error'=> 'password can\'t be changed' ],403);
             }else{
                 return response()->json(['message'=>'password updated successfully']);
@@ -46,12 +54,16 @@ class OrganizationUserController extends Controller
 
     /**
      * @param Request $request
-     * @param OrganizationUserInterface $model
      * @return JsonResponse
      */
-    public function changeDisplayName(Request $request, OrganizationUserInterface $model){
+    public function changeDisplayName(Request $request){
+        $request->validate(
+            [
+                'diplayName'=> 'required'
+            ]
+        );
         try{
-            $response = $model->changeDisplayName(
+            $response = $this->model->changeDisplayName(
                 $request->displayName
             );
             if($response === false){
@@ -66,11 +78,16 @@ class OrganizationUserController extends Controller
 
     /**
      * @param Request $request
-     * @param OrganizationUserInterface $model
+     * @param $organizationId
      * @return JsonResponse
      */
-    public function login(Request $request, OrganizationUserInterface $model){
-        $details = $model->login($request);
+    public function login(Request $request, $organizationId)
+    {
+        $request->validate([
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+        $details = $this->model->login($request,$organizationId);
         if(false === $details){
              return response()->json(['error'=> 'unable to login'],403);
         }else{
@@ -90,6 +107,27 @@ class OrganizationUserController extends Controller
             return response()->json('logged out', 204);
         } catch (\Exception $e) {
             return response()->json('error logging out', 500);
+        }
+    }
+
+    /**
+     * Find a member of an organization
+     * @param Request $request form data
+     *
+     * @param $organizationId
+     * @return OrganizationUserResource|string
+     */
+    public function find(Request $request, $organizationId)
+    {
+        $request->validate([
+            'email' => 'required',
+        ]);
+        $member = $this->model->find($request,$organizationId);
+
+        if (!$member) {
+            return response()->json(['error_message' => "Specified user was not found in this organization"],404);
+        } else {
+            return new OrganizationUserResource($member);
         }
     }
 }

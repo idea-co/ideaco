@@ -57,6 +57,11 @@
         margin-top: 6rem;
         margin-top: 1rem;
     }
+
+    .main-section h4.title{
+        font-size: 34px;
+    }
+
     .main-section .signupwithgoogle{
         background: #FFFFFF;
         border: 2px solid #669fff;
@@ -69,6 +74,19 @@
         box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
 
     }
+
+    .content_section .google_button {
+        width: 100%;
+        height: 60px;
+        background: #fff;
+        border: 2px solid #125BD6;
+        color: #125BD6;
+        font-size: 22px;
+        border-radius: 10px;
+        outline: none;
+        margin: 12px auto;
+    }
+
     .main-section .sign-up-continue {
         color: #fff;
         cursor: pointer;
@@ -157,6 +175,24 @@
         height: 45px;
         font-size: small;
     }
+
+    .main-section .input-group input.form-control{
+        border-radius: 10px;
+        height: 45px;
+        width: unset;
+        font-size: small;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+    } 
+
+    .input-group-text{
+        background: white;
+        border-left: 0;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    
     .form-control:focus {
         color: #495057;
         background-color: #fff;
@@ -186,6 +222,9 @@
     }
     /* On screens that are 415px wide or less*/
      @media screen and (max-width: 510px) {
+        .main-section h4.title{
+            font-size: 26px;
+        }
 
         .sign-up {
             // max-width: 240px;
