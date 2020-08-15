@@ -37,7 +37,7 @@ class OrganizationUserController extends Controller
             $response = $this->model->resetUserPassword(
                 $request->newPassword
             );
-            if($response == false){
+            if($response === false){
                 return response(['error'=> 'password can\'t be changed' ],403);
             }else{
                 return response()->json(['message'=>'password updated successfully']);
@@ -76,7 +76,7 @@ class OrganizationUserController extends Controller
     public function login(Request $request, $organizationId){
         if (Auth::attempt([
                 'organization_id' => $organizationId,
-                'email' => $request->email,
+                'email' => $request->userId,
                 'password'=>$request->password
             ])){
             

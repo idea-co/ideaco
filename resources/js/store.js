@@ -123,14 +123,14 @@ export default new Vuex.Store({
         },
 
         loginToWorkspace({commit}, form){
-            return form.post('/api/organizations/')
+            return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/login')
             .then(response => {
-
+                return response;
             })
             .catch(err => {
                 console.log(err);
             })
-        }
+        },
 
         findOrganization({commit}, form){
             return form.get('/api/organizations/' + form.shortname + '/find')

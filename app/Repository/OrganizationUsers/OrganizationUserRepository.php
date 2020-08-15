@@ -18,7 +18,10 @@ class OrganizationUserRepository implements OrganizationUserInterface
 
     public function __construct(OrganizationUserModel $model)
     {
-        $this->id = Auth::id();
+        if(Auth::check()){
+            $this->id = Auth::id();
+        }
+        
         $this->model = $model;
     }
 

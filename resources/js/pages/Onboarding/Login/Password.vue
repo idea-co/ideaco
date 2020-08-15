@@ -29,7 +29,7 @@ export default {
         return {
             form: new Form({
                 password: '',
-                userId: '',
+                email: '',
             }),
         }
     },
