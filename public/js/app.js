@@ -2250,6 +2250,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Email",
@@ -2261,8 +2263,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    emailExists: function emailExists() {
-      this.$router.push("/sign-in/password");
+    findEmail: function findEmail() {
+      var _this = this;
+
+      this.$store.dispatch('findMemberByEmail', this.form).then(function (response) {
+        _this.$router.push("/sign-in/password");
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  computed: {
+    /**
+     * Get the found organization's name
+     */
+    organizationName: function organizationName() {
+      return this.$store.getters.loginOrganization.name;
     }
   }
 });
@@ -21628,41 +21644,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content_section minibox color-black" }, [
-      _c("h2", { staticClass: "font-weight-bold" }, [_vm._v("HNGi7")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "mb-5 mt-2 title-description font-weight-bold" }, [
-        _vm._v("Found your Ideaspace, just checking to see that you're in")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "google_button mb-2" }, [
-        _c("img", { attrs: { src: __webpack_require__(/*! ../../../../img/Google.svg */ "./resources/img/Google.svg") } }),
-        _vm._v("\n        Continue with Google\n    ")
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("OR")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-10" }, [
-          _c("form", [
+  return _c("div", { staticClass: "content_section minibox color-black" }, [
+    _c("h2", { staticClass: "font-weight-bold" }, [
+      _vm._v("\n        " + _vm._s(_vm.organizationName) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "mb-5 mt-2 title-description font-weight-bold" }, [
+      _vm._v("Found your Ideaspace, just checking to see that you're in")
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("p", [_vm._v("OR")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-10" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.findEmail($event)
+              }
+            }
+          },
+          [
             _c("div", { staticClass: "email_cont" }, [
               _c("label", { attrs: { for: "email" } }, [
                 _vm._v("Enter Email Address")
               ]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.email,
+                    expression: "form.email"
+                  }
+                ],
                 staticClass: "form-control",
                 attrs: {
                   type: "email",
                   id: "email",
                   placeholder: "Enter your email address"
+                },
+                domProps: { value: _vm.form.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "email", $event.target.value)
+                  }
                 }
               })
             ]),
@@ -21672,9 +21707,20 @@ var staticRenderFns = [
               { staticClass: "sign-up-continue", attrs: { type: "submit" } },
               [_vm._v("Continue")]
             )
-          ])
-        ])
+          ]
+        )
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("button", { staticClass: "google_button mb-2" }, [
+      _c("img", { attrs: { src: __webpack_require__(/*! ../../../../img/Google.svg */ "./resources/img/Google.svg") } }),
+      _vm._v("\n        Continue with Google\n    ")
     ])
   }
 ]
@@ -40352,6 +40398,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
       organizationId: null,
       verified: false
     },
+    login: {
+      organization: null,
+      email: null
+    },
     user: {
       token: null,
       role: null
@@ -40377,6 +40427,12 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     setOrganizationId: function setOrganizationId(state, response) {
       state.onboarding.organizationId = response.data.id;
+    },
+    setLoginOrganization: function setLoginOrganization(state, response) {
+      state.login.organization = response['data'];
+    },
+    setLoginUserEmail: function setLoginUserEmail(state, response) {
+      state.login.email = response['data']['email'];
     },
     setVerifiedStatus: function setVerifiedStatus(state, response) {
       state.onboarding.verified = response.verified;
@@ -40413,33 +40469,44 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
         console.log(err);
       });
     },
-    createTeam: function createTeam(_ref4, form) {
+    findMemberByEmail: function findMemberByEmail(_ref4, form) {
       var commit = _ref4.commit;
+      return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/members/search').then(function (response) {
+        if (response) {
+          commit('setLoginUserEmail', response);
+        }
+
+        return response;
+      });
+    },
+    createTeam: function createTeam(_ref5, form) {
+      var commit = _ref5.commit;
       return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
         return response;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    adminLogin: function adminLogin(_ref5, form) {
-      var commit = _ref5.commit;
+    adminLogin: function adminLogin(_ref6, form) {
+      var commit = _ref6.commit;
       return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
         return response;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    findOrganization: function findOrganization(_ref6, form) {
-      var commit = _ref6.commit;
+    findOrganization: function findOrganization(_ref7, form) {
+      var commit = _ref7.commit;
       return form.get('/api/organizations/' + form.shortname + '/find').then(function (response) {
+        commit('setLoginOrganization', response);
         return response;
       })["catch"](function (err) {
         console.log(form.shortname);
         console.log(err);
       });
     },
-    logout: function logout(_ref7) {
-      var commit = _ref7.commit;
+    logout: function logout(_ref8) {
+      var commit = _ref8.commit;
       commit('clearUserData');
     }
   },
@@ -40452,6 +40519,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     creator: function creator(state) {
       return state.onboarding.creator;
+    },
+    loginOrganization: function loginOrganization(state) {
+      return state.login.organization;
     },
     organizationId: function organizationId(state) {
       return state.onboarding.organizationId;

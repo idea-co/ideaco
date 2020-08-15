@@ -104,8 +104,29 @@ class OrganizationUserController extends Controller
         }
     }
 
-    public function findByEmail(Request $request)
+    /**
+     * Find a member of an organization
+     * @param Request $request form data
+     * 
+     * @return App\OrganizationUser
+     */
+    public function find(Request $request, $organizationId)
     {
+        $request->validate([
+            'email' => 'required',
+        ]);
 
+        $member = $this->model->find(
+            [
+                'email' => $request->email, 
+                'organization_id' => $organizationId
+            ]
+        );
+
+        if (!$member) {
+            return "Specified user was not found in this organization";
+        } else {
+            return new OrganizationUserResource($member);
+        }
     }
 }

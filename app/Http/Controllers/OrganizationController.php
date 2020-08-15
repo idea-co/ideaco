@@ -67,7 +67,7 @@ class OrganizationController extends Controller
      */
     public function show($shortname)
     {
-        return $this->model->find($shortname);
+        return new OrganizationResource($this->model->find($shortname));
     }
 
     /**

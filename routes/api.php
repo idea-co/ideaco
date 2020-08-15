@@ -27,11 +27,19 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::get('/{shortname}/find', 'OrganizationController@show');
     // create team: {organizationId: organization's id}
     Route::post('/{organizationId}/teams', 'TeamController@store');
+    // search for a member of an organization with email and organization id
+    Route::post('/{organizationId}/members/search', 'OrganizationUserController@find');
+    // Add member to an organization 
+    Route::post('/{organizationId}/members', 'OrganizationUserController@create');
+    // Add member to an organization 
+    Route::get('/{organizationId}/members', 'OrganizationUserController@show');
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
 });
 
+
 Route::post('OrganizationUser/login', 'OrganizationUserController@login');
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/OrganizationUser/changePassword', 'OrganizationUserController@passwordReset');
     Route::get('/OrganizationUser/index', 'OrganizationUserController@index');
