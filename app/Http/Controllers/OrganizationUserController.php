@@ -59,7 +59,7 @@ class OrganizationUserController extends Controller
     public function changeDisplayName(Request $request){
         $request->validate(
             [
-                'diplayName'=> 'required'
+                'displayName'=> 'required'
             ]
         );
         try{
@@ -93,7 +93,7 @@ class OrganizationUserController extends Controller
         }else{
             $OrganizationUser = $details[0];
             $token = $details[1];
-            return response()->json(['OrganizationUser' => new OrganizationUserResource($OrganizationUser),
+            return response()->json(['data' => new OrganizationUserResource($OrganizationUser),
             'token' => $token]);
         }
     }
