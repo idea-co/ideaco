@@ -89,9 +89,9 @@ class OrganizationUserController extends Controller
         if(false === $details){
              return response()->json(['error'=> 'unable to login'],403);
         }else{
-            $OrganizationUser = $details[0];
+            $data = $details[0];
             $token = $details[1];
-            return response()->json(['data' => new OrganizationUserResource($OrganizationUser),
+            return response()->json(['data' => new OrganizationUserResource($data),
             'token' => $token]);
         }
     }
