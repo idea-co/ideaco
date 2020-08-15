@@ -29,8 +29,7 @@ export default {
         return {
             form: new Form({
                 password: '',
-                email: '',
-                orgId: '',
+                userId: '',
             }),
         }
     },
@@ -55,6 +54,10 @@ export default {
          */
         organizationName(){
             return this.$store.getters.loginOrganization.name
+        },
+
+        getUserId(){
+            return this.$store.getters.loginUserEmail
         }
     },
 }

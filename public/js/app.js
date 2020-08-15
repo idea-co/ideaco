@@ -2390,8 +2390,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         password: '',
-        email: '',
-        orgId: ''
+        userId: ''
       })
     };
   },
@@ -2416,6 +2415,9 @@ __webpack_require__.r(__webpack_exports__);
      */
     organizationName: function organizationName() {
       return this.$store.getters.loginOrganization.name;
+    },
+    getUserId: function getUserId() {
+      return this.$store.getters.loginUserEmail;
     }
   }
 });

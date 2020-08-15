@@ -162,6 +162,10 @@ export default new Vuex.Store({
             return state.onboarding.creator;
         },
 
+        loginUserEmail: state => {
+            return state.login.email;
+        },
+
         loginOrganization: state => {
             return state.login.organization;
         },

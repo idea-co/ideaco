@@ -73,10 +73,10 @@ class OrganizationUserController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function login(Request $request){
+    public function login(Request $request, $organizationId){
         if (Auth::attempt([
-                'organization_id' => $request->orgId,
-                'user_id' => $request->userId,
+                'organization_id' => $organizationId,
+                'email' => $request->email,
                 'password'=>$request->password
             ])){
             
