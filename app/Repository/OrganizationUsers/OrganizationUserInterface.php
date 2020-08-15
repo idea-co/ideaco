@@ -22,10 +22,10 @@ interface OrganizationUserInterface
     public function delete(Request $request);
 
     /**
-     * @param string $displayName
+     * @param Request $request
      * @return mixed
      */
-    public function changeDisplayName(string $displayName);
+    public function changeDisplayName(Request $request);
 
     /**
      * @param $newPassword

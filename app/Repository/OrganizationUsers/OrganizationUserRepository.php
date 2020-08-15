@@ -44,9 +44,9 @@ class OrganizationUserRepository implements OrganizationUserInterface
     /**
      * @inheritDoc
      */
-    public function changeDisplayName(string $displayName)
+    public function changeDisplayName(Request $request)
     {
-        $organization_User = $this->model->whereId($this->id)->update(['displayName'=>$displayName]);
+        $organization_User = $this->model->whereId($this->id)->update(['displayName'=>$request->displayName]);
         return $organization_User ? true : false;
     }
 
