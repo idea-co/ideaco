@@ -30,11 +30,6 @@ class UserController extends Controller
 
         return new UserResource($user);
     }
-    public function editDisplayName(UserRepositoryInterface $model, Request $request)
-    {
-
-    }
-
     /**
      * Verify a user email address by comparing OTP
      *

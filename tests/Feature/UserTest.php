@@ -18,58 +18,59 @@ class UserTest extends TestCase
     public function testOrganizationUserLogin()
     {        $user = OrganizationUser::inRandomOrder()->first(); // pick a user from the database
         $response = $this->json('post',
-            '/api/OrganizationUser/login',
-            ['orgId' => $user->organization_id,
-                'userId' => $user->user_id,
+            '/api/organizations/'.$user->organization_id.'/members/login',
+            [
+                'email' => $user->email,
                 'password' => 'password'
-                ]
+            ]
         ); // send a post request to th api with the required data;
         $response->dump(); //dump response
         $data = $response; //dump response
         $token = $data['token'];
         $response->assertStatus(200);
-        $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
-        $this->json('post','/api/OrganizationUser/logout',[],['Authorization' => 'Bearer ' . $token]);
+//        $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
+        $this->json('post','/api/organizations/members/logout',[],['Authorization' => 'Bearer ' . $token]);
 
     }
     public function testChangeUserDisplayName()
     {
-        $DummyUser = factory(OrganizationUser::class)->make();
         $user = OrganizationUser::inRandomOrder()->first(); // pick a user from the database
         $response = $this->json('post',
-            '/api/OrganizationUser/login',
-            ['orgId' => $user->organization_id,
-                'userId' => $user->user_id,
+            '/api/organizations/'.$user->organization_id.'/members/login',
+            [
+                'email' => $user->email,
                 'password' => 'password'
             ]
-        ); // send a post request to th api with the required data
+        );  // send a post request to th api with the required data
+        $response->assertStatus(200);
         $data = $response; //dump response
         $token = $data['token'];
         dump($token);
-        dump($data['OrganizationUser']['displayName']);
+        dump($data['data']['displayName']);
         $response->assertStatus(200); // check if successful
-        $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
+//        $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
         $response2 = $this->json(
-                'post',
-                'api/OrganizationUser/changeDisplayName',
-                ['displayName'=> $DummyUser->displayName],
+                'patch',
+                '/api/organizations/members/display-name',
+                ['displayName'=> 'test name change'],
                 ['Authorization' => 'Bearer ' . $token]
             );
         $response2->dump(); /// dump response
         $response2->assertStatus(200);
         $response3 = $this->json(
             'get',
-            'api/OrganizationUser/index',
+            '/api/organizations/members',
             [],
             ['Authorization' => 'Bearer ' . $token]
         ); // get user details
-         $name = $response3['OrganizationUser']['displayName'];//display new name
+        $response3->dump();
+         $name = $response3['data']['displayName'];//display new name
         dump('new name');
         dump($name);
-        $this->assertNotEquals($response['OrganizationUser']['displayName'],$response3['OrganizationUser']['displayName']);
+        $this->assertNotEquals($response['data']['displayName'],$response3['data']['displayName']);
         //verify name change
 
         //logout
-        $response2 = $this->json('post','/api/OrganizationUser/logout',[],['Authorization' => 'Bearer ' . $token]); //not working on unit test but works in postMan
+        $response2 = $this->json('post','/api/organizations/members/logout',[],['Authorization' => 'Bearer ' . $token]); //not working on unit test but works in postMan
     }
 }

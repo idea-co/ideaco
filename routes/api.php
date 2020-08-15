@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,20 +30,19 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::post('/{organizationId}/teams', 'TeamController@store');
     // search for a member of an organization with email and organization id
     Route::post('/{organizationId}/members/search', 'OrganizationUserController@find');
-    // Add member to an organization 
+    // Add member to an organization
     Route::post('/{organizationId}/members', 'OrganizationUserController@create');
-    // Add member to an organization 
+    // Add member to an organization
     Route::get('/{organizationId}/members', 'OrganizationUserController@show');
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
     //log in a user to a workspace
-    Route::post('/{organizationId}/login', 'OrganizationUserController@login');
+    Route::post('/{organizationId}/members/login', 'OrganizationUserController@login');
 
 });
-
-Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::post('/OrganizationUser/changePassword', 'OrganizationUserController@passwordReset');
-    Route::get('/OrganizationUser/index', 'OrganizationUserController@index');
-    Route::post('/OrganizationUser/changeDisplayName', 'OrganizationUserController@changeDisplayName');
-    Route::post('/OrganizationUser/logout', 'OrganizationUserController@logout');
+Route::group(['middleware' => ['auth:sanctum'],'prefix'=> 'organizations' ], function () {
+    Route::patch('/members/password', 'OrganizationUserController@passwordReset');
+    Route::get('/members', 'OrganizationUserController@index');
+    Route::patch('/members/display-name', 'OrganizationUserController@changeDisplayName');
+    Route::post('/members/logout', 'OrganizationUserController@logout');
 });

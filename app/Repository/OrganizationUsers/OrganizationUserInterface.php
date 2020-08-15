@@ -22,10 +22,10 @@ interface OrganizationUserInterface
     public function delete(Request $request);
 
     /**
-     * @param string $displayName
+     * @param Request $request
      * @return mixed
      */
-    public function changeDisplayName(string $displayName);
+    public function changeDisplayName(Request $request);
 
     /**
      * @param $newPassword
@@ -34,9 +34,17 @@ interface OrganizationUserInterface
     public function resetUserPassword( $newPassword);
 
     /**
-     * Find the member of an organization
-     * 
-     * @param Array form data (email, organization_id)
+     * @param Request $request
+     * @param $organizationId
+     * @return mixed
      */
-    public function find($request);
+    public function login(Request $request, $organizationId);
+
+    /**
+     * Find the member of an organization
+     *
+     * @param Request $request
+     * @param $organizationId
+     */
+    public function find(Request $request, $organizationId);
 }
