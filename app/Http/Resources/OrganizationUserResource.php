@@ -6,7 +6,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class OrganizationUserResource extends JsonResource
 {
-    public static $wrap = 'OrganizationUser';
     /**
      * Transform the resource into an array.
      *
@@ -16,11 +15,17 @@ class OrganizationUserResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'displayName' => $this->displayName,
-            '_self' => [
-                'user' => new UserResource($this->user)
-            ],
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'status' => $this->status,
+            'twitter' => $this->twitter,
+            /**
+             * Adding this so that when we search for a single user
+             * from an organization we can easily access the organization
+             * data itself
+             */
+            'organization' => new OrganizationResource($this->organization),
         ];
     }
 }

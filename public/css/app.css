@@ -2288,6 +2288,10 @@ form label {
   margin-top: 1rem;
 }
 
+#join .main-section h4.title {
+  font-size: 34px;
+}
+
 #join .main-section .signupwithgoogle {
   background: #FFFFFF;
   border: 2px solid #669fff;
@@ -2298,6 +2302,18 @@ form label {
 
 #join .main-section .signupwithgoogle:hover {
   box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
+}
+
+#join .content_section .google_button {
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  border: 2px solid #125BD6;
+  color: #125BD6;
+  font-size: 22px;
+  border-radius: 10px;
+  outline: none;
+  margin: 12px auto;
 }
 
 #join .main-section .sign-up-continue {
@@ -2393,6 +2409,23 @@ form label {
   font-size: small;
 }
 
+#join .main-section .input-group input.form-control {
+  border-radius: 10px;
+  height: 45px;
+  width: unset;
+  font-size: small;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}
+
+#join .input-group-text {
+  background: white;
+  border-left: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 #join .form-control:focus {
   color: #495057;
   background-color: #fff;
@@ -2424,6 +2457,10 @@ form label {
 }
 
 @media screen and (max-width: 510px) {
+  #join .main-section h4.title {
+    font-size: 26px;
+  }
+
   #join .sign-up {
     width: 100%;
   }

@@ -12,9 +12,9 @@
             </div>
             <div class="col-sm-6 join bg-light-grey">
                 <div class="minibox">
-                    <h4 class="title font-weight-bold">Join your workforce on the ideaspace</h4>
-                    <p class="title-description color-grey">Ready?, then let’s set up your ideaspace</p>
-                    <router-link to="/join" class="join">
+                    <h4 class="title font-weight-bold">Sign in to your workforce on the ideaspace</h4>
+                    <p class="title-description color-grey">Join your team on the ideaspace.</p>
+                    <router-link to="/sign-in" class="join">
                         <button class="get-started">
                             Join
                         </button>

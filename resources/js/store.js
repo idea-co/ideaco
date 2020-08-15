@@ -10,6 +10,10 @@ export default new Vuex.Store({
             organizationId: null,
             verified: false,
         },
+        login:{
+            organization: null,
+            email: null,
+        },
         user: {
             token: null,
             role: null,
@@ -18,7 +22,7 @@ export default new Vuex.Store({
     },
 
     mutations:{
-        setUserProperties(state, user){
+        setLoggedInUser(state, user){
             state.isLoggedIn = true;
             state.user = user;
             // let token = "Bearer " + user.token;
@@ -38,6 +42,14 @@ export default new Vuex.Store({
 
         setOrganizationId(state, response){
             state.onboarding.organizationId = response.data.id;
+        },
+
+        setLoginOrganization(state, response){
+            state.login.organization = response['data'];
+        },
+
+        setLoginUserEmail(state, response){
+            state.login.email = response['data']['email'];
         },
 
         setVerifiedStatus(state, response){
@@ -83,6 +95,13 @@ export default new Vuex.Store({
             })
         },
         
+        findMemberByEmail({commit}, form){
+            return form.post('/api/organizations/'+this.getters.loginOrganization.id+'/members/search')
+            .then(response => {
+                return response;
+            })
+        },
+
         createTeam({commit}, form){
             return form.post('/api/organizations/'+ this.getters.organizationId+'/teams')
             .then(response => {
@@ -103,6 +122,28 @@ export default new Vuex.Store({
             })
         },
 
+        loginToWorkspace({commit}, form){
+            return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/login')
+            .then(response => {
+                return response;
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        },
+
+        findOrganization({commit}, form){
+            return form.get('/api/organizations/' + form.shortname + '/find')
+                .then(response => {
+                    commit('setLoginOrganization', response);
+                    return response;
+                })
+                .catch(err => {
+                    console.log(form.shortname);
+                    console.log(err);
+                })
+        },
+
         logout ({ commit }) {
             commit('clearUserData')
         }
@@ -119,6 +160,14 @@ export default new Vuex.Store({
 
         creator: state => {
             return state.onboarding.creator;
+        },
+
+        loginUserEmail: state => {
+            return state.login.email;
+        },
+
+        loginOrganization: state => {
+            return state.login.organization;
         },
 
         organizationId: state => {
