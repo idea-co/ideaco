@@ -98,9 +98,6 @@ export default new Vuex.Store({
         findMemberByEmail({commit}, form){
             return form.post('/api/organizations/'+this.getters.loginOrganization.id+'/members/search')
             .then(response => {
-                if(response){
-                    commit('setLoginUserEmail', response);
-                }
                 return response;
             })
         },

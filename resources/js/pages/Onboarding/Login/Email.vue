@@ -39,7 +39,12 @@ export default {
         findEmail(){
             this.$store.dispatch('findMemberByEmail', this.form)
             .then(response => {
-                this.$router.push("/sign-in/password");
+                if(response){
+                    this.$store.commit('setLoginUserEmail', response);
+                    this.$router.push("/sign-in/password");
+                }else{
+                    this.$router.push("/sign-in/not-found");
+                }
             })
             .catch(err => {
                 console.log(err);
