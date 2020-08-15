@@ -30,10 +30,10 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
 });
 
-Route::post('organization/member/login', 'OrganizationUserController@login');
+Route::post('organizations/members/login', 'OrganizationUserController@login');
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::patch('/organization/member/password', 'OrganizationUserController@passwordReset');
-    Route::get('/organization/member', 'OrganizationUserController@index');
-    Route::patch('/organization/member/display-name', 'OrganizationUserController@changeDisplayName');
-    Route::post('/organization/member/logout', 'OrganizationUserController@logout');
+    Route::patch('/organizations/members/password', 'OrganizationUserController@passwordReset');
+    Route::get('/organizations/members', 'OrganizationUserController@index');
+    Route::patch('/organizations/members/display-name', 'OrganizationUserController@changeDisplayName');
+    Route::post('/organizations/members/logout', 'OrganizationUserController@logout');
 });

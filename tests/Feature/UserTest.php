@@ -18,7 +18,7 @@ class UserTest extends TestCase
     public function testOrganizationUserLogin()
     {        $user = OrganizationUser::inRandomOrder()->first(); // pick a user from the database
         $response = $this->json('post',
-            'api/organization/member/login',
+            'api/organizations/members/login',
             ['orgId' => $user->organization_id,
                 'userId' => $user->user_id,
                 'password' => 'password'
@@ -29,7 +29,7 @@ class UserTest extends TestCase
         $token = $data['token'];
         $response->assertStatus(200);
         $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
-        $this->json('post','api/organization/member/logout',[],['Authorization' => 'Bearer ' . $token]);
+        $this->json('post','api/organizations/members/logout',[],['Authorization' => 'Bearer ' . $token]);
 
     }
     public function testChangeUserDisplayName()
@@ -37,7 +37,7 @@ class UserTest extends TestCase
         $DummyUser = factory(OrganizationUser::class)->make();
         $user = OrganizationUser::inRandomOrder()->first(); // pick a user from the database
         $response = $this->json('post',
-            'api/organization/member/login',
+            'api/organizations/members/login',
             ['orgId' => $user->organization_id,
                 'userId' => $user->user_id,
                 'password' => 'password'
@@ -52,7 +52,7 @@ class UserTest extends TestCase
         $response->assertJson(['OrganizationUser'=> ['id'=>$user->id]]); //check if the json returned has the user id
         $response2 = $this->json(
                 'patch',
-                'api/organization/member/display-name',
+                'api/organizations/members/display-name',
                 ['displayName'=> $DummyUser->displayName],
                 ['Authorization' => 'Bearer ' . $token]
             );
@@ -60,7 +60,7 @@ class UserTest extends TestCase
         $response2->assertStatus(200);
         $response3 = $this->json(
             'get',
-            'api/organization/member',
+            'api/organizations/members',
             [],
             ['Authorization' => 'Bearer ' . $token]
         ); // get user details
@@ -71,6 +71,6 @@ class UserTest extends TestCase
         //verify name change
 
         //logout
-        $response2 = $this->json('post','api/organization/member/logout',[],['Authorization' => 'Bearer ' . $token]); //not working on unit test but works in postMan
+        $response2 = $this->json('post','api/organizations/members/logout',[],['Authorization' => 'Bearer ' . $token]); //not working on unit test but works in postMan
     }
 }
