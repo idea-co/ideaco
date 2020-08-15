@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrganizationUserResource;
-use App\OrganizationUser;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Repository\OrganizationUsers\OrganizationUserInterface;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
 class OrganizationUserController extends Controller
 {
@@ -20,8 +19,8 @@ class OrganizationUserController extends Controller
     {
         $this->model = $model;
     }
+
     /**
-     * @param OrganizationUserInterface $model
      * @return mixed
      */
     public function index()
@@ -46,7 +45,7 @@ class OrganizationUserController extends Controller
             }else{
                 return response()->json(['message'=>'password updated successfully']);
             }
-        }catch (\Exception $exception){
+        }catch (Exception $exception){
             return response(['error'=> 'password can\'t be changed'],403);
         }
 
@@ -69,7 +68,7 @@ class OrganizationUserController extends Controller
             }else{
                 return response()->json(['message'=>'name changed  successfully']);
             }
-        }catch (\Exception $exception){
+        }catch (Exception $exception){
             return response()->json(['error'=> 'display name can\'t be changed'],403);
         }
     }
@@ -103,7 +102,7 @@ class OrganizationUserController extends Controller
             // Revoke current user token
             $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
             return response()->json('logged out', 204);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json('error logging out', 500);
         }
     }
