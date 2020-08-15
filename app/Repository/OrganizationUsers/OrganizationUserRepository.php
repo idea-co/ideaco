@@ -46,7 +46,7 @@ class OrganizationUserRepository implements OrganizationUserInterface
      */
     public function changeDisplayName(string $displayName)
     {
-        $organization_User = OrganizationUserModel::whereId($this->id)->update(['displayName'=>$displayName]);
+        $organization_User = $this->model->whereId($this->id)->update(['displayName'=>$displayName]);
         return $organization_User ? true : false;
     }
 
@@ -56,14 +56,14 @@ class OrganizationUserRepository implements OrganizationUserInterface
      */
     public function resetUserPassword($newPassword)
     {
-        $organization_User = OrganizationUserModel::whereId($this->id)
+        $organization_User = $this->model->whereId($this->id)
             ->update(['password' => Hash::make(trim($newPassword))]);
         return $organization_User ? true : false;
     }
 
     public function index()
     {
-        $organization_User = OrganizationUserModel::whereId($this->id)->first();
+        $organization_User = $this->model->whereId($this->id)->first();
         return $organization_User ? $organization_User : false;
     }
 
@@ -85,7 +85,7 @@ class OrganizationUserRepository implements OrganizationUserInterface
     public function login(Request $request, $organizationId)
     {
         if(Auth::attempt(['organization_id'=>$organizationId,'email'=> $request->email,'password'=>$request->password])) {
-            $OrganizationUser = OrganizationUserModel::whereId(Auth::id())->first();
+            $OrganizationUser = $this->model->whereId(Auth::id())->first();
             $token = $OrganizationUser->createToken('my-app-token')->plainTextToken;
             Auth::login($OrganizationUser);
             return [$OrganizationUser, $token];
