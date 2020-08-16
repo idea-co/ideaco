@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Repository\Security;
 
@@ -9,18 +9,18 @@ interface SecurityRepositoryInterface
 {
     /**
      * List all organizations
-     * 
+     *
      * @param String $type purpose of OTP
-     * 
+     *
      * @return Illuminate\Http\Response
      */
     public function auth($type, $user);
 
     /**
      * Verify OTP
-     * 
-     * @param $email, $otp
-     * 
+     *
+     * @param $email
+     * @param $otp
      * @return Boolean
      */
     public function verify($email, $otp);

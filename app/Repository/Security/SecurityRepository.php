@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 /**
  * This class implements the UserRepositoryInterface
- * to manage all actions meant for interacting with the 
+ * to manage all actions meant for interacting with the
  * user model
  */
 class SecurityRepository implements SecurityRepositoryInterface
@@ -18,9 +18,9 @@ class SecurityRepository implements SecurityRepositoryInterface
     /**
      * Type hint the App\user class
      * to the repository
-     * 
+     *
      * @param App\OTP $otp the otp model
-     * 
+     *
      * @return void
      */
     public function __construct(OTP $otp)
@@ -29,11 +29,12 @@ class SecurityRepository implements SecurityRepositoryInterface
     }
 
     /**
-     * Create a new otp and return 
+     * Create a new otp and return
      * the data
-     * 
+     *
      * @param $purpose Purpose of otp
-     * 
+     *
+     * @param $email
      * @return Illuminate\Support\Collection;
      */
     public function auth($purpose, $email)
@@ -51,11 +52,10 @@ class SecurityRepository implements SecurityRepositoryInterface
 
     /**
      * Verify an OTP
-     * 
+     *
      * @param String $email the email address of the user
-     * @param String $otp the token received from the user
-     * 
-     * @return Array
+     * @param $token
+     * @return array|bool[]
      */
     public function verify($email, $token)
     {
@@ -94,15 +94,15 @@ class SecurityRepository implements SecurityRepositoryInterface
 
     /**
      * Simple method to deactive an OTP token
-     * 
+     *
      * @param $otp Instance of App\Otp
      */
-    private function deactivate($otp){
+    private function deactivate($otp): bool
+    {
         //deactivate otp
         $otp->active = 0;
         $otp->save();
 
         return true;
     }
-
 }

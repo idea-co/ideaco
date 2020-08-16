@@ -52,6 +52,15 @@ class Form {
         return this.submit('post', url);
     }
 
+    /**
+     * Send a GET request to the given URL.
+     * .
+     * @param {string} url
+     */
+    get(url) {
+        return this.submit('get', url);
+    }
+
 
     /**
      * Send a PUT request to the given URL.

@@ -44,11 +44,27 @@ const onBoardingRoutes = [
         }
     },
     {
-        path: '/join', 
-        name: 'Join an Idea Space',
+        path: '/sign-in', 
         components:{
-            onboarding: require('./pages/Onboarding/Join').default
-        }
+            onboarding: require('./pages/Onboarding/Login/LoginLayout').default
+        },
+        children: [
+            {
+                path: '', 
+                name: 'Login to your Idea Space',
+                component: require('./pages/Onboarding/Login/Index').default
+            },
+            {
+                path: 'email', 
+                name: 'Enter your email to continue',
+                component: require('./pages/Onboarding/Login/Email').default
+            },
+            {
+                path: 'password', 
+                name: 'Enter your password to continue',
+                component: require('./pages/Onboarding/Login/Password').default,
+            }
+        ]
     },
 ];
 
@@ -83,8 +99,14 @@ const DashboardRoutes = [
     }
 ]
 
-//check our navbar and load the appropriate routes
-const routes = window.location.href.indexOf("app") > -1 ? DashboardRoutes : onBoardingRoutes;
+var routes;
+
+//check our browser url and load the appropriate routes
+if(window.location.href.indexOf("start") > -1){
+    routes = onBoardingRoutes;
+}else{
+    routes = DashboardRoutes;
+}
 
 export default new VueRouter({
     routes,

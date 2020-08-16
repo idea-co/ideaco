@@ -6,8 +6,8 @@
                     <h4 class="title font-weight-bold">
                         Confirm your email
                     </h4>
-                    <div class="row mt-5">
-                        <div class="col-12">
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-10">
                             <div class="content_section">
                                 <form method="POST" @submit.prevent="confirm">
                                     <div class="email_cont">

@@ -3,12 +3,12 @@
 namespace App\Repository\Organizations;
 
 use App\Organization;
-use Illuminate\Support\MessageBag;
-use Illuminate\Support\ViewErrorBag;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 use Illuminate\Support\Str;
 /**
  * This class implements the OrganizationRepositoryInterface
- * to manage all actions meant for interacting with the 
+ * to manage all actions meant for interacting with the
  * organization model
  */
 class OrganizationRepository implements OrganizationRepositoryInterface
@@ -19,9 +19,9 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     /**
      * Type hint the App\Organization class
      * to the repository
-     * 
+     *
      * @param App\Organization $organization the organization model
-     * 
+     *
      * @return void
      */
     public function __construct(Organization $organization)
@@ -30,11 +30,11 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     }
 
     /**
-     * Create a new organization and return 
+     * Create a new organization and return
      * the data
-     * 
+     *
      * @param $data Array of organization data
-     * 
+     *
      * @return Illuminate\Support\Collection;
      */
     public function create($data)
@@ -54,23 +54,51 @@ class OrganizationRepository implements OrganizationRepositoryInterface
                     'owner_id' => $data['owner']['id']
                 ]
             );
-    
+
             return $org;
         }
     }
 
     /**
+     * Do same as the interface
+     */
+    public function firstLogin($data, $organizationId)
+    {
+        $organization = $this->organization::find($organizationId);
+        $user = User::where('email', $data['email'])->get();
+
+        $loggedIn = $organization->members()->attach(
+            $user[0],
+            [
+                'displayName' => $data['name'],
+                'password' => Hash::make($data['password']),
+                'email' => $data['email'],
+            ]
+        );
+
+        if($loggedIn){
+            return true;
+        }
+
+    }
+
+    /**
      * Retrieve a single organization
-     * 
+     *
      * @param String $shortname the unique name of the org
-     * 
+     *
      * @return Illuminate\Http\Response
      */
     public function find($shortname)
     {
-        $org = $this->organization::where('shortname', $shortname)->get();
-        dd($org);
+        $org = $this->organization::where('shortname', $shortname)->first();
+        
+        if ($org) {
+            return $org;
+        } else {
+            return false;
+        }
     }
 
-    
+
 }

@@ -14,14 +14,13 @@
                             <div class="content_section">
                                 <form method="POST" @submit.prevent="createTeam" @keydown="form.errors.clear()">
                                     <div class="email_cont">
-                                        <label for="name">Enter your ideaspace name</label><br>
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
                                                  {{ error[0] }}
                                             </p>
                                         </div>
 
-                                        <input type="name" v-model="form.team_name" placeholder="Enter teams / departments" class="form-control">
+                                        <input type="name" v-model="form.name" placeholder="Enter teams / departments" class="form-control">
                                         <span class="text-muted text-center">You can add more anytime</span>
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
@@ -45,7 +44,7 @@ export default {
     data() {
         return {
             form: new Form({
-                team: ''
+                name: ''
             }),
             busy: false,
         }
@@ -53,7 +52,13 @@ export default {
 
     methods: {
         createTeam(){
-            this.$store.dispatch('')
+            this.$store.dispatch('createTeam', this.form)
+            .then(response => {
+                console.log(response);
+                this.$router.push('/login')
+            }).catch(error => {
+                console.log(error);
+            })
         }
     },
 }
