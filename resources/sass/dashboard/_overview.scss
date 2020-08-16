@@ -1,0 +1,140 @@
+.overview_section{
+    .ideas_tab{
+        padding:0px;
+        margin:0px;
+        .idea_chart{
+            background: $bg-color;
+            box-shadow: 0px 2px 6px rgba(102, 38, 238, 0.1);
+            padding: 0px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            height: min-content;
+            padding-bottom: 30px;
+
+            &__header{
+                height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 0px 30px;
+                border-bottom: 1px solid #C4C4C4;
+                h3{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+            &__identifier{
+                width: 100px;
+                display: flex;
+                justify-content: space-between;
+                margin: 25px 50px;
+                a{
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                }
+                .idea_color{
+                    background:#EFB84C;
+                }
+                .comment_color{
+                    background:#669E1F;
+                }
+                .vote_color{
+                    background: #1F439E;
+                }
+            }
+            &__cont{
+                width: 100%;
+                padding: 0px 20px;
+            }
+        }
+        .idea_record{
+            &__cont{
+                margin:0px;
+                &__content{
+                    background:$bg-color;
+                    box-shadow: 0px 2px 6px rgba(102, 38, 238, 0.1);
+                    border-radius: 10px;
+                    height: 150px;
+                    padding:0px 30px;
+                    margin-bottom:30px;
+                    &__header{
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        h3{
+                            font-size: 20px;
+                        }
+                    }
+                    &__details{
+                        padding: 5px 0px;
+                        .row{
+                            .record{
+                                text-align: center;
+                                h3{
+                                    font-size:22px;
+                                }
+                                p{
+                                    font-size: 16px;
+                                    color: #999999;
+                                }
+                                .color1{
+                                    color: #EFB84C;
+                                }
+                                .color2{
+                                    color: #669E1F;
+                                }
+                                .color3{
+                                    color: #1F439E;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            padding: 0px;
+        }
+    }
+}
+@media (max-width:550px){
+    .overview_section{
+        .ideas_tab{
+            .idea_chart{
+                &__header{
+                    h3{
+                        font-size: 17px;
+                    }
+                }
+                &__identifier{
+                    width: 80px;
+                    a{
+                        width: 8px;
+                        height: 8px;
+                    }
+                }
+                .idea_record{
+                    &__cont{
+                        &__content{
+                            &__header{
+                                h3{
+                                    font-size: 17px;
+                                }
+                            }
+                            &__details{
+                                .row{
+                                    .record{
+                                        h3{
+                                            font-size:20px;
+                                        }
+                                        p{
+                                            font-size: 13px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
