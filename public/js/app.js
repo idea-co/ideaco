@@ -20849,7 +20849,7 @@ var render = function() {
           [
             _c("div", { staticClass: "sidebar__section__link explore" }, [
               _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.png */ "./resources/img/Group9.png") } })
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
               ]),
               _vm._v(" "),
               _c("div", [_vm._v("Explore")])
@@ -20863,7 +20863,7 @@ var render = function() {
           [
             _c("div", { staticClass: "sidebar__section__link challenge" }, [
               _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.png */ "./resources/img/Group10.png") } })
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
               ]),
               _vm._v(" "),
               _c("div", [_vm._v("Challenges")])
@@ -20877,7 +20877,7 @@ var render = function() {
           [
             _c("div", { staticClass: "sidebar__section__link overview" }, [
               _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.png */ "./resources/img/Group11.png") } })
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
               ]),
               _vm._v(" "),
               _c("div", [_vm._v("Overview")])
@@ -20888,7 +20888,7 @@ var render = function() {
         _c("router-link", { staticClass: "links", attrs: { to: "/history" } }, [
           _c("div", { staticClass: "sidebar__section__link history" }, [
             _c("div", { staticClass: "sidebar__section__link__icon" }, [
-              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.png */ "./resources/img/Group12.png") } })
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
             ]),
             _vm._v(" "),
             _c("div", [_vm._v("History")])
@@ -21009,9 +21009,135 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "overview_section" }, [
+      _c("div", { staticClass: "ideas_tab row container-fluid" }, [
+        _c("div", { staticClass: "idea_chart col-12 col-xl-7" }, [
+          _c("div", { staticClass: "idea_chart__header" }, [
+            _c("h3", [_vm._v("Ideas Chart")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "idea_chart__identifier" }, [
+            _c("a", { staticClass: "idea_color" }),
+            _c("a", { staticClass: "comment_color" }),
+            _c("a", { staticClass: "vote_color" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "idea_chart__cont" }, [
+            _c("canvas", { attrs: { id: "main_chart" } })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "idea_record col-12 col-xl-4 offset-xl-1" }, [
+          _c("div", { staticClass: "idea_record__cont row" }, [
+            _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+              _c("div", { staticClass: "idea_record__cont__content__header" }, [
+                _c("h3", [_vm._v("This Month")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "idea_record__cont__content__details" },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", { staticClass: "color1" }, [_vm._v("31")]),
+                      _c("p", [_vm._v("ideas")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", { staticClass: "color2" }, [_vm._v("69")]),
+                      _c("p", [_vm._v("Comments")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", { staticClass: "color3" }, [_vm._v("107")]),
+                      _c("p", [_vm._v("Upvotes")])
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+              _c("div", { staticClass: "idea_record__cont__content__header" }, [
+                _c("h3", [_vm._v("You Have Given (All Time)")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "idea_record__cont__content__details" },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("205")]),
+                      _c("p", [_vm._v("ideas")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("492")]),
+                      _c("p", [_vm._v("Comments")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("674")]),
+                      _c("p", [_vm._v("Upvotes")])
+                    ])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+              _c("div", { staticClass: "idea_record__cont__content__header" }, [
+                _c("h3", [_vm._v("You Have Received (All Time)")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "idea_record__cont__content__details" },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("892")]),
+                      _c("p", [_vm._v("Comments")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("2102")]),
+                      _c("p", [_vm._v("Upvotes")])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "record col-4" }, [
+                      _c("h3", [_vm._v("19")]),
+                      _c("p", [_vm._v("Implemented")])
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "progress_tab",
+        staticStyle: { display: "none" }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "implement_tab",
+        staticStyle: { display: "none" }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38284,36 +38410,36 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/img/Group10.png":
+/***/ "./resources/img/Group10.svg":
 /*!***********************************!*\
-  !*** ./resources/img/Group10.png ***!
+  !*** ./resources/img/Group10.svg ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group10.png?182dc37b079b99fbde3cc1ad71bf21f6";
+module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
 
 /***/ }),
 
-/***/ "./resources/img/Group11.png":
+/***/ "./resources/img/Group11.svg":
 /*!***********************************!*\
-  !*** ./resources/img/Group11.png ***!
+  !*** ./resources/img/Group11.svg ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group11.png?4788b6a860a825b4e56131be42b5c075";
+module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
 
 /***/ }),
 
-/***/ "./resources/img/Group12.png":
+/***/ "./resources/img/Group12.svg":
 /*!***********************************!*\
-  !*** ./resources/img/Group12.png ***!
+  !*** ./resources/img/Group12.svg ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group12.png?1cf64bf860f4c3eba594c222af23e3b2";
+module.exports = "/images/Group12.svg?743a721327a9428f8a013823f9c0e536";
 
 /***/ }),
 
@@ -38328,14 +38454,14 @@ module.exports = "/images/Group13.png?5dadf04a75d2b152afff5bd7a5520300";
 
 /***/ }),
 
-/***/ "./resources/img/Group9.png":
+/***/ "./resources/img/Group9.svg":
 /*!**********************************!*\
-  !*** ./resources/img/Group9.png ***!
+  !*** ./resources/img/Group9.svg ***!
   \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group9.png?a5ae14c02af253d2ee09685d2306b280";
+module.exports = "/images/Group9.svg?f86313d0bba1bf53e97ed04c7eac6b01";
 
 /***/ }),
 

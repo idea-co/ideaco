@@ -68,7 +68,7 @@
                     <div class="left_arrow"><i class="fas fa-arrow-left"></i></div>
                     <div class="slider_cont">
                         <div class="img_cont slider1">
-                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__image"><img src="{{asset ('/img/Rectangle63.png') }}"/></div>
                             <div class="img_cont__content">
                                 <img src="{{ asset ('/img/Group1.png') }}"/>
                                 <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <div class="img_cont slider2">
-                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__image"><img src="{{asset ('/img/Rectangle63.png') }}"/></div>
                             <div class="img_cont__content">
                                 <img src="{{ asset ('/img/Group1.png') }}"/>
                                 <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="img_cont slider3">
-                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__image"><img src="{{asset ('/img/Rectangle63.png') }}"/></div>
                             <div class="img_cont__content">
                                 <img src="{{ asset ('/img/Group1.png') }}"/>
                                 <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="img_cont slider4">
-                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__image"><img src="{{asset ('/img/Rectangle63.png') }}"/></div>
                             <div class="img_cont__content">
                                 <img src="{{ asset ('/img/Group1.png') }}"/>
                                 <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="img_cont slider5">
-                            <div class="img_cont__image"><img src="{{asset ('/img/rectangle63.png') }}"/></div>
+                            <div class="img_cont__image"><img src="{{asset ('/img/Rectangle63.png') }}"/></div>
                             <div class="img_cont__content">
                                 <img src="{{ asset ('/img/Group1.png') }}"/>
                                 <p class="testimony">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

@@ -9,28 +9,28 @@
         <div class="sidebar__section">
             <router-link to="/" class="links active-link">
                 <div class="sidebar__section__link explore">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group9.png"/></div>
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group9.svg"/></div>
                     <div>Explore</div>
                 </div>
             </router-link>
 
             <router-link to="/challenge" class="links">
                 <div class="sidebar__section__link challenge">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group10.png"/></div>
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group10.svg"/></div>
                     <div>Challenges</div>
                 </div>
             </router-link>
             
             <router-link to="/overview" class="links">
                 <div class="sidebar__section__link overview">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group11.png"/></div>
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group11.svg"/></div>
                     <div>Overview</div>
                 </div>
             </router-link>
 
             <router-link to="/history" class="links">
                 <div class="sidebar__section__link history">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group12.png"/></div>
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group12.svg"/></div>
                     <div>History</div>
                 </div>
             </router-link>
