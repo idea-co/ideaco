@@ -24,12 +24,4 @@ interface UserRepositoryInterface
      * @return Illuminate\Http\Response
      */
     public function create($data);
-
-    /**
-     * @param $id
-     * @param $oldPassword
-     * @param $newPassword
-     * @return mixed
-     */
-    public function resetUserPassword($id, $oldPassword, $newPassword);
 }
