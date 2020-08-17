@@ -39002,9 +39002,6 @@ module.exports = g;
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/img/Group10.svg":
-=======
 /***/ "./resources/img/Google.svg":
 /*!**********************************!*\
   !*** ./resources/img/Google.svg ***!
@@ -39012,19 +39009,18 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Google.svg?bb8d519cb892384952117e3a0571a1f0";
+module.exports = "/images/Google.svg?26edf1810906dcbf7209fa1a6459b7e9";
 
 /***/ }),
 
-/***/ "./resources/img/Group10.png":
->>>>>>> b74168e6b821cfdd158485b33e84da91b0dc28b1
+/***/ "./resources/img/Group10.svg":
 /*!***********************************!*\
   !*** ./resources/img/Group10.svg ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
+module.exports = "/images/Group10.svg?1508c7c2915e3143f32db606af99470f";
 
 /***/ }),
 
@@ -39035,7 +39031,7 @@ module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
+module.exports = "/images/Group11.svg?13be8a79d415c7a9a5a6375761eccc09";
 
 /***/ }),
 
@@ -39046,7 +39042,7 @@ module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group12.svg?743a721327a9428f8a013823f9c0e536";
+module.exports = "/images/Group12.svg?4fdf3056c79f09bedbd33eb71b9c4b25";
 
 /***/ }),
 
@@ -39068,7 +39064,7 @@ module.exports = "/images/Group13.png?5dadf04a75d2b152afff5bd7a5520300";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group9.svg?f86313d0bba1bf53e97ed04c7eac6b01";
+module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
 
 /***/ }),
 

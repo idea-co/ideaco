@@ -2950,19 +2950,19 @@ form label {
 }
 
 .dashboard .sidebar__section .explore:hover img {
-  content: url("/img/Group11.svg");
+  content: url("/img/Group9.png");
 }
 
 .dashboard .sidebar__section .challenge:hover img {
-  content: url("/img/Group10.svg");
+  content: url("/img/Group15.png");
 }
 
 .dashboard .sidebar__section .overview:hover img {
-  content: url("/img/Group12.svg");
+  content: url("/img/Group16.png");
 }
 
 .dashboard .sidebar__section .history:hover img {
-  content: url("/img/Group9.svg");
+  content: url("/img/Group17.png");
 }
 
 .dashboard .sidebar__section .active-link .explore {
