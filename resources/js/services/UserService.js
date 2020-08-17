@@ -1,11 +1,13 @@
 class User {
     /**
-     * 
      * @param {By default we will use the localStorage unless the value of db is 'server'} db 
+     * 
      */
     constructor(db = 'local'){
+        let json = '';
+
         if(db === 'local'){
-            const json = localStorage.getItem('user');
+            json = localStorage.getItem('user');
             json = JSON.parse(json);
         }
 
@@ -30,3 +32,5 @@ class User {
 
 
 }
+
+export default User;
