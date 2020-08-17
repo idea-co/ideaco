@@ -74,6 +74,35 @@ class OrganizationUserController extends Controller
     }
 
     /**
+     * Log in the admin of the organization
+     * for the first time
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function firstLogin(Request $request, $organizationId)
+    {
+        $request->validate([
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+
+        $user = $this->model->firstLogin($request, $organizationId);
+
+        if ( $user ) {
+            $data = $user[0];
+            $token = $user[1];
+
+            return response()->json(
+                [   'data' => new OrganizationUserResource($data),
+                    'token' => $token
+                ]
+            );
+        } else {
+            return response()->json(['error'=> 'unable to login'], 403);
+        }
+    }
+
+    /**
      * @param Request $request
      * @param $organizationId
      * @return JsonResponse
@@ -95,7 +124,8 @@ class OrganizationUserController extends Controller
             return response()->json(
                 [   'data' => new OrganizationUserResource($data),
                     'token' => $token
-                ]);
+                ]
+            );
         }
     }
 

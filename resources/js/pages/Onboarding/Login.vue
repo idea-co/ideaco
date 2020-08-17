@@ -56,8 +56,9 @@ export default {
                  * sub-domain created for that Ideaspace
                  * something like {shortname.ideaco.com}
                  */
+                this.$store.commit('setLoggedInUser', response);
                 //redirect to dashboard
-                window.location.href = "/app";
+                window.location.href = '/app/'+response.data.organization.shortname;
             }).catch(err => {
                 console.log(err);
             })
