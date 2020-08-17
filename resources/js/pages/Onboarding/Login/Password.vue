@@ -41,7 +41,7 @@ export default {
                     this.$store.commit('setLoggedInUser', response);
                     
                     //navigate to organization dashboard
-                    window.location.href = '';
+                    window.location.href = '/app/'+response.data.organization.shortname;
                 }
             })
             .catch(err => {
