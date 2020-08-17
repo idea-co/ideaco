@@ -14,10 +14,7 @@ export default new Vuex.Store({
             organization: null,
             email: null,
         },
-        user: {
-            token: null,
-            role: null,
-        },
+        user: null,
         isLoggedIn: false,
     },
 
@@ -25,10 +22,13 @@ export default new Vuex.Store({
         setLoggedInUser(state, user){
             state.isLoggedIn = true;
             state.user = user;
-            // let token = "Bearer " + user.token;
+            //retrieve the user token
+            let token = "Bearer " + user.data.token;
             //save user data to localStorage
-            localStorage.setItem('user', JSON.stringify(user))
-            // axios.defaults.headers.common['Authorization'] = token;
+            localStorage.setItem('user', JSON.stringify(user));
+
+            //authenticate all future requests
+            axios.defaults.headers.common['Authorization'] = token;
         },
 
         /**
