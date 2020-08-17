@@ -37,7 +37,7 @@ Route::group(['prefix' => 'organizations'], function () {
     // log in the admin (creator) to complete the onboarding process
     Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
     //log in a user to a workspace
-    Route::post('/{organizationId}/members/login', 'OrganizationUserController@login');
+    Route::post('/{organizationId}/login', 'OrganizationUserController@login');
 
 });
 Route::group(['middleware' => ['auth:sanctum'],'prefix'=> 'organizations' ], function () {

@@ -29,7 +29,7 @@ export default {
         return {
             form: new Form({
                 password: '',
-                email: '',
+                email: this.$store.getters.loginUserEmail,
             }),
         }
     },
@@ -39,7 +39,9 @@ export default {
             .then(response => {
                 if(response){
                     this.$store.commit('setLoggedInUser', response);
-                    this.$router.push("/sign-in/password");
+                    
+                    //navigate to organization dashboard
+                    window.location.href = '';
                 }
             })
             .catch(err => {
@@ -56,7 +58,7 @@ export default {
             return this.$store.getters.loginOrganization.name
         },
 
-        getUserId(){
+        getUserEmail(){
             return this.$store.getters.loginUserEmail
         }
     },

@@ -84,14 +84,18 @@ class OrganizationUserController extends Controller
             'email'=>'required',
             'password'=>'required'
         ]);
-        $details = $this->model->login($request,$organizationId);
-        if(false === $details){
-             return response()->json(['error'=> 'unable to login'],403);
-        }else{
+
+        $details = $this->model->login($request, $organizationId);
+        
+        if (false === $details) {
+             return response()->json(['error'=> 'unable to login'], 403);
+        } else {
             $data = $details[0];
             $token = $details[1];
-            return response()->json(['data' => new OrganizationUserResource($data),
-            'token' => $token]);
+            return response()->json(
+                [   'data' => new OrganizationUserResource($data),
+                    'token' => $token
+                ]);
         }
     }
 
