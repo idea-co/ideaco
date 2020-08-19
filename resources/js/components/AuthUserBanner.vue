@@ -2,7 +2,8 @@
     <div class="content__header__section1">
         <div class="content__header__section1__desc">
             <a href="/">
-                <!-- <img src="{{ asset('../img/primary_logo.png') }}" /> -->
+                <img src="../../img/primary_logo.png" />
+                <!-- {{ organizationAvatar }} -->
             </a>
             <h2>Welcome {{ name }}</h2>
             <p>Your job, your idea</p>
@@ -33,7 +34,7 @@ export default {
         },
 
         organizationAvatar(){
-            return this.user.organization.photo_url;
+            return this.user.organizationAvatar();
         }
     },
 }

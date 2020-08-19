@@ -30,6 +30,10 @@ class User {
         return this.user.twitter;
     }
 
+    organizationAvatar(){
+        return this.user.organization.photo_url ?? this.user.organization.name;
+    }
+
 
 }
 
