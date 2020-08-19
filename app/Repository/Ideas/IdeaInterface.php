@@ -63,4 +63,22 @@ interface IdeaInterface
      * @return App\Idea
      */
     public function search($query, $organizationId);
+
+    /**
+     * Mark an idea as implemented by updating it's status
+     * 
+     * @param $idea id of the idea to implement
+     * 
+     * @return Bool
+     */
+    public function implement($idea);
+
+    /**
+     * Archive an idea or a group of ideas
+     * 
+     * @param Array|Int $idea id of idea(s) to archive
+     * 
+     * @return Bool
+     */
+    public function archive($idea);
 }
