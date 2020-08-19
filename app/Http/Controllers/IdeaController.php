@@ -110,4 +110,16 @@ class IdeaController extends Controller
     {
         //
     }
+
+    /**
+     * Find all ideas belonging to an author
+     * 
+     * @param $author         id of the idea author
+     * @param $organizationId id of the organization
+     */
+    public function findByAuthor($author, $organizationId)
+    {
+        $ideas = $this->repository->findByAuthor($author, $organizationId);
+        return $ideas;
+    }
 }

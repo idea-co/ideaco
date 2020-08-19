@@ -75,7 +75,7 @@ class IdeaRepository implements IdeaInterface
     {
         return $this->model->where('user_id', $author)
             ->where('organization_id', $organizationId)
-            ->first();
+            ->get();
     }
 
     /**
