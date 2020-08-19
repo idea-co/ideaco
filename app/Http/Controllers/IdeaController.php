@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\IdeaCollection;
 use App\Http\Resources\IdeaResource;
 use App\Idea;
 use App\Repository\Ideas\IdeaInterface;
@@ -116,10 +117,12 @@ class IdeaController extends Controller
      * 
      * @param $author         id of the idea author
      * @param $organizationId id of the organization
+     * 
+     * @return ResourceCollection
      */
     public function findByAuthor($author, $organizationId)
     {
         $ideas = $this->repository->findByAuthor($author, $organizationId);
-        return $ideas;
+        return new IdeaCollection($ideas);
     }
 }
