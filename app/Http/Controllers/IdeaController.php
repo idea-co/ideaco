@@ -58,7 +58,9 @@ class IdeaController extends Controller
             ]
         );
 
-        $this->repository->create($request->all(), $organizationId);
+        $idea = $this->repository->create($request->all(), $organizationId);
+        
+        return $idea;
     }
 
     /**

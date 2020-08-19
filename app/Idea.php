@@ -15,17 +15,18 @@ class Idea extends Model
      */
     public function organization()
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class, 'organization_id', 'id');
     }
 
     /**
-     * The user owning this idea
+     * The user owning this idea which must
+     * have already belonged to the organization
      * 
      * @return belongsTo
      */
     public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(OrganizationUser::class, 'user_id', 'id');
     }
 
     /**
