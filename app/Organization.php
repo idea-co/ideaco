@@ -37,4 +37,15 @@ class Organization extends Model
     {
         return $this->hasMany(Team::class, 'organization_id', 'id');
     }
+
+    /***
+     * Relationship to connect an organization
+     * to an idea
+     * 
+     * @return hasMany
+     */
+    public function ideas()
+    {
+        return $this->hasMany(Idea::class);
+    }
 }
