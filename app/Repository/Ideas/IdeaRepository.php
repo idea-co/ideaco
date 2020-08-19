@@ -79,8 +79,6 @@ class IdeaRepository implements IdeaInterface
      */
     public function find($id)
     {
-        $id = (int) $id;
-
         return $this->model->find($id);
     }
 
@@ -124,7 +122,6 @@ class IdeaRepository implements IdeaInterface
     */
     public function archive($id)
     {
-        //if it's an array, it will be a form object
         if (!is_array($id['ideas'])) {
             $idea = $this->model->where(['id' => $id])
                 ->update(['status' => 'Archived']);
