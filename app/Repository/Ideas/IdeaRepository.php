@@ -65,7 +65,7 @@ class IdeaRepository implements IdeaInterface
      */
     public function find($id)
     {
-        
+        return $this->model->find($id);
     }
 
     /**
@@ -73,7 +73,9 @@ class IdeaRepository implements IdeaInterface
      */
     public function findByAuthor($author, $organizationId)
     {
-        
+        return $this->model->where('user_id', $author)
+            ->where('organization_id', $organizationId)
+            ->first();
     }
 
     /**

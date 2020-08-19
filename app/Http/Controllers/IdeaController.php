@@ -70,9 +70,11 @@ class IdeaController extends Controller
      * @param  \App\Idea  $idea
      * @return \Illuminate\Http\Response
      */
-    public function show(Idea $idea)
+    public function show($idea)
     {
-        //
+        $idea = $this->repository->find($idea);
+
+        return new IdeaResource($idea);
     }
 
     /**

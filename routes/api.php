@@ -37,6 +37,7 @@ Route::group(['prefix' => 'organizations'], function () {
 
     Route::group(['prefix' => '{organizationId}/ideas'], function () {
         Route::post('/', 'IdeaController@store');
+        Route::get('/{idea}', 'IdeaController@show');
     });
 });
 
