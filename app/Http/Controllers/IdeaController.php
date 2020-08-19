@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\IdeaResource;
 use App\Idea;
 use App\Repository\Ideas\IdeaInterface;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class IdeaController extends Controller
 
         $idea = $this->repository->create($request->all(), $organizationId);
         
-        return $idea;
+        return new IdeaResource($idea);
     }
 
     /**

@@ -18,8 +18,9 @@ class IdeaResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            '_project' => new ProjectResource($this->project()),
+            '_owner' => new OrganizationUserResource($this->owner),
+            '_project' => new ProjectResource($this->project),
             '_organization' => new OrganizationResource($this->organization),
-        ] 
+        ]; 
     }
 }
