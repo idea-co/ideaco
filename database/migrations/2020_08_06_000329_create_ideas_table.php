@@ -17,7 +17,7 @@ class CreateIdeasTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('status')->default('Implemented'); //implemented, archived, etc
-            $table->string('project');
+            $table->string('project_id')->nullable(); //not all ideas will belong to a project
             $table->string('user_id');
             $table->string('organization_id');
             $table->text('body');
