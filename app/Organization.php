@@ -48,4 +48,23 @@ class Organization extends Model
     {
         return $this->hasMany(Idea::class);
     }
+
+    /**
+     * Retrieve implemented ideas from an organization
+     * 
+     */
+    public function implemented()
+    {
+        return $this->ideas()->where('status', 'Implemented')->get();
+    }
+
+    /**
+     * Retrieve ideas in the "implementing" stage 
+     * from an organization
+     * 
+     */
+    public function implementing()
+    {
+        return $this->ideas()->where('status', 'Implementing')->get();
+    }
 }

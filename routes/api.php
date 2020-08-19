@@ -35,9 +35,11 @@ Route::group(['prefix' => 'organizations'], function () {
     //log in a user to a workspace
     Route::post('/{organizationId}/login', 'OrganizationUserController@login');
 
-    Route::group(['prefix' => '{organizationId}/ideas'], function () {
+    Route::group(['prefix' => '/ideas'], function () {
         Route::post('/', 'IdeaController@store');
-        Route::get('/{idea}', 'IdeaController@show');
+        Route::patch('/archive', 'IdeaController@archive');
+        Route::get('{search}', 'IdeaController@show');
+        Route::patch('/{idea}/implement', 'IdeaController@implement');
         Route::patch('/{idea}', 'IdeaController@update');
         Route::get('/author/{author}', 'IdeaController@findByAuthor');
     });

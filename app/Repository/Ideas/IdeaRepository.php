@@ -99,4 +99,49 @@ class IdeaRepository implements IdeaInterface
     {
         
     }
+
+    /**
+     * @inheritDoc
+     * 
+    */
+    public function implement($idea)
+    {
+        $idea = $this->model->where('id', $idea)
+            ->update(['status' => 'Implemented']);
+
+        if (!$idea) {
+            throw new Exception("Failed to mark idea as implemented");
+        }
+
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     * 
+    */
+    public function archive($id)
+    {
+        if (!is_array($id['ideas'])) {
+            $idea = $this->model->where(['id' => $id])
+                ->update(['status' => 'Archived']);
+
+            if (!$idea) {
+                throw new Exception("Failed to archive idea");
+            }
+
+            return true;
+        } else {
+            try {
+                foreach ($id['ideas'] as $key => $value) {
+                    $this->model->where(['id' => $value])
+                        ->update(['status' => 'Archived']);
+                }
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+    
+            return true;
+        }
+    }
 }

@@ -68,14 +68,14 @@ class IdeaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Idea  $idea
+     * @param  \App\Idea  $search
      * @return \Illuminate\Http\Response
      */
-    public function show($idea)
+    public function show($search)
     {
-        $idea = $this->repository->find($idea);
+        $foundIdea = $this->repository->find($search);
 
-        return new IdeaResource($idea);
+        return new IdeaResource($foundIdea);
     }
 
     /**
@@ -97,7 +97,7 @@ class IdeaController extends Controller
      * @param  \App\Idea  $idea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $idea, $organizationId)
+    public function update(Request $request, $idea)
     {
         $request->validate(
             [
@@ -134,5 +134,31 @@ class IdeaController extends Controller
     {
         $ideas = $this->repository->findByAuthor($author, $organizationId);
         return new IdeaCollection($ideas);
+    }
+
+    /**
+     * Mark an idea as implemented
+     * 
+     * @param $idea id of the idea to implement
+     * 
+     * @return bool
+     */
+    public function implement($idea)
+    {
+        return $this->repository->implement($idea);
+    }
+
+    /**
+     * Archive a single idea provided via the url
+     * or archive a group of ideas provided via a
+     * form request
+     * 
+     * @param Integer|Array $idea
+     * 
+     * @return bool 
+     */
+    public function archive(Request $request)
+    {
+        return $this->repository->archive($request->all());
     }
 }
