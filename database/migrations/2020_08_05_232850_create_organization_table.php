@@ -67,8 +67,6 @@ class CreateOrganizationTable extends Migration
                     ->references('id')
                     ->on('organization')
                     ->onDelete('cascade');
-
-//                $table->primary(['user_id', 'organization_id']);
         });
     }
 

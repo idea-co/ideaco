@@ -15,6 +15,7 @@ class OrganizationUser extends Authenticatable
     protected $guarded = ['id'];
 
     protected $table = 'organization_user';
+    
     /**
      * @return BelongsTo
      */
