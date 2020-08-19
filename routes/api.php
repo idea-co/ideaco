@@ -34,6 +34,10 @@ Route::group(['prefix' => 'organizations'], function () {
     Route::post('/{organizationId}/admin/login', 'OrganizationUserController@firstLogin');
     //log in a user to a workspace
     Route::post('/{organizationId}/login', 'OrganizationUserController@login');
+
+    Route::group(['prefix' => '{organizationId}/ideas'], function () {
+        Route::post('/', 'IdeaController@store');
+    });
 });
 
 Route::group(['middleware' => ['auth:sanctum'],'prefix'=> 'organizations' ], function () {

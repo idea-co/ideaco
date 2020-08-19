@@ -1,16 +1,18 @@
 <?php
 
-interface Idea
+namespace App\Repository\Ideas;
+
+interface IdeaInterface
 {
-    
     /**
      * Create a new idea
      * 
-     * @param $data form data to create an idea with
+     * @param $data           form data to create an idea with
+     * @param $organizationId unique id of the organization to create with 
      * 
      * @return App\Idea
      */
-    public function create($data);
+    public function create($data, $organizationId);
 
     /**
      * Edit an idea

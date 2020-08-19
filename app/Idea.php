@@ -27,4 +27,14 @@ class Idea extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Sometimes an idea belongs to a project
+     * 
+     * @return belongsTo
+     */
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }

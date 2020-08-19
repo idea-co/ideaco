@@ -12,6 +12,8 @@ use App\Repository\Team\TeamRepositoryInterface;
 use App\Repository\Team\TeamRepository;
 use App\Repository\Users\UserRepositoryInterface;
 use App\Repository\Users\UserRepository;
+use App\Repository\Ideas\IdeaInterface;
+use App\Repository\Ideas\IdeaRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -48,9 +50,17 @@ class AppServiceProvider extends ServiceProvider
             TeamRepositoryInterface::class,
             TeamRepository::class
         );
+
+        //Bind the OrganizationUser interface
         $this->app->bind(
             OrganizationUserInterface::class,
             OrganizationUserRepository::class
+        );
+
+        //Bind the Idea interface
+        $this->app->bind(
+            IdeaInterface::class,
+            IdeaRepository::class
         );
 
         if ($this->app->isLocal()) {

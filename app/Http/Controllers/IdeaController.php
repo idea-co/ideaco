@@ -3,10 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Idea;
+use App\Repository\Ideas\IdeaInterface;
 use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
+
+    protected $repository;
+
+    /**
+     * Typehint the interface repository
+     * 
+     * @param $repository the interface objeect
+     * 
+     * @return $repository 
+     */
+    public function __construct(IdeaInterface $repository)
+    {
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +48,17 @@ class IdeaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $organizationId)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required',
+                'body' => 'required',
+                'user_id' => 'required',
+            ]
+        );
+
+        $this->repository->create($request->all(), $organizationId);
     }
 
     /**

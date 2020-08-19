@@ -1,7 +1,8 @@
 <?php
 
-use App\Idea;
+namespace App\Repository\Ideas;
 
+use App\Idea;
 /**
  * This class implements Idea interface to
  * offer the functionalities necessary to
@@ -9,7 +10,7 @@ use App\Idea;
  * 
  * @author Samuel Olaegbe <olaegbesamuel@gmail.com>
  */
-class IdeaRepository implements Idea
+class IdeaRepository implements IdeaInterface
 {
     protected $model;
 
@@ -33,7 +34,7 @@ class IdeaRepository implements Idea
         $idea = $this->model::create(
             [
                 'title' => $data['title'],
-                'project_id' => $data['project_id'],
+                'project_id' => $data['project_id'] ?? null,
                 'user_id' => $data['user_id'],
                 'organization_id' => $organizationId,
                 'body' => $data['body']
