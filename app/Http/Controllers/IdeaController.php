@@ -91,14 +91,24 @@ class IdeaController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * We only want to update the title or the body
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Idea  $idea
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Idea $idea)
+    public function update(Request $request, $idea, $organizationId)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required',
+                'body' => 'required',
+            ]
+        );
+
+        $idea = $this->repository->update($request->all(), $idea);
+
+        return new IdeaResource($idea);
     }
 
     /**

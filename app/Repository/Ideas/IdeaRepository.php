@@ -3,6 +3,8 @@
 namespace App\Repository\Ideas;
 
 use App\Idea;
+use Exception;
+
 /**
  * This class implements Idea interface to
  * offer the functionalities necessary to
@@ -47,9 +49,21 @@ class IdeaRepository implements IdeaInterface
     /**
      * @inheritDoc
      */
-    public function edit($data, $id)
+    public function update($data, $id)
     {
-        
+        $idea = $this->model->where(['id' => $id])
+            ->update( 
+                [
+                    'title' => $data['title'],
+                    'body' => $data['body'],
+                ]
+            );
+
+        if (!$idea) {
+            throw new Exception("Failed to update idea");
+        }
+
+        return $this->model->find($id);
     }
 
     /**

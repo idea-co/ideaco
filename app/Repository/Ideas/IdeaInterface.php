@@ -22,7 +22,7 @@ interface IdeaInterface
      * 
      * @return App\Idea
      */
-    public function edit($data, $id);
+    public function update($data, $id);
 
     /**
      * Delete an idea
