@@ -1204,6 +1204,7 @@ form label {
 #contact .block__section2__cont .email_cont label {
   font-family: Roboto;
   font-size: 21px;
+  float: none;
 }
 
 #contact .block__section2__cont .textfield_cont {
@@ -1213,6 +1214,7 @@ form label {
 #contact .block__section2__cont .textfield_cont label {
   font-family: Roboto;
   font-size: 21px;
+  float: none;
 }
 
 #contact .block__section2__cont .textfield_cont textarea {
