@@ -60,29 +60,6 @@ class OrganizationRepository implements OrganizationRepositoryInterface
     }
 
     /**
-     * Do same as the interface
-     */
-    public function firstLogin($data, $organizationId)
-    {
-        $organization = $this->organization::find($organizationId);
-        $user = User::where('email', $data['email'])->get();
-
-        $loggedIn = $organization->members()->attach(
-            $user[0],
-            [
-                'displayName' => $data['name'],
-                'password' => Hash::make($data['password']),
-                'email' => $data['email'],
-            ]
-        );
-
-        if($loggedIn){
-            return true;
-        }
-
-    }
-
-    /**
      * Retrieve a single organization
      *
      * @param String $shortname the unique name of the org

@@ -108,7 +108,7 @@ if(window.location.href.indexOf("start") > -1){
     routes = DashboardRoutes;
 }
 
-export default new VueRouter({
+const router = new VueRouter({
     routes,
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
@@ -116,5 +116,23 @@ export default new VueRouter({
         } else {
             return { x: 0, y: 0 }
         }
-    }
+    },
 }) 
+
+/**
+ * Fetch user token from localstorage to authenticate each 
+ * request
+ */
+router.beforeEach((to, from, next) => {
+    const userInfo = localStorage.getItem('user');
+    if(userInfo){
+        const userData = JSON.parse(userInfo);
+        let token = "Bearer " + userData.data.token;
+        axios.defaults.headers.common['Authorization'] = token;
+        next();
+    }else{
+        next();
+    }
+})
+
+export default router;

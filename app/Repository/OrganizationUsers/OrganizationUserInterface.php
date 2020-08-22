@@ -41,6 +41,18 @@ interface OrganizationUserInterface
     public function login(Request $request, $organizationId);
 
     /**
+     * Add an admin to the members of the workspace
+     * And Login an admin to the workspace after
+     * creating a workspace
+     * 
+     * @param Request $request form request
+     * @param $organizationId  workspace id
+     * 
+     * @return mixed
+     */
+    public function firstLogin(Request $request, $organizationId);
+
+    /**
      * Find the member of an organization
      *
      * @param Request $request

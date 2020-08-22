@@ -16,9 +16,10 @@ class CreateIdeasTable extends Migration
         Schema::create('ideas', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('status'); //published, draft, etc
-            $table->string('project');
+            $table->string('status')->default('Implemented'); //implemented, archived, etc
+            $table->string('project_id')->nullable(); //not all ideas will belong to a project
             $table->string('user_id');
+            $table->string('organization_id');
             $table->text('body');
             $table->timestamps();
         });

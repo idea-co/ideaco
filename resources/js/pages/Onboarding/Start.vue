@@ -16,7 +16,7 @@
                     <p class="title-description color-grey">Join your team on the ideaspace.</p>
                     <router-link to="/sign-in" class="join">
                         <button class="get-started">
-                            Join
+                            Sign in
                         </button>
                     </router-link>
                 </div>

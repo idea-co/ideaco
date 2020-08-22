@@ -25,19 +25,6 @@ class OrganizationController extends Controller
     }
 
     /**
-     * Log in the admin of the organization
-     * for the first time
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function firstLogin(Request $request, $organizationId)
-    {
-        $isLoggedIn = $this->model->firstLogin($request, $organizationId);
-
-        return $isLoggedIn;
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

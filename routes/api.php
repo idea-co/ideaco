@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::post('/users', 'UserController@store');
 Route::put('/users/verify', 'UserController@verify');
 
@@ -35,11 +31,20 @@ Route::group(['prefix' => 'organizations'], function () {
     // Add member to an organization
     Route::get('/{organizationId}/members', 'OrganizationUserController@show');
     // log in the admin (creator) to complete the onboarding process
-    Route::post('/{organizationId}/admin/login', 'OrganizationController@firstLogin');
+    Route::post('/{organizationId}/admin/login', 'OrganizationUserController@firstLogin');
     //log in a user to a workspace
-    Route::post('/{organizationId}/members/login', 'OrganizationUserController@login');
+    Route::post('/{organizationId}/login', 'OrganizationUserController@login');
 
+    Route::group(['prefix' => '/ideas'], function () {
+        Route::post('/', 'IdeaController@store');
+        Route::patch('/archive', 'IdeaController@archive');
+        Route::get('{search}', 'IdeaController@show');
+        Route::patch('/{idea}/implement', 'IdeaController@implement');
+        Route::patch('/{idea}', 'IdeaController@update');
+        Route::get('/author/{author}', 'IdeaController@findByAuthor');
+    });
 });
+
 Route::group(['middleware' => ['auth:sanctum'],'prefix'=> 'organizations' ], function () {
     Route::patch('/members/password', 'OrganizationUserController@passwordReset');
     Route::get('/members', 'OrganizationUserController@index');

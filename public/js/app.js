@@ -1899,6 +1899,54 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/UserService */ "./resources/js/services/UserService.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      user: new _services_UserService__WEBPACK_IMPORTED_MODULE_0__["default"]()
+    };
+  },
+  computed: {
+    name: function name() {
+      return this.user.displayName();
+    },
+    avatar: function avatar() {
+      return this.user.avatar();
+    },
+    organizationAvatar: function organizationAvatar() {
+      return this.user.organizationAvatar();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Sidebar.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Sidebar.vue?vue&type=script&lang=js& ***!
@@ -2197,6 +2245,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
+      var _this = this;
+
       this.$store.dispatch('adminLogin', this.form).then(function (response) {
         console.log(response);
         /**
@@ -2204,9 +2254,11 @@ __webpack_require__.r(__webpack_exports__);
          * sub-domain created for that Ideaspace
          * something like {shortname.ideaco.com}
          */
-        //redirect to dashboard
 
-        window.location.href = "/app";
+        _this.$store.commit('setLoggedInUser', response); //redirect to dashboard
+
+
+        window.location.href = '/app/' + response.data.organization.shortname;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2390,7 +2442,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         password: '',
-        email: ''
+        email: this.$store.getters.loginUserEmail
       })
     };
   },
@@ -2400,9 +2452,10 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$store.dispatch('loginToWorkspace', this.form).then(function (response) {
         if (response) {
-          _this.$store.commit('setLoggedInUser', response);
+          _this.$store.commit('setLoggedInUser', response); //navigate to organization dashboard
 
-          _this.$router.push("/sign-in/password");
+
+          window.location.href = '/app/' + response.data.organization.shortname;
         }
       })["catch"](function (err) {
         console.log(err);
@@ -2416,7 +2469,7 @@ __webpack_require__.r(__webpack_exports__);
     organizationName: function organizationName() {
       return this.$store.getters.loginOrganization.name;
     },
-    getUserId: function getUserId() {
+    getUserEmail: function getUserEmail() {
       return this.$store.getters.loginUserEmail;
     }
   }
@@ -21027,6 +21080,51 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "content__header__section1" }, [
+    _c("div", { staticClass: "content__header__section1__desc" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Welcome " + _vm._s(_vm.name))]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Your job, your idea")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "content__header__section1__profile" }, [
+      _c("img", { staticClass: "far fa-user", attrs: { src: _vm.avatar } })
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "/" } }, [
+      _c("img", { attrs: { src: __webpack_require__(/*! ../../img/primary_logo.png */ "./resources/img/primary_logo.png") } })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Sidebar.vue?vue&type=template&id=81fbb27e&":
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Sidebar.vue?vue&type=template&id=81fbb27e& ***!
@@ -22341,7 +22439,9 @@ var render = function() {
               { staticClass: "join", attrs: { to: "/sign-in" } },
               [
                 _c("button", { staticClass: "get-started" }, [
-                  _vm._v("\n                        Join\n                    ")
+                  _vm._v(
+                    "\n                        Sign in\n                    "
+                  )
                 ])
               ]
             )
@@ -39068,6 +39168,17 @@ module.exports = "/images/Group9.svg?f86313d0bba1bf53e97ed04c7eac6b01";
 
 /***/ }),
 
+/***/ "./resources/img/primary_logo.png":
+/*!****************************************!*\
+  !*** ./resources/img/primary_logo.png ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/primary_logo.png?5841b7eb12648e545a41b28f7e8a9bd3";
+
+/***/ }),
+
 /***/ "./resources/img/secondary_logo.png":
 /*!******************************************!*\
   !*** ./resources/img/secondary_logo.png ***!
@@ -39154,6 +39265,76 @@ __webpack_require__(/*! ./elements/sidebar */ "./resources/js/elements/sidebar.j
 /***/ (function(module, exports, __webpack_require__) {
 
 Vue.component('sidebar', __webpack_require__(/*! ./components/Sidebar */ "./resources/js/components/Sidebar.vue")["default"]);
+Vue.component('auth-user-banner', __webpack_require__(/*! ./components/AuthUserBanner */ "./resources/js/components/AuthUserBanner.vue")["default"]);
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthUserBanner.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/AuthUserBanner.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthUserBanner.vue?vue&type=template&id=2af2436c& */ "./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c&");
+/* harmony import */ var _AuthUserBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthUserBanner.vue?vue&type=script&lang=js& */ "./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AuthUserBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AuthUserBanner.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthUserBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AuthUserBanner.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthUserBanner.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthUserBanner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AuthUserBanner.vue?vue&type=template&id=2af2436c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AuthUserBanner.vue?vue&type=template&id=2af2436c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AuthUserBanner_vue_vue_type_template_id_2af2436c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -40606,7 +40787,7 @@ if (window.location.href.indexOf("start") > -1) {
   routes = DashboardRoutes;
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
@@ -40618,7 +40799,98 @@ if (window.location.href.indexOf("start") > -1) {
       };
     }
   }
-}));
+});
+/**
+ * Fetch user token from localstorage to authenticate each 
+ * request
+ */
+
+router.beforeEach(function (to, from, next) {
+  var userInfo = localStorage.getItem('user');
+
+  if (userInfo) {
+    var userData = JSON.parse(userInfo);
+    var token = "Bearer " + userData.data.token;
+    axios.defaults.headers.common['Authorization'] = token;
+    next();
+  } else {
+    next();
+  }
+});
+/* harmony default export */ __webpack_exports__["default"] = (router);
+
+/***/ }),
+
+/***/ "./resources/js/services/UserService.js":
+/*!**********************************************!*\
+  !*** ./resources/js/services/UserService.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var User = /*#__PURE__*/function () {
+  /**
+   * @param {By default we will use the localStorage unless the value of db is 'server'} db 
+   * 
+   */
+  function User() {
+    var db = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'local';
+
+    _classCallCheck(this, User);
+
+    var json = '';
+
+    if (db === 'local') {
+      json = localStorage.getItem('user');
+      json = JSON.parse(json);
+    }
+
+    this.user = json.data;
+  }
+
+  _createClass(User, [{
+    key: "displayName",
+    value: function displayName() {
+      return this.user.displayName;
+    }
+  }, {
+    key: "avatar",
+    value: function avatar() {
+      var _this$user$avatar;
+
+      return (_this$user$avatar = this.user.avatar) !== null && _this$user$avatar !== void 0 ? _this$user$avatar : "gravatar";
+    }
+  }, {
+    key: "position",
+    value: function position() {
+      return this.user.position;
+    }
+  }, {
+    key: "twitter",
+    value: function twitter() {
+      return this.user.twitter;
+    }
+  }, {
+    key: "organizationAvatar",
+    value: function organizationAvatar() {
+      var _this$user$organizati;
+
+      return (_this$user$organizati = this.user.organization.photo_url) !== null && _this$user$organizati !== void 0 ? _this$user$organizati : this.user.organization.name;
+    }
+  }]);
+
+  return User;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (User);
 
 /***/ }),
 
@@ -40648,19 +40920,19 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
       organization: null,
       email: null
     },
-    user: {
-      token: null,
-      role: null
-    },
+    user: null,
     isLoggedIn: false
   },
   mutations: {
     setLoggedInUser: function setLoggedInUser(state, user) {
       state.isLoggedIn = true;
-      state.user = user; // let token = "Bearer " + user.token;
-      //save user data to localStorage
+      state.user = user; //retrieve the user token
 
-      localStorage.setItem('user', JSON.stringify(user)); // axios.defaults.headers.common['Authorization'] = token;
+      var token = "Bearer " + user.data.token; //save user data to localStorage
+
+      localStorage.setItem('user', JSON.stringify(user)); //authenticate all future requests
+
+      axios.defaults.headers.common['Authorization'] = token;
     },
 
     /**
