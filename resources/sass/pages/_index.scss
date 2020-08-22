@@ -3,9 +3,9 @@
     .block{
         display: grid;
         &__section1{
-            padding: 30px 50px 0px 50px;
-            margin-top: 70px;
-            background-image: url('../../img/Rectangle59.png');
+            padding: 100px 50px 0px 50px;
+            margin-top: 0px;
+            background-image: url('../../img/Rectangle59.svg');
             background-repeat: no-repeat;
             background-size: cover;
             height: 750px;
@@ -15,18 +15,17 @@
                 h1{
                     color: $primary-color;
                     font-size: 60px;
-                    line-height: 59px;
                     font-weight: bold;
                 }
                 p{
                     margin-top: 20px;
                     color: $theme-color;
-                    font-size: 25px;
+                    font-size: 20px;
                     font-weight: 500;
                 }
                 button{
-                    width: 321px;
-                    height: 70px;
+                    width: 300px;
+                    height: 64px;
                     color: $bg-color;
                     border-radius: 10px;
                     background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
@@ -38,6 +37,7 @@
                     letter-spacing: 0.03em;
                     &:hover{
                         background: $secondary-color;
+                        color: #bfbfbf;
                     }
                 }
             }
@@ -50,7 +50,12 @@
         }
         &__section2{
             background-color: #FAFAFA;
-            padding: 30px 0px;
+            padding: 40px 0px;
+            text-align: center;
+            p{
+                color:  #8D8D8D;
+                font-size: 20px;
+            }
             &__cont1{
                 width: 800px;
                 margin: auto;
@@ -75,7 +80,6 @@
             text-align: center;
             padding: 70px 10px;
             h2{
-                font-size: 33px;
                 font-weight: bold;
             }
             p{
@@ -89,14 +93,14 @@
                 margin: auto;
                 &__box{
                     width: 500px;
-                    height: 500px;
+                    height: 450px;
                     margin: 25px;
                     float: left;
                     background: $bg-color;
                     box-shadow: 0px 5px 20px rgba(102, 38, 238, 0.15);
                     border-radius: 10px;
                     text-align: center;
-                    padding: 30px;
+                    padding: 20px 30px;
                     cursor: pointer;
                     &:hover{
                         transform: scale(1.05);
@@ -105,10 +109,10 @@
                     img{
                         margin: auto;
                         margin-bottom: 30px;
-                        height: 250px;
+                        height: 230px;
                     }
                     div{
-                        text-align: left;
+                        text-align: center;
                         color: $secondary-color;
                         h2{
                             font-weight: bold;
@@ -242,8 +246,8 @@
                     font-size: 20px;
                 }
                 button{
-                    width: 321px;
-                    height: 70px;
+                    width: 300px;
+                    height: 64px;
                     color: $bg-color;
                     border-radius: 10px;
                     background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
@@ -255,6 +259,7 @@
                     letter-spacing: 0.03em;
                     &:hover{
                         background: $secondary-color;
+                        color: #bfbfbf;
                     }
                 }
                 img{
@@ -317,7 +322,7 @@
         .block{
             &__section1{
                 height: 650px;
-                padding: 30px 20px 0px 20px;
+                padding: 100px 20px 0px 20px;
                 &__cont1,&__cont2{
                     width: 50%;
                 }
@@ -402,8 +407,6 @@
     #home{
         .block{
             &__section1{
-                height: 650px;
-                padding: 30px 20px 0px 20px;
                 &__cont1{
                     width: 100%;
                 }
@@ -424,9 +427,7 @@
     #home{
         .block{
             &__section1{
-                height: 620px;
-                margin-top: 20px;
-                padding: 30px 10px 0px 10px;
+                padding: 70px 7% 0px 7%;
                 &__cont1{
                     width: 100%;
                     h1{
@@ -436,17 +437,24 @@
                         margin-top: 30px;
                         font-size: 20px;
                     }
+                    button{
+                        width: 250px;
+                        height: 55px;
+                    }
                 }
                 &__cont2{
                     display: none;
                 }
             }
             &__section2{
-                padding: 20px 10px;
+                padding: 20px 7%;
                 &__cont1{
                     width: 100%;
                     padding: 0px;
                     display: grid;
+                    div h2{
+                        font-size: 30px;
+                    }
                     img{
                         margin: auto;
                     }
@@ -454,22 +462,26 @@
                 }
             }
             &__section3{
-                padding: 20px 0px;
+                padding: 20px 7%;
                 P{
-                    width: 90%;
+                    width: auto;
                     margin: auto;
                 }
                 h2{
-                    width: 95%;
-                    margin: auto;
+                    width: auto;
+                    margin: auto auto 15px auto;
+                    font-size: 30px;
                 }
                 &__cont{
-                    width: 92%;
+                    width: 100%;
                     &__box{
                         width: 100%;
                         height: auto;
-                        margin: 20px auto;
-                        padding: 20px 10px;
+                        margin: 30px auto;
+                        padding: 20px 5px;
+                        &:hover{
+                            transform: scale(1) ;
+                        }
                         img{
                             margin: auto;
                             margin-bottom: 20px;
@@ -478,19 +490,23 @@
                         }
                         div{
                             text-align: center;
+                            h2{
+                                font-size: 30px;
+                            }
                         }
                     }
                 }
             }
             &__section4{
-                padding: 50px 0px;
+                padding: 50px 7%;
                 &__cont{
                     padding: 10px 5px;
-                    width: 95%;
+                    width: 100%;
                     margin: auto;
                     height: 600px;
                     h2{
                         margin-bottom: 20px;
+                        font-size: 30px;
                     }
                     &__slider{
                         height: 450px;
@@ -511,12 +527,18 @@
                 }
             }
             &__section5{
+                padding: 50px 7%;
                 div{
-                    width: 100%;
-                }
-                .container{
+                    width: auto;
+                    h2{
+                        font-size: 30px;
+                    }
                     img{
-                        content: url('../../img/Works_mobile.png');
+                        content: url('../../img/Works_mobile.svg');
+                    }
+                    button{
+                        width: 250px;
+                        height: 55px;
                     }
                 }
             }
