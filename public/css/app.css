@@ -70,7 +70,7 @@ form label {
 }
 
 .ideaco_header__navbar1 {
-  width: 300px;
+  width: 285px;
 }
 
 .ideaco_header__navbar2 {
@@ -87,15 +87,16 @@ form label {
 
 .ideaco_header__navbar1 a,
 .ideaco_header__navbar2 a {
-  font-size: 22px;
+  font-size: 20px;
   color: #8D8D8D;
   cursor: pointer;
   text-decoration: none;
+  border-bottom: 3px solid transparent;
 }
 
 .ideaco_header__navbar1 a:hover,
 .ideaco_header__navbar2 a:hover {
-  border-bottom: 3px solid #6626EE;
+  border-color: #6626EE;
   color: #6626EE;
 }
 
@@ -134,6 +135,7 @@ form label {
 .ideaco_header__navbar1 button:hover,
 .ideaco_header__navbar2 button:hover {
   background: #6626EE;
+  color: #bfbfbf;
 }
 
 .ideaco_header__menu {
@@ -258,7 +260,7 @@ form label {
   }
 
   .ideaco_header--mobile--active .ideaco_header__navbar1 a {
-    margin: 20px auto;
+    margin: 10px auto;
   }
 
   .ideaco_header--mobile--active .ideaco_header__navbar2 {
@@ -331,7 +333,7 @@ form label {
 @media (max-width: 550px) {
   .ideaco_header,
   .ideaco_footer {
-    padding: 25px 20px 20px 20px;
+    padding: 25px 7% 20px 7%;
   }
 }
 
@@ -344,9 +346,9 @@ form label {
 }
 
 #home .block__section1 {
-  padding: 30px 50px 0px 50px;
-  margin-top: 70px;
-  background-image: url(/images/Rectangle59.png?da818a98862fe496aaab48f3dfda3fc5);
+  padding: 100px 50px 0px 50px;
+  margin-top: 0px;
+  background-image: url(/images/Rectangle59.svg?222cbceb643cc9c9a439147d24d5be78);
   background-repeat: no-repeat;
   background-size: cover;
   height: 750px;
@@ -360,20 +362,19 @@ form label {
 #home .block__section1__cont1 h1 {
   color: #000000;
   font-size: 60px;
-  line-height: 59px;
   font-weight: bold;
 }
 
 #home .block__section1__cont1 p {
   margin-top: 20px;
   color: #464646;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
 }
 
 #home .block__section1__cont1 button {
-  width: 321px;
-  height: 70px;
+  width: 300px;
+  height: 64px;
   color: #ffffff;
   border-radius: 10px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
@@ -387,6 +388,7 @@ form label {
 
 #home .block__section1__cont1 button:hover {
   background: #6626EE;
+  color: #bfbfbf;
 }
 
 #home .block__section1__cont2 {
@@ -398,7 +400,13 @@ form label {
 
 #home .block__section2 {
   background-color: #FAFAFA;
-  padding: 30px 0px;
+  padding: 40px 0px;
+  text-align: center;
+}
+
+#home .block__section2 p {
+  color: #8D8D8D;
+  font-size: 20px;
 }
 
 #home .block__section2__cont1 {
@@ -427,7 +435,6 @@ form label {
 }
 
 #home .block__section3 h2 {
-  font-size: 33px;
   font-weight: bold;
 }
 
@@ -445,14 +452,14 @@ form label {
 
 #home .block__section3__cont__box {
   width: 500px;
-  height: 500px;
+  height: 450px;
   margin: 25px;
   float: left;
   background: #ffffff;
   box-shadow: 0px 5px 20px rgba(102, 38, 238, 0.15);
   border-radius: 10px;
   text-align: center;
-  padding: 30px;
+  padding: 20px 30px;
   cursor: pointer;
 }
 
@@ -464,11 +471,11 @@ form label {
 #home .block__section3__cont__box img {
   margin: auto;
   margin-bottom: 30px;
-  height: 250px;
+  height: 230px;
 }
 
 #home .block__section3__cont__box div {
-  text-align: left;
+  text-align: center;
   color: #6626EE;
 }
 
@@ -628,8 +635,8 @@ form label {
 }
 
 #home .block__section5 div button {
-  width: 321px;
-  height: 70px;
+  width: 300px;
+  height: 64px;
   color: #ffffff;
   border-radius: 10px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
@@ -643,6 +650,7 @@ form label {
 
 #home .block__section5 div button:hover {
   background: #6626EE;
+  color: #bfbfbf;
 }
 
 #home .block__section5 div img {
@@ -698,7 +706,7 @@ form label {
 @media (max-width: 1000px) {
   #home .block__section1 {
     height: 650px;
-    padding: 30px 20px 0px 20px;
+    padding: 100px 20px 0px 20px;
   }
 
   #home .block__section1__cont1,
@@ -781,11 +789,6 @@ form label {
 }
 
 @media (max-width: 850px) {
-  #home .block__section1 {
-    height: 650px;
-    padding: 30px 20px 0px 20px;
-  }
-
   #home .block__section1__cont1 {
     width: 100%;
   }
@@ -805,9 +808,7 @@ form label {
 
 @media (max-width: 550px) {
   #home .block__section1 {
-    height: 620px;
-    margin-top: 20px;
-    padding: 30px 10px 0px 10px;
+    padding: 70px 7% 0px 7%;
   }
 
   #home .block__section1__cont1 {
@@ -823,12 +824,17 @@ form label {
     font-size: 20px;
   }
 
+  #home .block__section1__cont1 button {
+    width: 250px;
+    height: 55px;
+  }
+
   #home .block__section1__cont2 {
     display: none;
   }
 
   #home .block__section2 {
-    padding: 20px 10px;
+    padding: 20px 7%;
   }
 
   #home .block__section2__cont1 {
@@ -838,33 +844,42 @@ form label {
     text-align: center;
   }
 
+  #home .block__section2__cont1 div h2 {
+    font-size: 30px;
+  }
+
   #home .block__section2__cont1 img {
     margin: auto;
   }
 
   #home .block__section3 {
-    padding: 20px 0px;
+    padding: 20px 7%;
   }
 
   #home .block__section3 P {
-    width: 90%;
+    width: auto;
     margin: auto;
   }
 
   #home .block__section3 h2 {
-    width: 95%;
-    margin: auto;
+    width: auto;
+    margin: auto auto 15px auto;
+    font-size: 30px;
   }
 
   #home .block__section3__cont {
-    width: 92%;
+    width: 100%;
   }
 
   #home .block__section3__cont__box {
     width: 100%;
     height: auto;
-    margin: 20px auto;
-    padding: 20px 10px;
+    margin: 30px auto;
+    padding: 20px 5px;
+  }
+
+  #home .block__section3__cont__box:hover {
+    transform: scale(1);
   }
 
   #home .block__section3__cont__box img {
@@ -878,19 +893,24 @@ form label {
     text-align: center;
   }
 
+  #home .block__section3__cont__box div h2 {
+    font-size: 30px;
+  }
+
   #home .block__section4 {
-    padding: 50px 0px;
+    padding: 50px 7%;
   }
 
   #home .block__section4__cont {
     padding: 10px 5px;
-    width: 95%;
+    width: 100%;
     margin: auto;
     height: 600px;
   }
 
   #home .block__section4__cont h2 {
     margin-bottom: 20px;
+    font-size: 30px;
   }
 
   #home .block__section4__cont__slider {
@@ -911,12 +931,25 @@ form label {
     padding: 60px 10px;
   }
 
-  #home .block__section5 div {
-    width: 100%;
+  #home .block__section5 {
+    padding: 50px 7%;
   }
 
-  #home .block__section5 .container img {
-    content: url(/images/Works_mobile.png?ae5787cd2d78d1fa02f8b8ddfebf8da3);
+  #home .block__section5 div {
+    width: auto;
+  }
+
+  #home .block__section5 div h2 {
+    font-size: 30px;
+  }
+
+  #home .block__section5 div img {
+    content: url(/images/Works_mobile.svg?f66c57ebd9517ad27f00639db500a512);
+  }
+
+  #home .block__section5 div button {
+    width: 250px;
+    height: 55px;
   }
 }
 
@@ -989,8 +1022,8 @@ form label {
 }
 
 #about .our-mission-section {
-  padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 #about .our-mission-section .title {
@@ -1002,8 +1035,8 @@ form label {
 }
 
 #about .our-vision-section {
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 #about .our-vision-section .title {
@@ -1215,8 +1248,8 @@ form label {
 }
 
 #contact .block__section2__cont button {
-  width: 500px;
-  height: 69px;
+  width: 300px;
+  height: 64px;
   color: #ffffff;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
   border-radius: 10px;
@@ -1227,6 +1260,7 @@ form label {
 
 #contact .block__section2__cont button:hover {
   background: #6626EE;
+  color: #bfbfbf;
 }
 
 @media (max-width: 1250px) {
@@ -1257,7 +1291,7 @@ form label {
 
 @media (max-width: 750px) {
   #contact .block__section1 {
-    width: 95%;
+    width: 90%;
   }
 
   #contact .block__section2 {
@@ -1280,11 +1314,6 @@ form label {
 
   #contact .block__section2__cont .textfield_cont {
     text-align: left;
-  }
-
-  #contact .block__section2__cont button {
-    width: 300px;
-    margin: auto;
   }
 }
 
@@ -2950,19 +2979,19 @@ form label {
 }
 
 .dashboard .sidebar__section .explore:hover img {
-  content: url("/img/Group11.svg");
+  content: url("/img/Group9.png");
 }
 
 .dashboard .sidebar__section .challenge:hover img {
-  content: url("/img/Group10.svg");
+  content: url("/img/Group15.png");
 }
 
 .dashboard .sidebar__section .overview:hover img {
-  content: url("/img/Group12.svg");
+  content: url("/img/Group16.png");
 }
 
 .dashboard .sidebar__section .history:hover img {
-  content: url("/img/Group9.svg");
+  content: url("/img/Group17.png");
 }
 
 .dashboard .sidebar__section .active-link .explore {

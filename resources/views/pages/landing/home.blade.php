@@ -8,7 +8,7 @@
     <div class="block" id="home">
         <div class="block__section1">
             <div class="block__section1__cont1">
-                <h1>Never Lose Your Next Big Ideal.</h1>
+                <h1>Never Lose Your Next Big Idea.</h1>
                 <p>IDEACO is robust and powerful idea management system with phases through share, support, prioritize
                 and implementation of the right ideas for businesses.<br>Begin managing ideas.</p>
                 <button onclick="window.location.href='/start'">Get Started</button>
@@ -18,6 +18,7 @@
             </div>
         </div>
         <div class="block__section2">
+            <p>TRUSTED BY BUSINESSES, BIG AND SMALL</p>
             <div class="block__section2__cont1">
                 <img src="{{ asset('img/Frame.png') }}"/>
                 <div>
@@ -131,9 +132,9 @@
             </div>
         </div>
         <div class="block__section5">
-            <div class="container">
-                <h3>How it works</h3>
-                <img src="/img/Works.png">
+            <div>
+                <h2>How it works</h2> 
+                <img src="/img/Works.svg">
                 <button class="" onclick="window.location.href='/start'">Get Started</button>
             </div>
         </div>

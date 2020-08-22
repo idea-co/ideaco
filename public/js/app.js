@@ -39002,9 +39002,6 @@ module.exports = g;
 
 /***/ }),
 
-<<<<<<< HEAD
-/***/ "./resources/img/Group10.svg":
-=======
 /***/ "./resources/img/Google.svg":
 /*!**********************************!*\
   !*** ./resources/img/Google.svg ***!
@@ -39012,12 +39009,11 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Google.svg?bb8d519cb892384952117e3a0571a1f0";
+module.exports = "/images/Google.svg?26edf1810906dcbf7209fa1a6459b7e9";
 
 /***/ }),
 
-/***/ "./resources/img/Group10.png":
->>>>>>> b74168e6b821cfdd158485b33e84da91b0dc28b1
+/***/ "./resources/img/Group10.svg":
 /*!***********************************!*\
   !*** ./resources/img/Group10.svg ***!
   \***********************************/

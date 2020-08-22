@@ -78,8 +78,8 @@
                     }
                 }
                 button{
-                    width: 500px;
-                    height: 69px;
+                    width: 300px;
+                    height: 64px;
                     color: $bg-color;
                     background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
                     border-radius: 10px;
@@ -88,6 +88,7 @@
                     font-size: 22px;
                     &:hover{
                         background: $secondary-color;
+                        color: #bfbfbf;
                     }
                 }
             }
@@ -125,7 +126,7 @@
     #contact{
         .block{
             &__section1{
-                width: 95%;
+                width: 90%;
             }
             &__section2{
                 width: 95%;
@@ -141,10 +142,6 @@
                     }
                     .textfield_cont{
                        text-align: left;
-                    }
-                    button{
-                        width: 300px;
-                        margin: auto;
                     }
                 }
             }
