@@ -346,9 +346,9 @@ form label {
 }
 
 #home .block__section1 {
-  padding: 100px 50px 0px 50px;
+  padding: 90px 50px 0px 50px;
   margin-top: 0px;
-  background-image: url(/images/Rectangle59.svg?222cbceb643cc9c9a439147d24d5be78);
+  background-image: url(/images/Rectangle59.svg?7b41ab87f56c7c3e0cbb5fad30858dd5);
   background-repeat: no-repeat;
   background-size: cover;
   height: 750px;
@@ -367,9 +367,9 @@ form label {
 
 #home .block__section1__cont1 p {
   margin-top: 20px;
-  color: #464646;
-  font-size: 20px;
-  font-weight: 500;
+  color: #515151;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #home .block__section1__cont1 button {
@@ -416,16 +416,20 @@ form label {
   align-items: center;
 }
 
+#home .block__section2__cont1 div {
+  text-align: left;
+}
+
 #home .block__section2__cont1 div h2 {
   font-weight: bold;
-  width: 650px;
+  width: 550px;
 }
 
 #home .block__section2__cont1 div p {
-  font-weight: 500;
-  font-size: 20px;
-  color: #464646;
-  width: 690px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #515151;
+  width: 590px;
 }
 
 #home .block__section3 {
@@ -441,18 +445,18 @@ form label {
 #home .block__section3 p {
   font-weight: 500;
   font-size: 20px;
-  color: #464646;
+  color: #515151;
   margin-bottom: 30px;
 }
 
 #home .block__section3__cont {
-  width: 1100px;
+  width: 900px;
   margin: auto;
 }
 
 #home .block__section3__cont__box {
-  width: 500px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   margin: 25px;
   float: left;
   background: #ffffff;
@@ -468,10 +472,13 @@ form label {
   border-bottom: 3px solid #6626EE;
 }
 
-#home .block__section3__cont__box img {
+#home .block__section3__cont__box .img_body {
+  height: 180px;
+}
+
+#home .block__section3__cont__box .img_body img {
   margin: auto;
   margin-bottom: 30px;
-  height: 230px;
 }
 
 #home .block__section3__cont__box div {
@@ -481,6 +488,11 @@ form label {
 
 #home .block__section3__cont__box div h2 {
   font-weight: bold;
+}
+
+#home .block__section3__cont__box div p {
+  font-size: 18px;
+  color: #515151;
 }
 
 #home .block__section4 {
@@ -579,7 +591,8 @@ form label {
 }
 
 #home .block__section4__cont__slider .slider_cont .img_cont__content p {
-  font-size: 20px;
+  font-size: 18px;
+  color: #515151;
 }
 
 #home .block__section4__cont__slider .slider_cont .img_cont__content .testimony {
@@ -659,24 +672,6 @@ form label {
 }
 
 @media (max-width: 1200px) {
-  #home .block__section3__cont {
-    width: 900px;
-  }
-
-  #home .block__section3__cont__box {
-    width: 400px;
-    height: 500px;
-    margin: 25px;
-    padding: 20px;
-  }
-
-  #home .block__section3__cont__box img {
-    margin: auto;
-    margin-bottom: 30px;
-    width: auto;
-    height: 220px;
-  }
-
   #home .block__section4 {
     padding: 70px 0px;
     text-align: center;
@@ -706,7 +701,7 @@ form label {
 @media (max-width: 1000px) {
   #home .block__section1 {
     height: 650px;
-    padding: 100px 20px 0px 20px;
+    padding: 90px 20px 0px 20px;
   }
 
   #home .block__section1__cont1,
@@ -722,17 +717,19 @@ form label {
 
   #home .block__section3__cont__box {
     width: 500px;
-    height: 500px;
+    height: 400px;
+    padding: 30px;
     margin: 25px auto;
-    padding: 20px;
     float: none;
   }
 
-  #home .block__section3__cont__box img {
+  #home .block__section3__cont__box .img_body {
+    height: 200px;
+  }
+
+  #home .block__section3__cont__box .img_body img {
     margin: auto;
     margin-bottom: 30px;
-    height: 250px;
-    width: auto;
   }
 
   #home .block__section2__cont1 {
@@ -808,7 +805,7 @@ form label {
 
 @media (max-width: 550px) {
   #home .block__section1 {
-    padding: 70px 7% 0px 7%;
+    padding: 40px 7% 0px 7%;
   }
 
   #home .block__section1__cont1 {
@@ -844,6 +841,10 @@ form label {
     text-align: center;
   }
 
+  #home .block__section2__cont1 div {
+    text-align: center;
+  }
+
   #home .block__section2__cont1 div h2 {
     font-size: 30px;
   }
@@ -873,7 +874,7 @@ form label {
 
   #home .block__section3__cont__box {
     width: 100%;
-    height: auto;
+    height: 380px;
     margin: 30px auto;
     padding: 20px 5px;
   }
@@ -882,11 +883,14 @@ form label {
     transform: scale(1);
   }
 
-  #home .block__section3__cont__box img {
+  #home .block__section3__cont__box .img_body {
+    height: 160px;
+  }
+
+  #home .block__section3__cont__box .img_body img {
     margin: auto;
     margin-bottom: 20px;
     height: auto;
-    width: 80%;
   }
 
   #home .block__section3__cont__box div {
@@ -944,7 +948,7 @@ form label {
   }
 
   #home .block__section5 div img {
-    content: url(/images/Works_mobile.svg?f66c57ebd9517ad27f00639db500a512);
+    content: url(/images/Works_mobile.svg?b1afd21e332e6074bc9fa4d8f5928964);
   }
 
   #home .block__section5 div button {
@@ -1031,7 +1035,9 @@ form label {
 }
 
 #about .our-mission-section .title-description {
-  font-size: 22px;
+  font-size: 18px;
+  color: #515151;
+  font-weight: bold;
 }
 
 #about .our-vision-section {
@@ -1044,7 +1050,9 @@ form label {
 }
 
 #about .our-vision-section .title-description {
-  font-size: 22px;
+  font-size: 18px;
+  color: #515151;
+  font-weight: bold;
 }
 
 #about .get-started {
@@ -1135,16 +1143,18 @@ form label {
   width: 500px;
   margin: auto;
   text-align: center;
+  padding-top: 1.5rem;
 }
 
 #contact .block__section1 h2 {
   font-weight: bold;
   margin-bottom: 20px;
-  font-size: 40px;
 }
 
 #contact .block__section1 p {
-  font-size: 22px;
+  font-size: 18px;
+  color: #515151;
+  font-weight: bold;
 }
 
 #contact .block__section2 {
@@ -1176,25 +1186,25 @@ form label {
   background: #ffffff;
   border: 1px solid #ACB5BD;
   border-radius: 10px;
-  font-size: 21px;
+  font-size: 18px;
   outline: none;
   font-family: Roboto;
 }
 
 #contact .block__section2__cont .email_cont input::-moz-placeholder {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 #contact .block__section2__cont .email_cont input:-ms-input-placeholder {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 #contact .block__section2__cont .email_cont input::-ms-input-placeholder {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 #contact .block__section2__cont .email_cont input::placeholder {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 #contact .block__section2__cont .email_cont input:focus {
@@ -1203,7 +1213,7 @@ form label {
 
 #contact .block__section2__cont .email_cont label {
   font-family: Roboto;
-  font-size: 21px;
+  font-size: 18px;
   float: none;
 }
 
@@ -1213,17 +1223,17 @@ form label {
 
 #contact .block__section2__cont .textfield_cont label {
   font-family: Roboto;
-  font-size: 21px;
+  font-size: 18px;
   float: none;
 }
 
 #contact .block__section2__cont .textfield_cont textarea {
   width: 100%;
-  height: 310px;
+  height: 300px;
   background: #ffffff;
   border: 1px solid #ACB5BD;
   border-radius: 10px;
-  font-size: 21px;
+  font-size: 18px;
   padding: 10px;
   outline: none;
   font-family: Roboto;
@@ -1257,7 +1267,7 @@ form label {
   border-radius: 10px;
   border: none;
   outline: none;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 #contact .block__section2__cont button:hover {
@@ -1414,18 +1424,20 @@ form label {
   width: 900px;
   margin: auto;
   text-align: center;
+  padding-top: 1.5rem;
 }
 
 #faq .block__section1 h2 {
   font-weight: bold;
   margin-bottom: 20px;
-  font-size: 40px;
 }
 
 #faq .block__section1 p {
-  font-size: 22px;
+  font-size: 18px;
   width: 50%;
   margin: auto;
+  color: #515151;
+  font-weight: bold;
 }
 
 #faq .block__section2 {
@@ -1454,7 +1466,7 @@ form label {
   margin: 0px 20px;
   font-weight: bold;
   font-size: 22px;
-  color: #464646;
+  color: #515151;
   cursor: pointer;
 }
 
@@ -1479,7 +1491,7 @@ form label {
 }
 
 #faq .block__section2__cont__question__header {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 60px;
   font-weight: 600;
   color: #495057;
@@ -1497,7 +1509,7 @@ form label {
 
 #faq .block__section2__cont__question__answer {
   color: #6C6C6C;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #faq .block__section2__cont__question--active {
@@ -2140,7 +2152,7 @@ form label {
 #ideaspace1 .block .issues a,
 #ideaspace2 .block .issues a,
 #ideaspace4 .block .issues a {
-  color: #464646;
+  color: #515151;
 }
 
 #ideaspace1 .block .issues a:hover,

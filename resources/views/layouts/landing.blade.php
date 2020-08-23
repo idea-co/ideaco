@@ -21,7 +21,7 @@
   	<!--footer section-->
   	<footer class="ideaco_footer">
         <div class="ideaco_footer__1">
-            <img src="{{ asset('/img/secondary_logo.png') }}"/>
+            <img src="{{ asset('/img/secondary_logo.svg') }}"/>
                 <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 </p>
@@ -30,14 +30,14 @@
         <div class="ideaco_footer__2">
             <div class="ideaco_footer__2__links">
                 <h5>Links</h5>
-                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('about') }}">ABOUT</a>
                 <a href="{{ route('faq') }}">FAQ</a>
-                <a href="{{ route('contact') }}">Contact Us</a>
+                <a href="{{ route('contact') }}">CONTACT US</a>
             </div>
             <div class="ideaco_footer__2__sociallinks">
-                <img src="{{ asset('/img/twitter.png') }}"/>
-                <img src="{{ asset('/img/instagram.png') }}"/>
-                <img src="{{ asset('/img/facebook.png') }}"/>
+                <img src="{{ asset('/img/twitter.svg') }}"/>
+                <img src="{{ asset('/img/instagram.svg') }}"/>
+                <img src="{{ asset('/img/facebook.svg') }}"/>
             </div>
         </div>
         <p class="ideaco_footer__copyright--mobile">&#169; 2020 IDEACO Management System</p>
