@@ -40906,16 +40906,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_onboarding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/onboarding */ "./resources/js/store/modules/onboarding.js");
+/* harmony import */ var _modules_onboarding__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_onboarding__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users */ "./resources/js/store/modules/users.js");
+/* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_users__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
+  modules: {
+    onboarding: _modules_onboarding__WEBPACK_IMPORTED_MODULE_2___default.a,
+    users: _modules_users__WEBPACK_IMPORTED_MODULE_3___default.a
+  },
   state: {
-    onboarding: {
-      creator: null,
-      organizationId: null,
-      verified: false
-    },
     login: {
       organization: null,
       email: null
@@ -40934,26 +40939,11 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 
       axios.defaults.headers.common['Authorization'] = token;
     },
-
-    /**
-     * 
-     * @param {Vue store} state 
-     * @param {The user creating the organization} creator 
-     */
-    setCreator: function setCreator(state, creator) {
-      state.onboarding.creator = creator.data;
-    },
-    setOrganizationId: function setOrganizationId(state, response) {
-      state.onboarding.organizationId = response.data.id;
-    },
     setLoginOrganization: function setLoginOrganization(state, response) {
       state.login.organization = response['data'];
     },
     setLoginUserEmail: function setLoginUserEmail(state, response) {
       state.login.email = response['data']['email'];
-    },
-    setVerifiedStatus: function setVerifiedStatus(state, response) {
-      state.onboarding.verified = response.verified;
     },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
@@ -40961,64 +40951,22 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     }
   },
   actions: {
-    init: function init(_ref, form) {
+    findMemberByEmail: function findMemberByEmail(_ref, form) {
       var commit = _ref.commit;
-      return form.post('/api/users').then(function (response) {
-        commit('setCreator', response);
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    verifyUser: function verifyUser(_ref2, form) {
-      var commit = _ref2.commit;
-      return form.put('/api/users/verify').then(function (response) {
-        commit('setVerifiedStatus', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    createOrg: function createOrg(_ref3, form) {
-      var commit = _ref3.commit;
-      return form.post('/api/organizations').then(function (response) {
-        commit('setOrganizationId', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    findMemberByEmail: function findMemberByEmail(_ref4, form) {
-      var commit = _ref4.commit;
       return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/members/search').then(function (response) {
         return response;
       });
     },
-    createTeam: function createTeam(_ref5, form) {
-      var commit = _ref5.commit;
-      return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    adminLogin: function adminLogin(_ref6, form) {
-      var commit = _ref6.commit;
-      return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
-        return response;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    loginToWorkspace: function loginToWorkspace(_ref7, form) {
-      var commit = _ref7.commit;
+    loginToWorkspace: function loginToWorkspace(_ref2, form) {
+      var commit = _ref2.commit;
       return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/login').then(function (response) {
         return response;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    findOrganization: function findOrganization(_ref8, form) {
-      var commit = _ref8.commit;
+    findOrganization: function findOrganization(_ref3, form) {
+      var commit = _ref3.commit;
       return form.get('/api/organizations/' + form.shortname + '/find').then(function (response) {
         commit('setLoginOrganization', response);
         return response;
@@ -41027,8 +40975,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
         console.log(err);
       });
     },
-    logout: function logout(_ref9) {
-      var commit = _ref9.commit;
+    logout: function logout(_ref4) {
+      var commit = _ref4.commit;
       commit('clearUserData');
     }
   },
@@ -41036,26 +40984,39 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     role: function role(state) {
       return state.user.role;
     },
-    creatorEmail: function creatorEmail(state) {
-      return state.onboarding.creator.email;
-    },
-    creator: function creator(state) {
-      return state.onboarding.creator;
-    },
     loginUserEmail: function loginUserEmail(state) {
       return state.login.email;
     },
     loginOrganization: function loginOrganization(state) {
       return state.login.organization;
     },
-    organizationId: function organizationId(state) {
-      return state.onboarding.organizationId;
-    },
     token: function token(state) {
       return state.user.token;
     }
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/onboarding.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/onboarding.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\store\\modules\\onboarding.js: Unexpected keyword 'const' (22:0)\n\n\u001b[0m \u001b[90m 20 | \u001b[39m}\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 22 | \u001b[39m\u001b[36mconst\u001b[39m actions \u001b[33m=\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m    init ({ commit }\u001b[33m,\u001b[39m form) {\u001b[0m\n\u001b[0m \u001b[90m 24 | \u001b[39m        \u001b[36mreturn\u001b[39m form\u001b[33m.\u001b[39mpost(\u001b[32m'/api/users'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 25 | \u001b[39m        \u001b[33m.\u001b[39mthen(response \u001b[33m=>\u001b[39m {\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.checkReservedWord (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10987:12)\n    at Parser.parseIdentifierName (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10957:12)\n    at Parser.parseIdentifier (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10928:23)\n    at Parser.parseBindingAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9277:17)\n    at Parser.parseVarId (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11969:20)\n    at Parser.parseVar (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11945:12)\n    at Parser.parseVarStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11757:10)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11351:21)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)\n    at Parser.parseTopLevel (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11215:10)\n    at Parser.parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12922:10)\n    at parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12975:38)\n    at parser (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\parser\\index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:254:32)\n    at C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:266:13\n    at async.call.result.err.err (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:216:11)");
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/users.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/users.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
