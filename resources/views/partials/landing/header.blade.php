@@ -1,16 +1,16 @@
 <header class="ideaco_header ideaco_header--mobile ">
     <a href="{{ route('home') }}">
-        <img src="{{ asset('/img/primary_logo.png') }}"/>
+        <img src="{{ asset('/img/primary_logo.svg') }}"/>
     </a>
     <a class="ideaco_header__menu">
-        <i class="fas fa-bars"></i>
+        <img class="menu_icon" src="{{ asset('/img/menu_icon.svg') }}"/>
         <i class="fas fa-times"></i>
     </a>
 
     <div class="ideaco_header__navbar1">
-        <a href="{{ route('about') }}">About</a>
+        <a href="{{ route('about') }}">ABOUT</a>
         <a href="{{ route('faq') }}">FAQ</a>
-        <a href="{{ route('contact') }}">Contact Us</a>
+        <a href="{{ route('contact') }}">CONTACT US</a>
     </div>
     <div class="ideaco_header__navbar2">
         <a href="{{ url('/start/#/sign-in') }}" class="login">Log In</a>

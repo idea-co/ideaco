@@ -84,7 +84,7 @@
                 font-weight: bold;
             }
             p{
-                font-weight: 500;
+                font-weight: bold;
                 font-size: 20px;
                 color: $theme-color;
                 margin-bottom: 30px;
@@ -123,6 +123,7 @@
                         p{
                             font-size: 18px;
                             color:$theme-color;
+                            font-weight: bold;
                         }
                     }
                 }
