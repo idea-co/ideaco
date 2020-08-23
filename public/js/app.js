@@ -39120,7 +39120,7 @@ module.exports = "/images/Google.svg?26edf1810906dcbf7209fa1a6459b7e9";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
+module.exports = "/images/Group10.svg?1508c7c2915e3143f32db606af99470f";
 
 /***/ }),
 
@@ -39131,7 +39131,7 @@ module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
+module.exports = "/images/Group11.svg?13be8a79d415c7a9a5a6375761eccc09";
 
 /***/ }),
 
@@ -39142,7 +39142,7 @@ module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group12.svg?743a721327a9428f8a013823f9c0e536";
+module.exports = "/images/Group12.svg?4fdf3056c79f09bedbd33eb71b9c4b25";
 
 /***/ }),
 
@@ -39164,7 +39164,7 @@ module.exports = "/images/Group13.png?5dadf04a75d2b152afff5bd7a5520300";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group9.svg?f86313d0bba1bf53e97ed04c7eac6b01";
+module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
 
 /***/ }),
 
@@ -39200,7 +39200,7 @@ module.exports = "/images/secondary_logo.png?8d001f2ff794f11aed530337e0ae2020";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 /* harmony import */ var _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/layouts/Onboarding */ "./resources/js/pages/layouts/Onboarding.vue");
 /* harmony import */ var _pages_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/layouts/Dashboard */ "./resources/js/pages/layouts/Dashboard.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -39213,7 +39213,7 @@ __webpack_require__(/*! ./components */ "./resources/js/components.js");
 
 var app = new Vue({
   el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"],
+  store: _store_index__WEBPACK_IMPORTED_MODULE_1__["default"],
   router: _routes__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
     Onboarding: _pages_layouts_Onboarding__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -40894,10 +40894,10 @@ var User = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/store.js":
-/*!*******************************!*\
-  !*** ./resources/js/store.js ***!
-  \*******************************/
+/***/ "./resources/js/store/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/store/index.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
