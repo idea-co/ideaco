@@ -1,20 +1,19 @@
 .ideaco_header{
     background: $bg-color;
     width: 100%;
-    padding: 30px 50px;
+    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
-    &--modifier{
-        background: $content-color;
-    }
+    box-shadow: 0px 10px 20px rgba(123, 123, 123, 0.2);
+    margin-bottom: 30px;
     img{
         float: left;
     }
     &__navbar1{
-        width: 285px;
+        width: 210px;
     }
     &__navbar2{
-        width: 250px;
+        width: 180px;
     }
     &__navbar1,&__navbar2{
         float: right;
@@ -22,7 +21,7 @@
         display: flex;
         align-items: center;
         a{
-            font-size: 20px;
+            font-size: 14px;
             color: #8D8D8D;
             cursor: pointer;
             text-decoration: none;
@@ -40,7 +39,7 @@
         }
         .login{
             color: $secondary-color;
-            font-size: 20px;
+            font-size: 14px;
             margin-right: -30px;
         }
         button{
@@ -48,13 +47,12 @@
             cursor: pointer;
             outline: none;
             border: none;
-            font-size: 18px;
+            font-size: 14px;
             letter-spacing: 0.03em;
-            width: 180px;
-            height: 45px;
+            width: 127px;
+            height: 40px;
             border-radius: 10px;
             background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
-            box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
             &:hover{
                 background: $secondary-color;
                 color: #bfbfbf;
@@ -85,7 +83,7 @@
             color: $content-color;
             font-style: normal;
             font-weight: 500;
-            font-size: 20px;
+            font-size: 18px;
         }
     }
     &__2{
@@ -97,12 +95,12 @@
             display: grid;
             h5{
                 color: $bg-color;
-                font-size: 25px;
+                font-size: 20px;
             }
             a{
                 margin: 10px 0px;
                 color: $content-color;
-                font-size: 22px;
+                font-size: 14px;
             }
         }
         &__sociallinks{
@@ -130,7 +128,8 @@
 @media (max-width:1000px){
     .ideaco_header--mobile{
         padding: 30px 20px;
-        display: block;
+        display: flex;
+        align-items: center;
         .ideaco_header__navbar1,.ideaco_header__navbar2{
             display: none;
         }
@@ -139,6 +138,7 @@
         }
         &--active{
             position: fixed;
+            display: block;
             width: 100%;
             height: 100%;
             background: #FAFAFA;
@@ -147,7 +147,7 @@
                 display: none;
             }
             .ideaco_header__menu{
-                .fa-bars{
+                .menu_icon{
                     display: none;
                 }
                 .fa-times{
@@ -225,5 +225,6 @@
 @media (max-width:550px){
     .ideaco_header,.ideaco_footer{
         padding: 25px 7% 20px 7%;
+        box-shadow: none;
     }
 }
