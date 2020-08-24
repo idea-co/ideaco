@@ -21293,9 +21293,737 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "explore_section" }, [
+    _c("div", { staticClass: "explore_section_container container" }, [
+      _c(
+        "header",
+        { staticClass: "content__header" },
+        [_c("auth-user-banner"), _vm._v(" "), _vm._m(0)],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "content__header__section2" }, [
+      _c("h2", [_vm._v("Explore")]),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass:
+            "content__header__section2__link content__header__section2__link--active"
+        },
+        [_vm._v("Most Active")]
+      ),
+      _vm._v(" "),
+      _c("a", { staticClass: "content__header__section2__link" }, [
+        _vm._v("Highest Voted")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "content__header__section2__link" }, [
+        _vm._v("Most Recent")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "content__header__section2__link filter" }, [
+        _c("i", { staticClass: "fas fa-filter" }),
+        _c("span", [_vm._v(" Filter ")]),
+        _c("i", { staticClass: "fas fa-caret-down" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "explore_main_wrapper d-xl-flex" }, [
+      _c("div", { staticClass: "explore_main" }, [
+        _c("div", { staticClass: "explore_input" }, [
+          _c("div", { staticClass: "input-group flex-nowrap" }, [
+            _c("input", {
+              staticClass: "form-control explore_input__input",
+              attrs: {
+                type: "text",
+                placeholder: "Search this Ideaspace",
+                "aria-label": "Search this Ideaspace",
+                "aria-describedby": "addon-wrapping"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-append" }, [
+              _c(
+                "span",
+                {
+                  staticClass: "input-group-text explore_input__search",
+                  attrs: { id: "addon-wrapping" }
+                },
+                [_c("i", { staticClass: "fa fa-search" })]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "explore_challenges" }, [
+          _c("div", { staticClass: "explore_challenges__header" }, [
+            _c("h4", [_vm._v("Company Challenges")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_challenges__cards d-flex" }, [
+            _c(
+              "div",
+              { staticClass: "explore_challenges__cards__card card1" },
+              [_c("p", [_vm._v("Diversifying Online Content")])]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "explore_challenges__cards__card card2" },
+              [_c("p", [_vm._v("Reducing Gender Inequality")])]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "explore_challenges__cards__card card3" },
+              [_c("p", [_vm._v("Reducing Tribal Bias")])]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "explore_emptystate" }, [
+          _c("form", { staticClass: "explore_emptystate__form" }, [
+            _c("div", { staticClass: "explore_emptystate__form__input" }, [
+              _c("input", {
+                staticClass:
+                  "form-control explore_emptystate__form__input__input",
+                attrs: { type: "text", placeholder: "Your Idea Topic" }
+              }),
+              _vm._v(" "),
+              _c("textarea", {
+                staticClass:
+                  "form-control explore_emptystate__form__input__textarea",
+                attrs: {
+                  name: "idea",
+                  cols: "15",
+                  rows: "10",
+                  placeholder: "Share a bit more about your idea..."
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_emptystate__icon" }, [
+            _c("div", { staticClass: "explore_emptystate__icon__icons" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "explore_emptystate__icon__icons__element video"
+                },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/mdi_videocam.svg */ "./resources/img/mdi_videocam.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Video")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "explore_emptystate__icon__icons__element picture"
+                },
+                [
+                  _c("img", {
+                    attrs: { src: __webpack_require__(/*! ../../../img/camera.svg */ "./resources/img/camera.svg"), alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Picture")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "explore_emptystate__icon__icons__element document"
+                },
+                [
+                  _c("img", {
+                    attrs: { src: __webpack_require__(/*! ../../../img/vector.svg */ "./resources/img/vector.svg"), alt: "" }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("Documents")])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_emptystate__icon__button" }, [
+              _c("button", { staticClass: "btn", attrs: { type: "button" } }, [
+                _vm._v("Share")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "explore_cards" }, [
+          _c("div", { staticClass: "explore_cards__card card1" }, [
+            _c("div", { staticClass: "explore_cards__card__header card1" }, [
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__image card1" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/Ellipse 7.svg */ "./resources/img/Ellipse 7.svg"),
+                      alt: ""
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__writeup card1" },
+                [
+                  _c("p", { staticClass: "name" }, [_vm._v("Kevin Oates")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "date_track" }, [
+                    _c("p", [_vm._v("3 days ago.")]),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: {
+                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Product Design")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__main card1" }, [
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__topic card1" },
+                [
+                  _vm._v(
+                    "\n                                UX Focused Internship\n                            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__writeup card1" },
+                [
+                  _vm._v(
+                    "\n                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque faucibus augue arcu at vulputate diam vel. \n                                Ac quam aliquet semper in consequat faucibus coat vulputate diam vel. Ac quam aliquet semper in consequat faucibus \n                                condimentum et sed.\n                            "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__footer card1" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__vote card1"
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("1.1K")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__tag card1"
+                    },
+                    [
+                      _c("p", [_vm._v("Social Media")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Online")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("UX")])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__footer__comments card1" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_cards__card card2" }, [
+            _c("div", { staticClass: "explore_cards__card__header card2" }, [
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__image card2" },
+                [
+                  _c("img", {
+                    attrs: { src: __webpack_require__(/*! ../../../img/ralph.svg */ "./resources/img/ralph.svg"), alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__writeup card2" },
+                [
+                  _c("p", { staticClass: "name" }, [_vm._v("Ralph Edwards")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "date_track" }, [
+                    _c("p", [_vm._v("3 days ago.")]),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: {
+                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Development")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__main card2" }, [
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__main__images card2" },
+                [
+                  _c("img", {
+                    staticClass: "mr-2",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/Rectangle 123.svg */ "./resources/img/Rectangle 123.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("img", {
+                    staticClass: "mb-1",
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/Rectangle 124.svg */ "./resources/img/Rectangle 124.svg"),
+                      alt: ""
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__topic card2" },
+                [
+                  _vm._v(
+                    "\n                                Caring is the new marketing\n                            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__writeup card2" },
+                [
+                  _vm._v(
+                    "\n                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque faucibus augue arcu at vulputate diam vel. \n                                Ac quam aliquet semper in consequat faucibus coat vulputate diam vel. Ac quam aliquet semper in consequat faucibus \n                                condimentum et sed.\n                            "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__footer card2" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "explore_cards__card__footer__tags card2 col-7"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__vote card2"
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../img/arrow-up.svg */ "./resources/img/arrow-up.svg"),
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("1.1K")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__tag card2"
+                    },
+                    [
+                      _c("p", [_vm._v("Social Media")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Online")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("UX")])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__footer__comments card2" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_cards__card card1" }, [
+            _c("div", { staticClass: "explore_cards__card__header card1" }, [
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__image card1" },
+                [
+                  _c("img", {
+                    attrs: { src: __webpack_require__(/*! ../../../img/eleanor.svg */ "./resources/img/eleanor.svg"), alt: "" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header__writeup card1" },
+                [
+                  _c("p", { staticClass: "name" }, [_vm._v("Eleanor Pena")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "date_track" }, [
+                    _c("p", [_vm._v("3 days ago.")]),
+                    _vm._v(" "),
+                    _c("img", {
+                      attrs: {
+                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        alt: ""
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("Production")])
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__main card1" }, [
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__topic card1" },
+                [
+                  _vm._v(
+                    "\n                                Why choose a theme that looks good with WooCommerce\n                            "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "p",
+                { staticClass: "explore_cards__card__main__writeup card1" },
+                [
+                  _vm._v(
+                    "\n                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque faucibus augue arcu at vulputate diam vel. \n                                Ac quam aliquet semper in consequat faucibus coat vulputate diam vel. Ac quam aliquet semper in consequat faucibus \n                                condimentum et sed.\n                            "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__footer card1" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__vote card1"
+                    },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../img/arrow-up.svg */ "./resources/img/arrow-up.svg"),
+                          alt: ""
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("1.1K")])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags__tag card1"
+                    },
+                    [
+                      _c("p", [_vm._v("Social Media")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Online")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("UX")])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__footer__comments card1" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "explore_aside d-none d-xl-block" }, [
+        _c("div", { staticClass: "explore_ideas" }, [
+          _c("p", [_vm._v("Your Ideas")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_ideas__idea" }, [
+            _c("div", { staticClass: "explore_ideas__idea__topic" }, [
+              _c("p", [_vm._v("Extra Meeting Rooms")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__writeup" }, [
+              _c("p", [
+                _vm._v(
+                  "However rare side effects observed among children can be metabolic acidosis, coma, respiratory depression, \n                                and hypoglycemia-\n                            "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__footer" }, [
+              _c("div", { staticClass: "explore_ideas__idea__footer__vote" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", [_vm._v("1.1K")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_ideas__idea__footer__comment" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_ideas__idea" }, [
+            _c("div", { staticClass: "explore_ideas__idea__topic" }, [
+              _c("p", [_vm._v("Parturient Lorem")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__writeup" }, [
+              _c("p", [
+                _vm._v(
+                  "The principal alcohol in Purell hand sanitizer (to take the most talked-about brand) is 70% ethanol \n                                (ethyl alcohol), with a smaller amount of isopropyl alcohol.\n                            "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__footer" }, [
+              _c("div", { staticClass: "explore_ideas__idea__footer__vote" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", [_vm._v("1.1K")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_ideas__idea__footer__comment" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_ideas__idea" }, [
+            _c("div", { staticClass: "explore_ideas__idea__topic" }, [
+              _c("p", [_vm._v("Vestibulum")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__writeup" }, [
+              _c("p", [
+                _vm._v(
+                  "Their blood alcohol levels rose to 0.007 to 0.02 o/oo (parts per thousand), or 0.7 to 2.0 mg/L.\n                            "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__footer" }, [
+              _c("div", { staticClass: "explore_ideas__idea__footer__vote" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", [_vm._v("1.1K")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_ideas__idea__footer__comment" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "explore_ideas__idea" }, [
+            _c("div", { staticClass: "explore_ideas__idea__topic" }, [
+              _c("p", [_vm._v("Malesuada Fermentum Tortor")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__writeup" }, [
+              _c("p", [
+                _vm._v(
+                  "HIn most states, the legal limit in blood alcohol to not be considered DUI is 500 to 1,000 mg/L. Therefore, \n                                this is way below a level considered to be intoxication. \n                            "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_ideas__idea__footer" }, [
+              _c("div", { staticClass: "explore_ideas__idea__footer__vote" }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                    alt: ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", [_vm._v("1.1K")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_ideas__idea__footer__comment" },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../img/fa-regular_comment-alt.svg */ "./resources/img/fa-regular_comment-alt.svg"),
+                      alt: ""
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("30 Comments")])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -39102,6 +39830,17 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./resources/img/Ellipse 7.svg":
+/*!*************************************!*\
+  !*** ./resources/img/Ellipse 7.svg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Ellipse 7.svg?c9a2f2eaa16240dd84516e0b9896ca80";
+
+/***/ }),
+
 /***/ "./resources/img/Google.svg":
 /*!**********************************!*\
   !*** ./resources/img/Google.svg ***!
@@ -39168,6 +39907,105 @@ module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
 
 /***/ }),
 
+/***/ "./resources/img/Rectangle 123.svg":
+/*!*****************************************!*\
+  !*** ./resources/img/Rectangle 123.svg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Rectangle 123.svg?44d616052bb88300bd09614a65fdb9ac";
+
+/***/ }),
+
+/***/ "./resources/img/Rectangle 124.svg":
+/*!*****************************************!*\
+  !*** ./resources/img/Rectangle 124.svg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Rectangle 124.svg?b9dcb24dba7a794ef5bf2c37bf0023ef";
+
+/***/ }),
+
+/***/ "./resources/img/arrow-up.svg":
+/*!************************************!*\
+  !*** ./resources/img/arrow-up.svg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/arrow-up.svg?88ad3358db1f242b77152907130c533c";
+
+/***/ }),
+
+/***/ "./resources/img/camera.svg":
+/*!**********************************!*\
+  !*** ./resources/img/camera.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/camera.svg?884c85bc88c68ac0064d0dcfac34d3fa";
+
+/***/ }),
+
+/***/ "./resources/img/el_arrow-up.svg":
+/*!***************************************!*\
+  !*** ./resources/img/el_arrow-up.svg ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/el_arrow-up.svg?03a71f74d30515b53448bcb8bed9fb6e";
+
+/***/ }),
+
+/***/ "./resources/img/eleanor.svg":
+/*!***********************************!*\
+  !*** ./resources/img/eleanor.svg ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/eleanor.svg?9aa5f54b10d4df3608b46c77c6fbdc03";
+
+/***/ }),
+
+/***/ "./resources/img/ellipse 8.svg":
+/*!*************************************!*\
+  !*** ./resources/img/ellipse 8.svg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ellipse 8.svg?229c68b3809d8b82f4fc663231839066";
+
+/***/ }),
+
+/***/ "./resources/img/fa-regular_comment-alt.svg":
+/*!**************************************************!*\
+  !*** ./resources/img/fa-regular_comment-alt.svg ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/fa-regular_comment-alt.svg?f563b57ab5334f20e885a05bf5b5d795";
+
+/***/ }),
+
+/***/ "./resources/img/mdi_videocam.svg":
+/*!****************************************!*\
+  !*** ./resources/img/mdi_videocam.svg ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/mdi_videocam.svg?728e5a6cd1e09b1bea542c42cc2b1d30";
+
+/***/ }),
+
 /***/ "./resources/img/primary_logo.png":
 /*!****************************************!*\
   !*** ./resources/img/primary_logo.png ***!
@@ -39179,6 +40017,17 @@ module.exports = "/images/primary_logo.png?5841b7eb12648e545a41b28f7e8a9bd3";
 
 /***/ }),
 
+/***/ "./resources/img/ralph.svg":
+/*!*********************************!*\
+  !*** ./resources/img/ralph.svg ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ralph.svg?d1902e92909d751ea5fb1ad91871373a";
+
+/***/ }),
+
 /***/ "./resources/img/secondary_logo.png":
 /*!******************************************!*\
   !*** ./resources/img/secondary_logo.png ***!
@@ -39187,6 +40036,17 @@ module.exports = "/images/primary_logo.png?5841b7eb12648e545a41b28f7e8a9bd3";
 /***/ (function(module, exports) {
 
 module.exports = "/images/secondary_logo.png?8d001f2ff794f11aed530337e0ae2020";
+
+/***/ }),
+
+/***/ "./resources/img/vector.svg":
+/*!**********************************!*\
+  !*** ./resources/img/vector.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/vector.svg?c3131e39137800a440e79aa05afbf5ae";
 
 /***/ }),
 
@@ -41077,8 +41937,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
