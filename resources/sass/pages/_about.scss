@@ -61,7 +61,9 @@
         }
     }
     .our-mission-section .title-description {
-        font-size: 22px;
+        font-size: 18px;
+        color:$theme-color;
+        font-weight: bold;
     }
 
 
@@ -73,7 +75,9 @@
             font-size: 30px;
         }
         .title-description{
-            font-size: 22px;
+            font-size: 18px;
+            color:$theme-color;
+            font-weight: bold;
         }
     }
     .get-started {

@@ -3,7 +3,7 @@
     .block{
         display: grid;
         &__section1{
-            padding: 100px 50px 0px 50px;
+            padding: 90px 50px 0px 50px;
             margin-top: 0px;
             background-image: url('../../img/Rectangle59.svg');
             background-repeat: no-repeat;
@@ -20,8 +20,8 @@
                 p{
                     margin-top: 20px;
                     color: $theme-color;
-                    font-size: 20px;
-                    font-weight: 500;
+                    font-size: 18px;
+                    font-weight: bold;
                 }
                 button{
                     width: 300px;
@@ -62,15 +62,16 @@
                 display: flex;
                 align-items: center;
                 div{
+                    text-align: left;
                     h2{
                         font-weight: bold;
-                        width: 650px;
+                        width: 550px;
                     }
                     p{
-                        font-weight: 500;
-                        font-size: 20px;
+                        font-weight: bold;
+                        font-size: 18px;
                         color: $theme-color;
-                        width: 690px;
+                        width: 590px;
                     }
                 }
             }
@@ -83,17 +84,17 @@
                 font-weight: bold;
             }
             p{
-                font-weight: 500;
-                font-size: 20px;
+                font-weight: bold;
+                font-size: 18px;
                 color: $theme-color;
                 margin-bottom: 30px;
             }
             &__cont{
-                width: 1100px;
+                width: 900px;
                 margin: auto;
                 &__box{
-                    width: 500px;
-                    height: 450px;
+                    width: 400px;
+                    height: 400px;
                     margin: 25px;
                     float: left;
                     background: $bg-color;
@@ -106,15 +107,22 @@
                         transform: scale(1.05);
                         border-bottom: 3px solid $secondary-color;
                     }
-                    img{
-                        margin: auto;
-                        margin-bottom: 30px;
-                        height: 230px;
+                    .img_body{
+                        height: 180px;
+                        img{
+                            margin: auto;
+                            margin-bottom: 30px;
+                        }
                     }
                     div{
                         text-align: center;
                         color: $secondary-color;
                         h2{
+                            font-weight: bold;
+                        }
+                        p{
+                            font-size: 18px;
+                            color:$theme-color;
                             font-weight: bold;
                         }
                     }
@@ -197,7 +205,8 @@
                                 padding: 30px 30px;
                                 background: $bg-color;
                                 p{
-                                    font-size: 20px;
+                                    font-size: 18px;
+                                    color: $theme-color;
                                 }
                                 .testimony{
                                     margin: 20px 0px;
@@ -273,23 +282,6 @@
 @media (max-width:1200px){
     #home{
         .block{
-            &__section3{
-                &__cont{
-                    width: 900px;
-                    &__box{
-                        width: 400px;
-                        height: 500px;
-                        margin: 25px;
-                        padding: 20px;
-                        img{
-                            margin: auto;
-                            margin-bottom: 30px;
-                            width: auto;
-                            height: 220px;
-                        }
-                    }
-                }
-            }
             &__section4{
                 padding: 70px 0px;
                 text-align: center;
@@ -322,7 +314,7 @@
         .block{
             &__section1{
                 height: 650px;
-                padding: 100px 20px 0px 20px;
+                padding: 90px 20px 0px 20px;
                 &__cont1,&__cont2{
                     width: 50%;
                 }
@@ -338,15 +330,16 @@
                     width: 100%;
                     &__box{
                         width: 500px;
-                        height: 500px;
+                        height: 400px;
+                        padding: 30px;
                         margin: 25px auto;
-                        padding: 20px;
                         float: none;
-                        img{
-                            margin: auto;
-                            margin-bottom: 30px;
-                            height: 250px;
-                            width: auto;
+                        .img_body{
+                            height: 200px;
+                            img{
+                                margin: auto;
+                                margin-bottom: 30px;
+                            }
                         }
                     }
                 }
@@ -427,7 +420,7 @@
     #home{
         .block{
             &__section1{
-                padding: 70px 7% 0px 7%;
+                padding: 40px 7% 0px 7%;
                 &__cont1{
                     width: 100%;
                     h1{
@@ -452,8 +445,11 @@
                     width: 100%;
                     padding: 0px;
                     display: grid;
-                    div h2{
-                        font-size: 30px;
+                    div {
+                        text-align: center;
+                        h2{
+                            font-size: 30px;
+                        }
                     }
                     img{
                         margin: auto;
@@ -476,17 +472,19 @@
                     width: 100%;
                     &__box{
                         width: 100%;
-                        height: auto;
+                        height: 380px;
                         margin: 30px auto;
                         padding: 20px 5px;
                         &:hover{
                             transform: scale(1) ;
                         }
-                        img{
-                            margin: auto;
-                            margin-bottom: 20px;
-                            height: auto;
-                            width: 80%;
+                        .img_body{
+                            height: 160px;
+                            img{
+                                margin: auto;
+                                margin-bottom: 20px;
+                                height: auto;
+                            }
                         }
                         div{
                             text-align: center;

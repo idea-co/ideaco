@@ -6,13 +6,15 @@
             width: 500px;
             margin: auto;
             text-align: center;
+            padding-top: 1.5rem;
             h2{
                 font-weight: bold;
                 margin-bottom: 20px;
-                font-size: 40px;
             }
             p{
-                font-size: 22px;
+                font-size: 18px;
+                color:$theme-color;
+                font-weight: bold;
             }
         }
         &__section2{
@@ -38,11 +40,11 @@
                         background: $bg-color;
                         border: 1px solid #ACB5BD;
                         border-radius: 10px;
-                        font-size: 21px;
+                        font-size: 18px;
                         outline: none;
                         font-family: Roboto;
                         &::placeholder{
-                            font-size: 21px;
+                            font-size: 18px;
                         }
                         &:focus{
                             border: 1px solid $secondary-color;
@@ -50,7 +52,7 @@
                     }
                     label{
                         font-family: Roboto;
-                        font-size: 21px;
+                        font-size: 18px;
                         float: none;
                     }
                 }
@@ -58,21 +60,21 @@
                     margin-bottom: 50px;
                     label{
                         font-family: Roboto;
-                        font-size: 21px;
+                        font-size: 18px;
                         float: none;
                     }
                     textarea{
                         width: 100%;
-                        height: 310px;
+                        height: 300px;
                         background: $bg-color;
                         border: 1px solid #ACB5BD;
                         border-radius: 10px;
-                        font-size: 21px;
+                        font-size: 18px;
                         padding: 10px;
                         outline: none;
                         font-family: Roboto;
                         &::placeholder{
-                            font-size: 21px;
+                            font-size: 18px;
                         }
                         &:focus{
                             border: 1px solid $secondary-color;
@@ -87,7 +89,7 @@
                     border-radius: 10px;
                     border: none;
                     outline: none;
-                    font-size: 22px;
+                    font-size: 18px;
                     &:hover{
                         background: $secondary-color;
                         color: #bfbfbf;
