@@ -21538,7 +21538,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "explore_cards__card__footer card1" }, [
               _c(
                 "div",
-                { staticClass: "explore_cards__card__footer__tags card1" },
+                {
+                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                },
                 [
                   _c(
                     "div",
@@ -21632,6 +21634,7 @@ var staticRenderFns = [
                 { staticClass: "explore_cards__card__main__images card2" },
                 [
                   _c("img", {
+                    staticClass: "mr-2",
                     attrs: {
                       src: __webpack_require__(/*! ../../../img/Rectangle 123.svg */ "./resources/img/Rectangle 123.svg"),
                       alt: ""
@@ -21639,6 +21642,7 @@ var staticRenderFns = [
                   }),
                   _vm._v(" "),
                   _c("img", {
+                    staticClass: "mb-1",
                     attrs: {
                       src: __webpack_require__(/*! ../../../img/Rectangle 124.svg */ "./resources/img/Rectangle 124.svg"),
                       alt: ""
@@ -21671,7 +21675,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "explore_cards__card__footer card2" }, [
               _c(
                 "div",
-                { staticClass: "explore_cards__card__footer__tags card2" },
+                {
+                  staticClass: "explore_cards__card__footer__tags card2 col-7"
+                },
                 [
                   _c(
                     "div",
@@ -21784,7 +21790,9 @@ var staticRenderFns = [
             _c("div", { staticClass: "explore_cards__card__footer card1" }, [
               _c(
                 "div",
-                { staticClass: "explore_cards__card__footer__tags card1" },
+                {
+                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                },
                 [
                   _c(
                     "div",

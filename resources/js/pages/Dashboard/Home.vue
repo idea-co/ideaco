@@ -104,7 +104,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card1">
-                                <div class="explore_cards__card__footer__tags card1">
+                                <div class="explore_cards__card__footer__tags card1 col-7">
                                     <div class="explore_cards__card__footer__tags__vote card1">
                                         <img src="../../../img/el_arrow-up.svg" alt="">
                                         <p>1.1K</p>
@@ -140,8 +140,8 @@
                             </div>
                             <div class="explore_cards__card__main card2">
                                 <div class="explore_cards__card__main__images card2">
-                                    <img src="../../../img/Rectangle 123.svg" alt="">
-                                    <img src="../../../img/Rectangle 124.svg" alt="">
+                                    <img src="../../../img/Rectangle 123.svg" alt="" class="mr-2">
+                                    <img src="../../../img/Rectangle 124.svg" alt="" class="mb-1">
                                 </div>
                                 <p class="explore_cards__card__main__topic card2">
                                     Caring is the new marketing
@@ -153,7 +153,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card2">
-                                <div class="explore_cards__card__footer__tags card2">
+                                <div class="explore_cards__card__footer__tags card2 col-7">
                                     <div class="explore_cards__card__footer__tags__vote card2">
                                         <img src="../../../img/arrow-up.svg" alt="">
                                         <p>1.1K</p>
@@ -198,7 +198,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card1">
-                                <div class="explore_cards__card__footer__tags card1">
+                                <div class="explore_cards__card__footer__tags card1 col-7">
                                     <div class="explore_cards__card__footer__tags__vote card1">
                                         <img src="../../../img/arrow-up.svg" alt="">
                                         <p>1.1K</p>
