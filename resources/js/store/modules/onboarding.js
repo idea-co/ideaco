@@ -1,8 +1,15 @@
+//import services
+import Organization from '../../services/OrganizationService';
+import User from '../../services/UserService';
+
 //initial state
 const state = () => ({
     creator: null,
     organizationId: null,
     verified: false,
+    userObj: new User(),
+    busy: false,
+    orgObj: new Organization,
 })
 
 const getters = {
@@ -17,10 +24,34 @@ const getters = {
     organizationId: state => {
         return state.onboarding.organizationId;
     },
-},
+}
+
+const mutations = {
+    /**
+     * 
+     * @param {Vue store} state 
+     * @param {The user creating the organization} creator 
+     */
+    setCreator(state, creator){
+        state.onboarding.creator = creator.data;
+    },
+
+    setOrganizationId(state, response){
+        state.onboarding.organizationId = response.data.id;
+    },
+
+    setVerifiedStatus(state, response){
+        state.onboarding.verified = response.verified;
+    },
+}
+
 
 const actions = {
-    init ({ commit }, form) {
+    createUser ({ state, commit, rootState }, form) {
+        //change busy state
+        state.busy = true;
+        
+        state.userObj.create();
         return form.post('/api/users')
         .then(response => {
             commit('setCreator', response);
@@ -70,24 +101,13 @@ const actions = {
         .catch(err => {
             console.log(err);
         })
-    },
-},
+    }
+}
 
-const mutations = {
-    /**
-     * 
-     * @param {Vue store} state 
-     * @param {The user creating the organization} creator 
-     */
-    setCreator(state, creator){
-        state.onboarding.creator = creator.data;
-    },
-
-    setOrganizationId(state, response){
-        state.onboarding.organizationId = response.data.id;
-    },
-
-    setVerifiedStatus(state, response){
-        state.onboarding.verified = response.verified;
-    },
+export default {
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations
 }

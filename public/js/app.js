@@ -2487,6 +2487,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2527,17 +2534,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('onboarding'),
+    mapState = _createNamespacedHelp.mapState,
+    mapActions = _createNamespacedHelp.mapActions;
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new",
   data: function data() {
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         email: ''
-      }),
-      busy: false
+      })
     };
   },
-  methods: {
+  computed: _objectSpread({}, mapState(['busy'])),
+  methods: _objectSpread(_objectSpread({}, mapActions(['createUser'])), {}, {
     init: function init() {
       var _this = this;
 
@@ -2551,7 +2564,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$router.push('/confirm-email');
       });
     }
-  },
+  }),
   mounted: function mounted() {}
 });
 
@@ -22289,7 +22302,7 @@ var render = function() {
                         on: {
                           submit: function($event) {
                             $event.preventDefault()
-                            return _vm.init($event)
+                            return _vm.createUser(_vm.form)
                           }
                         }
                       },
@@ -40821,6 +40834,53 @@ router.beforeEach(function (to, from, next) {
 
 /***/ }),
 
+/***/ "./resources/js/services/OrganizationService.js":
+/*!******************************************************!*\
+  !*** ./resources/js/services/OrganizationService.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserService */ "./resources/js/services/UserService.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Organization = /*#__PURE__*/function () {
+  function Organization() {
+    _classCallCheck(this, Organization);
+
+    this.userObj = new _UserService__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
+  /**
+   * Create a new organization
+   * - First we create the user initiating this 
+   *   request if they don't already exist
+   * - 
+   */
+
+
+  _createClass(Organization, [{
+    key: "create",
+    value: function create(data) {
+      var orgOwner = this.userObj.create(data.email);
+      return "Created";
+    }
+  }]);
+
+  return Organization;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Organization);
+
+/***/ }),
+
 /***/ "./resources/js/services/UserService.js":
 /*!**********************************************!*\
   !*** ./resources/js/services/UserService.js ***!
@@ -40846,14 +40906,20 @@ var User = /*#__PURE__*/function () {
 
     _classCallCheck(this, User);
 
-    var json = '';
-
+    //check if the state is [logged-on]
+    //yes - fetch the user logged on
+    //no - silently ignore
     if (db === 'local') {
+      var json = '';
       json = localStorage.getItem('user');
-      json = JSON.parse(json);
-    }
 
-    this.user = json.data;
+      if (json) {
+        json = JSON.parse(json);
+        this.user = json.data;
+      } else {
+        this.user = null;
+      }
+    }
   }
 
   _createClass(User, [{
@@ -40885,6 +40951,15 @@ var User = /*#__PURE__*/function () {
 
       return (_this$user$organizati = this.user.organization.photo_url) !== null && _this$user$organizati !== void 0 ? _this$user$organizati : this.user.organization.name;
     }
+    /**
+     * Create a new user or return 
+     * the specified user if they 
+     * already exist
+     */
+
+  }, {
+    key: "create",
+    value: function create() {}
   }]);
 
   return User;
@@ -40907,9 +40982,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _modules_onboarding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/onboarding */ "./resources/js/store/modules/onboarding.js");
-/* harmony import */ var _modules_onboarding__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_onboarding__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users */ "./resources/js/store/modules/users.js");
 /* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_users__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _modules_login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/login */ "./resources/js/store/modules/login.js");
+/* harmony import */ var _modules_login__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_login__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -40917,8 +40994,9 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   modules: {
-    onboarding: _modules_onboarding__WEBPACK_IMPORTED_MODULE_2___default.a,
-    users: _modules_users__WEBPACK_IMPORTED_MODULE_3___default.a
+    onboarding: _modules_onboarding__WEBPACK_IMPORTED_MODULE_2__["default"],
+    users: _modules_users__WEBPACK_IMPORTED_MODULE_3___default.a,
+    login: _modules_login__WEBPACK_IMPORTED_MODULE_4___default.a
   },
   state: {
     login: {
@@ -40998,14 +41076,126 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/login.js":
+/*!*********************************************!*\
+  !*** ./resources/js/store/modules/login.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/onboarding.js":
 /*!**************************************************!*\
   !*** ./resources/js/store/modules/onboarding.js ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\xampp\\htdocs\\ideaco\\resources\\js\\store\\modules\\onboarding.js: Unexpected keyword 'const' (22:0)\n\n\u001b[0m \u001b[90m 20 | \u001b[39m}\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 22 | \u001b[39m\u001b[36mconst\u001b[39m actions \u001b[33m=\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m    init ({ commit }\u001b[33m,\u001b[39m form) {\u001b[0m\n\u001b[0m \u001b[90m 24 | \u001b[39m        \u001b[36mreturn\u001b[39m form\u001b[33m.\u001b[39mpost(\u001b[32m'/api/users'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 25 | \u001b[39m        \u001b[33m.\u001b[39mthen(response \u001b[33m=>\u001b[39m {\u001b[0m\n    at Parser._raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:762:17)\n    at Parser.raiseWithData (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:755:17)\n    at Parser.raise (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:749:17)\n    at Parser.checkReservedWord (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10987:12)\n    at Parser.parseIdentifierName (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10957:12)\n    at Parser.parseIdentifier (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:10928:23)\n    at Parser.parseBindingAtom (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:9277:17)\n    at Parser.parseVarId (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11969:20)\n    at Parser.parseVar (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11945:12)\n    at Parser.parseVarStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11757:10)\n    at Parser.parseStatementContent (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11351:21)\n    at Parser.parseStatement (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11284:17)\n    at Parser.parseBlockOrModuleBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11864:25)\n    at Parser.parseBlockBody (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11850:10)\n    at Parser.parseTopLevel (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:11215:10)\n    at Parser.parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12922:10)\n    at parse (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\parser\\lib\\index.js:12975:38)\n    at parser (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\parser\\index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:99:38)\n    at normalizeFile.next (<anonymous>)\n    at run (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transformation\\index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (C:\\xampp\\htdocs\\ideaco\\node_modules\\@babel\\core\\lib\\transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:254:32)\n    at C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:266:13\n    at async.call.result.err.err (C:\\xampp\\htdocs\\ideaco\\node_modules\\gensync\\index.js:216:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/OrganizationService */ "./resources/js/services/OrganizationService.js");
+/* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/UserService */ "./resources/js/services/UserService.js");
+//import services
+
+ //initial state
+
+var state = function state() {
+  return {
+    creator: null,
+    organizationId: null,
+    verified: false,
+    userObj: new _services_UserService__WEBPACK_IMPORTED_MODULE_1__["default"](),
+    busy: false,
+    orgObj: new _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__["default"]()
+  };
+};
+
+var getters = {
+  creatorEmail: function creatorEmail(state) {
+    return state.onboarding.creator.email;
+  },
+  creator: function creator(state, getters) {
+    return state.onboarding.creator;
+  },
+  organizationId: function organizationId(state) {
+    return state.onboarding.organizationId;
+  }
+};
+var mutations = {
+  /**
+   * 
+   * @param {Vue store} state 
+   * @param {The user creating the organization} creator 
+   */
+  setCreator: function setCreator(state, creator) {
+    state.onboarding.creator = creator.data;
+  },
+  setOrganizationId: function setOrganizationId(state, response) {
+    state.onboarding.organizationId = response.data.id;
+  },
+  setVerifiedStatus: function setVerifiedStatus(state, response) {
+    state.onboarding.verified = response.verified;
+  }
+};
+var actions = {
+  createUser: function createUser(_ref, form) {
+    var state = _ref.state,
+        commit = _ref.commit,
+        rootState = _ref.rootState;
+    //change busy state
+    state.busy = true;
+    state.userObj.create();
+    return form.post('/api/users').then(function (response) {
+      commit('setCreator', response);
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  createTeam: function createTeam(_ref2, form) {
+    var commit = _ref2.commit;
+    return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
+      return response;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  adminLogin: function adminLogin(_ref3, form) {
+    var commit = _ref3.commit;
+    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
+      return response;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  verifyUser: function verifyUser(_ref4, form) {
+    var commit = _ref4.commit;
+    return form.put('/api/users/verify').then(function (response) {
+      commit('setVerifiedStatus', response);
+      return response;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  },
+  createOrg: function createOrg(_ref5, form) {
+    var commit = _ref5.commit;
+    return form.post('/api/organizations').then(function (response) {
+      commit('setOrganizationId', response);
+      return response;
+    })["catch"](function (err) {
+      console.log(err);
+    });
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
 
 /***/ }),
 
@@ -41038,8 +41228,8 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\HP\documents\code\ideaco\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\HP\documents\code\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

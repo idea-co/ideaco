@@ -11,7 +11,7 @@
                         <div class="row justify-content-center mt-5">
                             <div class="col-10">
                                 <div class="content_section">
-                                    <form method="POST" @submit.prevent="init">
+                                    <form method="POST" @submit.prevent="createUser(form)">
                                         <div class="email_cont">
                                             <label for="company_email">
                                                 Enter your company email
@@ -40,6 +40,9 @@
 <script>
 import Form from '../../helpers/Form';
 
+import { createNamespacedHelpers } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('onboarding')
+
 export default {
     name: "new",
     data() {
@@ -47,11 +50,20 @@ export default {
             form: new Form({
                 email: ''
             }),
-            busy: false,
         }
     },
 
+    computed: {
+        ...mapState([
+            'busy'
+        ]),    
+    },
+
     methods: {
+        ...mapActions([
+            'createUser'
+        ]),
+
         init(){
             //validate
             if(!this.form.email) return false;
