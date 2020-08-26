@@ -1,6 +1,7 @@
 //import services
 import Organization from '../../services/OrganizationService';
 import User from '../../services/UserService';
+import router from '../../routes';
 
 //initial state
 const state = () => ({
@@ -33,16 +34,20 @@ const mutations = {
      * @param {The user creating the organization} creator 
      */
     setCreator(state, creator){
-        state.onboarding.creator = creator.data;
+        state.creator = creator.data;
     },
 
     setOrganizationId(state, response){
-        state.onboarding.organizationId = response.data.id;
+        state.organizationId = response.data.id;
     },
 
     setVerifiedStatus(state, response){
-        state.onboarding.verified = response.verified;
+        state.verified = response.verified;
     },
+
+    goToEmailConfirmationPage(state){
+        this.$router.push('/confirm-email'); 
+    }
 }
 
 
@@ -53,20 +58,23 @@ const actions = {
 
         //send our form helper ot User class
         const user = state.userObj.create(form);
-        user.then(success => {
-            console.log("Perfect!");
-            console.log(success);
+
+        user.then(response => {
+
+            state.busy = false;
+            
+            commit('setCreator', response);
+
+            //navigate to next page
+            router.push('/confirm-email');
+
         }).catch(err => {
+
+            state.busy = false;
+            commit('setError', err);
             console.log("I think there was an error " + err);
+
         })
-        // if(user)
-        // return form.post('/api/users')
-        // .then(response => {
-        //     commit('setCreator', response);
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        // });
     },
 
     createTeam({commit}, form){

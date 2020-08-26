@@ -2550,22 +2550,7 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
     };
   },
   computed: _objectSpread({}, mapState(['busy'])),
-  methods: _objectSpread(_objectSpread({}, mapActions(['createUser'])), {}, {
-    init: function init() {
-      var _this = this;
-
-      //validate
-      if (!this.form.email) return false; //loading...
-
-      this.busy = true; //send a request to the API
-
-      this.$store.dispatch('init', this.form).then(function () {
-        //change route to
-        _this.$router.push('/confirm-email');
-      });
-    }
-  }),
-  mounted: function mounted() {}
+  methods: _objectSpread({}, mapActions(['createUser']))
 });
 
 /***/ }),
@@ -41104,7 +41089,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/OrganizationService */ "./resources/js/services/OrganizationService.js");
 /* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/UserService */ "./resources/js/services/UserService.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../routes */ "./resources/js/routes.js");
 //import services
+
 
  //initial state
 
@@ -41137,13 +41124,16 @@ var mutations = {
    * @param {The user creating the organization} creator 
    */
   setCreator: function setCreator(state, creator) {
-    state.onboarding.creator = creator.data;
+    state.creator = creator.data;
   },
   setOrganizationId: function setOrganizationId(state, response) {
-    state.onboarding.organizationId = response.data.id;
+    state.organizationId = response.data.id;
   },
   setVerifiedStatus: function setVerifiedStatus(state, response) {
-    state.onboarding.verified = response.verified;
+    state.verified = response.verified;
+  },
+  goToEmailConfirmationPage: function goToEmailConfirmationPage(state) {
+    this.$router.push('/confirm-email');
   }
 };
 var actions = {
@@ -41155,19 +41145,16 @@ var actions = {
     state.busy = true; //send our form helper ot User class
 
     var user = state.userObj.create(form);
-    user.then(function (success) {
-      console.log("Perfect!");
-      console.log(success);
+    user.then(function (response) {
+      state.busy = false;
+      commit('setCreator', response); //navigate to next page
+
+      _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/confirm-email');
     })["catch"](function (err) {
+      state.busy = false;
+      commit('setError', err);
       console.log("I think there was an error " + err);
-    }); // if(user)
-    // return form.post('/api/users')
-    // .then(response => {
-    //     commit('setCreator', response);
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    // });
+    });
   },
   createTeam: function createTeam(_ref2, form) {
     var commit = _ref2.commit;

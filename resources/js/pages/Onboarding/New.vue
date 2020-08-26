@@ -63,26 +63,6 @@ export default {
         ...mapActions([
             'createUser'
         ]),
-
-        init(){
-            //validate
-            if(!this.form.email) return false;
-
-            //loading...
-            this.busy = true;
-
-            //send a request to the API
-            this.$store.dispatch('init', this.form)
-                .then( () => {
-                    //change route to
-                    this.$router.push('/confirm-email'); 
-                })
-
-        }
-    },
-
-    mounted() {
-
     },
 }
 </script>
