@@ -2189,6 +2189,13 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2222,6 +2229,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('onboarding'),
+    mapActions = _createNamespacedHelp.mapActions,
+    mapState = _createNamespacedHelp.mapState;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
@@ -2229,33 +2242,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         name: '',
-        email: this.$store.getters.creatorEmail,
+        email: '',
         password: ''
-      }),
-      busy: false
+      })
     };
   },
-  methods: {
-    login: function login() {
-      var _this = this;
-
-      this.$store.dispatch('adminLogin', this.form).then(function (response) {
-        console.log(response);
-        /**
-         * In future we want to redirect to a
-         * sub-domain created for that Ideaspace
-         * something like {shortname.ideaco.com}
-         */
-
-        _this.$store.commit('setLoggedInUser', response); //redirect to dashboard
-
-
-        window.location.href = '/app/' + response.data.organization.shortname;
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
-  }
+  computed: _objectSpread({}, mapState(['busy', 'error'])),
+  methods: _objectSpread({}, mapActions(['login']))
 });
 
 /***/ }),
@@ -21811,7 +21804,7 @@ var render = function() {
                     on: {
                       submit: function($event) {
                         $event.preventDefault()
-                        return _vm.login($event)
+                        return _vm.login(_vm.form)
                       }
                     }
                   },
@@ -21919,7 +21912,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "sign-up-continue", attrs: { type: "submit" } },
-        [_vm._v("Join")]
+        [_vm._v("Sign in")]
       )
     ])
   }
