@@ -80,8 +80,7 @@ const actions = {
         //start the loading busy state
         state.busy = true;
         
-        console.log(form);
-        
+        //inject email received on previous screen
         form.email = state.creatorEmail;
 
         const verified = state.userObj.confirmEmail(form);
@@ -97,6 +96,33 @@ const actions = {
             }
         })  
         .catch(err => {
+            state.busy = false;
+            commit('setError', 'An error occured!' + err);
+        })
+    },
+
+    createOrg({state, commit}, form){
+        //start loadng state
+        state.busy = true;
+        //inject owner to form
+        form.owner = state.creatorEmail;
+
+        //invoke the organization Helper
+        const org = state.orgObj.create(form);
+
+        org.then(response => {
+            if(response instanceof 'object'){
+                state.busy = false;
+
+                commit('setOrganizationId', response);
+
+                router.push('/team')
+            }else{
+                state.busy = false;
+
+                commit('setError', response);
+            }
+        }).catch(err => {
             state.busy = false;
             commit('setError', 'An error occured!' + err);
         })
@@ -121,17 +147,6 @@ const actions = {
             console.log(err);
         })
     },
-
-    createOrg({commit}, form){
-        return form.post('/api/organizations')
-        .then(response => {
-            commit('setOrganizationId', response);
-            return response;
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    }
 }
 
 export default {

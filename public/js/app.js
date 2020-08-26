@@ -2100,6 +2100,13 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2140,6 +2147,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('onboarding'),
+    mapState = _createNamespacedHelp.mapState,
+    mapActions = _createNamespacedHelp.mapActions;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Ideaspace",
@@ -2149,34 +2165,16 @@ __webpack_require__.r(__webpack_exports__);
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         name: '',
         shortname: '',
-        owner: this.$store.getters.creator
-      }),
-      error: ''
+        owner: ''
+      })
     };
   },
-  methods: {
-    createOrg: function createOrg() {
-      var _this = this;
-
-      //set shortname value
-      this.$store.dispatch('createOrg', this.form).then(function (res) {
-        if (res.data.errors) {
-          _this.error = res.errors.data;
-
-          _this.form.errors.record(res.errors.data);
-        } else {
-          _this.$router.push('/team');
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
-  },
-  computed: {
+  methods: _objectSpread({}, mapActions(['createOrg'])),
+  computed: _objectSpread(_objectSpread({}, mapState(['error', 'busy'])), {}, {
     ideaspaceURl: function ideaspaceURl() {
       return this.form.name + ".ideacoapp.com";
     }
-  }
+  })
 });
 
 /***/ }),
@@ -21605,7 +21603,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          staticClass: "col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in"
         },
         [
           _c("div", { staticClass: "minibox color-black" }, [
@@ -21635,7 +21633,7 @@ var render = function() {
                       on: {
                         submit: function($event) {
                           $event.preventDefault()
-                          return _vm.createOrg($event)
+                          return _vm.createOrg(_vm.form)
                         },
                         keydown: function($event) {
                           return _vm.form.errors.clear()
@@ -21707,8 +21705,23 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    Continue\n                                "
-                          )
+                            "\n                                    Continue\n                                    "
+                          ),
+                          _vm.busy
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "spinner-border spinner-border-sm text-white-50",
+                                  attrs: { role: "status" }
+                                },
+                                [
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Loading...")
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
                         ]
                       )
                     ]
@@ -40841,12 +40854,13 @@ var Organization = /*#__PURE__*/function () {
 
     /**
      * Create a new organization
-     * - First we create the user initiating this 
-     *   request if they don't already exist
-     * - 
      */
-    value: function create(data) {
-      return "Created";
+    value: function create(form) {
+      return form.post('/api/organizations').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        return err;
+      });
     }
   }]);
 
@@ -41168,8 +41182,8 @@ var actions = {
     var state = _ref2.state,
         commit = _ref2.commit;
     //start the loading busy state
-    state.busy = true;
-    console.log(form);
+    state.busy = true; //inject email received on previous screen
+
     form.email = state.creatorEmail;
     var verified = state.userObj.confirmEmail(form);
     verified.then(function (response) {
@@ -41186,26 +41200,40 @@ var actions = {
       commit('setError', 'An error occured!' + err);
     });
   },
-  createTeam: function createTeam(_ref3, form) {
-    var commit = _ref3.commit;
+  createOrg: function createOrg(_ref3, form) {
+    var state = _ref3.state,
+        commit = _ref3.commit;
+    //start loadng state
+    state.busy = true; //inject owner to form
+
+    form.owner = state.creatorEmail; //invoke the organization Helper
+
+    var org = state.orgObj.create(form);
+    org.then(function (response) {
+      if (response instanceof 'object') {
+        state.busy = false;
+        commit('setOrganizationId', response);
+        _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/team');
+      } else {
+        state.busy = false;
+        commit('setError', response);
+      }
+    })["catch"](function (err) {
+      state.busy = false;
+      commit('setError', 'An error occured!' + err);
+    });
+  },
+  createTeam: function createTeam(_ref4, form) {
+    var commit = _ref4.commit;
     return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
       return response;
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  adminLogin: function adminLogin(_ref4, form) {
-    var commit = _ref4.commit;
-    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
-      return response;
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  createOrg: function createOrg(_ref5, form) {
+  adminLogin: function adminLogin(_ref5, form) {
     var commit = _ref5.commit;
-    return form.post('/api/organizations').then(function (response) {
-      commit('setOrganizationId', response);
+    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
       return response;
     })["catch"](function (err) {
       console.log(err);
