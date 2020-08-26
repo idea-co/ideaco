@@ -12,7 +12,7 @@
                     <div class="row mt-5">
                         <div class="col-12">
                             <div class="content_section">
-                                <form method="POST" @submit.prevent="createTeam" @keydown="form.errors.clear()">
+                                <form method="POST" @submit.prevent="createTeam(form)" @keydown="form.errors.clear()">
                                     <div class="email_cont">
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
@@ -25,6 +25,9 @@
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
                                         Continue
+                                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
                                     </button>
                                 </form>
                             </div>
@@ -62,16 +65,6 @@ export default {
         ...mapActions([
             'createTeam'
         ]),
-
-        createTeam(){
-            this.$store.dispatch('createTeam', this.form)
-            .then(response => {
-                console.log(response);
-                this.$router.push('/login')
-            }).catch(error => {
-                console.log(error);
-            })
-        }
     },
 }
 </script>

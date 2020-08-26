@@ -2150,6 +2150,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2161,7 +2165,6 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
   name: "Ideaspace",
   data: function data() {
     return {
-      busy: false,
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         name: '',
         shortname: '',
@@ -2196,6 +2199,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2640,6 +2648,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -2657,19 +2668,7 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
     };
   },
   computed: _objectSpread({}, mapState(['busy', 'error'])),
-  methods: _objectSpread(_objectSpread({}, mapActions(['createTeam'])), {}, {
-    createTeam: function createTeam() {
-      var _this = this;
-
-      this.$store.dispatch('createTeam', this.form).then(function (response) {
-        console.log(response);
-
-        _this.$router.push('/login');
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    }
-  })
+  methods: _objectSpread({}, mapActions(['createTeam']))
 });
 
 /***/ }),
@@ -21653,6 +21652,22 @@ var render = function() {
                         ]),
                         _c("br"),
                         _vm._v(" "),
+                        _vm.error
+                          ? _c(
+                              "div",
+                              { staticClass: "alert alert-danger mt-2" },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(_vm.error) +
+                                    "\n                                    "
+                                )
+                              ]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
                         _vm.form.errors.any()
                           ? _c(
                               "div",
@@ -21780,7 +21795,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          staticClass: "col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in"
         },
         [
           _c("div", { staticClass: "minibox color-black" }, [
@@ -21892,7 +21907,35 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
-                    _vm._m(0)
+                    _c("div", { staticClass: "mb-0 mt-3" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "sign-up-continue",
+                          attrs: { disabled: _vm.busy, type: "submit" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                    Sign in\n                                    "
+                          ),
+                          _vm.busy
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "spinner-border spinner-border-sm text-white-50",
+                                  attrs: { role: "status" }
+                                },
+                                [
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Loading...")
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    ])
                   ]
                 )
               ])
@@ -21903,20 +21946,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-0 mt-3" }, [
-      _c(
-        "button",
-        { staticClass: "sign-up-continue", attrs: { type: "submit" } },
-        [_vm._v("Sign in")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -22516,7 +22546,7 @@ var render = function() {
                       on: {
                         submit: function($event) {
                           $event.preventDefault()
-                          return _vm.createTeam($event)
+                          return _vm.createTeam(_vm.form)
                         },
                         keydown: function($event) {
                           return _vm.form.errors.clear()
@@ -22587,8 +22617,23 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                                    Continue\n                                "
-                          )
+                            "\n                                    Continue\n                                    "
+                          ),
+                          _vm.busy
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "spinner-border spinner-border-sm text-white-50",
+                                  attrs: { role: "status" }
+                                },
+                                [
+                                  _c("span", { staticClass: "sr-only" }, [
+                                    _vm._v("Loading...")
+                                  ])
+                                ]
+                              )
+                            : _vm._e()
                         ]
                       )
                     ]
@@ -41168,6 +41213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/UserService */ "./resources/js/services/UserService.js");
 /* harmony import */ var _services_TeamService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/TeamService */ "./resources/js/services/TeamService.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../routes */ "./resources/js/routes.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 //import services
 
 
@@ -41189,13 +41236,10 @@ var state = function state() {
 
 var getters = {
   creatorEmail: function creatorEmail(state) {
-    return state.creator.email;
+    return state.creatorEmail;
   },
   error: function error(state) {
     return state.error;
-  },
-  creator: function creator(state, getters) {
-    return state.creator.email;
   },
   organizationId: function organizationId(state) {
     return state.organizationId;
@@ -41272,7 +41316,7 @@ var actions = {
 
     var org = state.orgObj.create(form);
     org.then(function (response) {
-      if (response instanceof 'object') {
+      if (_typeof(response.data) == 'object') {
         state.busy = false;
         commit('setOrganizationId', response);
         _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/team');
@@ -41282,7 +41326,7 @@ var actions = {
       }
     })["catch"](function (err) {
       state.busy = false;
-      commit('setError', 'An error occured!' + err);
+      commit('setError', 'An error occured! <br/>' + err);
     });
   },
   createTeam: function createTeam(_ref4, form) {
@@ -41292,7 +41336,7 @@ var actions = {
     state.busy = true;
     var team = state.teamObj.create(form, getters.organizationId);
     team.then(function (response) {
-      if (response instanceof 'object') {
+      if (_typeof(response.data) == 'object') {
         state.busy = false;
         _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/login');
       } else {
@@ -41305,12 +41349,14 @@ var actions = {
     var state = _ref5.state,
         commit = _ref5.commit,
         getters = _ref5.getters;
-    state.busy = true;
+    state.busy = true; //inject email to the form
+
+    form.email = getters.creatorEmail;
     var loggedIn = state.orgObj.login(form, getters.organizationId, true);
     loggedIn.then(function (response) {
       state.busy = false;
 
-      if (response instanceof 'object') {
+      if (_typeof(response.data) == 'object') {
         //navigate to the app dashboard
         //save the user to localStorage
         commit('setLoggedIn', response); //retrieve the organization shortname from response
@@ -41320,7 +41366,7 @@ var actions = {
       } else {
         commit('setError', 'An error occured while logging you in to your organization');
       }
-    }).cacth(function (err) {
+    })["catch"](function (err) {
       state.busy = false;
       commit('setError', err);
     });

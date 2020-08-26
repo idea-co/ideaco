@@ -18,15 +18,11 @@ const state = () => ({
 
 const getters = {
     creatorEmail: state => {
-        return state.creator.email;
+        return state.creatorEmail;
     },
 
     error: state => {
         return state.error;
-    },
-
-    creator: (state, getters) => {
-        return state.creator.email;
     },
 
     organizationId: state => {
@@ -113,7 +109,7 @@ const actions = {
         const org = state.orgObj.create(form);
 
         org.then(response => {
-            if(response instanceof 'object'){
+            if(typeof response.data == 'object'){
                 state.busy = false;
 
                 commit('setOrganizationId', response);
@@ -126,7 +122,7 @@ const actions = {
             }
         }).catch(err => {
             state.busy = false;
-            commit('setError', 'An error occured!' + err);
+            commit('setError', 'An error occured! <br/>' + err);
         })
     },
 
@@ -136,7 +132,7 @@ const actions = {
         const team = state.teamObj.create(form, getters.organizationId);
 
         team.then(response => {
-            if(response instanceof 'object'){
+            if(typeof response.data == 'object'){
                 state.busy = false;
                 router.push('/login');
             }else{
@@ -149,11 +145,14 @@ const actions = {
     login({state, commit, getters}, form){
         state.busy = true;
 
+        //inject email to the form
+        form.email = getters.creatorEmail;
+
         const loggedIn = state.orgObj.login(form, getters.organizationId, true);
 
         loggedIn.then(response => {
             state.busy = false;
-            if(response instanceof 'object'){
+            if(typeof response.data == 'object'){
                 //navigate to the app dashboard
                 //save the user to localStorage
                 commit('setLoggedIn', response);
@@ -163,7 +162,7 @@ const actions = {
             }else{
                 commit('setError', 'An error occured while logging you in to your organization');
             }
-        }).cacth(err => {
+        }).catch(err => {
             state.busy = false;
             commit('setError', err);
         })

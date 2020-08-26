@@ -1,7 +1,7 @@
 <template>
     <section class="main-section">
         <div class="row justify-content-center main">
-            <div class="col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in">
+            <div class="col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in">
                 <div class="minibox color-black">
                     <h4 class="title font-weight-bold">
                         Your Ideaspace has been set up 
@@ -20,7 +20,12 @@
                                     <input type="password" id="password" v-model="form.password" class="form-control" autocomplete="off" placeholder="Enter a password longer than 8 characters">
                                 </div>
                                 <div class="mb-0 mt-3">
-                                    <button class="sign-up-continue" type="submit">Sign in</button>
+                                    <button class="sign-up-continue" :disabled="busy" type="submit">
+                                        Sign in
+                                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </button>
                                 </div>
                             </form>
                         </div>

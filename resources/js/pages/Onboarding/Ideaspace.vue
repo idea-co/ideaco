@@ -15,6 +15,10 @@
                                 <form method="POST" @submit.prevent="createOrg(form)" @keydown="form.errors.clear()">
                                     <div class="email_cont">
                                         <label for="name">Enter your ideaspace name</label><br>
+                                        <div class="alert alert-danger mt-2" v-if="error">
+                                            {{ error }}
+                                        </div>
+                                        <br>
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
                                                  {{ error[0] }}
@@ -50,7 +54,6 @@ export default {
     name: "Ideaspace",
     data() {
         return {
-            busy: false,
             form: new Form({
                 name: '',
                 shortname: '',
