@@ -54,6 +54,18 @@ class User {
         })
     }
 
+    /**
+     * Confirm a user email
+     */
+    confirmEmail(form){
+        return form.put('/api/users/verify').then(response => {
+            return response;
+        })
+        .catch(err => {
+            return err;
+        })
+    }
+
 }
 
 export default User;

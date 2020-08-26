@@ -2019,6 +2019,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2060,37 +2067,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('onboarding'),
+    mapState = _createNamespacedHelp.mapState,
+    mapActions = _createNamespacedHelp.mapActions;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         otp: '',
-        email: this.$store.getters.creatorEmail
-      }),
-      busy: false,
-      error: ''
+        email: this.creatorEmail
+      })
     };
   },
-  methods: {
-    confirm: function confirm() {
-      var _this = this;
-
-      // validate
-      if (!this.form.otp) return false; //busy state
-
-      this.busy = true; //make the request
-
-      this.$store.dispatch('verifyUser', this.form).then(function (res) {
-        if (res.verified === false) {
-          _this.error = res.reason;
-          return;
-        }
-
-        _this.$router.push('/ideaspace');
-      });
-    }
-  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['creatorEmail', 'error'])), mapState(['busy'])),
+  methods: _objectSpread({}, mapActions(['confirmEmail'])),
   mounted: function mounted() {}
 });
 
@@ -21470,7 +21464,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          staticClass: "col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in"
         },
         [
           _c("div", { staticClass: "minibox color-black" }, [
@@ -21490,7 +21484,7 @@ var render = function() {
                       on: {
                         submit: function($event) {
                           $event.preventDefault()
-                          return _vm.confirm($event)
+                          return _vm.confirmEmail(_vm.form)
                         }
                       }
                     },
@@ -40840,21 +40834,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Organization = /*#__PURE__*/function () {
   function Organization() {
     _classCallCheck(this, Organization);
-
-    this.userObj = new _UserService__WEBPACK_IMPORTED_MODULE_0__["default"]();
   }
-  /**
-   * Create a new organization
-   * - First we create the user initiating this 
-   *   request if they don't already exist
-   * - 
-   */
-
 
   _createClass(Organization, [{
     key: "create",
+
+    /**
+     * Create a new organization
+     * - First we create the user initiating this 
+     *   request if they don't already exist
+     * - 
+     */
     value: function create(data) {
-      var orgOwner = this.userObj.create(data.email);
       return "Created";
     }
   }]);
@@ -40946,6 +40937,19 @@ var User = /*#__PURE__*/function () {
     key: "create",
     value: function create(form) {
       return form.post('/api/users').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        return err;
+      });
+    }
+    /**
+     * Confirm a user email
+     */
+
+  }, {
+    key: "confirmEmail",
+    value: function confirmEmail(form) {
+      return form.put('/api/users/verify').then(function (response) {
         return response;
       })["catch"](function (err) {
         return err;
@@ -41100,21 +41104,25 @@ var state = function state() {
     creator: null,
     organizationId: null,
     verified: false,
-    userObj: new _services_UserService__WEBPACK_IMPORTED_MODULE_1__["default"](),
     busy: false,
+    error: null,
+    userObj: new _services_UserService__WEBPACK_IMPORTED_MODULE_1__["default"](),
     orgObj: new _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__["default"]()
   };
 };
 
 var getters = {
   creatorEmail: function creatorEmail(state) {
-    return state.onboarding.creator.email;
+    return state.creator.email;
+  },
+  error: function error(state) {
+    return state.error;
   },
   creator: function creator(state, getters) {
-    return state.onboarding.creator;
+    return state.creator;
   },
   organizationId: function organizationId(state) {
-    return state.onboarding.organizationId;
+    return state.organizationId;
   }
 };
 var mutations = {
@@ -41123,17 +41131,17 @@ var mutations = {
    * @param {Vue store} state 
    * @param {The user creating the organization} creator 
    */
-  setCreator: function setCreator(state, creator) {
-    state.creator = creator.data;
+  setCreator: function setCreator(state, payload) {
+    state.creator = payload.data;
   },
-  setOrganizationId: function setOrganizationId(state, response) {
-    state.organizationId = response.data.id;
+  setOrganizationId: function setOrganizationId(state, payload) {
+    state.organizationId = payload.data.id;
   },
-  setVerifiedStatus: function setVerifiedStatus(state, response) {
-    state.verified = response.verified;
+  setVerifiedStatus: function setVerifiedStatus(state, payload) {
+    state.verified = payload.verified;
   },
-  goToEmailConfirmationPage: function goToEmailConfirmationPage(state) {
-    this.$router.push('/confirm-email');
+  setError: function setError(state, payload) {
+    state.error = payload;
   }
 };
 var actions = {
@@ -41156,26 +41164,37 @@ var actions = {
       console.log("I think there was an error " + err);
     });
   },
-  createTeam: function createTeam(_ref2, form) {
-    var commit = _ref2.commit;
+  confirmEmail: function confirmEmail(_ref2, form) {
+    var state = _ref2.state,
+        commit = _ref2.commit;
+    //start the loading busy state
+    state.busy = true;
+    var verified = state.userObj.confirmEmail(form);
+    verified.then(function (response) {
+      //stop loading state
+      state.busy = false; //navigate to next page only if OTP is valid
+
+      if (response.verified === false) {
+        commit('setError', 'Sorry! That code seems incorrect');
+      } else {
+        _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/ideaspace');
+      }
+    })["catch"](function (err) {
+      state.busy = false;
+      commit('setError', 'An error occured!' + err);
+    });
+  },
+  createTeam: function createTeam(_ref3, form) {
+    var commit = _ref3.commit;
     return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
       return response;
     })["catch"](function (err) {
       console.log(err);
     });
   },
-  adminLogin: function adminLogin(_ref3, form) {
-    var commit = _ref3.commit;
-    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
-      return response;
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  },
-  verifyUser: function verifyUser(_ref4, form) {
+  adminLogin: function adminLogin(_ref4, form) {
     var commit = _ref4.commit;
-    return form.put('/api/users/verify').then(function (response) {
-      commit('setVerifiedStatus', response);
+    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
       return response;
     })["catch"](function (err) {
       console.log(err);

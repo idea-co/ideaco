@@ -1,9 +1,6 @@
 import User from './UserService';
 
 class Organization {
-    constructor(){
-        this.userObj = new User();
-    }
     /**
      * Create a new organization
      * - First we create the user initiating this 
@@ -11,7 +8,6 @@ class Organization {
      * - 
      */
     create(data) {
-        const orgOwner = this.userObj.create(data.email);
         return "Created";
     }
 }

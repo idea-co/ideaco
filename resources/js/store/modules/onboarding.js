@@ -8,22 +8,27 @@ const state = () => ({
     creator: null,
     organizationId: null,
     verified: false,
-    userObj: new User(),
     busy: false,
-    orgObj: new Organization,
+    error: null,
+    userObj: new User(),
+    orgObj: new Organization(),
 })
 
 const getters = {
     creatorEmail: state => {
-        return state.onboarding.creator.email;
+        return state.creator.email;
+    },
+
+    error: state => {
+        return state.error;
     },
 
     creator: (state, getters) => {
-        return state.onboarding.creator;
+        return state.creator;
     },
 
     organizationId: state => {
-        return state.onboarding.organizationId;
+        return state.organizationId;
     },
 }
 
@@ -33,20 +38,20 @@ const mutations = {
      * @param {Vue store} state 
      * @param {The user creating the organization} creator 
      */
-    setCreator(state, creator){
-        state.creator = creator.data;
+    setCreator(state, payload){
+        state.creator = payload.data;
     },
 
-    setOrganizationId(state, response){
-        state.organizationId = response.data.id;
+    setOrganizationId(state, payload){
+        state.organizationId = payload.data.id;
     },
 
-    setVerifiedStatus(state, response){
-        state.verified = response.verified;
+    setVerifiedStatus(state, payload){
+        state.verified = payload.verified;
     },
 
-    goToEmailConfirmationPage(state){
-        this.$router.push('/confirm-email'); 
+    setError(state, payload){
+        state.error = payload;
     }
 }
 
@@ -55,25 +60,41 @@ const actions = {
     createUser ({ state, commit, rootState }, form) {
         //change busy state
         state.busy = true;
-
         //send our form helper ot User class
         const user = state.userObj.create(form);
 
         user.then(response => {
-
             state.busy = false;
-            
             commit('setCreator', response);
-
             //navigate to next page
             router.push('/confirm-email');
-
         }).catch(err => {
-
             state.busy = false;
             commit('setError', err);
             console.log("I think there was an error " + err);
 
+        })
+    },
+
+    confirmEmail({state, commit}, form) {
+        //start the loading busy state
+        state.busy = true;
+
+        const verified = state.userObj.confirmEmail(form);
+
+        verified.then(response => {
+            //stop loading state
+            state.busy = false;
+            //navigate to next page only if OTP is valid
+            if (response.verified === false){
+                commit('setError', 'Sorry! That code seems incorrect');
+            }else{
+                router.push('/ideaspace')
+            }
+        })  
+        .catch(err => {
+            state.busy = false;
+            commit('setError', 'An error occured!' + err);
         })
     },
 
@@ -90,17 +111,6 @@ const actions = {
     adminLogin({commit}, form){
         return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login')
         .then(response => {
-            return response;
-        })
-        .catch(err => {
-            console.log(err);
-        })
-    },
-
-    verifyUser({commit}, form) {
-        return form.put('/api/users/verify')
-        .then(response => {
-            commit('setVerifiedStatus', response)
             return response;
         })
         .catch(err => {
