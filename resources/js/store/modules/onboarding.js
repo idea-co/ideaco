@@ -5,7 +5,7 @@ import router from '../../routes';
 
 //initial state
 const state = () => ({
-    creator: null,
+    creatorEmail: null,
     organizationId: null,
     verified: false,
     busy: false,
@@ -24,7 +24,7 @@ const getters = {
     },
 
     creator: (state, getters) => {
-        return state.creator;
+        return state.creator.email;
     },
 
     organizationId: state => {
@@ -38,8 +38,8 @@ const mutations = {
      * @param {Vue store} state 
      * @param {The user creating the organization} creator 
      */
-    setCreator(state, payload){
-        state.creator = payload.data;
+    setCreatorEmail(state, payload){
+        state.creatorEmail = payload.data.email;
     },
 
     setOrganizationId(state, payload){
@@ -65,7 +65,7 @@ const actions = {
 
         user.then(response => {
             state.busy = false;
-            commit('setCreator', response);
+            commit('setCreatorEmail', response);
             //navigate to next page
             router.push('/confirm-email');
         }).catch(err => {
@@ -79,6 +79,10 @@ const actions = {
     confirmEmail({state, commit}, form) {
         //start the loading busy state
         state.busy = true;
+        
+        console.log(form);
+        
+        form.email = state.creatorEmail;
 
         const verified = state.userObj.confirmEmail(form);
 

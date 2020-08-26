@@ -49,18 +49,16 @@ export default {
         return {
             form: new Form({
                 otp: '',
-                email: this.creatorEmail,
+                email: '',
             }),
         }
     },
 
     computed: {
-        ...mapGetters([
-            'creatorEmail',
-            'error'
-        ]),
         ...mapState([
-            'busy'
+            'busy',
+            'creatorEmail',
+            'error',
         ]),  
     },
 

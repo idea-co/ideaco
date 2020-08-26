@@ -2079,11 +2079,11 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         otp: '',
-        email: this.creatorEmail
+        email: ''
       })
     };
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['creatorEmail', 'error'])), mapState(['busy'])),
+  computed: _objectSpread({}, mapState(['busy', 'creatorEmail', 'error'])),
   methods: _objectSpread({}, mapActions(['confirmEmail'])),
   mounted: function mounted() {}
 });
@@ -41101,7 +41101,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var state = function state() {
   return {
-    creator: null,
+    creatorEmail: null,
     organizationId: null,
     verified: false,
     busy: false,
@@ -41119,7 +41119,7 @@ var getters = {
     return state.error;
   },
   creator: function creator(state, getters) {
-    return state.creator;
+    return state.creator.email;
   },
   organizationId: function organizationId(state) {
     return state.organizationId;
@@ -41131,8 +41131,8 @@ var mutations = {
    * @param {Vue store} state 
    * @param {The user creating the organization} creator 
    */
-  setCreator: function setCreator(state, payload) {
-    state.creator = payload.data;
+  setCreatorEmail: function setCreatorEmail(state, payload) {
+    state.creatorEmail = payload.data.email;
   },
   setOrganizationId: function setOrganizationId(state, payload) {
     state.organizationId = payload.data.id;
@@ -41155,7 +41155,7 @@ var actions = {
     var user = state.userObj.create(form);
     user.then(function (response) {
       state.busy = false;
-      commit('setCreator', response); //navigate to next page
+      commit('setCreatorEmail', response); //navigate to next page
 
       _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/confirm-email');
     })["catch"](function (err) {
@@ -41169,6 +41169,8 @@ var actions = {
         commit = _ref2.commit;
     //start the loading busy state
     state.busy = true;
+    console.log(form);
+    form.email = state.creatorEmail;
     var verified = state.userObj.confirmEmail(form);
     verified.then(function (response) {
       //stop loading state
