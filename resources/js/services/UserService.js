@@ -46,8 +46,12 @@ class User {
      * the specified user if they 
      * already exist
      */
-    create(){
-
+    create(form){
+        return form.post('/api/users').then(response => {
+            return response;
+        }).catch(err => {
+            return err;
+        })
     }
 
 }

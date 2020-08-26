@@ -50,15 +50,23 @@ const actions = {
     createUser ({ state, commit, rootState }, form) {
         //change busy state
         state.busy = true;
-        
-        state.userObj.create();
-        return form.post('/api/users')
-        .then(response => {
-            commit('setCreator', response);
+
+        //send our form helper ot User class
+        const user = state.userObj.create(form);
+        user.then(success => {
+            console.log("Perfect!");
+            console.log(success);
+        }).catch(err => {
+            console.log("I think there was an error " + err);
         })
-        .catch(err => {
-            console.log(err);
-        });
+        // if(user)
+        // return form.post('/api/users')
+        // .then(response => {
+        //     commit('setCreator', response);
+        // })
+        // .catch(err => {
+        //     console.log(err);
+        // });
     },
 
     createTeam({commit}, form){

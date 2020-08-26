@@ -40959,7 +40959,13 @@ var User = /*#__PURE__*/function () {
 
   }, {
     key: "create",
-    value: function create() {}
+    value: function create(form) {
+      return form.post('/api/users').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        return err;
+      });
+    }
   }]);
 
   return User;
@@ -41146,13 +41152,22 @@ var actions = {
         commit = _ref.commit,
         rootState = _ref.rootState;
     //change busy state
-    state.busy = true;
-    state.userObj.create();
-    return form.post('/api/users').then(function (response) {
-      commit('setCreator', response);
+    state.busy = true; //send our form helper ot User class
+
+    var user = state.userObj.create(form);
+    user.then(function (success) {
+      console.log("Perfect!");
+      console.log(success);
     })["catch"](function (err) {
-      console.log(err);
-    });
+      console.log("I think there was an error " + err);
+    }); // if(user)
+    // return form.post('/api/users')
+    // .then(response => {
+    //     commit('setCreator', response);
+    // })
+    // .catch(err => {
+    //     console.log(err);
+    // });
   },
   createTeam: function createTeam(_ref2, form) {
     var commit = _ref2.commit;
