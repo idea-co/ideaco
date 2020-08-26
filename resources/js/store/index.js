@@ -13,23 +13,11 @@ export default new Vuex.Store({
         login
     },
     state: {
-        login:{
-            organization: null,
-            email: null,
-        },
         user: null,
         isLoggedIn: false,
     },
 
     mutations:{
-        setLoginOrganization(state, response){
-            state.login.organization = response['data'];
-        },
-
-        setLoginUserEmail(state, response){
-            state.login.email = response['data']['email'];
-        },
-
         clearUserData () {
             localStorage.removeItem('user')
             location.href = "/login"; //redirect to login
@@ -37,12 +25,6 @@ export default new Vuex.Store({
     },
 
     actions: {
-        findMemberByEmail({commit}, form){
-            return form.post('/api/organizations/'+this.getters.loginOrganization.id+'/members/search')
-            .then(response => {
-                return response;
-            })
-        },
 
         loginToWorkspace({commit}, form){
             return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/login')
@@ -54,18 +36,6 @@ export default new Vuex.Store({
             })
         },
 
-        findOrganization({commit}, form){
-            return form.get('/api/organizations/' + form.shortname + '/find')
-                .then(response => {
-                    commit('setLoginOrganization', response);
-                    return response;
-                })
-                .catch(err => {
-                    console.log(form.shortname);
-                    console.log(err);
-                })
-        },
-
         logout ({ commit }) {
             commit('clearUserData')
         }
@@ -74,14 +44,6 @@ export default new Vuex.Store({
     getters: {
         role: state => {
           return state.user.role;
-        },
-
-        loginUserEmail: state => {
-            return state.login.email;
-        },
-
-        loginOrganization: state => {
-            return state.login.organization;
         },
 
         token: state => {

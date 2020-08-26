@@ -2304,6 +2304,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -22026,8 +22031,28 @@ var render = function() {
             _vm._v(" "),
             _c(
               "button",
-              { staticClass: "sign-up-continue", attrs: { type: "submit" } },
-              [_vm._v("Continue")]
+              {
+                staticClass: "sign-up-continue",
+                attrs: { disabled: _vm.busy, type: "submit" }
+              },
+              [
+                _vm._v("\n                    Continue\n                    "),
+                _vm.busy
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "spinner-border spinner-border-sm text-white-50",
+                        attrs: { role: "status" }
+                      },
+                      [
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("Loading...")
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ]
             )
           ]
         )
@@ -40892,9 +40917,11 @@ router.beforeEach(function (to, from, next) {
 /*!******************************************************!*\
   !*** ./resources/js/services/OrganizationMembers.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -40925,6 +40952,8 @@ var Members = /*#__PURE__*/function () {
 
   return Members;
 }();
+
+/* harmony default export */ __webpack_exports__["default"] = (Members);
 
 /***/ }),
 
@@ -41175,64 +41204,32 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     login: _modules_login__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   state: {
-    login: {
-      organization: null,
-      email: null
-    },
     user: null,
     isLoggedIn: false
   },
   mutations: {
-    setLoginOrganization: function setLoginOrganization(state, response) {
-      state.login.organization = response['data'];
-    },
-    setLoginUserEmail: function setLoginUserEmail(state, response) {
-      state.login.email = response['data']['email'];
-    },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
       location.href = "/login"; //redirect to login
     }
   },
   actions: {
-    findMemberByEmail: function findMemberByEmail(_ref, form) {
+    loginToWorkspace: function loginToWorkspace(_ref, form) {
       var commit = _ref.commit;
-      return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/members/search').then(function (response) {
-        return response;
-      });
-    },
-    loginToWorkspace: function loginToWorkspace(_ref2, form) {
-      var commit = _ref2.commit;
       return form.post('/api/organizations/' + this.getters.loginOrganization.id + '/login').then(function (response) {
         return response;
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    findOrganization: function findOrganization(_ref3, form) {
-      var commit = _ref3.commit;
-      return form.get('/api/organizations/' + form.shortname + '/find').then(function (response) {
-        commit('setLoginOrganization', response);
-        return response;
-      })["catch"](function (err) {
-        console.log(form.shortname);
-        console.log(err);
-      });
-    },
-    logout: function logout(_ref4) {
-      var commit = _ref4.commit;
+    logout: function logout(_ref2) {
+      var commit = _ref2.commit;
       commit('clearUserData');
     }
   },
   getters: {
     role: function role(state) {
       return state.user.role;
-    },
-    loginUserEmail: function loginUserEmail(state) {
-      return state.login.email;
-    },
-    loginOrganization: function loginOrganization(state) {
-      return state.login.organization;
     },
     token: function token(state) {
       return state.user.token;
@@ -41253,7 +41250,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/OrganizationService */ "./resources/js/services/OrganizationService.js");
 /* harmony import */ var _services_OrganizationMembers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/OrganizationMembers */ "./resources/js/services/OrganizationMembers.js");
-/* harmony import */ var _services_OrganizationMembers__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_services_OrganizationMembers__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/UserService */ "./resources/js/services/UserService.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../routes */ "./resources/js/routes.js");
 
@@ -41269,7 +41265,7 @@ var state = function state() {
     error: null,
     orgObj: new _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__["default"](),
     userObj: new _services_UserService__WEBPACK_IMPORTED_MODULE_2__["default"](),
-    memberObj: new _services_OrganizationMembers__WEBPACK_IMPORTED_MODULE_1___default.a(),
+    memberObj: new _services_OrganizationMembers__WEBPACK_IMPORTED_MODULE_1__["default"](),
     organization: null,
     email: null
   };
@@ -41286,7 +41282,7 @@ var mutations = {
 
     axios.defaults.headers.common['Authorization'] = token;
   },
-  setLoginOrganization: function setLoginOrganization(state, payload) {
+  setOrganization: function setOrganization(state, payload) {
     state.organization = payload.data;
   },
   setUserEmail: function setUserEmail(state, response) {
@@ -41299,6 +41295,12 @@ var mutations = {
 var getters = {
   organization: function organization(state) {
     return state.organization;
+  },
+  organizationId: function organizationId(state) {
+    return state.organization.id;
+  },
+  organizationName: function organizationName(state) {
+    return state.organization.name;
   },
   email: function email(state) {
     return state.email;
@@ -41314,7 +41316,7 @@ var actions = {
       state.busy = false;
 
       if (response instanceof Object) {
-        commit('setLoginOrganization', response);
+        commit('setOrganization', response);
         _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/sign-in/email');
       } else {
         commit('setError', response);
@@ -41326,14 +41328,15 @@ var actions = {
   },
   findMember: function findMember(_ref2, form) {
     var commit = _ref2.commit,
+        getters = _ref2.getters,
         state = _ref2.state;
     state.busy = true;
-    var member = state.memberObj.find(form);
+    var member = state.memberObj.find(form, getters.organizationId);
     member.then(function (response) {
       state.busy = false;
 
       if (response instanceof Object) {
-        commit('setLoginUserEmail', response);
+        commit('setUserEmail', response);
         _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/sign-in/password');
       } else {
         commit('setError', response);

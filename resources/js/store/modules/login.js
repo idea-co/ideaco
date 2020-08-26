@@ -28,7 +28,7 @@ const mutations = {
         axios.defaults.headers.common['Authorization'] = token;
     },
 
-    setLoginOrganization(state, payload){
+    setOrganization(state, payload){
         state.organization = payload.data;
     },
 
@@ -43,8 +43,17 @@ const mutations = {
 }
 
 const getters = {
+
     organization: state => {
         return state.organization;
+    },
+
+    organizationId: state => {
+        return state.organization.id;
+    },
+
+    organizationName: state => {
+        return state.organization.name;
     },
 
     email: state => {
@@ -62,7 +71,7 @@ const actions = {
             state.busy = false;
 
             if(response instanceof Object){
-                commit('setLoginOrganization', response);
+                commit('setOrganization', response);
                 router.push('/sign-in/email')
             }else{
                 commit('setError', response);
@@ -75,16 +84,16 @@ const actions = {
 
     },
 
-    findMember({commit, state}, form){
+    findMember({commit, getters, state}, form){
         state.busy = true;
 
-        const member = state.memberObj.find(form);
+        const member = state.memberObj.find(form, getters.organizationId);
 
         member.then(response => {
             state.busy = false;
 
             if(response instanceof Object){
-                commit('setLoginUserEmail', response);
+                commit('setUserEmail', response);
                 router.push('/sign-in/password');
             }else{
                 commit('setError', response);

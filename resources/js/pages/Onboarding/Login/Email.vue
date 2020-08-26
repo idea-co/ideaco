@@ -17,7 +17,12 @@
                         <label for="email">Enter Email Address</label>
                         <input type="email" id="email" v-model="form.email" placeholder="Enter your email address" class="form-control">
                     </div>
-                    <button class="sign-up-continue" type="submit">Continue</button>
+                    <button class="sign-up-continue" :disabled="busy" type="submit">
+                        Continue
+                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>  
+                    </button>
                 </form>
             </div>
         </div>
