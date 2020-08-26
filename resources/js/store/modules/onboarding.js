@@ -1,6 +1,7 @@
 //import services
 import Organization from '../../services/OrganizationService';
 import User from '../../services/UserService';
+import Team from '../../services/TeamService';
 import router from '../../routes';
 
 //initial state
@@ -10,6 +11,7 @@ const state = () => ({
     verified: false,
     busy: false,
     error: null,
+    teamObj: new Team(),
     userObj: new User(),
     orgObj: new Organization(),
 })
@@ -116,7 +118,7 @@ const actions = {
 
                 commit('setOrganizationId', response);
 
-                router.push('/team')
+                router.push('/team');
             }else{
                 state.busy = false;
 
@@ -128,23 +130,42 @@ const actions = {
         })
     },
 
-    createTeam({commit}, form){
-        return form.post('/api/organizations/'+ this.getters.organizationId+'/teams')
-        .then(response => {
-            return response;
-        })
-        .catch(err => {
-            console.log(err);
+    createTeam({state, commit, getters}, form){
+        state.busy = true;
+
+        const team = state.teamObj.create(form, getters.organizationId);
+
+        team.then(response => {
+            if(response instanceof 'object'){
+                state.busy = false;
+                router.push('/login');
+            }else{
+                state.busy = false;
+                commit('setError', err);
+            }
         })
     },
 
-    adminLogin({commit}, form){
-        return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login')
-        .then(response => {
-            return response;
-        })
-        .catch(err => {
-            console.log(err);
+    login({state, commit, getters}, form){
+        state.busy = true;
+
+        const loggedIn = state.orgObj.login(form, getters.organizationId, true);
+
+        loggedIn.then(response => {
+            state.busy = false;
+            if(response instanceof 'object'){
+                //navigate to the app dashboard
+                //save the user to localStorage
+                commit('setLoggedIn', response);
+                //retrieve the organization shortname from response
+                //and redirect to the dashboard
+                window.location.href = '/app/' +response.data.organization.shortname;
+            }else{
+                commit('setError', 'An error occured while logging you in to your organization');
+            }
+        }).cacth(err => {
+            state.busy = false;
+            commit('setError', err);
         })
     },
 }

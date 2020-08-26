@@ -2602,6 +2602,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2641,17 +2648,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('onboarding'),
+    mapActions = _createNamespacedHelp.mapActions,
+    mapState = _createNamespacedHelp.mapState;
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Team",
   data: function data() {
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         name: ''
-      }),
-      busy: false
+      })
     };
   },
-  methods: {
+  computed: _objectSpread({}, mapState(['busy', 'error'])),
+  methods: _objectSpread(_objectSpread({}, mapActions(['createTeam'])), {}, {
     createTeam: function createTeam() {
       var _this = this;
 
@@ -2663,7 +2676,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     }
-  }
+  })
 });
 
 /***/ }),
@@ -22484,7 +22497,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in"
+          staticClass: "col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in"
         },
         [
           _c("div", { staticClass: "minibox color-black" }, [
@@ -40862,12 +40875,65 @@ var Organization = /*#__PURE__*/function () {
         return err;
       });
     }
+    /**
+     * Login to an organization
+     */
+
+  }, {
+    key: "login",
+    value: function login(form, organizationId) {
+      var isCreator = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var route = isCreator ? '/admin/' : '/';
+      return form.post('/api/organizations/' + organizationId + route + 'login').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        return err;
+      });
+    }
   }]);
 
   return Organization;
 }();
 
 /* harmony default export */ __webpack_exports__["default"] = (Organization);
+
+/***/ }),
+
+/***/ "./resources/js/services/TeamService.js":
+/*!**********************************************!*\
+  !*** ./resources/js/services/TeamService.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Team = /*#__PURE__*/function () {
+  function Team() {
+    _classCallCheck(this, Team);
+  }
+
+  _createClass(Team, [{
+    key: "create",
+    value: function create(form, organizationId) {
+      return form.post('/api/organizations/' + organizationId + '/teams').then(function (response) {
+        return response;
+      })["catch"](function (err) {
+        return err;
+      });
+    }
+  }]);
+
+  return Team;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Team);
 
 /***/ }),
 
@@ -41107,8 +41173,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/OrganizationService */ "./resources/js/services/OrganizationService.js");
 /* harmony import */ var _services_UserService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/UserService */ "./resources/js/services/UserService.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../routes */ "./resources/js/routes.js");
+/* harmony import */ var _services_TeamService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/TeamService */ "./resources/js/services/TeamService.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../routes */ "./resources/js/routes.js");
 //import services
+
 
 
  //initial state
@@ -41120,6 +41188,7 @@ var state = function state() {
     verified: false,
     busy: false,
     error: null,
+    teamObj: new _services_TeamService__WEBPACK_IMPORTED_MODULE_2__["default"](),
     userObj: new _services_UserService__WEBPACK_IMPORTED_MODULE_1__["default"](),
     orgObj: new _services_OrganizationService__WEBPACK_IMPORTED_MODULE_0__["default"]()
   };
@@ -41171,7 +41240,7 @@ var actions = {
       state.busy = false;
       commit('setCreatorEmail', response); //navigate to next page
 
-      _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/confirm-email');
+      _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/confirm-email');
     })["catch"](function (err) {
       state.busy = false;
       commit('setError', err);
@@ -41193,7 +41262,7 @@ var actions = {
       if (response.verified === false) {
         commit('setError', 'Sorry! That code seems incorrect');
       } else {
-        _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/ideaspace');
+        _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/ideaspace');
       }
     })["catch"](function (err) {
       state.busy = false;
@@ -41213,7 +41282,7 @@ var actions = {
       if (response instanceof 'object') {
         state.busy = false;
         commit('setOrganizationId', response);
-        _routes__WEBPACK_IMPORTED_MODULE_2__["default"].push('/team');
+        _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/team');
       } else {
         state.busy = false;
         commit('setError', response);
@@ -41224,19 +41293,43 @@ var actions = {
     });
   },
   createTeam: function createTeam(_ref4, form) {
-    var commit = _ref4.commit;
-    return form.post('/api/organizations/' + this.getters.organizationId + '/teams').then(function (response) {
-      return response;
-    })["catch"](function (err) {
-      console.log(err);
+    var state = _ref4.state,
+        commit = _ref4.commit,
+        getters = _ref4.getters;
+    state.busy = true;
+    var team = state.teamObj.create(form, getters.organizationId);
+    team.then(function (response) {
+      if (response instanceof 'object') {
+        state.busy = false;
+        _routes__WEBPACK_IMPORTED_MODULE_3__["default"].push('/login');
+      } else {
+        state.busy = false;
+        commit('setError', err);
+      }
     });
   },
-  adminLogin: function adminLogin(_ref5, form) {
-    var commit = _ref5.commit;
-    return form.post('/api/organizations/' + this.getters.organizationId + '/admin/login').then(function (response) {
-      return response;
-    })["catch"](function (err) {
-      console.log(err);
+  login: function login(_ref5, form) {
+    var state = _ref5.state,
+        commit = _ref5.commit,
+        getters = _ref5.getters;
+    state.busy = true;
+    var loggedIn = state.orgObj.login(form, getters.organizationId, true);
+    loggedIn.then(function (response) {
+      state.busy = false;
+
+      if (response instanceof 'object') {
+        //navigate to the app dashboard
+        //save the user to localStorage
+        commit('setLoggedIn', response); //retrieve the organization shortname from response
+        //and redirect to the dashboard
+
+        window.location.href = '/app/' + response.data.organization.shortname;
+      } else {
+        commit('setError', 'An error occured while logging you in to your organization');
+      }
+    }).cacth(function (err) {
+      state.busy = false;
+      commit('setError', err);
     });
   }
 };
