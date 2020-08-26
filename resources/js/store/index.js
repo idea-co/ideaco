@@ -22,18 +22,6 @@ export default new Vuex.Store({
     },
 
     mutations:{
-        setLoggedInUser(state, user){
-            state.isLoggedIn = true;
-            state.user = user;
-            //retrieve the user token
-            let token = "Bearer " + user.data.token;
-            //save user data to localStorage
-            localStorage.setItem('user', JSON.stringify(user));
-
-            //authenticate all future requests
-            axios.defaults.headers.common['Authorization'] = token;
-        },
-
         setLoginOrganization(state, response){
             state.login.organization = response['data'];
         },

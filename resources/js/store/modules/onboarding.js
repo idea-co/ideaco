@@ -155,7 +155,7 @@ const actions = {
             if(typeof response.data == 'object'){
                 //navigate to the app dashboard
                 //save the user to localStorage
-                commit('setLoggedIn', response);
+                commit('login/setLoggedInUser', response);
                 //retrieve the organization shortname from response
                 //and redirect to the dashboard
                 window.location.href = '/app/' +response.data.organization.shortname;

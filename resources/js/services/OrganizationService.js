@@ -28,6 +28,19 @@ class Organization {
                 return err;
             })
     }
+
+    /**
+     * Search for an organization by shortname
+     */
+    find(form){
+        return form.get('/api/organizations/' + form.shortname + '/find')
+            .then(response => {
+                return response;
+            })
+            .catch(err => {
+                return err;
+            })
+    }
 }
 
 export default Organization;
