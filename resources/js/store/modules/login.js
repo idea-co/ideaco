@@ -105,6 +105,29 @@ const actions = {
         })
 
     },
+
+    login({commit, getters, state}, form){
+        state.busy = true;
+
+        //inject the user email
+        form.email = getters.email;
+
+        const isLoggedIn = state.orgObj.login(form, getters.organizationId);
+
+        isLoggedIn.then(response => {
+            state.busy = false;
+            if(response instanceof Object){
+                commit('setLoggedInUser', response);
+                //naviage to the dashboard
+                window.location.href = '/app/'+response.data.organization.shortname;
+            }else{
+                commit('setError', response);
+            }
+        }).catch(err => {
+            state.busy = false;
+            commit('setError', err);
+        })
+    }
 }
 
 export default {

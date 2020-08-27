@@ -2408,6 +2408,13 @@ var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createName
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/Form */ "./resources/js/helpers/Form.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2431,6 +2438,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
+
+
+var _createNamespacedHelp = Object(vuex__WEBPACK_IMPORTED_MODULE_1__["createNamespacedHelpers"])('login'),
+    mapActions = _createNamespacedHelp.mapActions,
+    mapGetters = _createNamespacedHelp.mapGetters,
+    mapState = _createNamespacedHelp.mapState;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Password",
@@ -2438,37 +2457,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: new _helpers_Form__WEBPACK_IMPORTED_MODULE_0__["default"]({
         password: '',
-        email: this.$store.getters.loginUserEmail
+        email: ''
       })
     };
   },
-  methods: {
-    authMember: function authMember() {
-      var _this = this;
-
-      this.$store.dispatch('loginToWorkspace', this.form).then(function (response) {
-        if (response) {
-          _this.$store.commit('setLoggedInUser', response); //navigate to organization dashboard
-
-
-          window.location.href = '/app/' + response.data.organization.shortname;
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    }
-  },
-  computed: {
-    /**
-     * Get the found organization's name
-     */
-    organizationName: function organizationName() {
-      return this.$store.getters.loginOrganization.name;
-    },
-    getUserEmail: function getUserEmail() {
-      return this.$store.getters.loginUserEmail;
-    }
-  }
+  methods: _objectSpread({}, mapActions(['login'])),
+  computed: _objectSpread(_objectSpread({}, mapGetters(['organizationName', 'email'])), mapState(['error', 'busy']))
 });
 
 /***/ }),
@@ -22264,7 +22258,7 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
-                return _vm.authMember($event)
+                return _vm.login(_vm.form)
               }
             }
           },
@@ -22301,8 +22295,28 @@ var render = function() {
             _vm._v(" "),
             _c(
               "button",
-              { staticClass: "sign-up-continue", attrs: { type: "submit" } },
-              [_vm._v("Sign in")]
+              {
+                staticClass: "sign-up-continue",
+                attrs: { disabled: _vm.busy, type: "submit" }
+              },
+              [
+                _vm._v("\n                    Sign in\n                    "),
+                _vm.busy
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "spinner-border spinner-border-sm text-white-50",
+                        attrs: { role: "status" }
+                      },
+                      [
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("Loading...")
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ]
             )
           ]
         )
@@ -41345,6 +41359,29 @@ var actions = {
       state.busy = false;
       console.log(err);
     });
+  },
+  login: function login(_ref3, form) {
+    var commit = _ref3.commit,
+        getters = _ref3.getters,
+        state = _ref3.state;
+    state.busy = true; //inject the user email
+
+    form.email = getters.email;
+    var isLoggedIn = state.orgObj.login(form, getters.organizationId);
+    isLoggedIn.then(function (response) {
+      state.busy = false;
+
+      if (response instanceof Object) {
+        commit('setLoggedInUser', response); //naviage to the dashboard
+
+        window.location.href = '/app/' + response.data.organization.shortname;
+      } else {
+        commit('setError', response);
+      }
+    })["catch"](function (err) {
+      state.busy = false;
+      commit('setError', err);
+    });
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -41514,9 +41551,10 @@ var actions = {
       state.busy = false;
 
       if (_typeof(response.data) == 'object') {
-        //navigate to the app dashboard
-        //save the user to localStorage
-        commit('login/setLoggedInUser', response); //retrieve the organization shortname from response
+        //save the user to localStorage (handled by login module)
+        commit('login/setLoggedInUser', response, {
+          root: true
+        }); //retrieve the organization shortname from response
         //and redirect to the dashboard
 
         window.location.href = '/app/' + response.data.organization.shortname;
