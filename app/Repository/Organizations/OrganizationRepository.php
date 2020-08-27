@@ -51,7 +51,8 @@ class OrganizationRepository implements OrganizationRepositoryInterface
                 [
                     'name' => $data['name'],
                     'shortname' => $shortname,
-                    'owner_id' => $data['owner']['id']
+                    //owner now returns the email address of the creator only
+                    'owner_id' => User::whereEmail($data['owner'])->first()->id,
                 ]
             );
 

@@ -4,14 +4,21 @@ class User {
      * 
      */
     constructor(db = 'local'){
-        let json = '';
+        //check if the state is [logged-on]
+        //yes - fetch the user logged on
+        //no - silently ignore
 
         if(db === 'local'){
+            let json = '';
             json = localStorage.getItem('user');
-            json = JSON.parse(json);
+            if(json){
+                json = JSON.parse(json);
+                this.user = json.data;
+            }else{
+                this.user = null;
+            }
         }
 
-        this.user = json.data;
     }
 
     displayName(){
@@ -34,6 +41,30 @@ class User {
         return this.user.organization.photo_url ?? this.user.organization.name;
     }
 
+    /**
+     * Create a new user or return 
+     * the specified user if they 
+     * already exist
+     */
+    create(form){
+        return form.post('/api/users').then(response => {
+            return response;
+        }).catch(err => {
+            return err;
+        })
+    }
+
+    /**
+     * Confirm a user email
+     */
+    confirmEmail(form){
+        return form.put('/api/users/verify').then(response => {
+            return response;
+        })
+        .catch(err => {
+            return err;
+        })
+    }
 
 }
 
