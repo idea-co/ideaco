@@ -21451,7 +21451,7 @@ var staticRenderFns = [
                 },
                 [
                   _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../../img/vector.svg */ "./resources/img/vector.svg"), alt: "" }
+                    attrs: { src: __webpack_require__(/*! ../../../img/Vector.svg */ "./resources/img/Vector.svg"), alt: "" }
                   }),
                   _vm._v(" "),
                   _c("p", [_vm._v("Documents")])
@@ -21494,7 +21494,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
                         alt: ""
                       }
                     }),
@@ -39947,6 +39947,17 @@ module.exports = "/images/Ellipse 7.svg?c3bc8d243017849db0d5f6192273a760";
 
 /***/ }),
 
+/***/ "./resources/img/Ellipse 8.svg":
+/*!*************************************!*\
+  !*** ./resources/img/Ellipse 8.svg ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Ellipse 8.svg?b5a25283e30faafcb5136b8c2daed6d1";
+
+/***/ }),
+
 /***/ "./resources/img/Google.svg":
 /*!**********************************!*\
   !*** ./resources/img/Google.svg ***!
@@ -40032,6 +40043,17 @@ module.exports = "/images/Rectangle 123.svg?4f66c2b5f3863167817eff69f459d8a8";
 /***/ (function(module, exports) {
 
 module.exports = "/images/Rectangle 124.svg?10a17d7ed7332946a127f5b81d57e2eb";
+
+/***/ }),
+
+/***/ "./resources/img/Vector.svg":
+/*!**********************************!*\
+  !*** ./resources/img/Vector.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Vector.svg?8fd5972f9fdbea528897012760830d0e";
 
 /***/ }),
 
@@ -40142,17 +40164,6 @@ module.exports = "/images/ralph.svg?f9c3975eb0f261da7c5ab9153dffee08";
 /***/ (function(module, exports) {
 
 module.exports = "/images/secondary_logo.png?8d001f2ff794f11aed530337e0ae2020";
-
-/***/ }),
-
-/***/ "./resources/img/vector.svg":
-/*!**********************************!*\
-  !*** ./resources/img/vector.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/vector.svg?8fd5972f9fdbea528897012760830d0e";
 
 /***/ }),
 

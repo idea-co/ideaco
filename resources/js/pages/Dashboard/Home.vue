@@ -66,7 +66,7 @@
                                     <p>Picture</p>
                                 </div>
                                 <div class="explore_emptystate__icon__icons__element document">
-                                    <img src="../../../img/vector.svg" alt="">
+                                    <img src="../../../img/Vector.svg" alt="">
                                     <p>Documents</p>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                     <p class="name">Kevin Oates</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse 8.svg" alt="">
+                                        <img src="../../../img/Ellipse 8.svg" alt="">
                                         <p>Product Design</p>
                                     </div>
                                 </div>
