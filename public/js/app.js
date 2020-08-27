@@ -21609,7 +21609,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
                         alt: ""
                       }
                     }),
@@ -21746,7 +21746,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
                         alt: ""
                       }
                     }),
@@ -40098,17 +40098,6 @@ module.exports = "/images/el_arrow-up.svg?83bc9a04e5d00f8a6c1a44fcd49587ee";
 /***/ (function(module, exports) {
 
 module.exports = "/images/eleanor.svg?a3e8fb04bff4e0c2e22fc4e01bd99552";
-
-/***/ }),
-
-/***/ "./resources/img/ellipse 8.svg":
-/*!*************************************!*\
-  !*** ./resources/img/ellipse 8.svg ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ellipse 8.svg?b5a25283e30faafcb5136b8c2daed6d1";
 
 /***/ }),
 

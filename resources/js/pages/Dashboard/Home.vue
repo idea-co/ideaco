@@ -133,7 +133,7 @@
                                     <p class="name">Ralph Edwards</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse 8.svg" alt="">
+                                        <img src="../../../img/Ellipse 8.svg" alt="">
                                         <p>Development</p>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     <p class="name">Eleanor Pena</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse 8.svg" alt="">
+                                        <img src="../../../img/Ellipse 8.svg" alt="">
                                         <p>Production</p>
                                     </div>
                                 </div>
