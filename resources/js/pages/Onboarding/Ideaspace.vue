@@ -1,7 +1,7 @@
 <template>
     <section class="main-section">
         <div class="row justify-content-center main">
-            <div class="col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in">
+            <div class="col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in">
                 <div class="minibox color-black">
                     <h4 class="title font-weight-bold">
                         You're bringing collaborated innovation to your workforce
@@ -12,9 +12,13 @@
                     <div class="row mt-5 justify-content-center">
                         <div class="col-10">
                             <div class="content_section">
-                                <form method="POST" @submit.prevent="createOrg" @keydown="form.errors.clear()">
+                                <form method="POST" @submit.prevent="createOrg(form)" @keydown="form.errors.clear()">
                                     <div class="email_cont">
                                         <label for="name">Enter your ideaspace name</label><br>
+                                        <div class="alert alert-danger mt-2" v-if="error">
+                                            {{ error }}
+                                        </div>
+                                        <br>
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
                                                  {{ error[0] }}
@@ -24,6 +28,9 @@
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
                                         Continue
+                                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
                                     </button>
                                 </form>
                                 <span class="text-muted">
@@ -40,40 +47,33 @@
 
 <script>
 import Form from '../../helpers/Form';
+import { createNamespacedHelpers, mapGetters } from 'vuex'
+const { mapState, mapActions } = createNamespacedHelpers('onboarding')
 
 export default {
     name: "Ideaspace",
     data() {
         return {
-            busy: false,
             form: new Form({
                 name: '',
                 shortname: '',
-                owner: this.$store.getters.creator,
+                owner: '',
             }),
-            error: '',
         }
     },
 
     methods: {
-        createOrg(){
-            //set shortname value
-            this.$store.dispatch('createOrg', this.form)
-                .then(res => {
-                    if(res.data.errors){
-                        this.error = res.errors.data;
-                        this.form.errors.record(res.errors.data);
-                    }else{
-                        this.$router.push('/team')
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        }
+        ...mapActions([
+            'createOrg'
+        ]),
     },
 
     computed: {
+        ...mapState([
+            'error',
+            'busy'
+        ]),
+
         ideaspaceURl(){
             return this.form.name + ".ideacoapp.com";
         }
