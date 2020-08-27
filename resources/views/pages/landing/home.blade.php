@@ -23,8 +23,8 @@
                 <img src="{{ asset('img/Frame.png') }}"/>
                 <div>
                     <h2>We Believe Ideas Are Worth More When We Manage Well</h2>
-                    <p>IDEACO helps to make the transition to implementation smother, ensuring that the next big idea never  
-                    washes away.</p>
+                    <p>IDEACO helps to make the transition of ideas to implementation smoother for forward thinking bussineses,<br>
+                    create an idea space and ensure that next big idea never washes away.</p>
                 </div>
             </div>
         </div>
@@ -33,28 +33,28 @@
             <p>IDEACO provides an idea ecosystem where ideas are crowd sourced, shared, supported, promoted its powerful flow</p>
             <div class="block__section3__cont">
                 <div class="block__section3__cont__box">
-                    <img src="{{ asset('/img/rectangle4.png') }}"/>
+                    <div class="img_body"><img src="{{ asset('/img/rectangle4.svg') }}"/></div>
                     <div>
                         <h2>Everyone can share idea</h2>
                         <p>Ideas come to everyone, now everyone in your workspace can share their ideas without hesitation.</p>
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="{{asset('/img/rectangle1.png')}}"/>
+                    <div class="img_body"><img src="{{asset('/img/rectangle1.svg')}}"/></div>
                     <div>
                         <h2>Crowd supported system</h2>
                         <p>Shared idea can be voted on by anyone in the workspace, as well as leaving a comment on the original idea.</p>
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="{{ asset('/img/rectangle2.png') }}"/>
+                    <div class="img_body"><img src="{{ asset('/img/rectangle2.svg') }}"/></div>
                     <div>
                         <h2>Challeges needing ideas</h2>
                         <p>Company challenges can be shared to workspace to allow for injection of new ideas.</p>
                     </div>
                 </div>
                 <div class="block__section3__cont__box">
-                    <img src="{{ asset('/img/rectangle3.png') }}"/>
+                    <div class="img_body"><img src="{{ asset('/img/rectangle3.svg') }}"/></div>
                     <div>
                         <h2>Oversee your contribution</h2>
                         <p>See what you have contributed to your workspace and the ideas that have been implemented.</p>
