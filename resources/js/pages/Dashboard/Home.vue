@@ -2,7 +2,7 @@
     <div class="explore_section">
         <!-- Page Header -->
 
-        <div class="explore_section_container container">
+        <div class="explore_section_container">
             <header class="content__header">
                 <auth-user-banner></auth-user-banner>
                 <div class="content__header__section2">
@@ -14,7 +14,7 @@
                 </div>
             </header>
             <div class="explore_main_wrapper d-xl-flex">
-                <div class="explore_main">
+                <div class="explore_main col-xl-8">
                 
                     <!-- Explore input -->
 
@@ -66,7 +66,7 @@
                                     <p>Picture</p>
                                 </div>
                                 <div class="explore_emptystate__icon__icons__element document">
-                                    <img src="../../../img/Vector.svg" alt="">
+                                    <img src="../../../img/image1.svg" alt="">
                                     <p>Documents</p>
                                 </div>
                             </div>
@@ -82,13 +82,13 @@
                         <div class="explore_cards__card card1">
                             <div class="explore_cards__card__header card1">
                                 <div class="explore_cards__card__header__image card1">
-                                    <img src="../../../img/Ellipse 7.svg" alt="">
+                                    <img src="../../../img/Ellipse7.svg" alt="">
                                 </div>
                                 <div class="explore_cards__card__header__writeup card1">
                                     <p class="name">Kevin Oates</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/Ellipse 8.svg" alt="">
+                                        <img src="../../../img/ellipse8.svg" alt="">
                                         <p>Product Design</p>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card1">
-                                <div class="explore_cards__card__footer__tags card1 col-7">
+                                <div class="explore_cards__card__footer__tags card1 col-8">
                                     <div class="explore_cards__card__footer__tags__vote card1">
                                         <img src="../../../img/el_arrow-up.svg" alt="">
                                         <p>1.1K</p>
@@ -133,15 +133,15 @@
                                     <p class="name">Ralph Edwards</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/Ellipse 8.svg" alt="">
+                                        <img src="../../../img/ellipse8.svg" alt="">
                                         <p>Development</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="explore_cards__card__main card2">
                                 <div class="explore_cards__card__main__images card2">
-                                    <img src="../../../img/Rectangle 123.svg" alt="" class="mr-2">
-                                    <img src="../../../img/Rectangle 124.svg" alt="" class="mb-1">
+                                    <img src="../../../img/Rectangle123.svg" alt="" class="mr-2">
+                                    <img src="../../../img/Rectangle124.svg" alt="" class="mb-1">
                                 </div>
                                 <p class="explore_cards__card__main__topic card2">
                                     Caring is the new marketing
@@ -153,7 +153,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card2">
-                                <div class="explore_cards__card__footer__tags card2 col-7">
+                                <div class="explore_cards__card__footer__tags card2 col-8">
                                     <div class="explore_cards__card__footer__tags__vote card2">
                                         <img src="../../../img/arrow-up.svg" alt="">
                                         <p>1.1K</p>
@@ -182,7 +182,7 @@
                                     <p class="name">Eleanor Pena</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/Ellipse 8.svg" alt="">
+                                        <img src="../../../img/ellipse8.svg" alt="">
                                         <p>Production</p>
                                     </div>
                                 </div>
@@ -198,7 +198,7 @@
                                 </p>
                             </div>
                             <div class="explore_cards__card__footer card1">
-                                <div class="explore_cards__card__footer__tags card1 col-7">
+                                <div class="explore_cards__card__footer__tags card1 col-8">
                                     <div class="explore_cards__card__footer__tags__vote card1">
                                         <img src="../../../img/arrow-up.svg" alt="">
                                         <p>1.1K</p>
@@ -217,9 +217,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="explore_aside d-none d-xl-block">
+                <div class="explore_aside d-none d-xl-block col-4">
                     <div class="explore_ideas">
-                        <p>Your Ideas</p>
+                        <div class="explore_ideas__topic">
+                            <p>Your Ideas</p>
+                        </div>
 
                         <!-- Your Idea 1 -->
 

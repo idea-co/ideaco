@@ -37,12 +37,25 @@
                         overflow-x: scroll;
                         font-size: 0.8rem;
 
+                        &__cards::-webkit-scrollbar{
+                            width: 1em;
+                        }
+
+                        &__cards::-webkit-scrollbar-track{
+                            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                        }
+
+                        &__cards::-webkit-scrollbar-thumb{
+                            background-color: #a9a9a9;
+                            outline: 1px solid #708090;
+                        }
+
                         &__card{
                             background-color: #ffffff;
                             font-weight: bold;
                             padding: 1rem 0.8rem;
                             margin-right: 2rem;
-                            min-width: 5rem;
+                            min-width: 6rem;
                             max-width: 9rem;
                             border-bottom-right-radius: 1.8rem;
                             box-shadow: 0px 2px 6px rgba(102, 38, 238, 0.1);
@@ -55,13 +68,13 @@
                             }
                         }
                         .card1{
-                            background-image: url("../../img/Polygon\ 2.svg");
+                            background-image: url("../../img/Polygon2.svg");
                         }
                         .card2{
-                            background-image: url("../../img/Polygon\ 2\ \(1\).svg");
+                            background-image: url("../../img/Polygon2\(1\).svg");
                         }
                         .card3{
-                            background-image: url("../../img/Polygon\ 2\ \(2\).svg");
+                            background-image: url("../../img/Polygon2\(2\).svg");
                         }
                     }
                 }
@@ -81,10 +94,15 @@
 
                             &__input::placeholder{
                                 font-weight: bold;
+                                font-size: 0.75rem;
                             }
 
                             &__textarea{
                                 height: 5rem;
+                            }
+
+                            &__textarea::placeholder{
+                                font-size: 0.75rem;
                             }
                         }
                     }
@@ -183,7 +201,7 @@
 
                         &__main{
                             margin: 0.7rem 0 0.3rem;
-                            border-bottom: 1px solid #b4aeae93;
+                            border-bottom: 1px solid #e5e8ea;
                             color: #141414;
 
                             &__topic{
@@ -193,6 +211,7 @@
 
                             &__writeup{
                                 margin: 0 0 0.5rem;
+                                font-weight: 500;
                             }
                         }
 
@@ -244,6 +263,68 @@
                     }
                 }
             }
+            .explore_aside{
+                padding: 1rem 0;
+                color: #141414;
+                .explore_ideas{
+                    background-color: #ffffff;
+                    padding: 1rem;
+                    box-shadow: 0px 2px 6px rgba(102, 38, 238, 0.1);
+                    border-radius: 10px;
+
+                    &__topic{
+                        font-weight: bold;
+
+                        p{
+                            margin: 0;
+                        }
+                    }
+
+                    &__idea{
+                        &__topic{
+                            font-weight: bold;
+                            margin: 0.65rem 0 0.3rem;
+                            p{
+                                margin: 0;
+                            }
+                        }
+
+                        &__writeup{
+                            font-weight: 500;
+                            padding-bottom: 0.3rem;
+                            p{
+                                margin: 0;
+                            }
+                        }
+
+                        &__footer{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            padding: 0.5rem 0;
+                            border-bottom: 1px solid #e5e8ea;
+                            border-top: 1px solid #e5e8ea;
+                            margin-bottom: 1.3rem;
+
+                            &__vote{
+                                display: flex;
+                                flex-direction: row;
+                                p{
+                                    font-weight: bold;
+                                    margin: 0 0.3rem;
+                                }
+                            }
+                            &__comment{
+                                display: flex;
+                                flex-direction: row;
+                                p{
+                                    margin: 0 0.3rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -256,6 +337,18 @@
                         &__icon{
                             flex-direction: column;
 
+                            &__icons{
+                                .video{
+                                    margin: 0 1.5rem 0 0.7rem;
+                                }
+                                .picture{
+                                    margin: 0 1.5rem 0 0;
+                                }
+                                .document{
+                                    margin: 0 1.5rem 0 0;
+                                }
+                            }
+
                             &__button{
                                 display: flex;
                                 justify-content: flex-end;
@@ -265,9 +358,24 @@
                     .explore_cards{
                         .explore_cards__card{
                             &__footer{
+                                font-size: 0.65rem;
                                 &__tags{
                                     display: flex;
                                     flex-direction: column;
+
+                                    &__tag{
+                                        p{
+                                            font-size: 0.5rem;
+                                        }
+                                    }
+                                }
+                                &__comments{
+                                    align-items: flex-start;
+                                    margin: 0.3rem 0 0.3rem 0;
+
+                                    p{
+                                        margin: 0 0 0 0.5rem;
+                                    }
                                 }
                             }
                         }
