@@ -2,7 +2,7 @@ require('./bootstrap');
 require('./components');
 
 import router from './routes';
-import store from './store';
+import store from './store/index';
 import Onboarding from './pages/layouts/Onboarding';
 import Dashboard from './pages/layouts/Dashboard';
 

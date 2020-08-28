@@ -63,7 +63,11 @@ class SecurityRepository implements SecurityRepositoryInterface
                     ->where('otp', $token)
                     ->where('active', '1')
                     ->get();
-
+        /**
+         * We should only have one active otp for the user
+         * since we deactivate all other otps immediately they
+         * are used
+         */
         if ($otp->count() == 1) {
             //OTP is correct, check for validity
             $sent_at = Carbon::parse($otp[0]->created_at);
@@ -77,8 +81,8 @@ class SecurityRepository implements SecurityRepositoryInterface
                     'reason' => 'Code has expired. OTP is only valid for one day'
                 ];
             } else {
-                //otp has successfully been verified
-                $this->deactivate($otp[0]);
+                //otp has successfully been verified, deactivate it
+                $this->_deactivate($otp[0]);
 
                 return [
                     'verified' => true,
@@ -97,10 +101,10 @@ class SecurityRepository implements SecurityRepositoryInterface
      *
      * @param $otp Instance of App\Otp
      */
-    private function deactivate($otp): bool
+    private function _deactivate($otp)
     {
         //deactivate otp
-        $otp->active = 0;
+        $otp->active = '0';
         $otp->save();
 
         return true;

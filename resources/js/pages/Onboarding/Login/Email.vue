@@ -12,12 +12,17 @@
         <p>OR</p>
         <div class="row justify-content-center">
             <div class="col-10">
-                <form @submit.prevent="findEmail">
+                <form @submit.prevent="findMember(form)">
                     <div class="email_cont">
                         <label for="email">Enter Email Address</label>
                         <input type="email" id="email" v-model="form.email" placeholder="Enter your email address" class="form-control">
                     </div>
-                    <button class="sign-up-continue" type="submit">Continue</button>
+                    <button class="sign-up-continue" :disabled="busy" type="submit">
+                        Continue
+                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>  
+                    </button>
                 </form>
             </div>
         </div>
@@ -26,6 +31,9 @@
 
 <script>
 import Form from '../../../helpers/Form';
+import { createNamespacedHelpers } from 'vuex';
+const { mapActions, mapState, mapGetters } = createNamespacedHelpers('login');
+
 export default {
     name: "Email",
     data() {
@@ -36,29 +44,20 @@ export default {
         }
     },
     methods: {
-        findEmail(){
-            this.$store.dispatch('findMemberByEmail', this.form)
-            .then(response => {
-                if(response){
-                    this.$store.commit('setLoginUserEmail', response);
-                    this.$router.push("/sign-in/password");
-                }else{
-                    this.$router.push("/sign-in/not-found");
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        }
+        ...mapActions([
+            'findMember'
+        ])
     },
 
     computed: {
-        /**
-         * Get the found organization's name
-         */
-        organizationName(){
-            return this.$store.getters.loginOrganization.name
-        }
+        ...mapState([
+            'busy',
+            'error',
+        ]),
+
+        ...mapGetters([
+            'organizationName'
+        ]),
     },
 }
 </script>

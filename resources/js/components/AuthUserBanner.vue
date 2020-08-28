@@ -20,7 +20,7 @@ import User from '../services/UserService';
 export default {
     data() {
         return {
-            user: new User()
+            user: new User
         }
     },
 

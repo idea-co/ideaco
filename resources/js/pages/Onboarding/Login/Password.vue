@@ -9,12 +9,17 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                <form @submit.prevent="authMember">
+                <form @submit.prevent="login(form)">
                     <div class="email_cont">
                         <label for="password">Password</label>
                         <input type="password" id="password" v-model="form.password" placeholder="Enter your password" class="form-control">
                     </div>
-                    <button class="sign-up-continue" type="submit">Sign in</button>
+                    <button class="sign-up-continue" :disabled="busy" type="submit">
+                        Sign in
+                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>  
+                    </button>
                 </form>
             </div>
         </div>
@@ -23,44 +28,35 @@
 
 <script>
 import Form from '../../../helpers/Form';
+import { createNamespacedHelpers } from 'vuex';
+const {mapActions, mapGetters, mapState} = createNamespacedHelpers('login');
+
 export default {
     name: "Password",
     data() {
         return {
             form: new Form({
                 password: '',
-                email: this.$store.getters.loginUserEmail,
+                email: '',
             }),
         }
     },
     methods: {
-        authMember(){
-            this.$store.dispatch('loginToWorkspace', this.form)
-            .then(response => {
-                if(response){
-                    this.$store.commit('setLoggedInUser', response);
-                    
-                    //navigate to organization dashboard
-                    window.location.href = '/app/'+response.data.organization.shortname;
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        }
+        ...mapActions([
+            'login'
+        ]),
     },
 
     computed: {
-        /**
-         * Get the found organization's name
-         */
-        organizationName(){
-            return this.$store.getters.loginOrganization.name
-        },
+        ...mapGetters([
+            'organizationName',
+            'email'
+        ]),
 
-        getUserEmail(){
-            return this.$store.getters.loginUserEmail
-        }
+        ...mapState([
+            'error',
+            'busy'
+        ]),
     },
 }
 </script>

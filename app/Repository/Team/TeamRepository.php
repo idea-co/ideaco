@@ -21,7 +21,7 @@ class TeamRepository implements TeamRepositoryInterface {
      * Create a new team within an organization
      * 
      * @param Array $data form data
-     * @param Int $organizationId shortname of org
+     * @param Int   $organizationId shortname of org
      * 
      * @return Resource
      */
