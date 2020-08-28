@@ -88,7 +88,7 @@
                                     <p class="name">Kevin Oates</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Product Design</p>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@
                                     <p class="name">Ralph Edwards</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Development</p>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     <p class="name">Eleanor Pena</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Production</p>
                                     </div>
                                 </div>
