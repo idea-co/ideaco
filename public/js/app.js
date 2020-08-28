@@ -21459,7 +21459,7 @@ var staticRenderFns = [
                 },
                 [
                   _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../../img/vector.svg */ "./resources/img/vector.svg"), alt: "" }
+                    attrs: { src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../img/vector.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())), alt: "" }
                   }),
                   _vm._v(" "),
                   _c("p", [_vm._v("Documents")])
@@ -21502,7 +21502,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../img/ellipse 8.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
                         alt: ""
                       }
                     }),
@@ -21617,7 +21617,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../img/ellipse 8.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
                         alt: ""
                       }
                     }),
@@ -21754,7 +21754,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/ellipse 8.svg */ "./resources/img/ellipse 8.svg"),
+                        src: __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '../../../img/ellipse 8.svg'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())),
                         alt: ""
                       }
                     }),
@@ -39848,7 +39848,7 @@ module.exports = "/images/Ellipse 7.svg?c9a2f2eaa16240dd84516e0b9896ca80";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Google.svg?26edf1810906dcbf7209fa1a6459b7e9";
+module.exports = "/images/Google.svg?bb8d519cb892384952117e3a0571a1f0";
 
 /***/ }),
 
@@ -39859,7 +39859,7 @@ module.exports = "/images/Google.svg?26edf1810906dcbf7209fa1a6459b7e9";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group10.svg?1508c7c2915e3143f32db606af99470f";
+module.exports = "/images/Group10.svg?4fb64e380f0947e19a3548a3ff31f7f0";
 
 /***/ }),
 
@@ -39870,7 +39870,7 @@ module.exports = "/images/Group10.svg?1508c7c2915e3143f32db606af99470f";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group11.svg?13be8a79d415c7a9a5a6375761eccc09";
+module.exports = "/images/Group11.svg?3c49d4028ece2e75ed18013b3298ed7e";
 
 /***/ }),
 
@@ -39881,7 +39881,7 @@ module.exports = "/images/Group11.svg?13be8a79d415c7a9a5a6375761eccc09";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group12.svg?4fdf3056c79f09bedbd33eb71b9c4b25";
+module.exports = "/images/Group12.svg?743a721327a9428f8a013823f9c0e536";
 
 /***/ }),
 
@@ -39903,7 +39903,7 @@ module.exports = "/images/Group13.png?5dadf04a75d2b152afff5bd7a5520300";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
+module.exports = "/images/Group9.svg?f86313d0bba1bf53e97ed04c7eac6b01";
 
 /***/ }),
 
@@ -39973,17 +39973,6 @@ module.exports = "/images/eleanor.svg?9aa5f54b10d4df3608b46c77c6fbdc03";
 
 /***/ }),
 
-/***/ "./resources/img/ellipse 8.svg":
-/*!*************************************!*\
-  !*** ./resources/img/ellipse 8.svg ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ellipse 8.svg?229c68b3809d8b82f4fc663231839066";
-
-/***/ }),
-
 /***/ "./resources/img/fa-regular_comment-alt.svg":
 /*!**************************************************!*\
   !*** ./resources/img/fa-regular_comment-alt.svg ***!
@@ -40036,17 +40025,6 @@ module.exports = "/images/ralph.svg?d1902e92909d751ea5fb1ad91871373a";
 /***/ (function(module, exports) {
 
 module.exports = "/images/secondary_logo.png?8d001f2ff794f11aed530337e0ae2020";
-
-/***/ }),
-
-/***/ "./resources/img/vector.svg":
-/*!**********************************!*\
-  !*** ./resources/img/vector.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/vector.svg?c3131e39137800a440e79aa05afbf5ae";
 
 /***/ }),
 
@@ -41937,8 +41915,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/boluwatife/Documents/HNG_intern/ideaco/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/boluwatife/Documents/HNG_intern/ideaco/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
