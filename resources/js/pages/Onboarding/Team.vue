@@ -1,7 +1,7 @@
 <template>
     <section class="main-section">
         <div class="row justify-content-center main">
-            <div class="col-10 col-lg-6 col-md-8 col-sm-8 color-white sign-in">
+            <div class="col-10 col-lg-8 col-md-8 col-sm-8 color-white sign-in">
                 <div class="minibox color-black">
                     <h4 class="title font-weight-bold">
                         Let's keep your diverse workspace orderly
@@ -12,7 +12,7 @@
                     <div class="row mt-5">
                         <div class="col-12">
                             <div class="content_section">
-                                <form method="POST" @submit.prevent="createTeam" @keydown="form.errors.clear()">
+                                <form method="POST" @submit.prevent="createTeam(form)" @keydown="form.errors.clear()">
                                     <div class="email_cont">
                                         <div class="alert alert-danger mt-2" v-if="form.errors.any()">
                                             <p v-for="(error, index) in form.errors.all()" :key="index" class="mb-0">
@@ -25,6 +25,9 @@
                                     </div>
                                     <button class="sign-up-continue" :disabled="busy" type="submit">
                                         Continue
+                                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
                                     </button>
                                 </form>
                             </div>
@@ -38,6 +41,8 @@
 
 <script>
 import Form from '../../helpers/Form';
+import {createNamespacedHelpers} from 'vuex';
+const { mapActions, mapState } = createNamespacedHelpers('onboarding');
 
 export default {
     name: "Team",
@@ -46,20 +51,20 @@ export default {
             form: new Form({
                 name: ''
             }),
-            busy: false,
         }
     },
 
+    computed: {
+        ...mapState([
+            'busy',
+            'error'
+        ])
+    },
+
     methods: {
-        createTeam(){
-            this.$store.dispatch('createTeam', this.form)
-            .then(response => {
-                console.log(response);
-                this.$router.push('/login')
-            }).catch(error => {
-                console.log(error);
-            })
-        }
+        ...mapActions([
+            'createTeam'
+        ]),
     },
 }
 </script>

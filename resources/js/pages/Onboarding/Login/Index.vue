@@ -4,7 +4,7 @@
         <p class="mb-0 mt-5 title-description">Enter your ideaspaces’s URL to continue</p>
         <div class="row justify-content-center">
             <div class="col-10">
-                <form id="signup-form" name="signup-form" @submit.prevent="find">
+                <form id="signup-form" name="signup-form" @submit.prevent="findOrganization(form)">
                     <div class="mb-0 mt-2">
                         <div class="input-group mb-2">
                             <input type="text" id="url" v-model="form.shortname" class="form-control" autocomplete="off" placeholder="Your Ideaspace URL is your organization's unique name">
@@ -14,7 +14,10 @@
                         </div>
                     </div>
                     <div class="mb-0 mt-3">
-                        <button class="sign-up-continue" type="submit">Continue</button>                    
+                        <button class="sign-up-continue" :disabled="busy" type="submit">Continue</button>   
+                        <div v-if="busy" class="spinner-border spinner-border-sm text-white-50" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>                 
                     </div>
                 </form>
             </div>
@@ -24,6 +27,8 @@
 
 <script>
 import Form from '../../../helpers/Form';
+import { createNamespacedHelpers } from 'vuex'
+const { mapActions, mapState } = createNamespacedHelpers('login');
 
 export default {
     name: "login",
@@ -35,15 +40,17 @@ export default {
         }
     },
 
+    computed: {
+        ...mapState([
+            'error',
+            'busy'
+        ])
+    },
+
     methods: {
-        find(){
-            this.$store.dispatch('findOrganization', this.form)
-            .then(response => {
-                if(response instanceof Object){
-                    this.$router.push('/sign-in/email')
-                }
-            })
-        }
+        ...mapActions([
+            'findOrganization'
+        ]),
     },
 }
 </script>
