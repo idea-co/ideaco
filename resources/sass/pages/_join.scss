@@ -121,23 +121,21 @@
         background-repeat: no-repeat;
     }
     .header-section .shade {
-        padding-top: 15%;
-        padding-bottom: 5%;
+        padding-top: 10%;
+        padding-bottom: 10%;
     }
      .get-started {
          color: #fff;
          cursor: pointer;
          outline: none;
          border: none;
-         font-size: 18px;
+         font-size: 14px;
          letter-spacing: 0.03em;
-         width: 147px;
+         width: 250px;
          height: 45px;
          border-radius: 10px;
          background: -webkit-gradient(linear, left top, left bottom, from(#6626EE), to(#4106BD));
          background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
-         -webkit-box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
-         box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
     }
      .get-started:hover {
          color: #bfbfbf;
@@ -216,9 +214,7 @@
             padding-right: .4rem;
             font-size: small;
         }
-        .header-section .shade {
-            padding-top: 35%;
-        }
+        
     }
     /* On screens that are 415px wide or less*/
      @media screen and (max-width: 510px) {

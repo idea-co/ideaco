@@ -22412,7 +22412,7 @@ var render = function() {
               { staticClass: "get-started", attrs: { to: "/new" } },
               [
                 _c("button", { staticClass: "get-started" }, [
-                  _vm._v("Get Started")
+                  _vm._v("Create An Ideaspace")
                 ])
               ]
             )
@@ -22431,7 +22431,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "title-description color-grey" }, [
-              _vm._v("Join your team on the ideaspace.")
+              _vm._v("Join An Ideaspace")
             ]),
             _vm._v(" "),
             _c(
