@@ -20,10 +20,6 @@ class OrganizationUserRepository implements OrganizationUserInterface
 
     public function __construct(OrganizationUserModel $model)
     {
-        if(Auth::check()){
-            $this->id = Auth::id();
-        }
-
         $this->model = $model;
     }
 
@@ -48,7 +44,7 @@ class OrganizationUserRepository implements OrganizationUserInterface
      */
     public function changeDisplayName(Request $request)
     {
-        $organization_User = $this->model->whereId($this->id)
+        $organization_User = $this->model->whereId(auth()->id())
                             ->update(['displayName'=>$request->displayName]);
         return $organization_User ? true : false;
     }
@@ -59,14 +55,14 @@ class OrganizationUserRepository implements OrganizationUserInterface
      */
     public function resetUserPassword($newPassword)
     {
-        $organization_User = $this->model->whereId($this->id)
+        $organization_User = $this->model->whereId(auth()->id())
             ->update(['password' => Hash::make(trim($newPassword))]);
         return $organization_User ? true : false;
     }
 
     public function index()
     {
-        $organization_User = $this->model->whereId($this->id)->first();
+        $organization_User = $this->model->whereId(auth()->id())->first();
         return $organization_User ? $organization_User : false;
     }
 
@@ -85,7 +81,7 @@ class OrganizationUserRepository implements OrganizationUserInterface
     }
 
     /**
-     * 
+     *
      * @inheritDoc
      */
     public function firstLogin($data, $organizationId)
@@ -111,7 +107,7 @@ class OrganizationUserRepository implements OrganizationUserInterface
         /**
          * Make use of our login method to authenticate
          * admin
-         * 
+         *
          * attach() returns an exception if it can't attach
          * and returns null on success
          */

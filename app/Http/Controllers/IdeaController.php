@@ -15,10 +15,10 @@ class IdeaController extends Controller
 
     /**
      * Typehint the interface repository
-     * 
+     *
      * @param $repository the interface objeect
-     * 
-     * @return $repository 
+     *
+     * @return $repository
      */
     public function __construct(IdeaInterface $repository)
     {
@@ -52,16 +52,17 @@ class IdeaController extends Controller
      */
     public function store(Request $request, $organizationId)
     {
-        $request->validate(
+        if(auth()->user()->organization_id != $organizationId){
+            return  response(['message' => 'Unauthenticated.'],401);
+        }
+            $request->validate(
             [
                 'title' => 'required',
                 'body' => 'required',
-                'user_id' => 'required',
             ]
         );
 
         $idea = $this->repository->create($request->all(), $organizationId);
-        
         return new IdeaResource($idea);
     }
 
@@ -124,10 +125,10 @@ class IdeaController extends Controller
 
     /**
      * Find all ideas belonging to an author
-     * 
+     *
      * @param $author         id of the idea author
      * @param $organizationId id of the organization
-     * 
+     *
      * @return ResourceCollection
      */
     public function findByAuthor($author, $organizationId)
@@ -138,9 +139,9 @@ class IdeaController extends Controller
 
     /**
      * Mark an idea as implemented
-     * 
+     *
      * @param $idea id of the idea to implement
-     * 
+     *
      * @return bool
      */
     public function implement($idea)
@@ -152,10 +153,10 @@ class IdeaController extends Controller
      * Archive a single idea provided via the url
      * or archive a group of ideas provided via a
      * form request
-     * 
+     *
      * @param Integer|Array $idea
-     * 
-     * @return bool 
+     *
+     * @return bool
      */
     public function archive(Request $request)
     {
