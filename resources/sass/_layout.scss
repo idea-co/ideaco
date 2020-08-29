@@ -6,11 +6,13 @@
     justify-content: space-between;
     box-shadow: 0px 10px 20px rgba(123, 123, 123, 0.2);
     margin-bottom: 30px;
+    position: fixed;
+    z-index: 6;
     img{
         float: left;
     }
     &__navbar1{
-        width: 210px;
+        width: 230px;
     }
     &__navbar2{
         width: 180px;
@@ -52,7 +54,7 @@
             letter-spacing: 0.03em;
             width: 127px;
             height: 40px;
-            border-radius: 10px;
+            border-radius: 6px;
             background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
             &:hover{
                 background: $secondary-color;

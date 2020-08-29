@@ -1,5 +1,6 @@
 #home {  
     display: grid;
+    margin-top: 110px;
     .block{
         display: grid;
         &__section1{
@@ -30,7 +31,7 @@
                     border-radius: 10px;
                     background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
                     box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
-                    font-size: 18px;
+                    font-size: 14px;
                     border: none;
                     outline: none;
                     line-height: 40px;
@@ -54,7 +55,7 @@
             text-align: center;
             p{
                 color:  #8D8D8D;
-                font-size: 20px;
+                font-size: 14px;
             }
             &__cont1{
                 width: 800px;
@@ -105,7 +106,6 @@
                     cursor: pointer;
                     &:hover{
                         transform: scale(1.05);
-                        border-bottom: 3px solid $secondary-color;
                     }
                     .img_body{
                         height: 180px;
@@ -161,6 +161,7 @@
                         width: 10%;
                         display: flex;
                         align-items: center;
+                        cursor: pointer;
                         z-index: 5;
                         i{
                             margin: auto;
@@ -169,7 +170,6 @@
                             color: $secondary-color;
                             padding: 10px;
                             border-radius: 50%;
-                            cursor: pointer;
                         }
                     }
                     .right_arrow{

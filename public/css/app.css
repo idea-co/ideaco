@@ -61,6 +61,8 @@ form label {
   justify-content: space-between;
   box-shadow: 0px 10px 20px rgba(123, 123, 123, 0.2);
   margin-bottom: 30px;
+  position: fixed;
+  z-index: 6;
 }
 
 .ideaco_header img {
@@ -68,7 +70,7 @@ form label {
 }
 
 .ideaco_header__navbar1 {
-  width: 210px;
+  width: 230px;
 }
 
 .ideaco_header__navbar2 {
@@ -126,7 +128,7 @@ form label {
   letter-spacing: 0.03em;
   width: 127px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 6px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
 }
 
@@ -341,6 +343,7 @@ form label {
 
 #home {
   display: grid;
+  margin-top: 110px;
 }
 
 #home .block {
@@ -381,7 +384,7 @@ form label {
   border-radius: 10px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
   box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
-  font-size: 18px;
+  font-size: 14px;
   border: none;
   outline: none;
   line-height: 40px;
@@ -408,7 +411,7 @@ form label {
 
 #home .block__section2 p {
   color: #8D8D8D;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #home .block__section2__cont1 {
@@ -471,7 +474,6 @@ form label {
 
 #home .block__section3__cont__box:hover {
   transform: scale(1.05);
-  border-bottom: 3px solid #6626EE;
 }
 
 #home .block__section3__cont__box .img_body {
@@ -538,6 +540,7 @@ form label {
   width: 10%;
   display: flex;
   align-items: center;
+  cursor: pointer;
   z-index: 5;
 }
 
@@ -549,7 +552,6 @@ form label {
   color: #6626EE;
   padding: 10px;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 #home .block__section4__cont__slider .right_arrow {
@@ -961,6 +963,7 @@ form label {
 }
 
 #about {
+  margin-top: 110px;
   /* GENERAL STYLING */
   /* SCROLL BAR */
   /* width */
@@ -1135,6 +1138,10 @@ form label {
 
 #about .text-space {
   letter-spacing: 0.3px;
+}
+
+#contact {
+  margin-top: 110px;
 }
 
 #contact .block {
@@ -1416,6 +1423,10 @@ form label {
     height: 50px;
     font-size: 17px;
   }
+}
+
+#faq {
+  margin-top: 110px;
 }
 
 #faq .block {
@@ -1731,11 +1742,11 @@ form label {
 }
 
 #join .getstartedbox .col-sm-6 {
-  padding: 30px 40px 30px;
+  padding: 30px 10px;
 }
 
 #join .get-started-section .minibox {
-  padding: 2rem 1rem;
+  padding: 2rem 0rem;
 }
 
 #join .get-started {
@@ -1743,13 +1754,12 @@ form label {
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.03em;
-  width: 180px;
+  width: 250px;
   height: 45px;
   border-radius: 10px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
-  box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
 }
 
 #join .get-started:hover {
@@ -1763,26 +1773,18 @@ form label {
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.03em;
-  width: 180px;
+  width: 250px;
   height: 45px;
   border-radius: 10px;
   background: linear-gradient(180deg, #FFFFFF 0%, #DDDDDD 100%);
-  box-shadow: 0px 5px 15px 3px rgba(221, 210, 246, 0.2);
 }
 
 #join .get-started-section .create .get-started:hover {
   color: #6626EE;
   background: #DDDDDD;
   /* border: none; */
-}
-
-@media (max-width: 1000px) {
-  #join .get-started-section .create .get-started,
-  #join .get-started {
-    width: 150px;
-  }
 }
 
 #sign_up {
@@ -2398,8 +2400,8 @@ form label {
 }
 
 #join .header-section .shade {
-  padding-top: 15%;
-  padding-bottom: 5%;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }
 
 #join .get-started {
@@ -2407,13 +2409,12 @@ form label {
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.03em;
-  width: 147px;
+  width: 250px;
   height: 45px;
   border-radius: 10px;
   background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
-  box-shadow: 0px 5px 15px 3px rgba(102, 38, 238, 0.2);
 }
 
 #join .get-started:hover {
@@ -2495,10 +2496,6 @@ form label {
   #join .main-section .signupwithgoogle img {
     padding-right: 0.4rem;
     font-size: small;
-  }
-
-  #join .header-section .shade {
-    padding-top: 35%;
   }
 }
 
