@@ -21,7 +21,8 @@ class IdeaResource extends JsonResource
             'status' => $this->status,
             '_owner' => new OrganizationUserResource($this->owner),
             '_project' => new ProjectResource($this->project),
+            'comment' =>new CommentResource($this->comments),
             '_organization' => new OrganizationResource($this->organization),
-        ]; 
+        ];
     }
 }

@@ -43,7 +43,6 @@ class IdeaRepository implements IdeaInterface
                 'user_id' => auth()->id(),
                 'organization_id' => $organizationId,
                 'body' => $data['body'],
-                'status' => 'pending'
             ]
         );
 
