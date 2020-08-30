@@ -22,7 +22,7 @@ class Comment extends Model
     /**
      * @return MorphTo
      */
-    public function Owner()
+    public function parent()
     {
         return $this->morphTo();
     }
