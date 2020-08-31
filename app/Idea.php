@@ -10,7 +10,7 @@ class Idea extends Model
 
     /**
      * The organization owning this idea
-     * 
+     *
      * @return belongsTo
      */
     public function organization()
@@ -21,7 +21,7 @@ class Idea extends Model
     /**
      * The user owning this idea which must
      * have already belonged to the organization
-     * 
+     *
      * @return belongsTo
      */
     public function owner()
@@ -31,11 +31,16 @@ class Idea extends Model
 
     /**
      * Sometimes an idea belongs to a project
-     * 
+     *
      * @return belongsTo
      */
     public function project()
     {
         return $this->belongsTo(Project::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class,'commentable');
     }
 }

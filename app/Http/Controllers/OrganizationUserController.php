@@ -25,7 +25,11 @@ class OrganizationUserController extends Controller
      */
     public function index()
     {
-        return new OrganizationUserResource($this->model->index());
+        $user = $this->model->index();
+        if($user === false){
+            return  \response()->json(['satus' => 'error','message' => 'user not found'],404);
+        }
+        return new OrganizationUserResource($user);
     }
     /**
      * @param Request $request
@@ -115,7 +119,7 @@ class OrganizationUserController extends Controller
         ]);
 
         $details = $this->model->login($request, $organizationId);
-        
+
         if (false === $details) {
              return response()->json(['error'=> 'unable to login'], 403);
         } else {
@@ -132,10 +136,9 @@ class OrganizationUserController extends Controller
     public function logout()
     {
         try {
-            $user = request()->user(); //or Auth::user()
-            // Revoke current user token
+            $user = auth()->user();
             $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
-            return response()->json('logged out', 204);
+            return response()->json(['message'=>'logged out'], 200);
         } catch (Exception $e) {
             return response()->json('error logging out', 500);
         }

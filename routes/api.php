@@ -35,13 +35,14 @@ Route::group(['prefix' => 'organizations'], function () {
     //log in a user to a workspace
     Route::post('/{organizationId}/login', 'OrganizationUserController@login');
 
-    Route::group(['prefix' => '/ideas'], function () {
+    Route::group(['prefix' => '/{organizationId}/ideas','middleware'=>['auth:sanctum']], function () {
         Route::post('/', 'IdeaController@store');
         Route::patch('/archive', 'IdeaController@archive');
-        Route::get('{search}', 'IdeaController@show');
+        Route::get('{id}', 'IdeaController@show');
         Route::patch('/{idea}/implement', 'IdeaController@implement');
         Route::patch('/{idea}', 'IdeaController@update');
         Route::get('/author/{author}', 'IdeaController@findByAuthor');
+        Route::post('/{idea}/comments','IdeaController@comment');
     });
 });
 
