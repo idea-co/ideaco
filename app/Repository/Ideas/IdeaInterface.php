@@ -95,7 +95,7 @@ interface IdeaInterface
      * @param $id
      * @return mixed
      */
-    public function upVote($id);
+    public function toggleVote($id);
 
     /**
      * @param $id

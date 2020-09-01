@@ -39,8 +39,7 @@ Route::group(['prefix' => 'organizations'], function () {
         Route::post('/', 'IdeaController@store');
         Route::patch('/archive', 'IdeaController@archive');
         Route::get('{id}', 'IdeaController@show');
-        Route::post('{id}/vote', 'IdeaController@upVote');
-        Route::delete('{id}/vote', 'IdeaController@downVote');
+        Route::post('{id}/vote', 'IdeaController@toggleVote');
         Route::patch('/{idea}/implement', 'IdeaController@implement');
         Route::patch('/{idea}', 'IdeaController@update');
         Route::get('/author/{author}', 'IdeaController@findByAuthor');
