@@ -90,4 +90,16 @@ interface IdeaInterface
      * @return mixed
      */
     public function comment(Request $request, $id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function vote($id);
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function deleteVote($id);
 }

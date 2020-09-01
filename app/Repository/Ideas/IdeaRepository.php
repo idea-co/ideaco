@@ -4,6 +4,7 @@ namespace App\Repository\Ideas;
 
 use App\Comment;
 use App\Idea;
+use App\Vote;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class IdeaRepository implements IdeaInterface
      */
     public function create($data, $organizationId)
     {
-
+        $tags = $this->filterHashTag($data['body']);
         $idea = $this->model::create(
             [
                 'title' => $data['title'],
@@ -45,7 +46,7 @@ class IdeaRepository implements IdeaInterface
                 'body' => $data['body'],
             ]
         );
-
+        $idea->tag($tags);
         return $idea;
     }
 
@@ -153,7 +154,6 @@ class IdeaRepository implements IdeaInterface
      */
     public function comment(Request $request, $id)
     {
-
         try{
             $idea = $this->model->whereId($id)->first();
             if($idea){
@@ -175,6 +175,58 @@ class IdeaRepository implements IdeaInterface
             }
         }catch (Exception $exception){
             return response()->json(['status' => 'error' ,'message'=> 'internal sever error'],500);
+        }
+    }
+    private function filterHashTag(string $idea)
+    {
+        $tags = array();
+        $re = '/\B(#)([_]*[a-zA-Z0-9]+[^#-@\/\s][a-zA-Z0-9]*)(?|(\s)|($)|(\b[^#]))/mi';
+        preg_match_all($re, $idea, $matches, PREG_SET_ORDER, 0);
+        foreach ($matches as $match){
+            array_push($tags, $match[2]);
+        }
+        return $tags;
+
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function vote($id)
+    {
+        $idea = Idea::whereId($id)->first();
+        if($idea){
+            $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
+            if($voted) {
+                return response()->json(['status' => 'error', 'message' => 'can\'t vote idea more than once'], 404);
+            }
+            $oldVote = Vote::onlyTrashed()->where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
+            if($oldVote){
+                $oldVote->restore();
+                return response()->json(['status' => 'success','message' => 'voted'],200);
+            }
+            $vote  = Vote::create(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id]);
+            return response()->json(['status' => 'success','message' => 'voted'],200);
+        }else{
+            return response()->json(['status' => 'error','message' => 'idea not found'],404);
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
+
+    public function deleteVote($id){
+        $idea = Idea::whereId($id)->first();
+        if($idea){
+            $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
+            if($voted) {
+                $voted->delete();
+                return response()->json(['status' => 'success', 'message' => 'vote deleted'], 200);
+            }
+            return response()->json(['status' => 'error','message' => 'you haven\'t voted this idea yet'],404);
+        }else{
+            return response()->json(['status' => 'error','message' => 'idea not found'],404);
         }
     }
 }

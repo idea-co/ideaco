@@ -16,7 +16,7 @@ class Comment extends Model
      * @return BelongsTo
      */
     public function User(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(OrganizationUser::class, 'user_id', 'id');
     }
 
     /**

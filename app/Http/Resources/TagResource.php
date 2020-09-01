@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CommentResource extends JsonResource
+class TagResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,8 @@ class CommentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'user' => $this->user->displayName,
-            'content' => $this->content,
+            'name' => $this->name,
+            'slug' => $this->slug
         ];
     }
 }
