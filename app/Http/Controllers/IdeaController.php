@@ -185,16 +185,16 @@ class IdeaController extends Controller
         );
         return $this->repository->comment($request,$idea);
     }
-    public function vote($organizationId ,$id){
+    public function upVote($organizationId ,$id){
         if(auth()->user()->organization_id != $organizationId){
             return  response(['message' => 'Unauthenticated.'],401);
         }
-        return $this->repository->vote($id);
+        return $this->repository->upVote($id);
     }
-    public function deleteVote($organizationId,$id){
+    public function downVote($organizationId,$id){
         if(auth()->user()->organization_id != $organizationId){
             return  response(['message' => 'Unauthenticated.'],401);
         }
-        return $this->repository->deleteVote($id);
+        return $this->repository->downVote($id);
     }
 }

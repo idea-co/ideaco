@@ -192,7 +192,7 @@ class IdeaRepository implements IdeaInterface
     /**
      * @inheritDoc
      */
-    public function vote($id)
+    public function upVote($id)
     {
         $idea = Idea::whereId($id)->first();
         if($idea){
@@ -216,7 +216,7 @@ class IdeaRepository implements IdeaInterface
      * @inheritDoc
      */
 
-    public function deleteVote($id){
+    public function downVote($id){
         $idea = Idea::whereId($id)->first();
         if($idea){
             $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();

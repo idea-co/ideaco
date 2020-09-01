@@ -95,11 +95,11 @@ interface IdeaInterface
      * @param $id
      * @return mixed
      */
-    public function vote($id);
+    public function upVote($id);
 
     /**
      * @param $id
      * @return mixed
      */
-    public function deleteVote($id);
+    public function downVote($id);
 }
