@@ -3008,39 +3008,39 @@ form label {
   content: url("/img/Group17.png");
 }
 
-.dashboard .sidebar__section .active-link .explore {
+.dashboard .sidebar__section .active_link .explore {
   background: #ffffff;
   color: #6626EE;
 }
 
-.dashboard .sidebar__section .active-link .explore img {
+.dashboard .sidebar__section .active_link .explore img {
   content: url("/img/Group9.png");
 }
 
-.dashboard .sidebar__section .active-link .challenge {
+.dashboard .sidebar__section .active_link .challenge {
   background: #ffffff;
   color: #6626EE;
 }
 
-.dashboard .sidebar__section .active-link .challenge img {
+.dashboard .sidebar__section .active_link .challenge img {
   content: url("/img/Group15.png");
 }
 
-.dashboard .sidebar__section .active-link .overview {
+.dashboard .sidebar__section .active_link .overview {
   background: #ffffff;
   color: #6626EE;
 }
 
-.dashboard .sidebar__section .active-link .overview img {
+.dashboard .sidebar__section .active_link .overview img {
   content: url("/img/Group16.png");
 }
 
-.dashboard .sidebar__section .active-link .history {
+.dashboard .sidebar__section .active_link .history {
   background: #ffffff;
   color: #6626EE;
 }
 
-.dashboard .sidebar__section .active-link .history img {
+.dashboard .sidebar__section .active_link .history img {
   content: url("/img/Group17.png");
 }
 
@@ -3217,8 +3217,40 @@ form label {
   margin: auto;
 }
 
-.dashboard_footer .active {
+.dashboard_footer .active_link .explore {
   background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard_footer .active_link .explore img {
+  content: url("/img/Group9.png");
+}
+
+.dashboard_footer .active_link .challenge {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard_footer .active_link .challenge img {
+  content: url("/img/Group15.png");
+}
+
+.dashboard_footer .active_link .overview {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard_footer .active_link .overview img {
+  content: url("/img/Group16.png");
+}
+
+.dashboard_footer .active_link .history {
+  background: #ffffff;
+  color: #6626EE;
+}
+
+.dashboard_footer .active_link .history img {
+  content: url("/img/Group17.png");
 }
 
 .dashboard_footer .explore:hover img {
