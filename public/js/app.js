@@ -2368,6 +2368,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -21892,7 +21894,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "explore_main_wrapper d-xl-flex" }, [
-      _c("div", { staticClass: "explore_main" }, [
+      _c("div", { staticClass: "explore_main col-xl-8" }, [
         _c("div", { staticClass: "explore_input" }, [
           _c("div", { staticClass: "input-group flex-nowrap" }, [
             _c("input", {
@@ -22008,7 +22010,7 @@ var staticRenderFns = [
                 },
                 [
                   _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../../img/Vector.svg */ "./resources/img/Vector.svg"), alt: "" }
+                    attrs: { src: __webpack_require__(/*! ../../../img/image1.svg */ "./resources/img/image1.svg"), alt: "" }
                   }),
                   _vm._v(" "),
                   _c("p", [_vm._v("Documents")])
@@ -22033,7 +22035,7 @@ var staticRenderFns = [
                 [
                   _c("img", {
                     attrs: {
-                      src: __webpack_require__(/*! ../../../img/Ellipse 7.svg */ "./resources/img/Ellipse 7.svg"),
+                      src: __webpack_require__(/*! ../../../img/Ellipse7.svg */ "./resources/img/Ellipse7.svg"),
                       alt: ""
                     }
                   })
@@ -22051,7 +22053,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse8.svg */ "./resources/img/Ellipse8.svg"),
                         alt: ""
                       }
                     }),
@@ -22088,7 +22090,7 @@ var staticRenderFns = [
               _c(
                 "div",
                 {
-                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                  staticClass: "explore_cards__card__footer__tags card1 col-8"
                 },
                 [
                   _c(
@@ -22166,7 +22168,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse8.svg */ "./resources/img/Ellipse8.svg"),
                         alt: ""
                       }
                     }),
@@ -22185,7 +22187,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "mr-2",
                     attrs: {
-                      src: __webpack_require__(/*! ../../../img/Rectangle 123.svg */ "./resources/img/Rectangle 123.svg"),
+                      src: __webpack_require__(/*! ../../../img/Rectangle123.svg */ "./resources/img/Rectangle123.svg"),
                       alt: ""
                     }
                   }),
@@ -22193,7 +22195,7 @@ var staticRenderFns = [
                   _c("img", {
                     staticClass: "mb-1",
                     attrs: {
-                      src: __webpack_require__(/*! ../../../img/Rectangle 124.svg */ "./resources/img/Rectangle 124.svg"),
+                      src: __webpack_require__(/*! ../../../img/Rectangle124.svg */ "./resources/img/Rectangle124.svg"),
                       alt: ""
                     }
                   })
@@ -22225,7 +22227,7 @@ var staticRenderFns = [
               _c(
                 "div",
                 {
-                  staticClass: "explore_cards__card__footer__tags card2 col-7"
+                  staticClass: "explore_cards__card__footer__tags card2 col-8"
                 },
                 [
                   _c(
@@ -22303,7 +22305,7 @@ var staticRenderFns = [
                     _vm._v(" "),
                     _c("img", {
                       attrs: {
-                        src: __webpack_require__(/*! ../../../img/Ellipse 8.svg */ "./resources/img/Ellipse 8.svg"),
+                        src: __webpack_require__(/*! ../../../img/Ellipse8.svg */ "./resources/img/Ellipse8.svg"),
                         alt: ""
                       }
                     }),
@@ -22340,7 +22342,7 @@ var staticRenderFns = [
               _c(
                 "div",
                 {
-                  staticClass: "explore_cards__card__footer__tags card1 col-7"
+                  staticClass: "explore_cards__card__footer__tags card1 col-8"
                 },
                 [
                   _c(
@@ -22397,9 +22399,11 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "explore_aside d-none d-xl-block" }, [
+      _c("div", { staticClass: "explore_aside d-none d-xl-block col-4" }, [
         _c("div", { staticClass: "explore_ideas" }, [
-          _c("p", [_vm._v("Your Ideas")]),
+          _c("div", { staticClass: "explore_ideas__topic" }, [
+            _c("p", [_vm._v("Your Ideas")])
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "explore_ideas__idea" }, [
             _c("div", { staticClass: "explore_ideas__idea__topic" }, [
@@ -23788,7 +23792,7 @@ var render = function() {
               { staticClass: "get-started", attrs: { to: "/new" } },
               [
                 _c("button", { staticClass: "get-started" }, [
-                  _vm._v("Get Started")
+                  _vm._v("Create An Ideaspace")
                 ])
               ]
             )
@@ -23807,7 +23811,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("p", { staticClass: "title-description color-grey" }, [
-              _vm._v("Join your team on the ideaspace.")
+              _vm._v("Join An Ideaspace")
             ]),
             _vm._v(" "),
             _c(
@@ -40493,25 +40497,25 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/img/Ellipse 7.svg":
-/*!*************************************!*\
-  !*** ./resources/img/Ellipse 7.svg ***!
-  \*************************************/
+/***/ "./resources/img/Ellipse7.svg":
+/*!************************************!*\
+  !*** ./resources/img/Ellipse7.svg ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Ellipse 7.svg?c3bc8d243017849db0d5f6192273a760";
+module.exports = "/images/Ellipse7.svg?c3bc8d243017849db0d5f6192273a760";
 
 /***/ }),
 
-/***/ "./resources/img/Ellipse 8.svg":
-/*!*************************************!*\
-  !*** ./resources/img/Ellipse 8.svg ***!
-  \*************************************/
+/***/ "./resources/img/Ellipse8.svg":
+/*!************************************!*\
+  !*** ./resources/img/Ellipse8.svg ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Ellipse 8.svg?b5a25283e30faafcb5136b8c2daed6d1";
+module.exports = "/images/Ellipse8.svg?b5a25283e30faafcb5136b8c2daed6d1";
 
 /***/ }),
 
@@ -40581,36 +40585,25 @@ module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
 
 /***/ }),
 
-/***/ "./resources/img/Rectangle 123.svg":
-/*!*****************************************!*\
-  !*** ./resources/img/Rectangle 123.svg ***!
-  \*****************************************/
+/***/ "./resources/img/Rectangle123.svg":
+/*!****************************************!*\
+  !*** ./resources/img/Rectangle123.svg ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Rectangle 123.svg?4f66c2b5f3863167817eff69f459d8a8";
+module.exports = "/images/Rectangle123.svg?4f66c2b5f3863167817eff69f459d8a8";
 
 /***/ }),
 
-/***/ "./resources/img/Rectangle 124.svg":
-/*!*****************************************!*\
-  !*** ./resources/img/Rectangle 124.svg ***!
-  \*****************************************/
+/***/ "./resources/img/Rectangle124.svg":
+/*!****************************************!*\
+  !*** ./resources/img/Rectangle124.svg ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Rectangle 124.svg?10a17d7ed7332946a127f5b81d57e2eb";
-
-/***/ }),
-
-/***/ "./resources/img/Vector.svg":
-/*!**********************************!*\
-  !*** ./resources/img/Vector.svg ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Vector.svg?8fd5972f9fdbea528897012760830d0e";
+module.exports = "/images/Rectangle124.svg?10a17d7ed7332946a127f5b81d57e2eb";
 
 /***/ }),
 
@@ -40666,6 +40659,17 @@ module.exports = "/images/eleanor.svg?a3e8fb04bff4e0c2e22fc4e01bd99552";
 /***/ (function(module, exports) {
 
 module.exports = "/images/fa-regular_comment-alt.svg?1bd7a64e403640215c84a0f5b4540eed";
+
+/***/ }),
+
+/***/ "./resources/img/image1.svg":
+/*!**********************************!*\
+  !*** ./resources/img/image1.svg ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/image1.svg?8fd5972f9fdbea528897012760830d0e";
 
 /***/ }),
 

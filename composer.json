@@ -15,7 +15,8 @@
         "laravel/framework": "^7.22.2",
         "laravel/sanctum": "^2.4",
         "laravel/tinker": "^2.0",
-        "doctrine/dbal": "v2.4.2"
+        "doctrine/dbal": "v2.4.2",
+        "rtconner/laravel-tagging": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
