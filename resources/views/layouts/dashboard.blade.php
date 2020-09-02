@@ -13,29 +13,25 @@
 <title>IDEACO - Dashboard</title>
 </head>
 <body id="dashboard_layout">
-    <div class="dashboard" id="app">
-        <!--sidebar-->
-        <sidebar></sidebar>
-        
-        <div class="content">
+    <div id="app">
+        <div class="dashboard">
+            <!--sidebar-->
+            <sidebar></sidebar>
             
-            @yield('content')
+            <div class="content">
+                
+                @yield('content')
+            </div>
+
         </div>
-
+        <!-- menu that shows on mobile view -->
+        <bottombar></bottombar>
     </div>
-
-    <div class="shareicon_mobile"><img src="{{ asset('/img/plus.png') }}"/></div>
-    <footer class="dashboard_footer">
-        <div class="explore active"><img src="{{ asset('/img/Group9.svg') }}"/></div>
-        <div class="challenge"><img src="{{ asset('/img/Group10.svg') }}"/></div>
-        <div class="overview"><img src="{{ asset('/img/Group11.svg') }}"/></div>
-        <div class="history"><img src="{{ asset('/img/Group12.svg') }}"/></div>
-    <footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="{{ asset('/js/app.js') }}"></script>
-    <script src="{{ asset('/js/dashboard.js') }}"></script>
+    <!--<script src="{{ asset('/js/dashboard.js') }}"></script>-->
 </body>
 </html>

@@ -182,11 +182,7 @@ var chart1 = new Chart(ctx_graph, {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Users\HP\documents\code\ideaco\resources\js\dashboard.js */"./resources/js/dashboard.js");
-=======
-module.exports = __webpack_require__(/*! /home/boluwatife/Documents/HNG_intern/ideaco/resources/js/dashboard.js */"./resources/js/dashboard.js");
->>>>>>> 1f73d5bdf925f51a48e0b265c16b18617b1c9358
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\dashboard.js */"./resources/js/dashboard.js");
 
 
 /***/ })
