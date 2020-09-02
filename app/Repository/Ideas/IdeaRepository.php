@@ -192,13 +192,13 @@ class IdeaRepository implements IdeaInterface
     /**
      * @inheritDoc
      */
-    public function vote($id)
+    public function toggleVote($id)
     {
         $idea = Idea::whereId($id)->first();
         if($idea){
             $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
             if($voted) {
-                return response()->json(['status' => 'error', 'message' => 'can\'t vote idea more than once'], 404);
+                return $this->downVote($id);
             }
             $oldVote = Vote::onlyTrashed()->where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
             if($oldVote){
@@ -216,17 +216,12 @@ class IdeaRepository implements IdeaInterface
      * @inheritDoc
      */
 
-    public function deleteVote($id){
-        $idea = Idea::whereId($id)->first();
-        if($idea){
-            $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $idea->id])->first();
+    public function downVote($id){
+            $voted = Vote::where(['user_id' => auth()->id(),'votable_type' => Idea::class,'votable_id'=> $id])->first();
             if($voted) {
                 $voted->delete();
                 return response()->json(['status' => 'success', 'message' => 'vote deleted'], 200);
             }
             return response()->json(['status' => 'error','message' => 'you haven\'t voted this idea yet'],404);
-        }else{
-            return response()->json(['status' => 'error','message' => 'idea not found'],404);
-        }
     }
 }
