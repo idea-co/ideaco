@@ -2,9 +2,8 @@
     <div class="explore_section">
         <!-- Page Header -->
 
-        <div class="explore_section_container">
-            <header class="content__header">
-                <auth-user-banner></auth-user-banner>
+        <div class="explore_section_container container">
+            <auth-user-banner>
                 <div class="content__header__section2">
                     <h2>Explore</h2>
                     <a class="content__header__section2__link content__header__section2__link--active">Most Active</a>
@@ -12,7 +11,8 @@
                     <a class="content__header__section2__link">Most Recent</a>
                     <a class="content__header__section2__link filter"><i class="fas fa-filter"></i><span> Filter </span><i class="fas fa-caret-down"></i></a>
                 </div>
-            </header>
+            </auth-user-banner>
+
             <div class="explore_main_wrapper d-xl-flex">
                 <div class="explore_main col-xl-8">
                 
@@ -88,7 +88,7 @@
                                     <p class="name">Kevin Oates</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Product Design</p>
                                     </div>
                                 </div>
@@ -133,7 +133,7 @@
                                     <p class="name">Ralph Edwards</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Development</p>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                     <p class="name">Eleanor Pena</p>
                                     <div class="date_track">
                                         <p>3 days ago.</p>
-                                        <img src="../../../img/ellipse8.svg" alt="">
+                                        <img src="../../../img/Ellipse8.svg" alt="">
                                         <p>Production</p>
                                     </div>
                                 </div>
@@ -319,4 +319,11 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+  
+}
+</script>
 

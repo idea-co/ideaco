@@ -69,29 +69,27 @@
     }
 
     .getstartedbox .col-sm-6 {
-        padding: 30px 40px 30px;
+        padding: 30px 10px;
     }
     // .get-started-section .create{
     // }
     // .get-started-section .join{
     // }
     .get-started-section .minibox{
-        padding: 2rem 1rem;
+        padding: 2rem 0rem;
     }
     .get-started {
         color: #fff;
         cursor: pointer;
         outline: none;
         border: none;
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 0.03em;
-        width: 180px;
+        width: 250px;
         height: 45px;
         border-radius: 10px;
         background: -webkit-gradient(linear, left top, left bottom, from(#6626EE), to(#4106BD));
         background: linear-gradient(180deg, #6626EE 0%, #4106BD 100%);
-        -webkit-box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
-        box-shadow: 0px 5px 15px 3px rgba(102,38,238,0.2);
     }
     .get-started:hover {
         color: #bfbfbf;
@@ -103,15 +101,13 @@
         cursor: pointer;
         outline: none;
         border: none;
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 0.03em;
-        width: 180px;
+        width: 250px;
         height: 45px;
         border-radius: 10px;
         background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#DDDDDD));
         background: linear-gradient(180deg, #FFFFFF 0%, #DDDDDD 100%);
-        -webkit-box-shadow: 0px 5px 15px 3px rgba(218, 201, 255, 0.2);
-        box-shadow: 0px 5px 15px 3px rgba(221, 210, 246, 0.2);
     }
     .get-started-section .create .get-started:hover {
         color: #6626EE;
@@ -120,7 +116,7 @@
     } 
     @media (max-width: 1000px) {
         .get-started-section .create .get-started, .get-started {
-            width: 150px;
+           
         }
     }
     /* On screens that are 415px wide or less*/

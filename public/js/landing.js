@@ -120,11 +120,11 @@ $(document).ready(function () {
 current_slide = 1; //initial slide position
 //listen to click events on slide arrow and trigger the next slide
 
-$(document).on("click", ".block__section4__cont__slider .left_arrow .fa-arrow-left", function () {
+$(document).on("click", ".block__section4__cont__slider .left_arrow", function () {
   minusSlides();
 }); //listen to click events on slide arrow and trigger the next slide
 
-$(document).on("click", ".block__section4__cont__slider .right_arrow .fa-arrow-right", function () {
+$(document).on("click", ".block__section4__cont__slider .right_arrow", function () {
   plusSlides();
 }); //calls the next slide 
 
@@ -282,7 +282,7 @@ __webpack_require__(/*! ./elements/home */ "./resources/js/elements/home.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\js\landing.js */"./resources/js/landing.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\landing.js */"./resources/js/landing.js");
 
 
 /***/ })

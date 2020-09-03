@@ -46,7 +46,7 @@
                 }
             }
             /*when sidebar link is active */
-            .active-link{
+            .active_link{
                 .explore{
                     background: $bg-color;
                     color: $secondary-color;
@@ -227,8 +227,35 @@
             margin: auto;
         }
     }
-    .active{
-        background: $bg-color;
+    .active_link{
+        .explore{
+            background: $bg-color;
+            color: $secondary-color;
+            img{
+                content:url("/img/Group9.png");
+            }
+        }
+        .challenge{
+            background: $bg-color;
+            color: $secondary-color;
+            img{
+                content:url("/img/Group15.png");
+            }
+        }
+        .overview{
+            background: $bg-color;
+            color: $secondary-color;
+            img{
+                content:url("/img/Group16.png");
+            }
+        }
+        .history{
+            background: $bg-color;
+            color: $secondary-color;
+            img{
+                content:url("/img/Group17.png");
+            }
+        }
     }
     .explore:hover{
         img{
