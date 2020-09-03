@@ -15864,8 +15864,7 @@ jQuery.extend( jQuery.event, {
 				}
 			}
 		}
-
-		return event.result;
+x event.result;
 	},
 
 	// Piggyback on a donor event to simulate a different one
