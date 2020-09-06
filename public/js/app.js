@@ -44906,13 +44906,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   }
 });
 /**
+ * This block fires before a route is changed
+ * ===========================================
  * Fetch user token from localstorage to authenticate each 
  * request
  */
 
 router.beforeEach(function (to, from, next) {
+  //our router is setting the current page for the store
   _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].commit('setCurrentPage', to.name);
-  console.log(_store_index__WEBPACK_IMPORTED_MODULE_1__["default"].getters.currentPage);
   var userInfo = localStorage.getItem('user');
 
   if (userInfo) {
