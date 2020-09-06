@@ -111,6 +111,8 @@ if(window.location.href.indexOf("start") > -1){
 
 const router = new VueRouter({
     routes,
+    linkActiveClass: "active",
+    linkExactActiveClass: "active_link",
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition
@@ -127,6 +129,7 @@ const router = new VueRouter({
  * request
  */
 router.beforeEach((to, from, next) => {
+    
     //our router is setting the current page for the store
     store.commit('setCurrentPage', to.name);
     

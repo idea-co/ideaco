@@ -1986,14 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['allLinks']),
-  methods: {
-    updateLinks: function updateLinks(activeLink) {
-      this.$store.commit('updateLinks', activeLink);
-    }
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -2006,7 +1999,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2050,18 +2042,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       secondaryLogo: __webpack_require__(/*! ../../img/secondary_logo.png */ "./resources/img/secondary_logo.png")
     };
-  },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['allLinks']),
-  methods: {
-    updateLinks: function updateLinks(activeLink) {
-      this.$store.commit('updateLinks', activeLink);
-    }
   }
 });
 
@@ -23902,97 +23892,37 @@ var render = function() {
       "footer",
       { staticClass: "dashboard_footer" },
       [
+        _c("router-link", { staticClass: "links", attrs: { to: "/" } }, [
+          _c("div", { staticClass: "explore" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
+          ])
+        ]),
+        _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.exploreActive },
-            attrs: { to: "/" }
-          },
+          { staticClass: "links", attrs: { to: "/challenge" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "explore",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("exploreActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })]
-            )
+            _c("div", { staticClass: "challenge" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.challengeActive },
-            attrs: { to: "/challenge" }
-          },
+          { staticClass: "links", attrs: { to: "/overview" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "challenge",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("challengeActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })]
-            )
+            _c("div", { staticClass: "overview" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.overviewActive },
-            attrs: { to: "/overview" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "overview",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("overviewActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.historyActive },
-            attrs: { to: "/history" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "history",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("historyActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })]
-            )
-          ]
-        )
+        _c("router-link", { staticClass: "links", attrs: { to: "/history" } }, [
+          _c("div", { staticClass: "history" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
+          ])
+        ])
       ],
       1
     )
@@ -24040,127 +23970,53 @@ var render = function() {
       "div",
       { staticClass: "sidebar__section" },
       [
+        _c("router-link", { staticClass: "links", attrs: { to: "/" } }, [
+          _c("div", { staticClass: "sidebar__section__link explore" }, [
+            _c("div", { staticClass: "sidebar__section__link__icon" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Explore")])
+          ])
+        ]),
+        _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.exploreActive },
-            attrs: { to: "/" }
-          },
+          { staticClass: "links", attrs: { to: "/challenge" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link explore",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("exploreActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Explore")])
-              ]
-            )
+            _c("div", { staticClass: "sidebar__section__link challenge" }, [
+              _c("div", { staticClass: "sidebar__section__link__icon" }, [
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
+              ]),
+              _vm._v(" "),
+              _c("div", [_vm._v("Challenges")])
+            ])
           ]
         ),
         _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.challengeActive },
-            attrs: { to: "/challenge" }
-          },
+          { staticClass: "links", attrs: { to: "/overview" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link challenge",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("challengeActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Challenges")])
-              ]
-            )
+            _c("div", { staticClass: "sidebar__section__link overview" }, [
+              _c("div", { staticClass: "sidebar__section__link__icon" }, [
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
+              ]),
+              _vm._v(" "),
+              _c("div", [_vm._v("Overview")])
+            ])
           ]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.overviewActive },
-            attrs: { to: "/overview" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link overview",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("overviewActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Overview")])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.historyActive },
-            attrs: { to: "/history" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link history",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("historyActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("History")])
-              ]
-            )
-          ]
-        )
+        _c("router-link", { staticClass: "links", attrs: { to: "/history" } }, [
+          _c("div", { staticClass: "sidebar__section__link history" }, [
+            _c("div", { staticClass: "sidebar__section__link__icon" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v("History")])
+          ])
+        ])
       ],
       1
     ),
@@ -24179,6 +24035,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "sidebar__section__logout__icon" }, [
         _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group13.png */ "./resources/img/Group13.png") } })
       ]),
+      _vm._v(" "),
       _c("div", [_vm._v("Log Out")])
     ])
   }
@@ -44894,6 +44751,8 @@ if (window.location.href.indexOf("start") > -1) {
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active_link",
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
