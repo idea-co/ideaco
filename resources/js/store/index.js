@@ -3,7 +3,6 @@ import Vue from 'vue';
 import onboarding from './modules/onboarding';
 import users from './modules/users';
 import login from './modules/login';
-import sidebar from './modules/sidebar'
 
 Vue.use(Vuex);
 
@@ -12,14 +11,18 @@ export default new Vuex.Store({
         onboarding,
         users,
         login,
-        sidebar
     },
     state: {
         user: null,
         isLoggedIn: false,
+        currentPage: 'Dashboard', //default to home page. Name is the name of the route defined in route.js
     },
 
     mutations:{
+        setCurrentPage(state, payload) {
+            state.currentPage = payload;
+        },
+
         clearUserData () {
             localStorage.removeItem('user')
             location.href = "/login"; //redirect to login
@@ -50,6 +53,10 @@ export default new Vuex.Store({
 
         token: state => {
             return state.user.token;
+        },
+
+        currentPage: state => {
+            return state.currentPage;
         }
     }
     

@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router';
+import store from './store/index';
 
 const onBoardingRoutes = [
     {
@@ -110,6 +111,8 @@ if(window.location.href.indexOf("start") > -1){
 
 const router = new VueRouter({
     routes,
+    linkActiveClass: "active",
+    linkExactActiveClass: "active_link",
     scrollBehavior (to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition
@@ -120,10 +123,16 @@ const router = new VueRouter({
 }) 
 
 /**
+ * This block fires before a route is changed
+ * ===========================================
  * Fetch user token from localstorage to authenticate each 
  * request
  */
 router.beforeEach((to, from, next) => {
+    
+    //our router is setting the current page for the store
+    store.commit('setCurrentPage', to.name);
+    
     const userInfo = localStorage.getItem('user');
     if(userInfo){
         const userData = JSON.parse(userInfo);
