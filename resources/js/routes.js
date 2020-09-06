@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router';
+import store from './store/index';
 
 const onBoardingRoutes = [
     {
@@ -124,6 +125,11 @@ const router = new VueRouter({
  * request
  */
 router.beforeEach((to, from, next) => {
+
+    store.commit('setCurrentPage', to.name);
+    
+    console.log(store.getters.currentPage);
+
     const userInfo = localStorage.getItem('user');
     if(userInfo){
         const userData = JSON.parse(userInfo);

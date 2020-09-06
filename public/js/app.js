@@ -44801,6 +44801,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
+
 
 var onBoardingRoutes = [{
   path: '/',
@@ -44909,6 +44911,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
  */
 
 router.beforeEach(function (to, from, next) {
+  _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].commit('setCurrentPage', to.name);
+  console.log(_store_index__WEBPACK_IMPORTED_MODULE_1__["default"].getters.currentPage);
   var userInfo = localStorage.getItem('user');
 
   if (userInfo) {
@@ -45219,9 +45223,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
   },
   state: {
     user: null,
-    isLoggedIn: false
+    isLoggedIn: false,
+    currentPage: 'Dashboard' //default to home page. Name is the name of the route defined in route.js
+
   },
   mutations: {
+    setCurrentPage: function setCurrentPage(state, payload) {
+      state.currentPage = payload;
+    },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
       location.href = "/login"; //redirect to login
@@ -45247,6 +45256,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     token: function token(state) {
       return state.user.token;
+    },
+    currentPage: function currentPage(state) {
+      return state.currentPage;
     }
   }
 }));
@@ -45663,8 +45675,8 @@ var mutations = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
