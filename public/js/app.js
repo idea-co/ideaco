@@ -1955,77 +1955,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Bottombar.vue?vue&type=script&lang=js& ***!
   \********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['allLinks']),
-  methods: {
-    updateLinks: function updateLinks(activeLink) {
-      this.$store.commit('updateLinks', activeLink);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Sidebar.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Sidebar.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2051,17 +1983,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Sidebar.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Sidebar.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       secondaryLogo: __webpack_require__(/*! ../../img/secondary_logo.png */ "./resources/img/secondary_logo.png")
     };
-  },
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['allLinks']),
-  methods: {
-    updateLinks: function updateLinks(activeLink) {
-      this.$store.commit('updateLinks', activeLink);
-    }
   }
 });
 
@@ -23902,97 +23887,37 @@ var render = function() {
       "footer",
       { staticClass: "dashboard_footer" },
       [
+        _c("router-link", { staticClass: "links", attrs: { to: "/" } }, [
+          _c("div", { staticClass: "explore" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
+          ])
+        ]),
+        _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.exploreActive },
-            attrs: { to: "/" }
-          },
+          { staticClass: "links", attrs: { to: "/challenge" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "explore",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("exploreActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })]
-            )
+            _c("div", { staticClass: "challenge" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.challengeActive },
-            attrs: { to: "/challenge" }
-          },
+          { staticClass: "links", attrs: { to: "/overview" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "challenge",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("challengeActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })]
-            )
+            _c("div", { staticClass: "overview" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.overviewActive },
-            attrs: { to: "/overview" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "overview",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("overviewActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.historyActive },
-            attrs: { to: "/history" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "history",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("historyActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })]
-            )
-          ]
-        )
+        _c("router-link", { staticClass: "links", attrs: { to: "/history" } }, [
+          _c("div", { staticClass: "history" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
+          ])
+        ])
       ],
       1
     )
@@ -24040,127 +23965,53 @@ var render = function() {
       "div",
       { staticClass: "sidebar__section" },
       [
+        _c("router-link", { staticClass: "links", attrs: { to: "/" } }, [
+          _c("div", { staticClass: "sidebar__section__link explore" }, [
+            _c("div", { staticClass: "sidebar__section__link__icon" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Explore")])
+          ])
+        ]),
+        _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.exploreActive },
-            attrs: { to: "/" }
-          },
+          { staticClass: "links", attrs: { to: "/challenge" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link explore",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("exploreActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group9.svg */ "./resources/img/Group9.svg") } })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Explore")])
-              ]
-            )
+            _c("div", { staticClass: "sidebar__section__link challenge" }, [
+              _c("div", { staticClass: "sidebar__section__link__icon" }, [
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
+              ]),
+              _vm._v(" "),
+              _c("div", [_vm._v("Challenges")])
+            ])
           ]
         ),
         _vm._v(" "),
         _c(
           "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.challengeActive },
-            attrs: { to: "/challenge" }
-          },
+          { staticClass: "links", attrs: { to: "/overview" } },
           [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link challenge",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("challengeActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Challenges")])
-              ]
-            )
+            _c("div", { staticClass: "sidebar__section__link overview" }, [
+              _c("div", { staticClass: "sidebar__section__link__icon" }, [
+                _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
+              ]),
+              _vm._v(" "),
+              _c("div", [_vm._v("Overview")])
+            ])
           ]
         ),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.overviewActive },
-            attrs: { to: "/overview" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link overview",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("overviewActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("Overview")])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "links",
-            class: { active_link: _vm.allLinks.historyActive },
-            attrs: { to: "/history" }
-          },
-          [
-            _c(
-              "div",
-              {
-                staticClass: "sidebar__section__link history",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("historyActive")
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "sidebar__section__link__icon" }, [
-                  _c("img", {
-                    attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", [_vm._v("History")])
-              ]
-            )
-          ]
-        )
+        _c("router-link", { staticClass: "links", attrs: { to: "/history" } }, [
+          _c("div", { staticClass: "sidebar__section__link history" }, [
+            _c("div", { staticClass: "sidebar__section__link__icon" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
+            ]),
+            _vm._v(" "),
+            _c("div", [_vm._v("History")])
+          ])
+        ])
       ],
       1
     ),
@@ -24179,6 +24030,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "sidebar__section__logout__icon" }, [
         _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group13.png */ "./resources/img/Group13.png") } })
       ]),
+      _vm._v(" "),
       _c("div", [_vm._v("Log Out")])
     ])
   }
@@ -43312,14 +43164,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./resources/js/components/Bottombar.vue ***!
   \***********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Bottombar_vue_vue_type_template_id_6b75942d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bottombar.vue?vue&type=template&id=6b75942d& */ "./resources/js/components/Bottombar.vue?vue&type=template&id=6b75942d&");
 /* harmony import */ var _Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bottombar.vue?vue&type=script&lang=js& */ "./resources/js/components/Bottombar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -43349,13 +43202,15 @@ component.options.__file = "resources/js/components/Bottombar.vue"
 /*!************************************************************************!*\
   !*** ./resources/js/components/Bottombar.vue?vue&type=script&lang=js& ***!
   \************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Bottombar.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Bottombar.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottombar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -44801,6 +44656,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
+
 
 var onBoardingRoutes = [{
   path: '/',
@@ -44892,6 +44749,8 @@ if (window.location.href.indexOf("start") > -1) {
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active_link",
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
@@ -44904,11 +44763,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   }
 });
 /**
+ * This block fires before a route is changed
+ * ===========================================
  * Fetch user token from localstorage to authenticate each 
  * request
  */
 
 router.beforeEach(function (to, from, next) {
+  //our router is setting the current page for the store
+  _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].commit('setCurrentPage', to.name);
   var userInfo = localStorage.getItem('user');
 
   if (userInfo) {
@@ -45202,8 +45065,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users */ "./resources/js/store/modules/users.js");
 /* harmony import */ var _modules_users__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_users__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/login */ "./resources/js/store/modules/login.js");
-/* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/sidebar */ "./resources/js/store/modules/sidebar.js");
-
 
 
 
@@ -45214,14 +45075,18 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
   modules: {
     onboarding: _modules_onboarding__WEBPACK_IMPORTED_MODULE_2__["default"],
     users: _modules_users__WEBPACK_IMPORTED_MODULE_3___default.a,
-    login: _modules_login__WEBPACK_IMPORTED_MODULE_4__["default"],
-    sidebar: _modules_sidebar__WEBPACK_IMPORTED_MODULE_5__["default"]
+    login: _modules_login__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   state: {
     user: null,
-    isLoggedIn: false
+    isLoggedIn: false,
+    currentPage: 'Dashboard' //default to home page. Name is the name of the route defined in route.js
+
   },
   mutations: {
+    setCurrentPage: function setCurrentPage(state, payload) {
+      state.currentPage = payload;
+    },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
       location.href = "/login"; //redirect to login
@@ -45247,6 +45112,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     token: function token(state) {
       return state.user.token;
+    },
+    currentPage: function currentPage(state) {
+      return state.currentPage;
     }
   }
 }));
@@ -45577,63 +45445,6 @@ var actions = {
 
 /***/ }),
 
-/***/ "./resources/js/store/modules/sidebar.js":
-/*!***********************************************!*\
-  !*** ./resources/js/store/modules/sidebar.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  allLinks: {
-    exploreActive: true,
-    challengeActive: false,
-    overviewActive: false,
-    historyActive: false
-  }
-};
-var getters = {
-  allLinks: function allLinks(state) {
-    return state.allLinks;
-  }
-};
-var actions = {};
-var mutations = {
-  updateLinks: function updateLinks(state, activeLink) {
-    if (activeLink == "exploreActive") {
-      state.allLinks.exploreActive = true;
-      state.allLinks.challengeActive = false;
-      state.allLinks.overviewActive = false;
-      state.allLinks.historyActive = false;
-    } else if (activeLink == "challengeActive") {
-      state.allLinks.exploreActive = false;
-      state.allLinks.challengeActive = true;
-      state.allLinks.overviewActive = false;
-      state.allLinks.historyActive = false;
-    } else if (activeLink == "overviewActive") {
-      state.allLinks.exploreActive = false;
-      state.allLinks.challengeActive = false;
-      state.allLinks.overviewActive = true;
-      state.allLinks.historyActive = false;
-    } else if (activeLink == "historyActive") {
-      state.allLinks.exploreActive = false;
-      state.allLinks.challengeActive = false;
-      state.allLinks.overviewActive = false;
-      state.allLinks.historyActive = true;
-    }
-  }
-};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  actions: actions,
-  mutations: mutations
-});
-
-/***/ }),
-
 /***/ "./resources/js/store/modules/users.js":
 /*!*********************************************!*\
   !*** ./resources/js/store/modules/users.js ***!
@@ -45663,8 +45474,8 @@ var mutations = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
