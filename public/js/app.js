@@ -24134,7 +24134,7 @@ var render = function() {
   return _c("div", { staticClass: "explore_section" }, [
     _c(
       "div",
-      { staticClass: "explore_section_container container" },
+      { staticClass: "explore_section_container container-fluid" },
       [
         _c("auth-user-banner", [
           _c("div", { staticClass: "content__header__section2" }, [
