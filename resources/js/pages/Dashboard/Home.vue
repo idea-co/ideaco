@@ -2,7 +2,7 @@
     <div class="explore_section">
         <!-- Page Header -->
 
-        <div class="explore_section_container container">
+        <div class="explore_section_container container-fluid">
             <auth-user-banner>
                 <div class="content__header__section2">
                     <h2>Explore</h2>

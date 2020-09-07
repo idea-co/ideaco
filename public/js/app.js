@@ -24134,7 +24134,7 @@ var render = function() {
   return _c("div", { staticClass: "explore_section" }, [
     _c(
       "div",
-      { staticClass: "explore_section_container container" },
+      { staticClass: "explore_section_container container-fluid" },
       [
         _c("auth-user-banner", [
           _c("div", { staticClass: "content__header__section2" }, [
@@ -42787,7 +42787,7 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Ellipse7.svg?c3bc8d243017849db0d5f6192273a760";
+module.exports = "/images/Ellipse7.svg?c9a2f2eaa16240dd84516e0b9896ca80";
 
 /***/ }),
 
@@ -42798,7 +42798,7 @@ module.exports = "/images/Ellipse7.svg?c3bc8d243017849db0d5f6192273a760";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Ellipse8.svg?b5a25283e30faafcb5136b8c2daed6d1";
+module.exports = "/images/Ellipse8.svg?229c68b3809d8b82f4fc663231839066";
 
 /***/ }),
 
@@ -42875,7 +42875,7 @@ module.exports = "/images/Group9.svg?804a21752e6377e6b11ffa5027bf0f96";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Rectangle123.svg?4f66c2b5f3863167817eff69f459d8a8";
+module.exports = "/images/Rectangle123.svg?44d616052bb88300bd09614a65fdb9ac";
 
 /***/ }),
 
@@ -42886,7 +42886,7 @@ module.exports = "/images/Rectangle123.svg?4f66c2b5f3863167817eff69f459d8a8";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Rectangle124.svg?10a17d7ed7332946a127f5b81d57e2eb";
+module.exports = "/images/Rectangle124.svg?b9dcb24dba7a794ef5bf2c37bf0023ef";
 
 /***/ }),
 
@@ -42897,7 +42897,7 @@ module.exports = "/images/Rectangle124.svg?10a17d7ed7332946a127f5b81d57e2eb";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/arrow-up.svg?db6f7bb2c68bf5e9cf95accaf36e40f0";
+module.exports = "/images/arrow-up.svg?88ad3358db1f242b77152907130c533c";
 
 /***/ }),
 
@@ -42908,7 +42908,7 @@ module.exports = "/images/arrow-up.svg?db6f7bb2c68bf5e9cf95accaf36e40f0";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/camera.svg?248605fa9cb687a2423f34e9c6e5a7d5";
+module.exports = "/images/camera.svg?884c85bc88c68ac0064d0dcfac34d3fa";
 
 /***/ }),
 
@@ -42919,7 +42919,7 @@ module.exports = "/images/camera.svg?248605fa9cb687a2423f34e9c6e5a7d5";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/el_arrow-up.svg?83bc9a04e5d00f8a6c1a44fcd49587ee";
+module.exports = "/images/el_arrow-up.svg?03a71f74d30515b53448bcb8bed9fb6e";
 
 /***/ }),
 
@@ -42930,7 +42930,7 @@ module.exports = "/images/el_arrow-up.svg?83bc9a04e5d00f8a6c1a44fcd49587ee";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/eleanor.svg?a3e8fb04bff4e0c2e22fc4e01bd99552";
+module.exports = "/images/eleanor.svg?9aa5f54b10d4df3608b46c77c6fbdc03";
 
 /***/ }),
 
@@ -42941,7 +42941,7 @@ module.exports = "/images/eleanor.svg?a3e8fb04bff4e0c2e22fc4e01bd99552";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/fa-regular_comment-alt.svg?1bd7a64e403640215c84a0f5b4540eed";
+module.exports = "/images/fa-regular_comment-alt.svg?f563b57ab5334f20e885a05bf5b5d795";
 
 /***/ }),
 
@@ -42952,7 +42952,7 @@ module.exports = "/images/fa-regular_comment-alt.svg?1bd7a64e403640215c84a0f5b45
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/image1.svg?8fd5972f9fdbea528897012760830d0e";
+module.exports = "/images/image1.svg?c3131e39137800a440e79aa05afbf5ae";
 
 /***/ }),
 
@@ -42963,7 +42963,7 @@ module.exports = "/images/image1.svg?8fd5972f9fdbea528897012760830d0e";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/mdi_videocam.svg?a2fc3beef35ce97b6ea20156d95cfeb7";
+module.exports = "/images/mdi_videocam.svg?728e5a6cd1e09b1bea542c42cc2b1d30";
 
 /***/ }),
 
@@ -42996,7 +42996,7 @@ module.exports = "/images/primary_logo.png?5841b7eb12648e545a41b28f7e8a9bd3";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/ralph.svg?f9c3975eb0f261da7c5ab9153dffee08";
+module.exports = "/images/ralph.svg?d1902e92909d751ea5fb1ad91871373a";
 
 /***/ }),
 
@@ -45474,8 +45474,8 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\hp\documents\code\ideaco\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
