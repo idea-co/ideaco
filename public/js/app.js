@@ -2409,6 +2409,75 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -24425,6 +24494,226 @@ var staticRenderFns = [
                   _c("p", [_vm._v("30 Comments")])
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "explore_cards__card__comments" }, [
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header comment1" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "explore_cards__card__header__image card1" },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../img/jane.svg */ "./resources/img/jane.svg"),
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "explore_cards__card__header__writeup card1"
+                    },
+                    [
+                      _c("p", { staticClass: "name" }, [_vm._v("Kevin Oates")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date_track" }, [
+                        _c("p", [_vm._v("21 hours ago.")]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: __webpack_require__(/*! ../../../img/Ellipse8.svg */ "./resources/img/Ellipse8.svg"),
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Engineering")])
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "explore_cards__card__comment card1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "explore_cards__card__comment__writeup card1"
+                  },
+                  [
+                    _vm._v(
+                      "\n                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque faucibus augue arcu at vulputate diam vel. \n                                    Ac quam aliquet semper in consequat faucibus coat vulputate diam vel. Ac quam aliquet semper in consequat faucibus \n                                    condimentum et sed.\n                                "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__footer comment_footer" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags comment_input"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "explore_cards__card__footer__tags__vote comment_vote"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../img/arrow-up.svg */ "./resources/img/arrow-up.svg"),
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("459")])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom" })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__header comment1" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "explore_cards__card__header__image card1" },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: __webpack_require__(/*! ../../../img/jane.svg */ "./resources/img/jane.svg"),
+                          alt: ""
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "explore_cards__card__header__writeup card1"
+                    },
+                    [
+                      _c("p", { staticClass: "name" }, [_vm._v("Kevin Oates")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "date_track" }, [
+                        _c("p", [_vm._v("21 hours ago.")]),
+                        _vm._v(" "),
+                        _c("img", {
+                          attrs: {
+                            src: __webpack_require__(/*! ../../../img/Ellipse8.svg */ "./resources/img/Ellipse8.svg"),
+                            alt: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("Engineering")])
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "explore_cards__card__comment card1" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass: "explore_cards__card__comment__writeup card1"
+                  },
+                  [
+                    _vm._v(
+                      "\n                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                                "
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "explore_cards__card__footer comment_footer" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "explore_cards__card__footer__tags comment_input"
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "explore_cards__card__footer__tags__vote comment_vote"
+                        },
+                        [
+                          _c("img", {
+                            attrs: {
+                              src: __webpack_require__(/*! ../../../img/el_arrow-up.svg */ "./resources/img/el_arrow-up.svg"),
+                              alt: ""
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("p", [_vm._v("459")])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "border-bottom" }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "explore_cards__card__footer__tags__comment card1"
+                        },
+                        [
+                          _c("p", [_vm._v("Load more comments")]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "explore_cards__card__footer__tags comment__input"
+                            },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src: __webpack_require__(/*! ../../../img/jonathan.svg */ "./resources/img/jonathan.svg"),
+                                  alt: ""
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                staticClass:
+                                  "form-control explore_emptystate__form__input__input",
+                                attrs: {
+                                  type: "text",
+                                  placeholder: "Add a comment here"
+                                }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
             ])
           ]),
           _vm._v(" "),
@@ -42953,6 +43242,28 @@ module.exports = "/images/fa-regular_comment-alt.svg?f563b57ab5334f20e885a05bf5b
 /***/ (function(module, exports) {
 
 module.exports = "/images/image1.svg?c3131e39137800a440e79aa05afbf5ae";
+
+/***/ }),
+
+/***/ "./resources/img/jane.svg":
+/*!********************************!*\
+  !*** ./resources/img/jane.svg ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/jane.svg?6538086d6a4bd21880fef517ed765517";
+
+/***/ }),
+
+/***/ "./resources/img/jonathan.svg":
+/*!************************************!*\
+  !*** ./resources/img/jonathan.svg ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/jonathan.svg?5a7cbcc361408ef61f6c26bdbd3c3fca";
 
 /***/ }),
 
