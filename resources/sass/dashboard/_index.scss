@@ -164,6 +164,10 @@
                         margin-bottom: 2rem;
                         color: #515151;
 
+                        .comment1{
+                            margin-top: 1rem;
+                        }
+
                         &__header{
                             display: flex;
                             flex-direction: row;
@@ -217,6 +221,16 @@
                             }
                         }
 
+                        &__comment{
+                            margin: 0.7rem 0 0;
+                            color: #141414;
+
+                            &__writeup{
+                                margin: 0;
+                                font-weight: 500;
+                            }
+                        }
+
                         &__footer{
                             display: flex;
                             flex-direction: row;
@@ -238,6 +252,14 @@
                                     }
                                 }
 
+                                &__comment{
+                                    p{
+                                        margin: 0.7rem 0;
+                                        font-weight: bold;
+                                        color: #515151;
+                                    }
+                                }
+
                                 &__tag{
                                     display: flex;
                                     flex-direction: row;
@@ -253,6 +275,29 @@
                                 }
                             }
 
+                            .comment_input{
+                                display: block;
+
+                                .comment__input{
+                                    display: flex;
+                                    flex-direction: row;
+
+                                    input{
+                                        margin: 0.5rem 0 1rem 0.5rem;
+                                    }
+
+                                    input::placeholder{
+                                        color: #515151;
+                                        opacity: 0.5;
+                                        font-weight: 500;
+                                    }
+                                }
+
+                                .comment_vote{
+                                    padding-left: 0.75rem;
+                                }
+                            }
+
                             &__comments{
                                 display: flex;
                                 flex-direction: row;
@@ -260,6 +305,15 @@
                                 p{
                                     margin: 0.3rem 0 0.3rem 0.5rem;
                                 }
+                            }
+                        }
+                        
+                        .comment_footer{
+                            display: block;
+                            
+                            .border-bottom{
+                                border-bottom: 1px solid #e5e8ea;
+                                margin-top: 0.1rem;
                             }
                         }
                     }
@@ -331,7 +385,7 @@
     }
 }
 
-@media all and (min-width: 1400px){
+@media all and (min-width: 1200px){
     .explore_section{
         .explore_section_container{
             .explore_main_wrapper{

@@ -120,6 +120,75 @@
                                     <p>30 Comments</p>
                                 </div>
                             </div>
+
+                            <!-- Comment Section -->
+
+                            <div class="explore_cards__card__comments">
+                                <div class="explore_cards__card__header comment1">
+                                    <div class="explore_cards__card__header__image card1">
+                                        <img src="../../../img/jane.svg" alt="">
+                                    </div>
+                                    <div class="explore_cards__card__header__writeup card1">
+                                        <p class="name">Kevin Oates</p>
+                                        <div class="date_track">
+                                            <p>21 hours ago.</p>
+                                            <img src="../../../img/Ellipse8.svg" alt="">
+                                            <p>Engineering</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="explore_cards__card__comment card1">
+                                    <p class="explore_cards__card__comment__writeup card1">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque faucibus augue arcu at vulputate diam vel. 
+                                        Ac quam aliquet semper in consequat faucibus coat vulputate diam vel. Ac quam aliquet semper in consequat faucibus 
+                                        condimentum et sed.
+                                    </p>
+                                </div>
+                                <div class="explore_cards__card__footer comment_footer">
+                                    <div class="explore_cards__card__footer__tags comment_input">
+                                        <div class="explore_cards__card__footer__tags__vote comment_vote">
+                                            <img src="../../../img/arrow-up.svg" alt="">
+                                            <p>459</p>
+                                        </div>
+                                        <div class="border-bottom"></div>
+                                    </div>
+                                </div>
+
+                                <div class="explore_cards__card__header comment1">
+                                <div class="explore_cards__card__header__image card1">
+                                    <img src="../../../img/jane.svg" alt="">
+                                </div>
+                                <div class="explore_cards__card__header__writeup card1">
+                                    <p class="name">Kevin Oates</p>
+                                    <div class="date_track">
+                                        <p>21 hours ago.</p>
+                                        <img src="../../../img/Ellipse8.svg" alt="">
+                                        <p>Engineering</p>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="explore_cards__card__comment card1">
+                                    <p class="explore_cards__card__comment__writeup card1">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </p>
+                                </div>
+                                <div class="explore_cards__card__footer comment_footer">
+                                    <div class="explore_cards__card__footer__tags comment_input">
+                                        <div class="explore_cards__card__footer__tags__vote comment_vote">
+                                            <img src="../../../img/el_arrow-up.svg" alt="">
+                                            <p>459</p>
+                                        </div>
+                                        <div class="border-bottom"></div>
+                                        <div class="explore_cards__card__footer__tags__comment card1">
+                                            <p>Load more comments</p>
+                                            <div class="explore_cards__card__footer__tags comment__input">
+                                                <img src="../../../img/jonathan.svg" alt="">
+                                                <input type="text" class="form-control explore_emptystate__form__input__input" placeholder="Add a comment here">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Explore Card 2 -->

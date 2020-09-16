@@ -3752,6 +3752,10 @@ form label {
   color: #515151;
 }
 
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card .comment1 {
+  margin-top: 1rem;
+}
+
 .explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__header {
   display: flex;
   flex-direction: row;
@@ -3802,6 +3806,16 @@ form label {
   font-weight: 500;
 }
 
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__comment {
+  margin: 0.7rem 0 0;
+  color: #141414;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__comment__writeup {
+  margin: 0;
+  font-weight: 500;
+}
+
 .explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer {
   display: flex;
   flex-direction: row;
@@ -3825,6 +3839,12 @@ form label {
   font-weight: bold;
 }
 
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer__tags__comment p {
+  margin: 0.7rem 0;
+  font-weight: bold;
+  color: #515151;
+}
+
 .explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer__tags__tag {
   display: flex;
   flex-direction: row;
@@ -3839,6 +3859,47 @@ form label {
   margin: 0 0.5rem 0 0;
 }
 
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input {
+  display: block;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input {
+  display: flex;
+  flex-direction: row;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input input {
+  margin: 0.5rem 0 1rem 0.5rem;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input input::-moz-placeholder {
+  color: #515151;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input input:-ms-input-placeholder {
+  color: #515151;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input input::-ms-input-placeholder {
+  color: #515151;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment__input input::placeholder {
+  color: #515151;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer .comment_input .comment_vote {
+  padding-left: 0.75rem;
+}
+
 .explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer__comments {
   display: flex;
   flex-direction: row;
@@ -3846,6 +3907,15 @@ form label {
 
 .explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card__footer__comments p {
   margin: 0.3rem 0 0.3rem 0.5rem;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card .comment_footer {
+  display: block;
+}
+
+.explore_section .explore_section_container .explore_main_wrapper .explore_main .explore_cards .explore_cards__card .comment_footer .border-bottom {
+  border-bottom: 1px solid #e5e8ea;
+  margin-top: 0.1rem;
 }
 
 .explore_section .explore_section_container .explore_main_wrapper .explore_aside {
@@ -3915,7 +3985,7 @@ form label {
   margin: 0 0.3rem;
 }
 
-@media all and (min-width: 1400px) {
+@media all and (min-width: 1200px) {
   .explore_section .explore_section_container .explore_main_wrapper .explore_main {
     padding-right: 15px;
   }
