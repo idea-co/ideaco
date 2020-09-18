@@ -3,7 +3,6 @@ import Vue from 'vue';
 import onboarding from './modules/onboarding';
 import users from './modules/users';
 import login from './modules/login';
-import sidebar from './modules/sidebar'
 
 Vue.use(Vuex);
 
@@ -11,8 +10,7 @@ export default new Vuex.Store({
     modules: {
         onboarding,
         users,
-        login,
-        sidebar
+        login
     },
     state: {
         user: null,

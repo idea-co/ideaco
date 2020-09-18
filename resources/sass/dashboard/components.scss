@@ -1,0 +1,123 @@
+.idea_state{
+    background: $bg-color;
+    box-shadow: 0px 2px 6px rgba(102, 38, 238, 0.1);
+    padding: 0px 0px 10px 0px;
+    border-radius: 10px;
+    height: fit-content;
+    margin-bottom: 30px;
+    &__header--implemented{
+        background: #06AC02;
+    }
+    &__header--implementing{
+        background: $secondary-color;
+    }
+    &__header{
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0px 20px;
+        text-align: right;
+        color: $bg-color;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        a{
+            font-size: 12px;
+            margin-left: 10px;
+        }
+    }
+    &__body{
+        padding: 10px 20px 0px 20px;
+        .profile_section{
+            display: flex;
+            &__img{
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &__title{
+                margin-left: 10px;
+                h3{
+                    color: #141414;
+                    font-size: 15px;
+                    font-weight: bold;
+                    margin-bottom: 0px;
+                }
+                p{
+                    color: #515151;
+                    font-size: 12px;
+                    margin-bottom: 0px;
+                    img{
+                        margin: 0px 3px 2px 7px;
+                    }
+                }
+            }
+        }
+        .content_section{
+            padding:15px 0px 10px 0px;
+            border-bottom: 1px solid #ddd;
+            h3{
+                font-size: 15px;
+                color: #141414;
+                font-weight: bold;
+            }
+            p{
+                font-size: 15px;
+                color: #141414;
+                margin-bottom: 0px;
+            }
+        }
+        .bottom_section{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            .section1{
+                display: flex;
+                align-items: center;
+                .votes{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        margin-right: 5px;
+                    }
+                }
+                .platforms{
+                    margin-left: 15px;
+                    button{
+                        background: #8D8D8D;
+                        border-radius: 6px;     
+                        border:none;
+                        outline:none;
+                        color:$bg-color;
+                        margin: 0px 5px;
+                    }
+                }
+            }
+            .section2{
+                display: flex;
+                align-items: center;
+                img{
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+@media (max-width:550px){
+    .idea_state{
+        &__body{
+            .bottom_section{
+                .section1{
+                    .platforms{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

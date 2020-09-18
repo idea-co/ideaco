@@ -27,22 +27,22 @@
             /*when you hover on sidebar links*/
             .explore:hover{
                 img{
-                    content:url("/img/Group9.png");
+                    content:url("/img/Group9.svg");
                 }
             }
             .challenge:hover{
                 img{
-                    content:url("/img/Group15.png");
+                    content:url("/img/Group15.svg");
                 }
             }
             .overview:hover{
                 img{
-                    content:url("/img/Group16.png");
+                    content:url("/img/Group16.svg");
                 }
             }
             .history:hover{
                 img{
-                    content:url("/img/Group17.png");
+                    content:url("/img/Group17.svg");
                 }
             }
             /*when sidebar link is active */
@@ -51,28 +51,28 @@
                     background: $bg-color;
                     color: $secondary-color;
                     img{
-                        content:url("/img/Group9.png");
+                        content:url("/img/Group9.svg");
                     }
                 }
                 .challenge{
                     background: $bg-color;
                     color: $secondary-color;
                     img{
-                        content:url("/img/Group15.png");
+                        content:url("/img/Group15.svg");
                     }
                 }
                 .overview{
                     background: $bg-color;
                     color: $secondary-color;
                     img{
-                        content:url("/img/Group16.png");
+                        content:url("/img/Group16.svg");
                     }
                 }
                 .history{
                     background: $bg-color;
                     color: $secondary-color;
                     img{
-                        content:url("/img/Group17.png");
+                        content:url("/img/Group17.svg");
                     }
                 }
             }
@@ -148,7 +148,7 @@
                     font-size: 30px;
                     display: flex;
                     align-items: center;
-                    i{
+                    img{
                         margin: auto;
                     }
                 }
@@ -232,49 +232,49 @@
             background: $bg-color;
             color: $secondary-color;
             img{
-                content:url("/img/Group9.png");
+                content:url("/img/Group9.svg");
             }
         }
         .challenge{
             background: $bg-color;
             color: $secondary-color;
             img{
-                content:url("/img/Group15.png");
+                content:url("/img/Group15.svg");
             }
         }
         .overview{
             background: $bg-color;
             color: $secondary-color;
             img{
-                content:url("/img/Group16.png");
+                content:url("/img/Group16.svg");
             }
         }
         .history{
             background: $bg-color;
             color: $secondary-color;
             img{
-                content:url("/img/Group17.png");
+                content:url("/img/Group17.svg");
             }
         }
     }
     .explore:hover{
         img{
-            content:url("/img/Group9.png");
+            content:url("/img/Group9.svg");
         }
     }
     .challenge:hover{
         img{
-            content:url("/img/Group15.png");
+            content:url("/img/Group15.svg");
         }
     }
     .overview:hover{
         img{
-            content:url("/img/Group16.png");
+            content:url("/img/Group16.svg");
         }
     }
     .history:hover{
         img{
-            content:url("/img/Group17.png");
+            content:url("/img/Group17.svg");
         }
     }
 }

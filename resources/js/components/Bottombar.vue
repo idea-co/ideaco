@@ -4,7 +4,7 @@
         <footer class="dashboard_footer">
 
             <router-link to="/" class="links" :class="{active_link: allLinks.exploreActive}">
-                <div class="explore" @click="updateLinks('exploreActive')"><img src="../../img/Group9.svg"/></div>
+                <div class="explore" @click="updateLinks('exploreActive')"><img src="../../img/Group8.svg"/></div>
             </router-link>
 
             <router-link to="/challenge" class="links" :class="{active_link: allLinks.challengeActive}">

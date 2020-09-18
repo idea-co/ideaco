@@ -7,29 +7,29 @@
         </div>
 
         <div class="sidebar__section">
-            <router-link to="/" class="links" :class="{active_link: allLinks.exploreActive}">
-                <div class="sidebar__section__link explore" @click="updateLinks('exploreActive')">
-                    <div class="sidebar__section__link__icon"><img src="../../img/Group9.svg"/></div>
+            <router-link to="/" class="links" :class="{active_link: currentRouteName('Dashboard')}">
+                <div class="sidebar__section__link explore">
+                    <div class="sidebar__section__link__icon"><img src="../../img/Group8.svg"/></div>
                     <div>Explore</div>
                 </div>
             </router-link>
 
-            <router-link to="/challenge" class="links" :class="{active_link: allLinks.challengeActive}">
-                <div class="sidebar__section__link challenge" @click="updateLinks('challengeActive')">
+            <router-link to="/challenges" class="links" :class="{active_link: currentRouteName('Challenge')}">
+                <div class="sidebar__section__link challenge">
                     <div class="sidebar__section__link__icon"><img src="../../img/Group10.svg"/></div>
                     <div>Challenges</div>
                 </div>
             </router-link>
             
-            <router-link to="/overview" class="links" :class="{active_link: allLinks.overviewActive}">
-                <div class="sidebar__section__link overview" @click="updateLinks('overviewActive')">
+            <router-link to="/overview" class="links" :class="{active_link: currentRouteName('Overview')}">
+                <div class="sidebar__section__link overview">
                     <div class="sidebar__section__link__icon"><img src="../../img/Group11.svg"/></div>
                     <div>Overview</div>
                 </div>
             </router-link>
 
-            <router-link to="/history" class="links" :class="{active_link: allLinks.historyActive}">
-                <div class="sidebar__section__link history"  @click="updateLinks('historyActive')">
+            <router-link to="/history" class="links" :class="{active_link: currentRouteName('History')}">
+                <div class="sidebar__section__link history">
                     <div class="sidebar__section__link__icon"><img src="../../img/Group12.svg"/></div>
                     <div>History</div>
                 </div>
@@ -50,13 +50,15 @@ export default {
             secondaryLogo: require('../../img/secondary_logo.png'),
         }
     },
-    computed: mapGetters(['allLinks']),
     methods: {
-        updateLinks(activeLink){
-            this.$store.commit('updateLinks', activeLink);   
+        currentRouteName(linkRoute) {
+            console.log(this.$route.name);
+            if(linkRoute == this.$route.name){
+                return true;
+            } else {
+                return false;
+            }
         }
     }
-    
-
 }
 </script>
