@@ -37,12 +37,16 @@
         </div>
 
         <button>Share</button>
-        <div class="sidebar__section__logout logout"><div class="sidebar__section__logout__icon"><img src="../../img/Group13.png"/></div><div>Log Out</div></div>
+        <div class="sidebar__section__logout logout">
+            <div class="sidebar__section__logout__icon">
+                <img src="../../img/Group13.png"/>
+            </div>
+            <div>Log Out</div>
+        </div>
     </div> 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 
 export default {
     data() {

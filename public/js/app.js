@@ -1961,7 +1961,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -1986,12 +1985,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['allLinks']),
   methods: {
-    updateLinks: function updateLinks(activeLink) {
-      this.$store.commit('updateLinks', activeLink);
+    currentRouteName: function currentRouteName(linkRoute) {
+      console.log(this.$route.name);
+
+      if (linkRoute == this.$route.name) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 });
@@ -2056,7 +2059,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 //
 //
 //
@@ -2100,7 +2102,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -24046,22 +24052,13 @@ var render = function() {
           "router-link",
           {
             staticClass: "links",
-            class: { active_link: _vm.allLinks.exploreActive },
+            class: { active_link: _vm.currentRouteName("Dashboard") },
             attrs: { to: "/" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass: "explore",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("exploreActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group8.svg */ "./resources/img/Group8.svg") } })]
-            )
+            _c("div", { staticClass: "explore" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group8.svg */ "./resources/img/Group8.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
@@ -24069,22 +24066,13 @@ var render = function() {
           "router-link",
           {
             staticClass: "links",
-            class: { active_link: _vm.allLinks.challengeActive },
+            class: { active_link: _vm.currentRouteName("Challenge") },
             attrs: { to: "/challenge" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass: "challenge",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("challengeActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })]
-            )
+            _c("div", { staticClass: "challenge" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group10.svg */ "./resources/img/Group10.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
@@ -24092,22 +24080,13 @@ var render = function() {
           "router-link",
           {
             staticClass: "links",
-            class: { active_link: _vm.allLinks.overviewActive },
+            class: { active_link: _vm.currentRouteName("Overview") },
             attrs: { to: "/overview" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass: "overview",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("overviewActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })]
-            )
+            _c("div", { staticClass: "overview" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group11.svg */ "./resources/img/Group11.svg") } })
+            ])
           ]
         ),
         _vm._v(" "),
@@ -24115,22 +24094,13 @@ var render = function() {
           "router-link",
           {
             staticClass: "links",
-            class: { active_link: _vm.allLinks.historyActive },
+            class: { active_link: _vm.currentRouteName("History") },
             attrs: { to: "/history" }
           },
           [
-            _c(
-              "div",
-              {
-                staticClass: "history",
-                on: {
-                  click: function($event) {
-                    return _vm.updateLinks("historyActive")
-                  }
-                }
-              },
-              [_c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })]
-            )
+            _c("div", { staticClass: "history" }, [
+              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group12.svg */ "./resources/img/Group12.svg") } })
+            ])
           ]
         )
       ],
@@ -24358,6 +24328,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "sidebar__section__logout__icon" }, [
         _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Group13.png */ "./resources/img/Group13.png") } })
       ]),
+      _vm._v(" "),
       _c("div", [_vm._v("Log Out")])
     ])
   }
@@ -45355,6 +45326,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
+
 
 var onBoardingRoutes = [{
   path: '/',
@@ -45446,6 +45419,8 @@ if (window.location.href.indexOf("start") > -1) {
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active_link",
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
@@ -45458,11 +45433,15 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   }
 });
 /**
+ * This block fires before a route is changed
+ * ===========================================
  * Fetch user token from localstorage to authenticate each 
  * request
  */
 
 router.beforeEach(function (to, from, next) {
+  //our router is setting the current page for the store
+  _store_index__WEBPACK_IMPORTED_MODULE_1__["default"].commit('setCurrentPage', to.name);
   var userInfo = localStorage.getItem('user');
 
   if (userInfo) {
@@ -45770,9 +45749,14 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
   },
   state: {
     user: null,
-    isLoggedIn: false
+    isLoggedIn: false,
+    currentPage: 'Dashboard' //default to home page. Name is the name of the route defined in route.js
+
   },
   mutations: {
+    setCurrentPage: function setCurrentPage(state, payload) {
+      state.currentPage = payload;
+    },
     clearUserData: function clearUserData() {
       localStorage.removeItem('user');
       location.href = "/login"; //redirect to login
@@ -45798,6 +45782,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
     },
     token: function token(state) {
       return state.user.token;
+    },
+    currentPage: function currentPage(state) {
+      return state.currentPage;
     }
   }
 }));
