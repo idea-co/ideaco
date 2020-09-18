@@ -282,7 +282,7 @@ __webpack_require__(/*! ./elements/home */ "./resources/js/elements/home.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\HANNAH\Documents\hng\ideaco-1\resources\js\landing.js */"./resources/js/landing.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ideaco\resources\js\landing.js */"./resources/js/landing.js");
 
 
 /***/ })
