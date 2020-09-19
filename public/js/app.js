@@ -2045,7 +2045,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "IdeaContainer"
+  name: "IdeaContainer",
+  props: ["status"]
 });
 
 /***/ }),
@@ -2631,85 +2632,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Overview",
   components: {
     IdeaContainer: _components_IdeaContainer__WEBPACK_IMPORTED_MODULE_1__["default"],
     AuthUserBanner: _components_AuthUserBanner__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
-      data: {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-        datasets: [{
-          fill: 'false',
-          data: [1, 2, 3, 4],
-          borderColor: '#EFB84C',
-          borderWidth: 1,
-          pointRadius: 3,
-          pointBackgroundColor: "#EFB84C",
-          lineTension: 0
-        }, {
-          fill: 'false',
-          data: [2, 1, 2, 3],
-          borderColor: '#669E1F',
-          borderWidth: 1,
-          pointRadius: 3,
-          pointBackgroundColor: "#669E1F",
-          lineTension: 0
-        }, {
-          fill: 'false',
-          data: [4, 5, 4, 1],
-          borderColor: '#1F439E',
-          borderWidth: 1,
-          pointRadius: 3,
-          pointBackgroundColor: "#1F439E",
-          lineTension: 0
-        }]
-      },
-      type: 'line',
-      options: {
-        scales: {
-          xAxes: [{
-            gridLines: {
-              display: false
-            }
-          }],
-          yAxes: [{
-            gridLines: {
-              beginAtZero: false,
-              display: false
-            },
-            ticks: {
-              fontSize: 11,
-              fontColor: "black",
-              beginAtZero: false,
-              min: 0,
-              // it is for ignoring negative step.
-              stepSize: 1
-            }
-          }]
-        },
-        title: {
-          display: false
-        },
-        legend: {
-          display: false
-        }
-      }
+      currentTab: 0,
+      tabs: ["Ideas", "Implementing", "Implemented", "Ideaspace"],
+      implementing: 'idea_state__header--implementing',
+      implemented: 'idea_state__header--implemented'
     };
   }
-  /* mounted(){
-       const ctx_graph = document.getElementById('main_chart').getContext('2d'); 
-       let chart1 = new Chart(ctx_graph, {
-           type: this.type, 
-           data: this.data,
-           options: this.options,
-       });
-   }*/
-
 });
 
 /***/ }),
@@ -24139,69 +24094,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "idea_state" }, [
+    _c("div", { staticClass: "idea_state__header", class: _vm.status }, [
+      _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Star.svg */ "./resources/img/Star.svg"), alt: "star" } }),
+      _vm._v(" "),
+      _c("a", [_vm._v("Implementing")])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "idea_state col-12 col-xl-7" }, [
-      _c("div", { staticClass: "idea_state__header" }, [
-        _c("img", {
-          attrs: { src: __webpack_require__(/*! ../../img/Star.svg */ "./resources/img/Star.svg"), alt: "star" }
-        }),
-        _vm._v(" "),
-        _c("a", [_vm._v("Implementing")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "idea_state__body" }, [
-        _c("div", { staticClass: "profile_section" }, [
-          _c("div", { staticClass: "profile_section__img" }, [
-            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Profile.svg */ "./resources/img/Profile.svg") } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "profile_section__title" }, [
-            _c("h3", [_vm._v("Jane Cooper")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v("3 days. "),
-              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Status.svg */ "./resources/img/Status.svg") } }),
-              _vm._v("Production")
-            ])
-          ])
+    return _c("div", { staticClass: "idea_state__body" }, [
+      _c("div", { staticClass: "profile_section" }, [
+        _c("div", { staticClass: "profile_section__img" }, [
+          _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Profile.svg */ "./resources/img/Profile.svg") } })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "content_section" }, [
-          _c("h3", [_vm._v("UIIamcoper")]),
+        _c("div", { staticClass: "profile_section__title" }, [
+          _c("h3", [_vm._v("Jane Cooper")]),
           _vm._v(" "),
           _c("p", [
-            _vm._v(
-              "An interesting implication of the 2007 study concerns the use of \n                hand sanitizers by observant Muslims. Alcohol is forbidden (haram) \n                to Muslims. Since the alcohol in hand sanitizer is absorbed into the \n                that make these hand sanitizers haram?\n                "
-            )
+            _vm._v("3 days. "),
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/Status.svg */ "./resources/img/Status.svg") } }),
+            _vm._v("Production")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "content_section" }, [
+        _c("h3", [_vm._v("UIIamcoper")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "An interesting implication of the 2007 study concerns the use of \n                hand sanitizers by observant Muslims. Alcohol is forbidden (haram) \n                to Muslims. Since the alcohol in hand sanitizer is absorbed into the \n                that make these hand sanitizers haram?\n                "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "bottom_section" }, [
+        _c("div", { staticClass: "section1" }, [
+          _c("div", { staticClass: "votes" }, [
+            _c("img", { attrs: { src: __webpack_require__(/*! ../../img/arrow_up.svg */ "./resources/img/arrow_up.svg") } }),
+            _vm._v("1.1k")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "platforms" }, [
+            _c("button", [_vm._v("social media")]),
+            _c("button", [_vm._v("online")]),
+            _c("button", [_vm._v("UX")])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bottom_section" }, [
-          _c("div", { staticClass: "section1" }, [
-            _c("div", { staticClass: "votes" }, [
-              _c("img", { attrs: { src: __webpack_require__(/*! ../../img/arrow_up.svg */ "./resources/img/arrow_up.svg") } }),
-              _vm._v("1.1k")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "platforms" }, [
-              _c("button", [_vm._v("social media")]),
-              _c("button", [_vm._v("online")]),
-              _c("button", [_vm._v("UX")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "section2" }, [
-            _c("img", {
-              attrs: { src: __webpack_require__(/*! ../../img/comment_icon.svg */ "./resources/img/comment_icon.svg") }
-            }),
-            _vm._v("30 Comments")
-          ])
+        _c("div", { staticClass: "section2" }, [
+          _c("img", { attrs: { src: __webpack_require__(/*! ../../img/comment_icon.svg */ "./resources/img/comment_icon.svg") } }),
+          _vm._v("30 Comments")
         ])
       ])
     ])
@@ -25359,33 +25310,119 @@ var render = function() {
     { staticClass: "content" },
     [
       _c("AuthUserBanner", [
-        _c("div", { staticClass: "content__header__section2" }, [
-          _c("h2", [_vm._v("Explore")]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "content__header__section2__link content__header__section2__link--active"
-            },
-            [_vm._v("Ideas")]
-          ),
-          _vm._v(" "),
-          _c("a", { staticClass: "content__header__section2__link" }, [
-            _vm._v("Implementing")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "content__header__section2__link" }, [
-            _vm._v("Implemented")
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "content__header__section2__link" }, [
-            _vm._v("Ideaspace")
-          ])
-        ])
+        _c(
+          "div",
+          { staticClass: "content__header__section2" },
+          [
+            _c("h2", [_vm._v("Overview")]),
+            _vm._v(" "),
+            _vm._l(_vm.tabs, function(tab, index) {
+              return _c(
+                "a",
+                {
+                  key: { index: index },
+                  staticClass: "content__header__section2__link",
+                  class: {
+                    "content__header__section2__link--active":
+                      _vm.currentTab === index
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.currentTab = index
+                    }
+                  }
+                },
+                [_vm._v("\n                " + _vm._s(tab) + "\n            ")]
+              )
+            })
+          ],
+          2
+        )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "main_section" }, [
+        _c("div", { staticClass: "overview_section" }, [
+          _c("div", { staticClass: "ideas_tab row container-fluid" }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.currentTab == 0,
+                    expression: "currentTab == 0"
+                  }
+                ],
+                staticClass: "idea_chart col-12 col-xl-7"
+              },
+              [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.currentTab == 1,
+                    expression: "currentTab == 1"
+                  }
+                ],
+                staticClass: "col-12 col-xl-7",
+                staticStyle: { margin: "0px", padding: "0px" }
+              },
+              [
+                _c("IdeaContainer", { attrs: { status: _vm.implementing } }),
+                _vm._v(" "),
+                _c("IdeaContainer", { attrs: { status: _vm.implementing } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.currentTab == 2,
+                    expression: "currentTab == 2"
+                  }
+                ],
+                staticClass: "col-12 col-xl-7",
+                staticStyle: { margin: "0px", padding: "0px" }
+              },
+              [
+                _c("IdeaContainer", { attrs: { status: _vm.implemented } }),
+                _vm._v(" "),
+                _c("IdeaContainer", { attrs: { status: _vm.implemented } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.currentTab == 3,
+                    expression: "currentTab == 3"
+                  }
+                ],
+                staticClass: "col-12 col-xl-7"
+              },
+              [_vm._v("\n                    Ideaspace Page\n                ")]
+            ),
+            _vm._v(" "),
+            _vm._m(3)
+          ])
+        ])
+      ])
     ],
     1
   )
@@ -25395,152 +25432,114 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main_section" }, [
-      _c("div", { staticClass: "overview_section" }, [
-        _c("div", { staticClass: "ideas_tab row container-fluid" }, [
-          _c("div", { staticClass: "idea_chart col-12 col-xl-7" }, [
-            _c("div", { staticClass: "idea_chart__header" }, [
-              _c("h3", [_vm._v("Ideas Chart")])
+    return _c("div", { staticClass: "idea_chart__header" }, [
+      _c("h3", [_vm._v("Ideas Chart")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "idea_chart__identifier" }, [
+      _c("a", { staticClass: "idea_color" }),
+      _c("a", { staticClass: "comment_color" }),
+      _c("a", { staticClass: "vote_color" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "idea_chart__cont" }, [
+      _c("canvas", { attrs: { id: "main_chart" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "idea_record col-12 col-xl-4 offset-xl-1" },
+      [
+        _c("div", { staticClass: "idea_record__cont row" }, [
+          _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+            _c("div", { staticClass: "idea_record__cont__content__header" }, [
+              _c("h3", [_vm._v("This Month")])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "idea_chart__identifier" }, [
-              _c("a", { staticClass: "idea_color" }),
-              _c("a", { staticClass: "comment_color" }),
-              _c("a", { staticClass: "vote_color" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "idea_chart__cont" }, [
-              _c("canvas", { attrs: { id: "main_chart" } })
+            _c("div", { staticClass: "idea_record__cont__content__details" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", { staticClass: "color1" }, [_vm._v("31")]),
+                  _c("p", [_vm._v("ideas")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", { staticClass: "color2" }, [_vm._v("69")]),
+                  _c("p", [_vm._v("Comments")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", { staticClass: "color3" }, [_vm._v("107")]),
+                  _c("p", [_vm._v("Upvotes")])
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "idea_record col-12 col-xl-4 offset-xl-1" },
-            [
-              _c("div", { staticClass: "idea_record__cont row" }, [
-                _c(
-                  "div",
-                  { staticClass: "idea_record__cont__content col-12" },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__header" },
-                      [_c("h3", [_vm._v("This Month")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__details" },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", { staticClass: "color1" }, [_vm._v("31")]),
-                            _c("p", [_vm._v("ideas")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", { staticClass: "color2" }, [_vm._v("69")]),
-                            _c("p", [_vm._v("Comments")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", { staticClass: "color3" }, [
-                              _vm._v("107")
-                            ]),
-                            _c("p", [_vm._v("Upvotes")])
-                          ])
-                        ])
-                      ]
-                    )
-                  ]
-                ),
+          _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+            _c("div", { staticClass: "idea_record__cont__content__header" }, [
+              _c("h3", [_vm._v("You Have Given (All Time)")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "idea_record__cont__content__details" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("205")]),
+                  _c("p", [_vm._v("ideas")])
+                ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "idea_record__cont__content col-12" },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__header" },
-                      [_c("h3", [_vm._v("You Have Given (All Time)")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__details" },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("205")]),
-                            _c("p", [_vm._v("ideas")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("492")]),
-                            _c("p", [_vm._v("Comments")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("674")]),
-                            _c("p", [_vm._v("Upvotes")])
-                          ])
-                        ])
-                      ]
-                    )
-                  ]
-                ),
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("492")]),
+                  _c("p", [_vm._v("Comments")])
+                ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "idea_record__cont__content col-12" },
-                  [
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__header" },
-                      [_c("h3", [_vm._v("You Have Received (All Time)")])]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "idea_record__cont__content__details" },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("892")]),
-                            _c("p", [_vm._v("Comments")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("2102")]),
-                            _c("p", [_vm._v("Upvotes")])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "record col-4" }, [
-                            _c("h3", [_vm._v("19")]),
-                            _c("p", [_vm._v("Implemented")])
-                          ])
-                        ])
-                      ]
-                    )
-                  ]
-                )
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("674")]),
+                  _c("p", [_vm._v("Upvotes")])
+                ])
               ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "progress_tab",
-          staticStyle: { display: "none" }
-        }),
-        _vm._v(" "),
-        _c("div", {
-          staticClass: "implement_tab",
-          staticStyle: { display: "none" }
-        })
-      ])
-    ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "idea_record__cont__content col-12" }, [
+            _c("div", { staticClass: "idea_record__cont__content__header" }, [
+              _c("h3", [_vm._v("You Have Received (All Time)")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "idea_record__cont__content__details" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("892")]),
+                  _c("p", [_vm._v("Comments")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("2102")]),
+                  _c("p", [_vm._v("Upvotes")])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "record col-4" }, [
+                  _c("h3", [_vm._v("19")]),
+                  _c("p", [_vm._v("Implemented")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
