@@ -1,6 +1,6 @@
 <template>
-    <div class="idea_state col-12 col-xl-7">
-        <div class="idea_state__header">
+    <div class="idea_state">
+        <div class="idea_state__header" :class="status">
             <img src="../../img/Star.svg" alt="star"/>
             <a>Implementing</a>
         </div>
@@ -34,7 +34,8 @@
 
 <script>
 export default {
-    name: "IdeaContainer"
+    name: "IdeaContainer",
+    props: ["status"]
 }
 </script>
 

@@ -3,13 +3,17 @@
         <!-- Page Header -->
         <AuthUserBanner>
             <div class="content__header__section2">
-                <h2>Explore</h2>
-                <a class="content__header__section2__link content__header__section2__link--active">Ideas</a>
-                <a class="content__header__section2__link">Implementing</a>
-                <a class="content__header__section2__link">Implemented</a>
-                <a class="content__header__section2__link">Ideaspace</a>
+                <h2>Overview</h2>
+                <a v-for="(tab, index) in tabs" :key="{index}"
+                    class="content__header__section2__link"
+                    :class="{'content__header__section2__link--active': currentTab === index}"
+                    @click="currentTab = index">
+                    {{tab}}
+                </a>
             </div>
         </AuthUserBanner>
+
+        
 
         <!--Page main content section -->
         <div class="main_section">
@@ -18,10 +22,24 @@
                 <!-- idea tab -->
                 <div class="ideas_tab row container-fluid">
                     <!--chart section -->
-                    <div class="idea_chart col-12 col-xl-7">
+                    <div class="idea_chart col-12 col-xl-7" v-show="currentTab == 0">
                         <div class="idea_chart__header"><h3>Ideas Chart</h3></div>
                         <div class="idea_chart__identifier"><a class="idea_color"></a><a class="comment_color"></a><a class="vote_color"></a></div>
                         <div class="idea_chart__cont"><canvas id="main_chart"></canvas></div>
+                    </div>
+
+                    <div class="col-12 col-xl-7" v-show="currentTab == 1" style="margin: 0px; padding:0px;">
+                        <IdeaContainer v-bind:status= "implementing"/>
+                        <IdeaContainer v-bind:status= "implementing"/>
+                    </div>
+
+                    <div class="col-12 col-xl-7" v-show="currentTab == 2" style="margin: 0px; padding:0px;">
+                        <IdeaContainer v-bind:status= "implemented"/>
+                        <IdeaContainer v-bind:status= "implemented"/>
+                    </div>
+
+                    <div class="col-12 col-xl-7" v-show="currentTab == 3">
+                        Ideaspace Page
                     </div>
                     
                     <!--record section -->
@@ -60,8 +78,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="progress_tab" style="display:none;"></div>
-                <div class="implement_tab" style="display:none;"></div>
             </div>
         </div>    
     </div> 
@@ -74,82 +90,18 @@ import AuthUserBanner from '../../components/AuthUserBanner';
 
 
 export default {
+    name:"Overview",
     components:{
         IdeaContainer,
         AuthUserBanner
     },
     data() {
-        return {
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                datasets: [
-                    {
-                        fill: 'false',
-                        data: [1, 2, 3, 4],
-                        borderColor: '#EFB84C',
-                        borderWidth: 1,
-                        pointRadius:3,
-                        pointBackgroundColor: "#EFB84C",
-                        lineTension:0,
-                    },
-                    {
-                        fill: 'false',
-                        data: [2, 1, 2, 3],
-                        borderColor: '#669E1F',
-                        borderWidth: 1,
-                        pointRadius:3,
-                        pointBackgroundColor: "#669E1F",
-                        lineTension:0,
-                    },
-                    {
-                        fill: 'false',
-                        data: [4, 5, 4, 1],
-                        borderColor: '#1F439E',
-                        borderWidth: 1,
-                        pointRadius:3,
-                        pointBackgroundColor: "#1F439E",
-                        lineTension:0,
-                    }
-                ],
-            },
-            type: 'line',
-            options: {
-                scales: {
-                    xAxes: [{
-                        gridLines: {
-                            display:false
-                        }
-                    }],
-                    yAxes: [{
-                        gridLines: {
-                        beginAtZero: false,    
-                        display:false 
-                        },
-                        ticks: {
-                            fontSize: 11,
-                            fontColor: "black",
-                            beginAtZero: false,     
-                            min: 0, // it is for ignoring negative step.
-                            stepSize: 1
-                        },
-                    }]
-                },
-                title: {
-                    display: false
-                },
-                legend: {
-                    display:false
-                }
-            }
-        }
-    },
-   /* mounted(){
-        const ctx_graph = document.getElementById('main_chart').getContext('2d'); 
-        let chart1 = new Chart(ctx_graph, {
-            type: this.type, 
-            data: this.data,
-            options: this.options,
-        });
-    }*/
+      return {
+       currentTab: 0,
+       tabs: ["Ideas", "Implementing", "Implemented", "Ideaspace"],
+       implementing: 'idea_state__header--implementing',
+       implemented: 'idea_state__header--implemented'
+      }
+    }
 }
 </script>

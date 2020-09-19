@@ -40,6 +40,7 @@ body {
   margin: 0px auto;
   padding: 0px;
   display: grid;
+  max-width: 1700px;
 }
 
 .form-control {
@@ -56,6 +57,7 @@ form label {
 .ideaco_header {
   background: #ffffff;
   width: 100%;
+  max-width: 1700px;
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -2958,6 +2960,8 @@ form label {
 
 .dashboard {
   width: 100%;
+  max-width: 1700px;
+  margin: auto;
   height: 100%;
   overflow: hidden;
   position: absolute;
