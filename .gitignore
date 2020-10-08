@@ -4,6 +4,7 @@
 /public/css/app.css
 /public/js/app.js
 /public/js/landing.js
+/public/js/dashboard.js
 /storage/*.key
 /vendor
 .idea
