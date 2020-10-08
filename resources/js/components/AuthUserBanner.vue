@@ -6,15 +6,14 @@
                     <img src="../../img/primary_logo.png" />
                     <!-- {{ organizationAvatar }} -->
                 </a>
-                <h2>Welcome {{ name }}</h2>
+                <h2>Welcome {{  }}</h2>
                 <p>Your job, your idea</p>
             </div>
             <div class="content__header__section1__profile">
-                <img :src="avatar" class="far fa-user"/>
+                <img :src="{}" class="far fa-user" alt=""/>
             </div>
-
-            <slot></slot>
         </div>
+        <slot></slot>
     </header>
 </template>
 
@@ -22,13 +21,14 @@
 import User from '../services/UserService';
 
 export default {
+    name: "AuthUserBanner",
     data() {
         return {
             user: new User
         }
     },
 
-    computed: {
+   /* computed: {
         name(){
             return this.user.displayName();
         },
@@ -40,6 +40,6 @@ export default {
         organizationAvatar(){
             return this.user.organizationAvatar();
         }
-    },
+    },*/
 }
 </script>

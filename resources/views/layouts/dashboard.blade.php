@@ -18,10 +18,8 @@
             <!--sidebar-->
             <sidebar></sidebar>
             
-            <div class="content">
-                
-                @yield('content')
-            </div>
+            <!-- content section -->
+            @yield('content')
 
         </div>
         <!-- menu that shows on mobile view -->
